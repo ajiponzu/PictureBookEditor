@@ -1,0 +1,2586 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<title>PictureBookEditor(debug) Log</title>
+<style>
+body		{ background-color: #f9f9f9; font-family: 'Segoe UI','メイリオ','Meiryo','ヒラギノ角ゴ Pro W3','Hiragino Kaku Gothic Pro','Osaka','ＭＳ Ｐゴシック','MS PGothic','Arial',sans-serif; }
+h2			{ color: #333333; text-align: center; font-size: 28px; }
+div			{ font-size: 14px; line-height: 2; word-wrap: break-word; }
+div.error	{ padding-left: 14px; background: #f44336; color: #ffffff; }
+div.fail	{ padding-left: 14px; background: #ff9800; color: #ffffff; }
+div.warning	{ padding-left: 14px; background: #ff9800; color: #ffffff; }
+div.script	{ padding-left: 14px; background: #d9eeda; color: #333333; }
+div.app		{ padding-left: 14px; background: #ffffff; color: #333333; }
+div.info	{ padding-left: 14px; background: #e3f2fd; color: #333333; }
+div.debug	{ padding-left: 14px; background: #f5f5f5; color: #333333; }
+div.trace	{ padding-left: 14px; background: #f5f5f5; color: #333333; }
+div.messages { margin: 0 10% 28px; padding 0 0 28px; border: 1px solid; border-color: #dddddd; border-radius: 2px; box-shadow: 0 1px 1px rgba(0,0,0,.05); }
+</style>
+</head>
+<body>
+<h2>PictureBookEditor(debug) Log</h2>
+<div class="messages">
+<div class="trace">788: CSystem::init()</div>
+<div class="info">789: ℹ️ 2020/10/25 03:01:40</div>
+<div class="info">789: ⌛ Preparing for setup...</div>
+<div class="info">789: ℹ️ Siv3D Engine (Debug build) version 0.4.3 (Windows Desktop)</div>
+<div class="trace">789: CCPU::init()</div>
+<div class="info">790: ℹ️ CPU vendor: GenuineIntel</div>
+<div class="info">790: ℹ️ CPU name: Intel(R) Core(TM) i7-8750H CPU @ 2.20GHz</div>
+<div class="info">790: ℹ️ Instruction set extensions: SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, AES-NI, AVX, FMA3, AVX2</div>
+<div class="info">790: ℹ️ CCPU initialized</div>
+<div class="trace">790: CProfiler::init()</div>
+<div class="info">791: ℹ️ CProfiler initialized</div>
+<div class="trace">791: CImageFormat::init()</div>
+<div class="debug">791: Supported image file extensions: bmp, png, jpg, jpeg, gif, ppm, pgm, pbm, pnm, tga, webp</div>
+<div class="info">791: ℹ️ CImageFormat initialized</div>
+<div class="trace">791: CObjectDetection::init()</div>
+<div class="info">799: ℹ️ CObjectDetection initialized</div>
+<div class="trace">800: CWindow::init()</div>
+<div class="trace">800: SetHighDPIAwareness(aware = false)</div>
+<div class="trace">800: DLL::LoadSystemLibrary(library = `user32.dll`)</div>
+<div class="trace">800: DLL::GetFunctionNoThrow::GetFunctionNoThrow(name = `SetThreadDpiAwarenessContext`) p = 0x7ff8e3fa6ad0</div>
+<div class="trace">801: CWindow::registerWindowClass()</div>
+<div class="trace">801: CWindow::createWindow()</div>
+<div class="trace">802: CWindow::m_state.frameSize: (8, 8), CWindow::m_state.titleBarHeight: 28</div>
+<div class="trace">812: DLL::LoadSystemLibrary(library = `User32.dll`)</div>
+<div class="trace">812: DLL::GetFunctionNoThrow::GetFunctionNoThrow(name = `SetWindowFeedbackSetting`) p = 0x7ff8e3fc4870</div>
+<div class="info">813: ℹ️ CWindow initialized</div>
+<div class="trace">814: CCursor::init()</div>
+<div class="info">814: ℹ️ CCursor initialized</div>
+<div class="trace">814: CKeyboard::init()</div>
+<div class="info">814: ℹ️ CKeyboard initialized</div>
+<div class="trace">814: CMouse::init()</div>
+<div class="info">814: ℹ️ An input digitizer with support for multiple inputs found</div>
+<div class="info">814: ℹ️ CMouse initialized</div>
+<div class="trace">815: CGamepad::init()</div>
+<div class="info">1116: ℹ️ Gamepad initialized</div>
+<div class="trace">1116: CXInput::init()</div>
+<div class="trace">1116: DLL::LoadSystemLibrary(library = `xinput1_4.dll`)</div>
+<div class="trace">1121: DLL::GetFunctionNoThrow::GetFunctionNoThrow(name = `XInputGetState`) p = 0x7ff8a36c1750</div>
+<div class="trace">1121: DLL::GetFunctionNoThrow::GetFunctionNoThrow(name = `XInputSetState`) p = 0x7ff8a36c19f0</div>
+<div class="info">1121: ℹ️ CXInput initialized</div>
+<div class="trace">1122: CTextInput::init()</div>
+<div class="info">1131: ℹ️ CTextInput initialized</div>
+<div class="trace">1131: CTextToSpeech::init()</div>
+<div class="info">1151: ℹ️ TextToSpeech available</div>
+<div class="info">1151: ℹ️ CTextToSpeech initialized</div>
+<div class="trace">1151: CClipboard::init()</div>
+<div class="info">1151: ℹ️ CClipboard initialized</div>
+<div class="trace">1151: CDragDrop::init()</div>
+<div class="info">1173: ℹ️ CDragDrop initialized</div>
+<div class="trace">1174: CCodec::init()</div>
+<div class="trace">1174: DLL::LoadSystemLibrary(library = `Mfplat.dll`)</div>
+<div class="trace">1181: DLL::LoadSystemLibrary(library = `Mf.dll`)</div>
+<div class="trace">1185: DLL::LoadSystemLibrary(library = `Mfreadwrite.dll`)</div>
+<div class="trace">1189: DLL::GetFunction::GetFunction(name = `MFStartup`) p = 0x7ff8c8133990</div>
+<div class="trace">1189: DLL::GetFunction::GetFunction(name = `MFShutdown`) p = 0x7ff8c8135b60</div>
+<div class="trace">1193: DLL::GetFunction::GetFunction(name = `MFCreateTranscodeTopology`) p = 0x7ff888e62060</div>
+<div class="trace">1194: DLL::GetFunction::GetFunction(name = `MFCreateSourceResolver`) p = 0x7ff8c8121610</div>
+<div class="trace">1194: DLL::GetFunction::GetFunction(name = `MFCreateAttributes`) p = 0x7ff8c81336f0</div>
+<div class="trace">1194: DLL::GetFunction::GetFunction(name = `MFCreateMediaType`) p = 0x7ff8c812b230</div>
+<div class="trace">1194: DLL::GetFunction::GetFunction(name = `MFCreateAsyncResult`) p = 0x7ff8c89fbd70</div>
+<div class="trace">1195: DLL::GetFunction::GetFunction(name = `MFInvokeCallback`) p = 0x7ff8c89f1f80</div>
+<div class="trace">1195: DLL::GetFunction::GetFunction(name = `MFCreateMemoryBuffer`) p = 0x7ff8c81228c0</div>
+<div class="trace">1195: DLL::GetFunction::GetFunction(name = `MFCreateSample`) p = 0x7ff8c8118440</div>
+<div class="trace">1195: DLL::GetFunction::GetFunction(name = `MFFrameRateToAverageTimePerFrame`) p = 0x7ff8c81a1d10</div>
+<div class="trace">1206: DLL::GetFunction::GetFunction(name = `MFCreateMediaSession`) p = 0x7ff8659cf140</div>
+<div class="trace">1207: DLL::GetFunction::GetFunction(name = `MFCreateTranscodeProfile`) p = 0x7ff888e46d80</div>
+<div class="trace">1207: DLL::GetFunction::GetFunction(name = `MFTranscodeGetAudioOutputAvailableTypes`) p = 0x7ff888e62c90</div>
+<div class="trace">1207: DLL::GetFunction::GetFunction(name = `MFGetService`) p = 0x7ff8659c2000</div>
+<div class="trace">1207: DLL::GetFunction::GetFunction(name = `MFCreateTopology`) p = 0x7ff865985320</div>
+<div class="trace">1208: DLL::GetFunction::GetFunction(name = `MFCreateTopologyNode`) p = 0x7ff8659962a0</div>
+<div class="trace">1208: DLL::GetFunction::GetFunction(name = `MFCreateAudioRendererActivate`) p = 0x7ff8659ebcd0</div>
+<div class="trace">1208: DLL::GetFunction::GetFunction(name = `MFCreateVideoRendererActivate`) p = 0x7ff8a13fb6c0</div>
+<div class="trace">1208: DLL::GetFunction::GetFunction(name = `MFCreateSourceReaderFromURL`) p = 0x7ff870053c60</div>
+<div class="trace">1208: DLL::GetFunction::GetFunction(name = `MFCreateSourceReaderFromByteStream`) p = 0x7ff870053c30</div>
+<div class="trace">1209: DLL::GetFunction::GetFunction(name = `MFCreateSinkWriterFromURL`) p = 0x7ff870053a90</div>
+<div class="info">1209: ℹ️ Codec_MF initialized</div>
+<div class="trace">1209: CAudioFormat::init()</div>
+<div class="info">1210: ℹ️ CAudioFormat initialized</div>
+<div class="trace">1210: CAudio_X28::init()</div>
+<div class="debug">1216: 💠 Created Audio[0(null)]</div>
+<div class="info">1217: ℹ️ CAudio_X28 initialized</div>
+<div class="trace">1218: CFFT::init()</div>
+<div class="info">1219: ℹ️ CFFT initialized</div>
+<div class="trace">1220: CNetwork::init()</div>
+<div class="info">1221: ℹ️ CNetwork initialized</div>
+<div class="trace">1221: CToastNotification::init()</div>
+<div class="info">1222: ℹ️ ToastNotification is available</div>
+<div class="info">1222: ℹ️ CToastNotification initialized</div>
+<div class="trace">1222: CGraphics_D3D11::init()</div>
+<div class="trace">1223: D3D11Device::D3D11Device()</div>
+<div class="trace">1223: DLL::LoadSystemLibrary(library = `d3d11.dll`)</div>
+<div class="trace">1223: DLL::GetFunction::GetFunction(name = `D3D11CreateDevice`) p = 0x7ff8dd7afc80</div>
+<div class="trace">1223: DLL::LoadSystemLibrary(library = `dxgi.dll`)</div>
+<div class="trace">1224: DLL::GetFunction::GetFunction(name = `CreateDXGIFactory1`) p = 0x7ff8e06f94f0</div>
+<div class="trace">1224: DLL::LoadSystemLibrary(library = `D3D11_1SDKLayers.dll`)</div>
+<div class="info">1255: ℹ️ DXGIFactory5 is available</div>
+<div class="trace">1255: GetAdapters()</div>
+<div class="info">1256: ℹ️ IDXGIAdapter [0]: NVIDIA GeForce GTX 1050 Ti with Max-Q Design (Dedicated GPU memory: 3.92GiB, System: 0B, Shared: 7.85GiB) (supports Direct3D 11.1 runtime)</div>
+<div class="trace">1256: CheckHardwareDevice()</div>
+<div class="info">1419: ℹ️ - [D3D_DRIVER_TYPE_HARDWARE] selected: D3D_FEATURE_LEVEL_12_1 (max: D3D_FEATURE_LEVEL_12_1)</div>
+<div class="info">1437: ℹ️ IDXGIAdapter [1]: Intel(R) UHD Graphics 630 (Dedicated GPU memory: 128MiB, System: 0B, Shared: 7.85GiB) (supports Direct3D 11.1 runtime)</div>
+<div class="trace">1437: CheckHardwareDevice()</div>
+<div class="info">1488: ℹ️ - [D3D_DRIVER_TYPE_HARDWARE] selected: D3D_FEATURE_LEVEL_12_1 (max: D3D_FEATURE_LEVEL_12_1)</div>
+<div class="debug">1498: ℹ️ IDXGIAdapter [2] is Microsoft Basics Display Driver (skipped)</div>
+<div class="info">1498: ℹ️ 2 adapters available</div>
+<div class="trace">1498: GetWARPFeatureLevel()</div>
+<div class="info">1510: ℹ️ [D3D_DRIVER_TYPE_WARP] supports D3D_FEATURE_LEVEL_11_1</div>
+<div class="trace">1510: GetREFFeatureLevel()</div>
+<div class="info">1524: ℹ️ [D3D_DRIVER_TYPE_REFERENCE] supports D3D_FEATURE_LEVEL_11_1</div>
+<div class="trace">1525: D3D11Device::createDevice(targetDevice = 0, targetAdapterIndex = none, deviceFlags = 2)</div>
+<div class="info">1525: ℹ️ selectedAdapterIndex: 0 (NVIDIA GeForce GTX 1050 Ti with Max-Q Design)</div>
+<div class="info">1651: ✅ D3D11 device created. Driver type: Hardware (D3D_FEATURE_LEVEL_12_1)</div>
+<div class="trace">1652: D3D11SwapChain::D3D11SwapChain()</div>
+<div class="trace">1652: Use flip model = true</div>
+<div class="trace">1652: DLL::LoadSystemLibrary(library = `User32.dll`)</div>
+<div class="trace">1652: DLL::GetFunctionNoThrow::GetFunctionNoThrow(name = `GetDpiForWindow`) p = 0x7ff8e3fa3dc0</div>
+<div class="trace">1652: IDXGIFactory2::CreateSwapChainForHwnd()</div>
+<div class="trace">1704: IDXGIFactory1::MakeWindowAssociation()</div>
+<div class="trace">1705: D3D11RenderTarget::D3D11RenderTarget()</div>
+<div class="trace">1705: D3D11RenderTarget::m_backBuffer.size = (800, 600)</div>
+<div class="trace">1705: CreateRTVFromBackBuffer()</div>
+<div class="trace">1705: CreateRenderTarget2D(size = (800, 600), sampleCount = 4)</div>
+<div class="trace">1706: CShader_D3D11::init()</div>
+<div class="trace">1707: DLL::LoadSystemLibrary(library = `d3dcompiler_47.dll`)</div>
+<div class="info">1713: `d3dcompiler_47.dll` found</div>
+<div class="trace">1714: DLL::GetFunctionNoThrow::GetFunctionNoThrow(name = `D3DCompile2`) p = 0x7ff8dd3f2470</div>
+<div class="info">1714: HLSL compiler is available</div>
+<div class="debug">1715: 💠 Created VertexShader[0(null)]</div>
+<div class="debug">1715: 💠 Created PixelShader[0(null)]</div>
+<div class="debug">1715: 📤 BinaryReader: Opened resource &quot;/engine/shader/copy.ps&quot; size: 616B</div>
+<div class="debug">1715: CShader_D3D11::createVSFromFile(): `/engine/shader/copy.ps` is a precompiled shader file</div>
+<div class="debug">1725: 💠 Created PixelShader[1] </div>
+<div class="debug">1725: 📥 BinaryReader: Closed resource &quot;/engine/shader/copy.ps&quot;</div>
+<div class="debug">1726: 📤 BinaryReader: Opened resource &quot;/engine/shader/gaussian_blur_9.ps&quot; size: 1.36KiB</div>
+<div class="debug">1726: CShader_D3D11::createVSFromFile(): `/engine/shader/gaussian_blur_9.ps` is a precompiled shader file</div>
+<div class="debug">1726: 💠 Created PixelShader[2] </div>
+<div class="debug">1727: 📥 BinaryReader: Closed resource &quot;/engine/shader/gaussian_blur_9.ps&quot;</div>
+<div class="info">1727: ℹ️ CShader_D3D11 initialized</div>
+<div class="trace">1727: CTexture_D3D11::init()</div>
+<div class="info">1728: 4x MSAA support:</div>
+<div class="debug">1728: R8G8B8A8_Unorm ✔</div>
+<div class="debug">1728: R8G8B8A8_Unorm_SRGB ✔</div>
+<div class="debug">1728: R16G16_Float ✔</div>
+<div class="debug">1729: R32_Float ✔</div>
+<div class="debug">1729: R10G10B10A2_Unorm ✔</div>
+<div class="debug">1729: R11G11B10_UFloat ✔</div>
+<div class="debug">1729: R16G16B16A16_Float ✔</div>
+<div class="debug">1729: R32G32_Float ✔</div>
+<div class="debug">1730: R32G32B32A32_Float ✔</div>
+<div class="debug">1731: 💠 Created Texture[0(null)]</div>
+<div class="info">1731: ℹ️ CTexture_D3D11 initialized</div>
+<div class="trace">1731: CRenderer2D_D3D11::init()</div>
+<div class="debug">1732: 📤 BinaryReader: Opened resource &quot;/engine/shader/sprite.vs&quot; size: 936B</div>
+<div class="debug">1732: CShader_D3D11::createVSFromFile(): `/engine/shader/sprite.vs` is a precompiled shader file</div>
+<div class="debug">1732: 💠 Created VertexShader[1] </div>
+<div class="debug">1733: 📥 BinaryReader: Closed resource &quot;/engine/shader/sprite.vs&quot;</div>
+<div class="debug">1733: 📤 BinaryReader: Opened resource &quot;/engine/shader/fullscreen_triangle_resolve.vs&quot; size: 1KiB</div>
+<div class="debug">1733: CShader_D3D11::createVSFromFile(): `/engine/shader/fullscreen_triangle_resolve.vs` is a precompiled shader file</div>
+<div class="debug">1733: 💠 Created VertexShader[2] </div>
+<div class="debug">1734: 📥 BinaryReader: Closed resource &quot;/engine/shader/fullscreen_triangle_resolve.vs&quot;</div>
+<div class="debug">1734: 📤 BinaryReader: Opened resource &quot;/engine/shader/fullscreen_triangle_draw.vs&quot; size: 804B</div>
+<div class="debug">1734: CShader_D3D11::createVSFromFile(): `/engine/shader/fullscreen_triangle_draw.vs` is a precompiled shader file</div>
+<div class="debug">1734: 💠 Created VertexShader[3] </div>
+<div class="debug">1735: 📥 BinaryReader: Closed resource &quot;/engine/shader/fullscreen_triangle_draw.vs&quot;</div>
+<div class="debug">1735: 📤 BinaryReader: Opened resource &quot;/engine/shader/shape.ps&quot; size: 708B</div>
+<div class="debug">1735: CShader_D3D11::createVSFromFile(): `/engine/shader/shape.ps` is a precompiled shader file</div>
+<div class="debug">1736: 💠 Created PixelShader[3] </div>
+<div class="debug">1736: 📥 BinaryReader: Closed resource &quot;/engine/shader/shape.ps&quot;</div>
+<div class="debug">1736: 📤 BinaryReader: Opened resource &quot;/engine/shader/texture.ps&quot; size: 884B</div>
+<div class="debug">1736: CShader_D3D11::createVSFromFile(): `/engine/shader/texture.ps` is a precompiled shader file</div>
+<div class="debug">1737: 💠 Created PixelShader[4] </div>
+<div class="debug">1737: 📥 BinaryReader: Closed resource &quot;/engine/shader/texture.ps&quot;</div>
+<div class="debug">1737: 📤 BinaryReader: Opened resource &quot;/engine/shader/square_dot.ps&quot; size: 1.13KiB</div>
+<div class="debug">1737: CShader_D3D11::createVSFromFile(): `/engine/shader/square_dot.ps` is a precompiled shader file</div>
+<div class="debug">1738: 💠 Created PixelShader[5] </div>
+<div class="debug">1738: 📥 BinaryReader: Closed resource &quot;/engine/shader/square_dot.ps&quot;</div>
+<div class="debug">1738: 📤 BinaryReader: Opened resource &quot;/engine/shader/round_dot.ps&quot; size: 1.14KiB</div>
+<div class="debug">1738: CShader_D3D11::createVSFromFile(): `/engine/shader/round_dot.ps` is a precompiled shader file</div>
+<div class="debug">1739: 💠 Created PixelShader[6] </div>
+<div class="debug">1739: 📥 BinaryReader: Closed resource &quot;/engine/shader/round_dot.ps&quot;</div>
+<div class="debug">1739: 📤 BinaryReader: Opened resource &quot;/engine/shader/sdf.ps&quot; size: 1.28KiB</div>
+<div class="debug">1739: CShader_D3D11::createVSFromFile(): `/engine/shader/sdf.ps` is a precompiled shader file</div>
+<div class="debug">1740: 💠 Created PixelShader[7] </div>
+<div class="debug">1740: 📥 BinaryReader: Closed resource &quot;/engine/shader/sdf.ps&quot;</div>
+<div class="debug">1740: 📤 BinaryReader: Opened resource &quot;/engine/shader/fullscreen_triangle_resolve.ps&quot; size: 872B</div>
+<div class="debug">1741: CShader_D3D11::createVSFromFile(): `/engine/shader/fullscreen_triangle_resolve.ps` is a precompiled shader file</div>
+<div class="debug">1741: 💠 Created PixelShader[8] </div>
+<div class="debug">1741: 📥 BinaryReader: Closed resource &quot;/engine/shader/fullscreen_triangle_resolve.ps&quot;</div>
+<div class="debug">1742: 📤 BinaryReader: Opened resource &quot;/engine/shader/fullscreen_triangle_draw.ps&quot; size: 664B</div>
+<div class="debug">1742: CShader_D3D11::createVSFromFile(): `/engine/shader/fullscreen_triangle_draw.ps` is a precompiled shader file</div>
+<div class="debug">1742: 💠 Created PixelShader[9] </div>
+<div class="debug">1743: 📥 BinaryReader: Closed resource &quot;/engine/shader/fullscreen_triangle_draw.ps&quot;</div>
+<div class="debug">1744: 📤 BinaryReader: Opened resource &quot;/engine/texture/box-shadow/256.png&quot; size: 5.51KiB</div>
+<div class="debug">1750: 📥 BinaryReader: Closed resource &quot;/engine/texture/box-shadow/256.png&quot;</div>
+<div class="debug">1751: 📤 BinaryReader: Opened resource &quot;/engine/texture/box-shadow/128.png&quot; size: 2.5KiB</div>
+<div class="debug">1752: 📥 BinaryReader: Closed resource &quot;/engine/texture/box-shadow/128.png&quot;</div>
+<div class="debug">1753: 📤 BinaryReader: Opened resource &quot;/engine/texture/box-shadow/64.png&quot; size: 1.34KiB</div>
+<div class="debug">1754: 📥 BinaryReader: Closed resource &quot;/engine/texture/box-shadow/64.png&quot;</div>
+<div class="debug">1754: 📤 BinaryReader: Opened resource &quot;/engine/texture/box-shadow/32.png&quot; size: 617B</div>
+<div class="debug">1754: 📥 BinaryReader: Closed resource &quot;/engine/texture/box-shadow/32.png&quot;</div>
+<div class="debug">1754: 📤 BinaryReader: Opened resource &quot;/engine/texture/box-shadow/16.png&quot; size: 263B</div>
+<div class="debug">1755: 📥 BinaryReader: Closed resource &quot;/engine/texture/box-shadow/16.png&quot;</div>
+<div class="debug">1755: 📤 BinaryReader: Opened resource &quot;/engine/texture/box-shadow/8.png&quot; size: 140B</div>
+<div class="debug">1755: 📥 BinaryReader: Closed resource &quot;/engine/texture/box-shadow/8.png&quot;</div>
+<div class="debug">1758: 💠 Created Texture[1] (type: Normal, size: 256x256, format: R8G8B8A8_Unorm)</div>
+<div class="info">1758: ℹ️ CRenderer2D_D3D11 initialized</div>
+<div class="info">1759: ℹ️ CGraphics_D3D11 initialized</div>
+<div class="trace">1759: CScreenCapture::init()</div>
+<div class="debug">1759: Default Screenshot directory: &quot;C:/Users/cpjvm/Desktop/workspace/PictureBookEditor/PictureBookEditor/App/Screenshot/&quot;</div>
+<div class="info">1759: ℹ️ CScreenCapture initialized</div>
+<div class="trace">1759: CFont::init()</div>
+<div class="debug">1765: 💠 Created Font[0(null)]</div>
+<div class="info">1765: ℹ️ CFont initialized</div>
+<div class="trace">1765: CSDFFont::init()</div>
+<div class="debug">1765: 💠 Created SDFFont[0(null)]</div>
+<div class="info">1766: ℹ️ CSDFFont initialized</div>
+<div class="trace">1766: CGUI::init()</div>
+<div class="debug">1768: 💠 Created Font[1] (`M+ 1p medium` size: 20)</div>
+<div class="info">1768: ℹ️ CGUI initialized</div>
+<div class="trace">1768: CEffect::init()</div>
+<div class="debug">1769: 💠 Created Effect[0(null)]</div>
+<div class="info">1769: ℹ️ CEffect initialized</div>
+<div class="trace">1769: CPrint::init()</div>
+<div class="debug">1771: 💠 Created Font[2] (`M+ 1p medium` size: 16)</div>
+<div class="info">1771: ℹ️ CPrint initialized</div>
+<div class="trace">1771: CAsset::init()</div>
+<div class="info">1771: ℹ️ Asset initialized</div>
+<div class="info">1772: ✅ Siv3D engine setup completed</div>
+<div class="trace">1772: MainThread</div>
+<hr width="99%"><div class="trace">1772: CScript::init()</div>
+<div class="debug">1886: 💠 Created Script[0(null)]</div>
+<div class="info">1887: ℹ️ CScript initialized</div>
+<div class="trace">1910: WM_PAINT</div>
+<div class="trace">1914: WM_SIZE</div>
+<div class="trace">1914: CWindow::updateWindowBounds(rect = (360, 125, 816, 644))</div>
+<div class="trace">1914: CWindow::requestBackBufferResizing()</div>
+<div class="trace">1915: CWindow::updateWindowBounds(rect = (360, 125, 816, 644))</div>
+<div class="trace">5383: CWindow::updateWindowBounds(rect = (359, 124, 817, 645))</div>
+<div class="trace">5383: WM_SIZE</div>
+<div class="trace">5383: CWindow::updateWindowBounds(rect = (359, 124, 817, 645))</div>
+<div class="trace">5384: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5384: CWindow::m_backBufferResizingRequest = (801, 601)</div>
+<div class="trace">5384: D3D11RenderTarget::resizeBuffers(backBufferSize = (801, 601), sceneSize = (801, 601))</div>
+<div class="trace">5390: D3D11RenderTarget::m_backBuffer.size = (801, 601)</div>
+<div class="trace">5390: CreateRTVFromBackBuffer()</div>
+<div class="trace">5390: CreateRenderTarget2D(size = (801, 601), sampleCount = 4)</div>
+<div class="trace">5404: CWindow::updateWindowBounds(rect = (357, 123, 819, 646))</div>
+<div class="trace">5404: WM_SIZE</div>
+<div class="trace">5404: CWindow::updateWindowBounds(rect = (357, 123, 819, 646))</div>
+<div class="trace">5404: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5405: CWindow::m_backBufferResizingRequest = (803, 602)</div>
+<div class="trace">5411: CWindow::updateWindowBounds(rect = (357, 122, 819, 647))</div>
+<div class="trace">5411: WM_SIZE</div>
+<div class="trace">5411: CWindow::updateWindowBounds(rect = (357, 122, 819, 647))</div>
+<div class="trace">5411: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5411: CWindow::m_backBufferResizingRequest = (803, 603)</div>
+<div class="trace">5417: D3D11RenderTarget::resizeBuffers(backBufferSize = (803, 603), sceneSize = (803, 603))</div>
+<div class="trace">5419: CWindow::updateWindowBounds(rect = (356, 121, 820, 648))</div>
+<div class="trace">5419: WM_SIZE</div>
+<div class="trace">5419: CWindow::updateWindowBounds(rect = (356, 121, 820, 648))</div>
+<div class="trace">5420: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5420: CWindow::m_backBufferResizingRequest = (804, 604)</div>
+<div class="trace">5422: D3D11RenderTarget::m_backBuffer.size = (803, 603)</div>
+<div class="trace">5422: CreateRTVFromBackBuffer()</div>
+<div class="trace">5423: CreateRenderTarget2D(size = (803, 603), sampleCount = 4)</div>
+<div class="trace">5433: CWindow::updateWindowBounds(rect = (355, 121, 821, 648))</div>
+<div class="trace">5433: WM_SIZE</div>
+<div class="trace">5433: CWindow::updateWindowBounds(rect = (355, 121, 821, 648))</div>
+<div class="trace">5433: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5433: CWindow::m_backBufferResizingRequest = (805, 604)</div>
+<div class="trace">5451: D3D11RenderTarget::resizeBuffers(backBufferSize = (805, 604), sceneSize = (805, 604))</div>
+<div class="trace">5454: D3D11RenderTarget::m_backBuffer.size = (805, 604)</div>
+<div class="trace">5454: CreateRTVFromBackBuffer()</div>
+<div class="trace">5455: CreateRenderTarget2D(size = (805, 604), sampleCount = 4)</div>
+<div class="trace">5545: CWindow::updateWindowBounds(rect = (354, 120, 822, 649))</div>
+<div class="trace">5545: WM_SIZE</div>
+<div class="trace">5545: CWindow::updateWindowBounds(rect = (354, 120, 822, 649))</div>
+<div class="trace">5545: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5545: CWindow::m_backBufferResizingRequest = (806, 605)</div>
+<div class="trace">5551: D3D11RenderTarget::resizeBuffers(backBufferSize = (806, 605), sceneSize = (806, 605))</div>
+<div class="trace">5553: D3D11RenderTarget::m_backBuffer.size = (806, 605)</div>
+<div class="trace">5554: CreateRTVFromBackBuffer()</div>
+<div class="trace">5554: CreateRenderTarget2D(size = (806, 605), sampleCount = 4)</div>
+<div class="trace">5737: CWindow::updateWindowBounds(rect = (344, 118, 832, 651))</div>
+<div class="trace">5738: WM_SIZE</div>
+<div class="trace">5738: CWindow::updateWindowBounds(rect = (344, 118, 832, 651))</div>
+<div class="trace">5738: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5738: CWindow::m_backBufferResizingRequest = (816, 607)</div>
+<div class="trace">5744: CWindow::updateWindowBounds(rect = (336, 117, 840, 652))</div>
+<div class="trace">5744: WM_SIZE</div>
+<div class="trace">5744: CWindow::updateWindowBounds(rect = (336, 117, 840, 652))</div>
+<div class="trace">5744: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5744: CWindow::m_backBufferResizingRequest = (824, 608)</div>
+<div class="trace">5751: D3D11RenderTarget::resizeBuffers(backBufferSize = (824, 608), sceneSize = (824, 608))</div>
+<div class="trace">5753: CWindow::updateWindowBounds(rect = (327, 115, 849, 654))</div>
+<div class="trace">5753: WM_SIZE</div>
+<div class="trace">5754: CWindow::updateWindowBounds(rect = (327, 115, 849, 654))</div>
+<div class="trace">5754: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5754: CWindow::m_backBufferResizingRequest = (833, 610)</div>
+<div class="trace">5757: D3D11RenderTarget::m_backBuffer.size = (824, 608)</div>
+<div class="trace">5757: CreateRTVFromBackBuffer()</div>
+<div class="trace">5757: CreateRenderTarget2D(size = (824, 608), sampleCount = 4)</div>
+<div class="trace">5762: CWindow::updateWindowBounds(rect = (319, 115, 857, 654))</div>
+<div class="trace">5763: WM_SIZE</div>
+<div class="trace">5763: CWindow::updateWindowBounds(rect = (319, 115, 857, 654))</div>
+<div class="trace">5763: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5763: CWindow::m_backBufferResizingRequest = (841, 610)</div>
+<div class="trace">5767: CWindow::updateWindowBounds(rect = (313, 114, 863, 655))</div>
+<div class="trace">5767: WM_SIZE</div>
+<div class="trace">5767: CWindow::updateWindowBounds(rect = (313, 114, 863, 655))</div>
+<div class="trace">5767: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5767: CWindow::m_backBufferResizingRequest = (847, 611)</div>
+<div class="trace">5774: CWindow::updateWindowBounds(rect = (306, 112, 870, 657))</div>
+<div class="trace">5774: WM_SIZE</div>
+<div class="trace">5774: CWindow::updateWindowBounds(rect = (306, 112, 870, 657))</div>
+<div class="trace">5775: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5775: CWindow::m_backBufferResizingRequest = (854, 613)</div>
+<div class="trace">5780: CWindow::updateWindowBounds(rect = (296, 111, 880, 658))</div>
+<div class="trace">5781: WM_SIZE</div>
+<div class="trace">5781: CWindow::updateWindowBounds(rect = (296, 111, 880, 658))</div>
+<div class="trace">5781: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5781: CWindow::m_backBufferResizingRequest = (864, 614)</div>
+<div class="trace">5784: D3D11RenderTarget::resizeBuffers(backBufferSize = (864, 614), sceneSize = (864, 614))</div>
+<div class="trace">5787: D3D11RenderTarget::m_backBuffer.size = (864, 614)</div>
+<div class="trace">5787: CreateRTVFromBackBuffer()</div>
+<div class="trace">5787: CreateRenderTarget2D(size = (864, 614), sampleCount = 4)</div>
+<div class="trace">5789: CWindow::updateWindowBounds(rect = (288, 112, 888, 657))</div>
+<div class="trace">5789: WM_SIZE</div>
+<div class="trace">5789: CWindow::updateWindowBounds(rect = (288, 112, 888, 657))</div>
+<div class="trace">5789: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5790: CWindow::m_backBufferResizingRequest = (872, 613)</div>
+<div class="trace">5803: CWindow::updateWindowBounds(rect = (275, 114, 901, 655))</div>
+<div class="trace">5803: WM_SIZE</div>
+<div class="trace">5804: CWindow::updateWindowBounds(rect = (275, 114, 901, 655))</div>
+<div class="trace">5804: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5804: CWindow::m_backBufferResizingRequest = (885, 611)</div>
+<div class="trace">5811: CWindow::updateWindowBounds(rect = (269, 114, 907, 655))</div>
+<div class="trace">5811: WM_SIZE</div>
+<div class="trace">5811: CWindow::updateWindowBounds(rect = (269, 114, 907, 655))</div>
+<div class="trace">5811: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5811: CWindow::m_backBufferResizingRequest = (891, 611)</div>
+<div class="trace">5817: D3D11RenderTarget::resizeBuffers(backBufferSize = (891, 611), sceneSize = (891, 611))</div>
+<div class="trace">5820: CWindow::updateWindowBounds(rect = (264, 115, 912, 654))</div>
+<div class="trace">5820: WM_SIZE</div>
+<div class="trace">5820: CWindow::updateWindowBounds(rect = (264, 115, 912, 654))</div>
+<div class="trace">5820: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5820: CWindow::m_backBufferResizingRequest = (896, 610)</div>
+<div class="trace">5823: D3D11RenderTarget::m_backBuffer.size = (891, 611)</div>
+<div class="trace">5823: CreateRTVFromBackBuffer()</div>
+<div class="trace">5823: CreateRenderTarget2D(size = (891, 611), sampleCount = 4)</div>
+<div class="trace">5828: CWindow::updateWindowBounds(rect = (259, 116, 917, 653))</div>
+<div class="trace">5829: WM_SIZE</div>
+<div class="trace">5829: CWindow::updateWindowBounds(rect = (259, 116, 917, 653))</div>
+<div class="trace">5829: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5830: CWindow::m_backBufferResizingRequest = (901, 609)</div>
+<div class="trace">5840: CWindow::updateWindowBounds(rect = (248, 119, 928, 650))</div>
+<div class="trace">5841: WM_SIZE</div>
+<div class="trace">5841: CWindow::updateWindowBounds(rect = (248, 119, 928, 650))</div>
+<div class="trace">5841: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5841: CWindow::m_backBufferResizingRequest = (912, 606)</div>
+<div class="trace">5847: CWindow::updateWindowBounds(rect = (244, 122, 932, 647))</div>
+<div class="trace">5847: WM_SIZE</div>
+<div class="trace">5847: CWindow::updateWindowBounds(rect = (244, 122, 932, 647))</div>
+<div class="trace">5848: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5848: CWindow::m_backBufferResizingRequest = (916, 603)</div>
+<div class="trace">5851: D3D11RenderTarget::resizeBuffers(backBufferSize = (916, 603), sceneSize = (916, 603))</div>
+<div class="trace">5854: D3D11RenderTarget::m_backBuffer.size = (916, 603)</div>
+<div class="trace">5854: CreateRTVFromBackBuffer()</div>
+<div class="trace">5854: CreateRenderTarget2D(size = (916, 603), sampleCount = 4)</div>
+<div class="trace">5856: CWindow::updateWindowBounds(rect = (238, 125, 938, 644))</div>
+<div class="trace">5856: WM_SIZE</div>
+<div class="trace">5856: CWindow::updateWindowBounds(rect = (238, 125, 938, 644))</div>
+<div class="trace">5856: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5856: CWindow::m_backBufferResizingRequest = (922, 600)</div>
+<div class="trace">5867: D3D11RenderTarget::resizeBuffers(backBufferSize = (922, 600), sceneSize = (922, 600))</div>
+<div class="trace">5871: D3D11RenderTarget::m_backBuffer.size = (922, 600)</div>
+<div class="trace">5871: CreateRTVFromBackBuffer()</div>
+<div class="trace">5871: CWindow::updateWindowBounds(rect = (230, 131, 946, 638))</div>
+<div class="trace">5871: CreateRenderTarget2D(size = (922, 600), sampleCount = 4)</div>
+<div class="trace">5871: WM_SIZE</div>
+<div class="trace">5872: CWindow::updateWindowBounds(rect = (230, 131, 946, 638))</div>
+<div class="trace">5872: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5872: CWindow::m_backBufferResizingRequest = (930, 594)</div>
+<div class="trace">5886: CWindow::updateWindowBounds(rect = (223, 138, 953, 631))</div>
+<div class="trace">5887: WM_SIZE</div>
+<div class="trace">5887: CWindow::updateWindowBounds(rect = (223, 138, 953, 631))</div>
+<div class="trace">5887: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5887: CWindow::m_backBufferResizingRequest = (937, 587)</div>
+<div class="trace">5901: D3D11RenderTarget::resizeBuffers(backBufferSize = (937, 587), sceneSize = (937, 587))</div>
+<div class="trace">5904: D3D11RenderTarget::m_backBuffer.size = (937, 587)</div>
+<div class="trace">5904: CreateRTVFromBackBuffer()</div>
+<div class="trace">5904: CreateRenderTarget2D(size = (937, 587), sampleCount = 4)</div>
+<div class="trace">5909: CWindow::updateWindowBounds(rect = (210, 155, 966, 614))</div>
+<div class="trace">5910: WM_SIZE</div>
+<div class="trace">5910: CWindow::updateWindowBounds(rect = (210, 155, 966, 614))</div>
+<div class="trace">5910: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5910: CWindow::m_backBufferResizingRequest = (950, 570)</div>
+<div class="trace">5919: D3D11RenderTarget::resizeBuffers(backBufferSize = (950, 570), sceneSize = (950, 570))</div>
+<div class="trace">5921: D3D11RenderTarget::m_backBuffer.size = (950, 570)</div>
+<div class="trace">5922: CreateRTVFromBackBuffer()</div>
+<div class="trace">5922: CWindow::updateWindowBounds(rect = (202, 174, 974, 595))</div>
+<div class="trace">5922: WM_SIZE</div>
+<div class="trace">5922: CreateRenderTarget2D(size = (950, 570), sampleCount = 4)</div>
+<div class="trace">5922: CWindow::updateWindowBounds(rect = (202, 174, 974, 595))</div>
+<div class="trace">5923: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5923: CWindow::m_backBufferResizingRequest = (958, 551)</div>
+<div class="trace">5944: CWindow::updateWindowBounds(rect = (194, 191, 982, 578))</div>
+<div class="trace">5944: WM_SIZE</div>
+<div class="trace">5944: CWindow::updateWindowBounds(rect = (194, 191, 982, 578))</div>
+<div class="trace">5944: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5945: CWindow::m_backBufferResizingRequest = (966, 534)</div>
+<div class="trace">5951: D3D11RenderTarget::resizeBuffers(backBufferSize = (966, 534), sceneSize = (966, 534))</div>
+<div class="trace">5951: CWindow::updateWindowBounds(rect = (192, 200, 984, 569))</div>
+<div class="trace">5951: WM_SIZE</div>
+<div class="trace">5951: CWindow::updateWindowBounds(rect = (192, 200, 984, 569))</div>
+<div class="trace">5952: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5952: CWindow::m_backBufferResizingRequest = (968, 525)</div>
+<div class="trace">5956: D3D11RenderTarget::m_backBuffer.size = (966, 534)</div>
+<div class="trace">5956: CreateRTVFromBackBuffer()</div>
+<div class="trace">5957: CreateRenderTarget2D(size = (966, 534), sampleCount = 4)</div>
+<div class="trace">5962: CWindow::updateWindowBounds(rect = (188, 214, 988, 555))</div>
+<div class="trace">5962: WM_SIZE</div>
+<div class="trace">5962: CWindow::updateWindowBounds(rect = (188, 214, 988, 555))</div>
+<div class="trace">5962: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5963: CWindow::m_backBufferResizingRequest = (972, 511)</div>
+<div class="trace">5967: D3D11RenderTarget::resizeBuffers(backBufferSize = (972, 511), sceneSize = (972, 511))</div>
+<div class="trace">5970: D3D11RenderTarget::m_backBuffer.size = (972, 511)</div>
+<div class="trace">5971: CreateRTVFromBackBuffer()</div>
+<div class="trace">5971: CreateRenderTarget2D(size = (972, 511), sampleCount = 4)</div>
+<div class="trace">5974: CWindow::updateWindowBounds(rect = (185, 231, 991, 538))</div>
+<div class="trace">5975: WM_SIZE</div>
+<div class="trace">5975: CWindow::updateWindowBounds(rect = (185, 231, 991, 538))</div>
+<div class="trace">5975: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5976: CWindow::m_backBufferResizingRequest = (975, 494)</div>
+<div class="trace">5984: D3D11RenderTarget::resizeBuffers(backBufferSize = (975, 494), sceneSize = (975, 494))</div>
+<div class="trace">5989: CWindow::updateWindowBounds(rect = (185, 241, 991, 528))</div>
+<div class="trace">5989: D3D11RenderTarget::m_backBuffer.size = (975, 494)</div>
+<div class="trace">5990: WM_SIZE</div>
+<div class="trace">5990: CreateRTVFromBackBuffer()</div>
+<div class="trace">5990: CWindow::updateWindowBounds(rect = (185, 241, 991, 528))</div>
+<div class="trace">5991: CWindow::requestBackBufferResizing()</div>
+<div class="trace">5991: CreateRenderTarget2D(size = (975, 494), sampleCount = 4)</div>
+<div class="trace">5991: CWindow::m_backBufferResizingRequest = (975, 484)</div>
+<div class="trace">6011: CWindow::updateWindowBounds(rect = (188, 268, 988, 501))</div>
+<div class="trace">6011: WM_SIZE</div>
+<div class="trace">6011: CWindow::updateWindowBounds(rect = (188, 268, 988, 501))</div>
+<div class="trace">6011: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6011: CWindow::m_backBufferResizingRequest = (972, 457)</div>
+<div class="trace">6018: D3D11RenderTarget::resizeBuffers(backBufferSize = (972, 457), sceneSize = (972, 457))</div>
+<div class="trace">6020: CWindow::updateWindowBounds(rect = (190, 278, 986, 491))</div>
+<div class="trace">6020: WM_SIZE</div>
+<div class="trace">6020: CWindow::updateWindowBounds(rect = (190, 278, 986, 491))</div>
+<div class="trace">6021: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6021: CWindow::m_backBufferResizingRequest = (970, 447)</div>
+<div class="trace">6023: D3D11RenderTarget::m_backBuffer.size = (972, 457)</div>
+<div class="trace">6023: CreateRTVFromBackBuffer()</div>
+<div class="trace">6023: CreateRenderTarget2D(size = (972, 457), sampleCount = 4)</div>
+<div class="trace">6028: CWindow::updateWindowBounds(rect = (192, 283, 984, 486))</div>
+<div class="trace">6028: WM_SIZE</div>
+<div class="trace">6028: CWindow::updateWindowBounds(rect = (192, 283, 984, 486))</div>
+<div class="trace">6029: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6029: CWindow::m_backBufferResizingRequest = (968, 442)</div>
+<div class="trace">6034: D3D11RenderTarget::resizeBuffers(backBufferSize = (968, 442), sceneSize = (968, 442))</div>
+<div class="trace">6038: D3D11RenderTarget::m_backBuffer.size = (968, 442)</div>
+<div class="trace">6038: CreateRTVFromBackBuffer()</div>
+<div class="trace">6038: CreateRenderTarget2D(size = (968, 442), sampleCount = 4)</div>
+<div class="trace">6043: CWindow::updateWindowBounds(rect = (197, 291, 979, 478))</div>
+<div class="trace">6044: WM_SIZE</div>
+<div class="trace">6044: CWindow::updateWindowBounds(rect = (197, 291, 979, 478))</div>
+<div class="trace">6044: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6044: CWindow::m_backBufferResizingRequest = (963, 434)</div>
+<div class="trace">6051: D3D11RenderTarget::resizeBuffers(backBufferSize = (963, 434), sceneSize = (963, 434))</div>
+<div class="trace">6054: D3D11RenderTarget::m_backBuffer.size = (963, 434)</div>
+<div class="trace">6054: CreateRTVFromBackBuffer()</div>
+<div class="trace">6054: CreateRenderTarget2D(size = (963, 434), sampleCount = 4)</div>
+<div class="trace">6055: CWindow::updateWindowBounds(rect = (207, 306, 969, 463))</div>
+<div class="trace">6055: WM_SIZE</div>
+<div class="trace">6056: CWindow::updateWindowBounds(rect = (207, 306, 969, 463))</div>
+<div class="trace">6056: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6056: CWindow::m_backBufferResizingRequest = (953, 419)</div>
+<div class="trace">6064: CWindow::updateWindowBounds(rect = (211, 311, 965, 458))</div>
+<div class="trace">6064: WM_SIZE</div>
+<div class="trace">6064: CWindow::updateWindowBounds(rect = (211, 311, 965, 458))</div>
+<div class="trace">6065: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6065: CWindow::m_backBufferResizingRequest = (949, 414)</div>
+<div class="trace">6067: D3D11RenderTarget::resizeBuffers(backBufferSize = (949, 414), sceneSize = (949, 414))</div>
+<div class="trace">6069: CWindow::updateWindowBounds(rect = (216, 320, 960, 449))</div>
+<div class="trace">6070: WM_SIZE</div>
+<div class="trace">6070: CWindow::updateWindowBounds(rect = (216, 320, 960, 449))</div>
+<div class="trace">6070: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6070: CWindow::m_backBufferResizingRequest = (944, 405)</div>
+<div class="trace">6072: D3D11RenderTarget::m_backBuffer.size = (949, 414)</div>
+<div class="trace">6072: CreateRTVFromBackBuffer()</div>
+<div class="trace">6072: CreateRenderTarget2D(size = (949, 414), sampleCount = 4)</div>
+<div class="trace">6086: CWindow::updateWindowBounds(rect = (226, 331, 950, 438))</div>
+<div class="trace">6086: WM_SIZE</div>
+<div class="trace">6086: CWindow::updateWindowBounds(rect = (226, 331, 950, 438))</div>
+<div class="trace">6087: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6087: CWindow::m_backBufferResizingRequest = (934, 394)</div>
+<div class="trace">6093: CWindow::updateWindowBounds(rect = (233, 334, 943, 435))</div>
+<div class="trace">6093: WM_SIZE</div>
+<div class="trace">6093: CWindow::updateWindowBounds(rect = (233, 334, 943, 435))</div>
+<div class="trace">6094: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6094: CWindow::m_backBufferResizingRequest = (927, 391)</div>
+<div class="trace">6101: D3D11RenderTarget::resizeBuffers(backBufferSize = (927, 391), sceneSize = (927, 391))</div>
+<div class="trace">6105: D3D11RenderTarget::m_backBuffer.size = (927, 391)</div>
+<div class="trace">6105: CreateRTVFromBackBuffer()</div>
+<div class="trace">6105: CreateRenderTarget2D(size = (927, 391), sampleCount = 4)</div>
+<div class="trace">6107: CWindow::updateWindowBounds(rect = (250, 343, 926, 426))</div>
+<div class="trace">6107: WM_SIZE</div>
+<div class="trace">6107: CWindow::updateWindowBounds(rect = (250, 343, 926, 426))</div>
+<div class="trace">6108: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6108: CWindow::m_backBufferResizingRequest = (910, 382)</div>
+<div class="trace">6114: CWindow::updateWindowBounds(rect = (256, 347, 920, 422))</div>
+<div class="trace">6114: WM_SIZE</div>
+<div class="trace">6115: CWindow::updateWindowBounds(rect = (256, 347, 920, 422))</div>
+<div class="trace">6115: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6115: CWindow::m_backBufferResizingRequest = (904, 378)</div>
+<div class="trace">6117: D3D11RenderTarget::resizeBuffers(backBufferSize = (904, 378), sceneSize = (904, 378))</div>
+<div class="trace">6121: D3D11RenderTarget::m_backBuffer.size = (904, 378)</div>
+<div class="trace">6121: CreateRTVFromBackBuffer()</div>
+<div class="trace">6121: CreateRenderTarget2D(size = (904, 378), sampleCount = 4)</div>
+<div class="trace">6122: CWindow::updateWindowBounds(rect = (262, 349, 914, 420))</div>
+<div class="trace">6122: WM_SIZE</div>
+<div class="trace">6122: CWindow::updateWindowBounds(rect = (262, 349, 914, 420))</div>
+<div class="trace">6123: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6123: CWindow::m_backBufferResizingRequest = (898, 376)</div>
+<div class="trace">6134: D3D11RenderTarget::resizeBuffers(backBufferSize = (898, 376), sceneSize = (898, 376))</div>
+<div class="trace">6138: CWindow::updateWindowBounds(rect = (279, 355, 897, 414))</div>
+<div class="trace">6138: WM_SIZE</div>
+<div class="trace">6138: CWindow::updateWindowBounds(rect = (279, 355, 897, 414))</div>
+<div class="trace">6138: D3D11RenderTarget::m_backBuffer.size = (898, 376)</div>
+<div class="trace">6138: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6139: CWindow::m_backBufferResizingRequest = (881, 370)</div>
+<div class="trace">6139: CreateRTVFromBackBuffer()</div>
+<div class="trace">6139: CreateRenderTarget2D(size = (898, 376), sampleCount = 4)</div>
+<div class="trace">6144: CWindow::updateWindowBounds(rect = (288, 357, 888, 412))</div>
+<div class="trace">6144: WM_SIZE</div>
+<div class="trace">6144: CWindow::updateWindowBounds(rect = (288, 357, 888, 412))</div>
+<div class="trace">6144: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6145: CWindow::m_backBufferResizingRequest = (872, 368)</div>
+<div class="trace">6151: D3D11RenderTarget::resizeBuffers(backBufferSize = (872, 368), sceneSize = (872, 368))</div>
+<div class="trace">6154: CWindow::updateWindowBounds(rect = (298, 358, 878, 411))</div>
+<div class="trace">6154: WM_SIZE</div>
+<div class="trace">6154: CWindow::updateWindowBounds(rect = (298, 358, 878, 411))</div>
+<div class="trace">6154: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6154: CWindow::m_backBufferResizingRequest = (862, 367)</div>
+<div class="trace">6157: D3D11RenderTarget::m_backBuffer.size = (872, 368)</div>
+<div class="trace">6157: CreateRTVFromBackBuffer()</div>
+<div class="trace">6158: CreateRenderTarget2D(size = (872, 368), sampleCount = 4)</div>
+<div class="trace">6160: CWindow::updateWindowBounds(rect = (308, 359, 868, 410))</div>
+<div class="trace">6161: WM_SIZE</div>
+<div class="trace">6161: CWindow::updateWindowBounds(rect = (308, 359, 868, 410))</div>
+<div class="trace">6161: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6161: CWindow::m_backBufferResizingRequest = (852, 366)</div>
+<div class="trace">6166: CWindow::updateWindowBounds(rect = (318, 359, 858, 410))</div>
+<div class="trace">6166: WM_SIZE</div>
+<div class="trace">6166: CWindow::updateWindowBounds(rect = (318, 359, 858, 410))</div>
+<div class="trace">6167: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6167: CWindow::m_backBufferResizingRequest = (842, 366)</div>
+<div class="trace">6168: D3D11RenderTarget::resizeBuffers(backBufferSize = (842, 366), sceneSize = (842, 366))</div>
+<div class="trace">6171: D3D11RenderTarget::m_backBuffer.size = (842, 366)</div>
+<div class="trace">6171: CreateRTVFromBackBuffer()</div>
+<div class="trace">6171: CreateRenderTarget2D(size = (842, 366), sampleCount = 4)</div>
+<div class="trace">6175: CWindow::updateWindowBounds(rect = (324, 359, 852, 410))</div>
+<div class="trace">6175: WM_SIZE</div>
+<div class="trace">6175: CWindow::updateWindowBounds(rect = (324, 359, 852, 410))</div>
+<div class="trace">6175: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6176: CWindow::m_backBufferResizingRequest = (836, 366)</div>
+<div class="trace">6180: CWindow::updateWindowBounds(rect = (334, 359, 842, 410))</div>
+<div class="trace">6180: WM_SIZE</div>
+<div class="trace">6181: CWindow::updateWindowBounds(rect = (334, 359, 842, 410))</div>
+<div class="trace">6181: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6181: CWindow::m_backBufferResizingRequest = (826, 366)</div>
+<div class="trace">6184: D3D11RenderTarget::resizeBuffers(backBufferSize = (826, 366), sceneSize = (826, 366))</div>
+<div class="trace">6188: D3D11RenderTarget::m_backBuffer.size = (826, 366)</div>
+<div class="trace">6188: CreateRTVFromBackBuffer()</div>
+<div class="trace">6188: CWindow::updateWindowBounds(rect = (349, 355, 827, 414))</div>
+<div class="trace">6188: CreateRenderTarget2D(size = (826, 366), sampleCount = 4)</div>
+<div class="trace">6188: WM_SIZE</div>
+<div class="trace">6189: CWindow::updateWindowBounds(rect = (349, 355, 827, 414))</div>
+<div class="trace">6189: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6189: CWindow::m_backBufferResizingRequest = (811, 370)</div>
+<div class="trace">6196: CWindow::updateWindowBounds(rect = (366, 352, 810, 417))</div>
+<div class="trace">6197: WM_SIZE</div>
+<div class="trace">6197: CWindow::updateWindowBounds(rect = (366, 352, 810, 417))</div>
+<div class="trace">6197: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6197: CWindow::m_backBufferResizingRequest = (794, 373)</div>
+<div class="trace">6201: D3D11RenderTarget::resizeBuffers(backBufferSize = (794, 373), sceneSize = (794, 373))</div>
+<div class="trace">6204: CWindow::updateWindowBounds(rect = (380, 346, 796, 423))</div>
+<div class="trace">6204: WM_SIZE</div>
+<div class="trace">6204: CWindow::updateWindowBounds(rect = (380, 346, 796, 423))</div>
+<div class="trace">6205: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6205: CWindow::m_backBufferResizingRequest = (780, 379)</div>
+<div class="trace">6206: D3D11RenderTarget::m_backBuffer.size = (794, 373)</div>
+<div class="trace">6206: CreateRTVFromBackBuffer()</div>
+<div class="trace">6206: CreateRenderTarget2D(size = (794, 373), sampleCount = 4)</div>
+<div class="trace">6213: CWindow::updateWindowBounds(rect = (394, 339, 782, 430))</div>
+<div class="trace">6213: WM_SIZE</div>
+<div class="trace">6213: CWindow::updateWindowBounds(rect = (394, 339, 782, 430))</div>
+<div class="trace">6214: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6214: CWindow::m_backBufferResizingRequest = (766, 386)</div>
+<div class="trace">6217: D3D11RenderTarget::resizeBuffers(backBufferSize = (766, 386), sceneSize = (766, 386))</div>
+<div class="trace">6219: CWindow::updateWindowBounds(rect = (416, 331, 760, 438))</div>
+<div class="trace">6219: WM_SIZE</div>
+<div class="trace">6220: CWindow::updateWindowBounds(rect = (416, 331, 760, 438))</div>
+<div class="trace">6220: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6220: CWindow::m_backBufferResizingRequest = (744, 394)</div>
+<div class="trace">6222: D3D11RenderTarget::m_backBuffer.size = (766, 386)</div>
+<div class="trace">6223: CreateRTVFromBackBuffer()</div>
+<div class="trace">6223: CreateRenderTarget2D(size = (766, 386), sampleCount = 4)</div>
+<div class="trace">6229: CWindow::updateWindowBounds(rect = (437, 321, 739, 448))</div>
+<div class="trace">6230: WM_SIZE</div>
+<div class="trace">6230: CWindow::updateWindowBounds(rect = (437, 321, 739, 448))</div>
+<div class="trace">6230: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6230: CWindow::m_backBufferResizingRequest = (723, 404)</div>
+<div class="trace">6234: D3D11RenderTarget::resizeBuffers(backBufferSize = (723, 404), sceneSize = (723, 404))</div>
+<div class="trace">6239: D3D11RenderTarget::m_backBuffer.size = (723, 404)</div>
+<div class="trace">6240: CreateRTVFromBackBuffer()</div>
+<div class="trace">6240: CreateRenderTarget2D(size = (723, 404), sampleCount = 4)</div>
+<div class="trace">6243: CWindow::updateWindowBounds(rect = (472, 304, 704, 465))</div>
+<div class="trace">6243: WM_SIZE</div>
+<div class="trace">6244: CWindow::updateWindowBounds(rect = (472, 304, 704, 465))</div>
+<div class="trace">6244: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6244: CWindow::m_backBufferResizingRequest = (688, 421)</div>
+<div class="trace">6249: CWindow::updateWindowBounds(rect = (498, 291, 678, 478))</div>
+<div class="trace">6249: WM_SIZE</div>
+<div class="trace">6250: CWindow::updateWindowBounds(rect = (498, 291, 678, 478))</div>
+<div class="trace">6250: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6250: CWindow::m_backBufferResizingRequest = (662, 434)</div>
+<div class="trace">6252: D3D11RenderTarget::resizeBuffers(backBufferSize = (662, 434), sceneSize = (662, 434))</div>
+<div class="trace">6257: D3D11RenderTarget::m_backBuffer.size = (662, 434)</div>
+<div class="trace">6257: CreateRTVFromBackBuffer()</div>
+<div class="trace">6257: CWindow::updateWindowBounds(rect = (516, 283, 660, 486))</div>
+<div class="trace">6257: CreateRenderTarget2D(size = (662, 434), sampleCount = 4)</div>
+<div class="trace">6257: WM_SIZE</div>
+<div class="trace">6258: CWindow::updateWindowBounds(rect = (516, 283, 660, 486))</div>
+<div class="trace">6258: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6258: CWindow::m_backBufferResizingRequest = (644, 442)</div>
+<div class="trace">6271: CWindow::updateWindowBounds(rect = (545, 268, 631, 501))</div>
+<div class="trace">6271: WM_SIZE</div>
+<div class="trace">6272: CWindow::updateWindowBounds(rect = (545, 268, 631, 501))</div>
+<div class="trace">6272: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6272: CWindow::m_backBufferResizingRequest = (615, 457)</div>
+<div class="trace">6278: CWindow::updateWindowBounds(rect = (558, 261, 618, 508))</div>
+<div class="trace">6278: WM_SIZE</div>
+<div class="trace">6278: CWindow::updateWindowBounds(rect = (558, 261, 618, 508))</div>
+<div class="trace">6278: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6278: CWindow::m_backBufferResizingRequest = (602, 464)</div>
+<div class="trace">6284: D3D11RenderTarget::resizeBuffers(backBufferSize = (602, 464), sceneSize = (602, 464))</div>
+<div class="trace">6284: CWindow::updateWindowBounds(rect = (568, 257, 608, 512))</div>
+<div class="trace">6285: WM_SIZE</div>
+<div class="trace">6285: CWindow::updateWindowBounds(rect = (568, 257, 608, 512))</div>
+<div class="trace">6285: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6285: CWindow::m_backBufferResizingRequest = (592, 468)</div>
+<div class="trace">6291: D3D11RenderTarget::m_backBuffer.size = (602, 464)</div>
+<div class="trace">6292: CreateRTVFromBackBuffer()</div>
+<div class="trace">6292: CreateRenderTarget2D(size = (602, 464), sampleCount = 4)</div>
+<div class="trace">6294: CWindow::updateWindowBounds(rect = (579, 251, 597, 518))</div>
+<div class="trace">6295: WM_SIZE</div>
+<div class="trace">6295: CWindow::updateWindowBounds(rect = (579, 251, 597, 518))</div>
+<div class="trace">6295: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6295: CWindow::m_backBufferResizingRequest = (581, 474)</div>
+<div class="trace">6300: CWindow::updateWindowBounds(rect = (585, 248, 591, 521))</div>
+<div class="trace">6301: WM_SIZE</div>
+<div class="trace">6301: D3D11RenderTarget::resizeBuffers(backBufferSize = (581, 474), sceneSize = (581, 474))</div>
+<div class="trace">6301: CWindow::updateWindowBounds(rect = (585, 248, 591, 521))</div>
+<div class="trace">6302: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6302: CWindow::m_backBufferResizingRequest = (575, 477)</div>
+<div class="trace">6307: D3D11RenderTarget::m_backBuffer.size = (581, 474)</div>
+<div class="trace">6307: CreateRTVFromBackBuffer()</div>
+<div class="trace">6307: CWindow::updateWindowBounds(rect = (592, 243, 584, 526))</div>
+<div class="trace">6308: CreateRenderTarget2D(size = (581, 474), sampleCount = 4)</div>
+<div class="trace">6308: WM_SIZE</div>
+<div class="trace">6308: CWindow::updateWindowBounds(rect = (592, 243, 584, 526))</div>
+<div class="trace">6308: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6309: CWindow::m_backBufferResizingRequest = (568, 482)</div>
+<div class="trace">6314: CWindow::updateWindowBounds(rect = (600, 237, 576, 532))</div>
+<div class="trace">6314: WM_SIZE</div>
+<div class="trace">6314: CWindow::updateWindowBounds(rect = (600, 237, 576, 532))</div>
+<div class="trace">6314: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6314: CWindow::m_backBufferResizingRequest = (560, 488)</div>
+<div class="trace">6317: D3D11RenderTarget::resizeBuffers(backBufferSize = (560, 488), sceneSize = (560, 488))</div>
+<div class="trace">6321: D3D11RenderTarget::m_backBuffer.size = (560, 488)</div>
+<div class="trace">6321: CreateRTVFromBackBuffer()</div>
+<div class="trace">6321: CreateRenderTarget2D(size = (560, 488), sampleCount = 4)</div>
+<div class="trace">6322: CWindow::updateWindowBounds(rect = (609, 232, 567, 537))</div>
+<div class="trace">6322: WM_SIZE</div>
+<div class="trace">6322: CWindow::updateWindowBounds(rect = (609, 232, 567, 537))</div>
+<div class="trace">6323: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6323: CWindow::m_backBufferResizingRequest = (551, 493)</div>
+<div class="trace">6334: D3D11RenderTarget::resizeBuffers(backBufferSize = (551, 493), sceneSize = (551, 493))</div>
+<div class="trace">6336: CWindow::updateWindowBounds(rect = (620, 224, 556, 545))</div>
+<div class="trace">6336: WM_SIZE</div>
+<div class="trace">6337: CWindow::updateWindowBounds(rect = (620, 224, 556, 545))</div>
+<div class="trace">6337: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6337: CWindow::m_backBufferResizingRequest = (540, 501)</div>
+<div class="trace">6339: D3D11RenderTarget::m_backBuffer.size = (551, 493)</div>
+<div class="trace">6339: CreateRTVFromBackBuffer()</div>
+<div class="trace">6339: CreateRenderTarget2D(size = (551, 493), sampleCount = 4)</div>
+<div class="trace">6351: CWindow::updateWindowBounds(rect = (632, 213, 544, 556))</div>
+<div class="trace">6351: WM_SIZE</div>
+<div class="trace">6351: CWindow::updateWindowBounds(rect = (632, 213, 544, 556))</div>
+<div class="trace">6351: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6352: CWindow::m_backBufferResizingRequest = (528, 512)</div>
+<div class="trace">6359: CWindow::updateWindowBounds(rect = (638, 209, 538, 560))</div>
+<div class="trace">6359: WM_SIZE</div>
+<div class="trace">6360: CWindow::updateWindowBounds(rect = (638, 209, 538, 560))</div>
+<div class="trace">6360: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6360: CWindow::m_backBufferResizingRequest = (522, 516)</div>
+<div class="trace">6368: D3D11RenderTarget::resizeBuffers(backBufferSize = (522, 516), sceneSize = (522, 516))</div>
+<div class="trace">6373: D3D11RenderTarget::m_backBuffer.size = (522, 516)</div>
+<div class="trace">6373: CreateRTVFromBackBuffer()</div>
+<div class="trace">6373: CWindow::updateWindowBounds(rect = (648, 199, 528, 570))</div>
+<div class="trace">6374: CreateRenderTarget2D(size = (522, 516), sampleCount = 4)</div>
+<div class="trace">6374: WM_SIZE</div>
+<div class="trace">6374: CWindow::updateWindowBounds(rect = (648, 199, 528, 570))</div>
+<div class="trace">6374: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6374: CWindow::m_backBufferResizingRequest = (512, 526)</div>
+<div class="trace">6380: CWindow::updateWindowBounds(rect = (653, 193, 523, 576))</div>
+<div class="trace">6380: WM_SIZE</div>
+<div class="trace">6381: CWindow::updateWindowBounds(rect = (653, 193, 523, 576))</div>
+<div class="trace">6381: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6381: CWindow::m_backBufferResizingRequest = (507, 532)</div>
+<div class="trace">6384: D3D11RenderTarget::resizeBuffers(backBufferSize = (507, 532), sceneSize = (507, 532))</div>
+<div class="trace">6388: D3D11RenderTarget::m_backBuffer.size = (507, 532)</div>
+<div class="trace">6388: CreateRTVFromBackBuffer()</div>
+<div class="trace">6388: CWindow::updateWindowBounds(rect = (656, 191, 520, 578))</div>
+<div class="trace">6389: CreateRenderTarget2D(size = (507, 532), sampleCount = 4)</div>
+<div class="trace">6389: WM_SIZE</div>
+<div class="trace">6389: CWindow::updateWindowBounds(rect = (656, 191, 520, 578))</div>
+<div class="trace">6389: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6390: CWindow::m_backBufferResizingRequest = (504, 534)</div>
+<div class="trace">6401: D3D11RenderTarget::resizeBuffers(backBufferSize = (504, 534), sceneSize = (504, 534))</div>
+<div class="trace">6403: CWindow::updateWindowBounds(rect = (664, 184, 512, 585))</div>
+<div class="trace">6404: WM_SIZE</div>
+<div class="trace">6404: CWindow::updateWindowBounds(rect = (664, 184, 512, 585))</div>
+<div class="trace">6404: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6404: CWindow::m_backBufferResizingRequest = (496, 541)</div>
+<div class="trace">6406: D3D11RenderTarget::m_backBuffer.size = (504, 534)</div>
+<div class="trace">6406: CreateRTVFromBackBuffer()</div>
+<div class="trace">6406: CreateRenderTarget2D(size = (504, 534), sampleCount = 4)</div>
+<div class="trace">6418: CWindow::updateWindowBounds(rect = (668, 179, 508, 590))</div>
+<div class="trace">6419: WM_SIZE</div>
+<div class="trace">6419: CWindow::updateWindowBounds(rect = (668, 179, 508, 590))</div>
+<div class="trace">6419: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6419: CWindow::m_backBufferResizingRequest = (492, 546)</div>
+<div class="trace">6425: CWindow::updateWindowBounds(rect = (670, 178, 506, 591))</div>
+<div class="trace">6425: WM_SIZE</div>
+<div class="trace">6426: CWindow::updateWindowBounds(rect = (670, 178, 506, 591))</div>
+<div class="trace">6426: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6426: CWindow::m_backBufferResizingRequest = (490, 547)</div>
+<div class="trace">6433: CWindow::updateWindowBounds(rect = (671, 177, 505, 592))</div>
+<div class="trace">6433: WM_SIZE</div>
+<div class="trace">6433: CWindow::updateWindowBounds(rect = (671, 177, 505, 592))</div>
+<div class="trace">6434: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6434: CWindow::m_backBufferResizingRequest = (489, 548)</div>
+<div class="trace">6434: D3D11RenderTarget::resizeBuffers(backBufferSize = (489, 548), sceneSize = (489, 548))</div>
+<div class="trace">6439: D3D11RenderTarget::m_backBuffer.size = (489, 548)</div>
+<div class="trace">6440: CreateRTVFromBackBuffer()</div>
+<div class="trace">6440: CWindow::updateWindowBounds(rect = (672, 176, 504, 593))</div>
+<div class="trace">6440: CreateRenderTarget2D(size = (489, 548), sampleCount = 4)</div>
+<div class="trace">6440: WM_SIZE</div>
+<div class="trace">6441: CWindow::updateWindowBounds(rect = (672, 176, 504, 593))</div>
+<div class="trace">6441: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6441: CWindow::m_backBufferResizingRequest = (488, 549)</div>
+<div class="trace">6451: D3D11RenderTarget::resizeBuffers(backBufferSize = (488, 549), sceneSize = (488, 549))</div>
+<div class="trace">6454: D3D11RenderTarget::m_backBuffer.size = (488, 549)</div>
+<div class="trace">6455: CreateRTVFromBackBuffer()</div>
+<div class="trace">6455: CreateRenderTarget2D(size = (488, 549), sampleCount = 4)</div>
+<div class="trace">6470: CWindow::updateWindowBounds(rect = (672, 175, 504, 594))</div>
+<div class="trace">6471: WM_SIZE</div>
+<div class="trace">6471: CWindow::updateWindowBounds(rect = (672, 175, 504, 594))</div>
+<div class="trace">6471: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6471: CWindow::m_backBufferResizingRequest = (488, 550)</div>
+<div class="trace">6484: D3D11RenderTarget::resizeBuffers(backBufferSize = (488, 550), sceneSize = (488, 550))</div>
+<div class="trace">6490: D3D11RenderTarget::m_backBuffer.size = (488, 550)</div>
+<div class="trace">6490: CreateRTVFromBackBuffer()</div>
+<div class="trace">6491: CreateRenderTarget2D(size = (488, 550), sampleCount = 4)</div>
+<div class="trace">6500: CWindow::updateWindowBounds(rect = (673, 175, 503, 594))</div>
+<div class="trace">6500: WM_SIZE</div>
+<div class="trace">6500: CWindow::updateWindowBounds(rect = (673, 175, 503, 594))</div>
+<div class="trace">6500: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6501: CWindow::m_backBufferResizingRequest = (487, 550)</div>
+<div class="trace">6501: D3D11RenderTarget::resizeBuffers(backBufferSize = (487, 550), sceneSize = (487, 550))</div>
+<div class="trace">6507: D3D11RenderTarget::m_backBuffer.size = (487, 550)</div>
+<div class="trace">6507: CreateRTVFromBackBuffer()</div>
+<div class="trace">6507: CWindow::updateWindowBounds(rect = (673, 172, 503, 597))</div>
+<div class="trace">6507: CreateRenderTarget2D(size = (487, 550), sampleCount = 4)</div>
+<div class="trace">6508: WM_SIZE</div>
+<div class="trace">6508: CWindow::updateWindowBounds(rect = (673, 172, 503, 597))</div>
+<div class="trace">6508: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6508: CWindow::m_backBufferResizingRequest = (487, 553)</div>
+<div class="trace">6515: CWindow::updateWindowBounds(rect = (670, 169, 506, 600))</div>
+<div class="trace">6516: WM_SIZE</div>
+<div class="trace">6516: CWindow::updateWindowBounds(rect = (670, 169, 506, 600))</div>
+<div class="trace">6516: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6516: CWindow::m_backBufferResizingRequest = (490, 556)</div>
+<div class="trace">6518: D3D11RenderTarget::resizeBuffers(backBufferSize = (490, 556), sceneSize = (490, 556))</div>
+<div class="trace">6521: CWindow::updateWindowBounds(rect = (666, 164, 510, 605))</div>
+<div class="trace">6521: WM_SIZE</div>
+<div class="trace">6522: CWindow::updateWindowBounds(rect = (666, 164, 510, 605))</div>
+<div class="trace">6522: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6522: CWindow::m_backBufferResizingRequest = (494, 561)</div>
+<div class="trace">6523: D3D11RenderTarget::m_backBuffer.size = (490, 556)</div>
+<div class="trace">6523: CreateRTVFromBackBuffer()</div>
+<div class="trace">6523: CreateRenderTarget2D(size = (490, 556), sampleCount = 4)</div>
+<div class="trace">6537: CWindow::updateWindowBounds(rect = (649, 151, 527, 618))</div>
+<div class="trace">6538: WM_SIZE</div>
+<div class="trace">6538: CWindow::updateWindowBounds(rect = (649, 151, 527, 618))</div>
+<div class="trace">6538: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6538: CWindow::m_backBufferResizingRequest = (511, 574)</div>
+<div class="trace">6552: D3D11RenderTarget::resizeBuffers(backBufferSize = (511, 574), sceneSize = (511, 574))</div>
+<div class="trace">6554: CWindow::updateWindowBounds(rect = (624, 135, 552, 634))</div>
+<div class="trace">6554: WM_SIZE</div>
+<div class="trace">6554: CWindow::updateWindowBounds(rect = (624, 135, 552, 634))</div>
+<div class="trace">6555: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6555: CWindow::m_backBufferResizingRequest = (536, 590)</div>
+<div class="trace">6560: D3D11RenderTarget::m_backBuffer.size = (511, 574)</div>
+<div class="trace">6560: CreateRTVFromBackBuffer()</div>
+<div class="trace">6560: CreateRenderTarget2D(size = (511, 574), sampleCount = 4)</div>
+<div class="trace">6573: CWindow::updateWindowBounds(rect = (560, 115, 616, 654))</div>
+<div class="trace">6573: WM_SIZE</div>
+<div class="trace">6573: CWindow::updateWindowBounds(rect = (560, 115, 616, 654))</div>
+<div class="trace">6574: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6574: CWindow::m_backBufferResizingRequest = (600, 610)</div>
+<div class="trace">6580: CWindow::updateWindowBounds(rect = (538, 113, 638, 656))</div>
+<div class="trace">6580: WM_SIZE</div>
+<div class="trace">6580: CWindow::updateWindowBounds(rect = (538, 113, 638, 656))</div>
+<div class="trace">6581: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6581: CWindow::m_backBufferResizingRequest = (622, 612)</div>
+<div class="trace">6584: D3D11RenderTarget::resizeBuffers(backBufferSize = (622, 612), sceneSize = (622, 612))</div>
+<div class="trace">6588: D3D11RenderTarget::m_backBuffer.size = (622, 612)</div>
+<div class="trace">6588: CreateRTVFromBackBuffer()</div>
+<div class="trace">6589: CreateRenderTarget2D(size = (622, 612), sampleCount = 4)</div>
+<div class="trace">6590: CWindow::updateWindowBounds(rect = (508, 109, 668, 660))</div>
+<div class="trace">6590: WM_SIZE</div>
+<div class="trace">6590: CWindow::updateWindowBounds(rect = (508, 109, 668, 660))</div>
+<div class="trace">6590: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6591: CWindow::m_backBufferResizingRequest = (652, 616)</div>
+<div class="trace">6601: D3D11RenderTarget::resizeBuffers(backBufferSize = (652, 616), sceneSize = (652, 616))</div>
+<div class="trace">6606: D3D11RenderTarget::m_backBuffer.size = (652, 616)</div>
+<div class="trace">6606: CreateRTVFromBackBuffer()</div>
+<div class="trace">6606: CreateRenderTarget2D(size = (652, 616), sampleCount = 4)</div>
+<div class="trace">6611: CWindow::updateWindowBounds(rect = (415, 115, 761, 654))</div>
+<div class="trace">6611: WM_SIZE</div>
+<div class="trace">6611: CWindow::updateWindowBounds(rect = (415, 115, 761, 654))</div>
+<div class="trace">6612: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6612: CWindow::m_backBufferResizingRequest = (745, 610)</div>
+<div class="trace">6617: CWindow::updateWindowBounds(rect = (389, 122, 787, 647))</div>
+<div class="trace">6618: WM_SIZE</div>
+<div class="trace">6617: D3D11RenderTarget::resizeBuffers(backBufferSize = (745, 610), sceneSize = (745, 610))</div>
+<div class="trace">6618: CWindow::updateWindowBounds(rect = (389, 122, 787, 647))</div>
+<div class="trace">6619: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6619: CWindow::m_backBufferResizingRequest = (771, 603)</div>
+<div class="trace">6623: D3D11RenderTarget::m_backBuffer.size = (745, 610)</div>
+<div class="trace">6623: CreateRTVFromBackBuffer()</div>
+<div class="trace">6624: CreateRenderTarget2D(size = (745, 610), sampleCount = 4)</div>
+<div class="trace">6630: CWindow::updateWindowBounds(rect = (356, 127, 820, 642))</div>
+<div class="trace">6631: WM_SIZE</div>
+<div class="trace">6631: CWindow::updateWindowBounds(rect = (356, 127, 820, 642))</div>
+<div class="trace">6631: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6632: CWindow::m_backBufferResizingRequest = (804, 598)</div>
+<div class="trace">6635: D3D11RenderTarget::resizeBuffers(backBufferSize = (804, 598), sceneSize = (804, 598))</div>
+<div class="trace">6640: D3D11RenderTarget::m_backBuffer.size = (804, 598)</div>
+<div class="trace">6641: CreateRTVFromBackBuffer()</div>
+<div class="trace">6641: CWindow::updateWindowBounds(rect = (308, 145, 868, 624))</div>
+<div class="trace">6641: WM_SIZE</div>
+<div class="trace">6641: CWindow::updateWindowBounds(rect = (308, 145, 868, 624))</div>
+<div class="trace">6641: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6641: CreateRenderTarget2D(size = (804, 598), sampleCount = 4)</div>
+<div class="trace">6642: CWindow::m_backBufferResizingRequest = (852, 580)</div>
+<div class="trace">6648: CWindow::updateWindowBounds(rect = (280, 152, 896, 617))</div>
+<div class="trace">6649: WM_SIZE</div>
+<div class="trace">6649: CWindow::updateWindowBounds(rect = (280, 152, 896, 617))</div>
+<div class="trace">6649: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6649: CWindow::m_backBufferResizingRequest = (880, 573)</div>
+<div class="trace">6652: D3D11RenderTarget::resizeBuffers(backBufferSize = (880, 573), sceneSize = (880, 573))</div>
+<div class="trace">6656: D3D11RenderTarget::m_backBuffer.size = (880, 573)</div>
+<div class="trace">6656: CreateRTVFromBackBuffer()</div>
+<div class="trace">6657: CWindow::updateWindowBounds(rect = (260, 161, 916, 608))</div>
+<div class="trace">6657: CreateRenderTarget2D(size = (880, 573), sampleCount = 4)</div>
+<div class="trace">6657: WM_SIZE</div>
+<div class="trace">6657: CWindow::updateWindowBounds(rect = (260, 161, 916, 608))</div>
+<div class="trace">6657: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6658: CWindow::m_backBufferResizingRequest = (900, 564)</div>
+<div class="trace">6667: D3D11RenderTarget::resizeBuffers(backBufferSize = (900, 564), sceneSize = (900, 564))</div>
+<div class="trace">6672: D3D11RenderTarget::m_backBuffer.size = (900, 564)</div>
+<div class="trace">6672: CreateRTVFromBackBuffer()</div>
+<div class="trace">6672: CreateRenderTarget2D(size = (900, 564), sampleCount = 4)</div>
+<div class="trace">6678: CWindow::updateWindowBounds(rect = (220, 175, 956, 594))</div>
+<div class="trace">6678: WM_SIZE</div>
+<div class="trace">6679: CWindow::updateWindowBounds(rect = (220, 175, 956, 594))</div>
+<div class="trace">6679: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6679: CWindow::m_backBufferResizingRequest = (940, 550)</div>
+<div class="trace">6684: CWindow::updateWindowBounds(rect = (212, 177, 964, 592))</div>
+<div class="trace">6684: D3D11RenderTarget::resizeBuffers(backBufferSize = (940, 550), sceneSize = (940, 550))</div>
+<div class="trace">6684: WM_SIZE</div>
+<div class="trace">6685: CWindow::updateWindowBounds(rect = (212, 177, 964, 592))</div>
+<div class="trace">6685: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6685: CWindow::m_backBufferResizingRequest = (948, 548)</div>
+<div class="trace">6688: D3D11RenderTarget::m_backBuffer.size = (940, 550)</div>
+<div class="trace">6689: CreateRTVFromBackBuffer()</div>
+<div class="trace">6689: CreateRenderTarget2D(size = (940, 550), sampleCount = 4)</div>
+<div class="trace">6696: CWindow::updateWindowBounds(rect = (203, 180, 973, 589))</div>
+<div class="trace">6697: WM_SIZE</div>
+<div class="trace">6697: CWindow::updateWindowBounds(rect = (203, 180, 973, 589))</div>
+<div class="trace">6697: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6697: CWindow::m_backBufferResizingRequest = (957, 545)</div>
+<div class="trace">6701: D3D11RenderTarget::resizeBuffers(backBufferSize = (957, 545), sceneSize = (957, 545))</div>
+<div class="trace">6705: D3D11RenderTarget::m_backBuffer.size = (957, 545)</div>
+<div class="trace">6705: CreateRTVFromBackBuffer()</div>
+<div class="trace">6705: CreateRenderTarget2D(size = (957, 545), sampleCount = 4)</div>
+<div class="trace">6707: CWindow::updateWindowBounds(rect = (195, 184, 981, 585))</div>
+<div class="trace">6708: WM_SIZE</div>
+<div class="trace">6708: CWindow::updateWindowBounds(rect = (195, 184, 981, 585))</div>
+<div class="trace">6708: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6708: CWindow::m_backBufferResizingRequest = (965, 541)</div>
+<div class="trace">6718: D3D11RenderTarget::resizeBuffers(backBufferSize = (965, 541), sceneSize = (965, 541))</div>
+<div class="trace">6722: CWindow::updateWindowBounds(rect = (190, 187, 986, 582))</div>
+<div class="trace">6722: D3D11RenderTarget::m_backBuffer.size = (965, 541)</div>
+<div class="trace">6722: CreateRTVFromBackBuffer()</div>
+<div class="trace">6722: WM_SIZE</div>
+<div class="trace">6723: CreateRenderTarget2D(size = (965, 541), sampleCount = 4)</div>
+<div class="trace">6723: CWindow::updateWindowBounds(rect = (190, 187, 986, 582))</div>
+<div class="trace">6723: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6724: CWindow::m_backBufferResizingRequest = (970, 538)</div>
+<div class="trace">6745: CWindow::updateWindowBounds(rect = (186, 196, 990, 573))</div>
+<div class="trace">6745: WM_SIZE</div>
+<div class="trace">6745: CWindow::updateWindowBounds(rect = (186, 196, 990, 573))</div>
+<div class="trace">6745: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6746: CWindow::m_backBufferResizingRequest = (974, 529)</div>
+<div class="trace">6751: D3D11RenderTarget::resizeBuffers(backBufferSize = (974, 529), sceneSize = (974, 529))</div>
+<div class="trace">6754: CWindow::updateWindowBounds(rect = (183, 206, 993, 563))</div>
+<div class="trace">6754: WM_SIZE</div>
+<div class="trace">6754: CWindow::updateWindowBounds(rect = (183, 206, 993, 563))</div>
+<div class="trace">6754: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6755: CWindow::m_backBufferResizingRequest = (977, 519)</div>
+<div class="trace">6757: D3D11RenderTarget::m_backBuffer.size = (974, 529)</div>
+<div class="trace">6758: CreateRTVFromBackBuffer()</div>
+<div class="trace">6758: CreateRenderTarget2D(size = (974, 529), sampleCount = 4)</div>
+<div class="trace">6760: CWindow::updateWindowBounds(rect = (181, 214, 995, 555))</div>
+<div class="trace">6760: WM_SIZE</div>
+<div class="trace">6761: CWindow::updateWindowBounds(rect = (181, 214, 995, 555))</div>
+<div class="trace">6761: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6761: CWindow::m_backBufferResizingRequest = (979, 511)</div>
+<div class="trace">6768: D3D11RenderTarget::resizeBuffers(backBufferSize = (979, 511), sceneSize = (979, 511))</div>
+<div class="trace">6773: D3D11RenderTarget::m_backBuffer.size = (979, 511)</div>
+<div class="trace">6773: CreateRTVFromBackBuffer()</div>
+<div class="trace">6774: CWindow::updateWindowBounds(rect = (180, 228, 996, 541))</div>
+<div class="trace">6774: CreateRenderTarget2D(size = (979, 511), sampleCount = 4)</div>
+<div class="trace">6774: WM_SIZE</div>
+<div class="trace">6774: CWindow::updateWindowBounds(rect = (180, 228, 996, 541))</div>
+<div class="trace">6774: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6775: CWindow::m_backBufferResizingRequest = (980, 497)</div>
+<div class="trace">6782: CWindow::updateWindowBounds(rect = (180, 238, 996, 531))</div>
+<div class="trace">6782: WM_SIZE</div>
+<div class="trace">6782: CWindow::updateWindowBounds(rect = (180, 238, 996, 531))</div>
+<div class="trace">6782: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6782: CWindow::m_backBufferResizingRequest = (980, 487)</div>
+<div class="trace">6785: D3D11RenderTarget::resizeBuffers(backBufferSize = (980, 487), sceneSize = (980, 487))</div>
+<div class="trace">6789: D3D11RenderTarget::m_backBuffer.size = (980, 487)</div>
+<div class="trace">6789: CreateRTVFromBackBuffer()</div>
+<div class="trace">6789: CreateRenderTarget2D(size = (980, 487), sampleCount = 4)</div>
+<div class="trace">6791: CWindow::updateWindowBounds(rect = (181, 249, 995, 520))</div>
+<div class="trace">6791: WM_SIZE</div>
+<div class="trace">6791: CWindow::updateWindowBounds(rect = (181, 249, 995, 520))</div>
+<div class="trace">6792: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6792: CWindow::m_backBufferResizingRequest = (979, 476)</div>
+<div class="trace">6801: D3D11RenderTarget::resizeBuffers(backBufferSize = (979, 476), sceneSize = (979, 476))</div>
+<div class="trace">6806: D3D11RenderTarget::m_backBuffer.size = (979, 476)</div>
+<div class="trace">6806: CreateRTVFromBackBuffer()</div>
+<div class="trace">6806: CreateRenderTarget2D(size = (979, 476), sampleCount = 4)</div>
+<div class="trace">6811: CWindow::updateWindowBounds(rect = (187, 275, 989, 494))</div>
+<div class="trace">6811: WM_SIZE</div>
+<div class="trace">6811: CWindow::updateWindowBounds(rect = (187, 275, 989, 494))</div>
+<div class="trace">6811: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6812: CWindow::m_backBufferResizingRequest = (973, 450)</div>
+<div class="trace">6818: D3D11RenderTarget::resizeBuffers(backBufferSize = (973, 450), sceneSize = (973, 450))</div>
+<div class="trace">6825: CWindow::updateWindowBounds(rect = (190, 285, 986, 484))</div>
+<div class="trace">6825: WM_SIZE</div>
+<div class="trace">6825: CWindow::updateWindowBounds(rect = (190, 285, 986, 484))</div>
+<div class="trace">6825: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6826: CWindow::m_backBufferResizingRequest = (970, 440)</div>
+<div class="trace">6828: D3D11RenderTarget::m_backBuffer.size = (973, 450)</div>
+<div class="trace">6829: CreateRTVFromBackBuffer()</div>
+<div class="trace">6829: CreateRenderTarget2D(size = (973, 450), sampleCount = 4)</div>
+<div class="trace">6841: CWindow::updateWindowBounds(rect = (206, 311, 970, 458))</div>
+<div class="trace">6842: WM_SIZE</div>
+<div class="trace">6842: CWindow::updateWindowBounds(rect = (206, 311, 970, 458))</div>
+<div class="trace">6843: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6843: CWindow::m_backBufferResizingRequest = (954, 414)</div>
+<div class="trace">6847: CWindow::updateWindowBounds(rect = (214, 318, 962, 451))</div>
+<div class="trace">6847: WM_SIZE</div>
+<div class="trace">6848: CWindow::updateWindowBounds(rect = (214, 318, 962, 451))</div>
+<div class="trace">6848: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6848: CWindow::m_backBufferResizingRequest = (946, 407)</div>
+<div class="trace">6851: D3D11RenderTarget::resizeBuffers(backBufferSize = (946, 407), sceneSize = (946, 407))</div>
+<div class="trace">6855: D3D11RenderTarget::m_backBuffer.size = (946, 407)</div>
+<div class="trace">6856: CreateRTVFromBackBuffer()</div>
+<div class="trace">6856: CreateRenderTarget2D(size = (946, 407), sampleCount = 4)</div>
+<div class="trace">6858: CWindow::updateWindowBounds(rect = (224, 326, 952, 443))</div>
+<div class="trace">6858: WM_SIZE</div>
+<div class="trace">6858: CWindow::updateWindowBounds(rect = (224, 326, 952, 443))</div>
+<div class="trace">6859: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6859: CWindow::m_backBufferResizingRequest = (936, 399)</div>
+<div class="trace">6868: D3D11RenderTarget::resizeBuffers(backBufferSize = (936, 399), sceneSize = (936, 399))</div>
+<div class="trace">6872: D3D11RenderTarget::m_backBuffer.size = (936, 399)</div>
+<div class="trace">6872: CreateRTVFromBackBuffer()</div>
+<div class="trace">6873: CWindow::updateWindowBounds(rect = (242, 338, 934, 431))</div>
+<div class="trace">6873: CreateRenderTarget2D(size = (936, 399), sampleCount = 4)</div>
+<div class="trace">6873: WM_SIZE</div>
+<div class="trace">6873: CWindow::updateWindowBounds(rect = (242, 338, 934, 431))</div>
+<div class="trace">6874: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6874: CWindow::m_backBufferResizingRequest = (918, 387)</div>
+<div class="trace">6881: CWindow::updateWindowBounds(rect = (251, 345, 925, 424))</div>
+<div class="trace">6882: WM_SIZE</div>
+<div class="trace">6882: CWindow::updateWindowBounds(rect = (251, 345, 925, 424))</div>
+<div class="trace">6882: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6882: CWindow::m_backBufferResizingRequest = (909, 380)</div>
+<div class="trace">6884: D3D11RenderTarget::resizeBuffers(backBufferSize = (909, 380), sceneSize = (909, 380))</div>
+<div class="trace">6888: CWindow::updateWindowBounds(rect = (266, 354, 910, 415))</div>
+<div class="trace">6889: WM_SIZE</div>
+<div class="trace">6889: CWindow::updateWindowBounds(rect = (266, 354, 910, 415))</div>
+<div class="trace">6889: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6889: CWindow::m_backBufferResizingRequest = (894, 371)</div>
+<div class="trace">6892: D3D11RenderTarget::m_backBuffer.size = (909, 380)</div>
+<div class="trace">6893: CreateRTVFromBackBuffer()</div>
+<div class="trace">6893: CreateRenderTarget2D(size = (909, 380), sampleCount = 4)</div>
+<div class="trace">6903: CWindow::updateWindowBounds(rect = (301, 364, 875, 405))</div>
+<div class="trace">6903: WM_SIZE</div>
+<div class="trace">6904: CWindow::updateWindowBounds(rect = (301, 364, 875, 405))</div>
+<div class="trace">6904: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6904: CWindow::m_backBufferResizingRequest = (859, 361)</div>
+<div class="trace">6909: CWindow::updateWindowBounds(rect = (318, 368, 858, 401))</div>
+<div class="trace">6909: WM_SIZE</div>
+<div class="trace">6909: CWindow::updateWindowBounds(rect = (318, 368, 858, 401))</div>
+<div class="trace">6910: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6910: CWindow::m_backBufferResizingRequest = (842, 357)</div>
+<div class="trace">6918: D3D11RenderTarget::resizeBuffers(backBufferSize = (842, 357), sceneSize = (842, 357))</div>
+<div class="trace">6923: D3D11RenderTarget::m_backBuffer.size = (842, 357)</div>
+<div class="trace">6923: CreateRTVFromBackBuffer()</div>
+<div class="trace">6923: CWindow::updateWindowBounds(rect = (361, 369, 815, 400))</div>
+<div class="trace">6924: CreateRenderTarget2D(size = (842, 357), sampleCount = 4)</div>
+<div class="trace">6924: WM_SIZE</div>
+<div class="trace">6925: CWindow::updateWindowBounds(rect = (361, 369, 815, 400))</div>
+<div class="trace">6925: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6926: CWindow::m_backBufferResizingRequest = (799, 356)</div>
+<div class="trace">6944: CWindow::updateWindowBounds(rect = (438, 358, 738, 411))</div>
+<div class="trace">6945: WM_SIZE</div>
+<div class="trace">6945: CWindow::updateWindowBounds(rect = (438, 358, 738, 411))</div>
+<div class="trace">6945: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6946: CWindow::m_backBufferResizingRequest = (722, 367)</div>
+<div class="trace">6951: D3D11RenderTarget::resizeBuffers(backBufferSize = (722, 367), sceneSize = (722, 367))</div>
+<div class="trace">6953: CWindow::updateWindowBounds(rect = (459, 354, 717, 415))</div>
+<div class="trace">6953: WM_SIZE</div>
+<div class="trace">6954: CWindow::updateWindowBounds(rect = (459, 354, 717, 415))</div>
+<div class="trace">6954: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6954: CWindow::m_backBufferResizingRequest = (701, 371)</div>
+<div class="trace">6957: D3D11RenderTarget::m_backBuffer.size = (722, 367)</div>
+<div class="trace">6958: CreateRTVFromBackBuffer()</div>
+<div class="trace">6959: CreateRenderTarget2D(size = (722, 367), sampleCount = 4)</div>
+<div class="trace">6961: CWindow::updateWindowBounds(rect = (480, 349, 696, 420))</div>
+<div class="trace">6961: WM_SIZE</div>
+<div class="trace">6961: CWindow::updateWindowBounds(rect = (480, 349, 696, 420))</div>
+<div class="trace">6962: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6962: CWindow::m_backBufferResizingRequest = (680, 376)</div>
+<div class="trace">6967: D3D11RenderTarget::resizeBuffers(backBufferSize = (680, 376), sceneSize = (680, 376))</div>
+<div class="trace">6973: D3D11RenderTarget::m_backBuffer.size = (680, 376)</div>
+<div class="trace">6973: CreateRTVFromBackBuffer()</div>
+<div class="trace">6974: CWindow::updateWindowBounds(rect = (527, 339, 649, 430))</div>
+<div class="trace">6974: CreateRenderTarget2D(size = (680, 376), sampleCount = 4)</div>
+<div class="trace">6974: WM_SIZE</div>
+<div class="trace">6975: CWindow::updateWindowBounds(rect = (527, 339, 649, 430))</div>
+<div class="trace">6975: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6975: CWindow::m_backBufferResizingRequest = (633, 386)</div>
+<div class="trace">6984: D3D11RenderTarget::resizeBuffers(backBufferSize = (633, 386), sceneSize = (633, 386))</div>
+<div class="trace">6989: CWindow::updateWindowBounds(rect = (568, 329, 608, 440))</div>
+<div class="trace">6989: WM_SIZE</div>
+<div class="trace">6989: CWindow::updateWindowBounds(rect = (568, 329, 608, 440))</div>
+<div class="trace">6989: CWindow::requestBackBufferResizing()</div>
+<div class="trace">6990: CWindow::m_backBufferResizingRequest = (592, 396)</div>
+<div class="trace">6991: D3D11RenderTarget::m_backBuffer.size = (633, 386)</div>
+<div class="trace">6992: CreateRTVFromBackBuffer()</div>
+<div class="trace">6992: CreateRenderTarget2D(size = (633, 386), sampleCount = 4)</div>
+<div class="trace">7004: CWindow::updateWindowBounds(rect = (597, 321, 579, 448))</div>
+<div class="trace">7005: WM_SIZE</div>
+<div class="trace">7005: CWindow::updateWindowBounds(rect = (597, 321, 579, 448))</div>
+<div class="trace">7005: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7005: CWindow::m_backBufferResizingRequest = (563, 404)</div>
+<div class="trace">7017: CWindow::updateWindowBounds(rect = (619, 310, 557, 459))</div>
+<div class="trace">7018: D3D11RenderTarget::resizeBuffers(backBufferSize = (563, 404), sceneSize = (563, 404))</div>
+<div class="trace">7018: WM_SIZE</div>
+<div class="trace">7018: CWindow::updateWindowBounds(rect = (619, 310, 557, 459))</div>
+<div class="trace">7019: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7019: CWindow::m_backBufferResizingRequest = (541, 415)</div>
+<div class="trace">7024: D3D11RenderTarget::m_backBuffer.size = (563, 404)</div>
+<div class="trace">7024: CreateRTVFromBackBuffer()</div>
+<div class="trace">7025: CreateRenderTarget2D(size = (563, 404), sampleCount = 4)</div>
+<div class="trace">7026: CWindow::updateWindowBounds(rect = (629, 304, 547, 465))</div>
+<div class="trace">7026: WM_SIZE</div>
+<div class="trace">7026: CWindow::updateWindowBounds(rect = (629, 304, 547, 465))</div>
+<div class="trace">7027: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7027: CWindow::m_backBufferResizingRequest = (531, 421)</div>
+<div class="trace">7034: D3D11RenderTarget::resizeBuffers(backBufferSize = (531, 421), sceneSize = (531, 421))</div>
+<div class="trace">7039: D3D11RenderTarget::m_backBuffer.size = (531, 421)</div>
+<div class="trace">7040: CreateRTVFromBackBuffer()</div>
+<div class="trace">7040: CWindow::updateWindowBounds(rect = (644, 294, 532, 475))</div>
+<div class="trace">7040: CreateRenderTarget2D(size = (531, 421), sampleCount = 4)</div>
+<div class="trace">7040: WM_SIZE</div>
+<div class="trace">7040: CWindow::updateWindowBounds(rect = (644, 294, 532, 475))</div>
+<div class="trace">7041: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7041: CWindow::m_backBufferResizingRequest = (516, 431)</div>
+<div class="trace">7055: CWindow::updateWindowBounds(rect = (654, 279, 522, 490))</div>
+<div class="trace">7055: WM_SIZE</div>
+<div class="trace">7055: CWindow::updateWindowBounds(rect = (654, 279, 522, 490))</div>
+<div class="trace">7056: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7056: CWindow::m_backBufferResizingRequest = (506, 446)</div>
+<div class="trace">7068: D3D11RenderTarget::resizeBuffers(backBufferSize = (506, 446), sceneSize = (506, 446))</div>
+<div class="trace">7072: CWindow::updateWindowBounds(rect = (658, 268, 518, 501))</div>
+<div class="trace">7072: WM_SIZE</div>
+<div class="trace">7072: CWindow::updateWindowBounds(rect = (658, 268, 518, 501))</div>
+<div class="trace">7073: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7073: CWindow::m_backBufferResizingRequest = (502, 457)</div>
+<div class="trace">7076: D3D11RenderTarget::m_backBuffer.size = (506, 446)</div>
+<div class="trace">7076: CreateRTVFromBackBuffer()</div>
+<div class="trace">7077: CreateRenderTarget2D(size = (506, 446), sampleCount = 4)</div>
+<div class="trace">7084: CWindow::updateWindowBounds(rect = (660, 251, 516, 518))</div>
+<div class="trace">7084: WM_SIZE</div>
+<div class="trace">7085: CWindow::updateWindowBounds(rect = (660, 251, 516, 518))</div>
+<div class="trace">7085: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7085: CWindow::m_backBufferResizingRequest = (500, 474)</div>
+<div class="trace">7092: CWindow::updateWindowBounds(rect = (657, 244, 519, 525))</div>
+<div class="trace">7092: WM_SIZE</div>
+<div class="trace">7092: CWindow::updateWindowBounds(rect = (657, 244, 519, 525))</div>
+<div class="trace">7092: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7093: CWindow::m_backBufferResizingRequest = (503, 481)</div>
+<div class="trace">7099: CWindow::updateWindowBounds(rect = (653, 230, 523, 539))</div>
+<div class="trace">7099: WM_SIZE</div>
+<div class="trace">7099: CWindow::updateWindowBounds(rect = (653, 230, 523, 539))</div>
+<div class="trace">7100: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7100: CWindow::m_backBufferResizingRequest = (507, 495)</div>
+<div class="trace">7101: D3D11RenderTarget::resizeBuffers(backBufferSize = (507, 495), sceneSize = (507, 495))</div>
+<div class="trace">7105: D3D11RenderTarget::m_backBuffer.size = (507, 495)</div>
+<div class="trace">7106: CreateRTVFromBackBuffer()</div>
+<div class="trace">7106: CreateRenderTarget2D(size = (507, 495), sampleCount = 4)</div>
+<div class="trace">7107: CWindow::updateWindowBounds(rect = (652, 220, 524, 549))</div>
+<div class="trace">7107: WM_SIZE</div>
+<div class="trace">7107: CWindow::updateWindowBounds(rect = (652, 220, 524, 549))</div>
+<div class="trace">7107: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7108: CWindow::m_backBufferResizingRequest = (508, 505)</div>
+<div class="trace">7117: D3D11RenderTarget::resizeBuffers(backBufferSize = (508, 505), sceneSize = (508, 505))</div>
+<div class="trace">7121: CWindow::updateWindowBounds(rect = (638, 193, 538, 576))</div>
+<div class="trace">7122: WM_SIZE</div>
+<div class="trace">7122: CWindow::updateWindowBounds(rect = (638, 193, 538, 576))</div>
+<div class="trace">7122: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7122: CWindow::m_backBufferResizingRequest = (522, 532)</div>
+<div class="trace">7123: D3D11RenderTarget::m_backBuffer.size = (508, 505)</div>
+<div class="trace">7123: CreateRTVFromBackBuffer()</div>
+<div class="trace">7123: CreateRenderTarget2D(size = (508, 505), sampleCount = 4)</div>
+<div class="trace">7131: CWindow::updateWindowBounds(rect = (634, 180, 542, 589))</div>
+<div class="trace">7131: WM_SIZE</div>
+<div class="trace">7131: CWindow::updateWindowBounds(rect = (634, 180, 542, 589))</div>
+<div class="trace">7131: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7132: CWindow::m_backBufferResizingRequest = (526, 545)</div>
+<div class="trace">7134: D3D11RenderTarget::resizeBuffers(backBufferSize = (526, 545), sceneSize = (526, 545))</div>
+<div class="trace">7138: CWindow::updateWindowBounds(rect = (627, 166, 549, 603))</div>
+<div class="trace">7138: WM_SIZE</div>
+<div class="trace">7138: CWindow::updateWindowBounds(rect = (627, 166, 549, 603))</div>
+<div class="trace">7138: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7139: CWindow::m_backBufferResizingRequest = (533, 559)</div>
+<div class="trace">7146: D3D11RenderTarget::m_backBuffer.size = (526, 545)</div>
+<div class="trace">7146: CreateRTVFromBackBuffer()</div>
+<div class="trace">7146: CreateRenderTarget2D(size = (526, 545), sampleCount = 4)</div>
+<div class="trace">7154: CWindow::updateWindowBounds(rect = (620, 153, 556, 616))</div>
+<div class="trace">7154: WM_SIZE</div>
+<div class="trace">7154: CWindow::updateWindowBounds(rect = (620, 153, 556, 616))</div>
+<div class="trace">7155: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7155: CWindow::m_backBufferResizingRequest = (540, 572)</div>
+<div class="trace">7159: CWindow::updateWindowBounds(rect = (616, 148, 560, 621))</div>
+<div class="trace">7159: WM_SIZE</div>
+<div class="trace">7160: CWindow::updateWindowBounds(rect = (616, 148, 560, 621))</div>
+<div class="trace">7160: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7160: CWindow::m_backBufferResizingRequest = (544, 577)</div>
+<div class="trace">7168: D3D11RenderTarget::resizeBuffers(backBufferSize = (544, 577), sceneSize = (544, 577))</div>
+<div class="trace">7175: D3D11RenderTarget::m_backBuffer.size = (544, 577)</div>
+<div class="trace">7175: CWindow::updateWindowBounds(rect = (609, 139, 567, 630))</div>
+<div class="trace">7175: CreateRTVFromBackBuffer()</div>
+<div class="trace">7176: WM_SIZE</div>
+<div class="trace">7176: CreateRenderTarget2D(size = (544, 577), sampleCount = 4)</div>
+<div class="trace">7176: CWindow::updateWindowBounds(rect = (609, 139, 567, 630))</div>
+<div class="trace">7176: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7177: CWindow::m_backBufferResizingRequest = (551, 586)</div>
+<div class="trace">7196: CWindow::updateWindowBounds(rect = (606, 135, 570, 634))</div>
+<div class="trace">7196: WM_SIZE</div>
+<div class="trace">7196: CWindow::updateWindowBounds(rect = (606, 135, 570, 634))</div>
+<div class="trace">7196: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7197: CWindow::m_backBufferResizingRequest = (554, 590)</div>
+<div class="trace">7201: D3D11RenderTarget::resizeBuffers(backBufferSize = (554, 590), sceneSize = (554, 590))</div>
+<div class="trace">7206: D3D11RenderTarget::m_backBuffer.size = (554, 590)</div>
+<div class="trace">7206: CreateRTVFromBackBuffer()</div>
+<div class="trace">7206: CreateRenderTarget2D(size = (554, 590), sampleCount = 4)</div>
+<div class="trace">7211: CWindow::updateWindowBounds(rect = (599, 130, 577, 639))</div>
+<div class="trace">7211: WM_SIZE</div>
+<div class="trace">7212: CWindow::updateWindowBounds(rect = (599, 130, 577, 639))</div>
+<div class="trace">7212: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7212: CWindow::m_backBufferResizingRequest = (561, 595)</div>
+<div class="trace">7217: CWindow::updateWindowBounds(rect = (596, 129, 580, 640))</div>
+<div class="trace">7218: WM_SIZE</div>
+<div class="trace">7218: D3D11RenderTarget::resizeBuffers(backBufferSize = (561, 595), sceneSize = (561, 595))</div>
+<div class="trace">7218: CWindow::updateWindowBounds(rect = (596, 129, 580, 640))</div>
+<div class="trace">7218: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7219: CWindow::m_backBufferResizingRequest = (564, 596)</div>
+<div class="trace">7222: D3D11RenderTarget::m_backBuffer.size = (561, 595)</div>
+<div class="trace">7223: CreateRTVFromBackBuffer()</div>
+<div class="trace">7223: CreateRenderTarget2D(size = (561, 595), sampleCount = 4)</div>
+<div class="trace">7226: CWindow::updateWindowBounds(rect = (592, 127, 584, 642))</div>
+<div class="trace">7226: WM_SIZE</div>
+<div class="trace">7226: CWindow::updateWindowBounds(rect = (592, 127, 584, 642))</div>
+<div class="trace">7227: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7227: CWindow::m_backBufferResizingRequest = (568, 598)</div>
+<div class="trace">7233: CWindow::updateWindowBounds(rect = (588, 126, 588, 643))</div>
+<div class="trace">7233: WM_SIZE</div>
+<div class="trace">7233: CWindow::updateWindowBounds(rect = (588, 126, 588, 643))</div>
+<div class="trace">7233: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7234: CWindow::m_backBufferResizingRequest = (572, 599)</div>
+<div class="trace">7234: D3D11RenderTarget::resizeBuffers(backBufferSize = (572, 599), sceneSize = (572, 599))</div>
+<div class="trace">7239: D3D11RenderTarget::m_backBuffer.size = (572, 599)</div>
+<div class="trace">7240: CreateRTVFromBackBuffer()</div>
+<div class="trace">7239: CWindow::updateWindowBounds(rect = (581, 125, 595, 644))</div>
+<div class="trace">7240: CreateRenderTarget2D(size = (572, 599), sampleCount = 4)</div>
+<div class="trace">7240: WM_SIZE</div>
+<div class="trace">7241: CWindow::updateWindowBounds(rect = (581, 125, 595, 644))</div>
+<div class="trace">7241: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7241: CWindow::m_backBufferResizingRequest = (579, 600)</div>
+<div class="trace">7256: CWindow::updateWindowBounds(rect = (576, 124, 600, 645))</div>
+<div class="trace">7256: WM_SIZE</div>
+<div class="trace">7256: CWindow::updateWindowBounds(rect = (576, 124, 600, 645))</div>
+<div class="trace">7257: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7257: CWindow::m_backBufferResizingRequest = (584, 601)</div>
+<div class="trace">7263: CWindow::updateWindowBounds(rect = (571, 124, 605, 645))</div>
+<div class="trace">7263: WM_SIZE</div>
+<div class="trace">7264: CWindow::updateWindowBounds(rect = (571, 124, 605, 645))</div>
+<div class="trace">7264: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7264: CWindow::m_backBufferResizingRequest = (589, 601)</div>
+<div class="trace">7267: D3D11RenderTarget::resizeBuffers(backBufferSize = (589, 601), sceneSize = (589, 601))</div>
+<div class="trace">7271: CWindow::updateWindowBounds(rect = (569, 123, 607, 646))</div>
+<div class="trace">7271: WM_SIZE</div>
+<div class="trace">7271: CWindow::updateWindowBounds(rect = (569, 123, 607, 646))</div>
+<div class="trace">7271: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7272: CWindow::m_backBufferResizingRequest = (591, 602)</div>
+<div class="trace">7274: D3D11RenderTarget::m_backBuffer.size = (589, 601)</div>
+<div class="trace">7274: CreateRTVFromBackBuffer()</div>
+<div class="trace">7274: CreateRenderTarget2D(size = (589, 601), sampleCount = 4)</div>
+<div class="trace">7279: CWindow::updateWindowBounds(rect = (565, 123, 611, 646))</div>
+<div class="trace">7279: WM_SIZE</div>
+<div class="trace">7280: CWindow::updateWindowBounds(rect = (565, 123, 611, 646))</div>
+<div class="trace">7280: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7280: CWindow::m_backBufferResizingRequest = (595, 602)</div>
+<div class="trace">7284: D3D11RenderTarget::resizeBuffers(backBufferSize = (595, 602), sceneSize = (595, 602))</div>
+<div class="trace">7288: D3D11RenderTarget::m_backBuffer.size = (595, 602)</div>
+<div class="trace">7289: CreateRTVFromBackBuffer()</div>
+<div class="trace">7289: CreateRenderTarget2D(size = (595, 602), sampleCount = 4)</div>
+<div class="trace">7294: CWindow::updateWindowBounds(rect = (559, 123, 617, 646))</div>
+<div class="trace">7294: WM_SIZE</div>
+<div class="trace">7294: CWindow::updateWindowBounds(rect = (559, 123, 617, 646))</div>
+<div class="trace">7295: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7295: CWindow::m_backBufferResizingRequest = (601, 602)</div>
+<div class="trace">7301: D3D11RenderTarget::resizeBuffers(backBufferSize = (601, 602), sceneSize = (601, 602))</div>
+<div class="trace">7306: D3D11RenderTarget::m_backBuffer.size = (601, 602)</div>
+<div class="trace">7306: CreateRTVFromBackBuffer()</div>
+<div class="trace">7306: CWindow::updateWindowBounds(rect = (548, 123, 628, 646))</div>
+<div class="trace">7307: CreateRenderTarget2D(size = (601, 602), sampleCount = 4)</div>
+<div class="trace">7307: WM_SIZE</div>
+<div class="trace">7307: CWindow::updateWindowBounds(rect = (548, 123, 628, 646))</div>
+<div class="trace">7308: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7308: CWindow::m_backBufferResizingRequest = (612, 602)</div>
+<div class="trace">7322: CWindow::updateWindowBounds(rect = (535, 122, 641, 647))</div>
+<div class="trace">7322: WM_SIZE</div>
+<div class="trace">7322: CWindow::updateWindowBounds(rect = (535, 122, 641, 647))</div>
+<div class="trace">7323: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7323: CWindow::m_backBufferResizingRequest = (625, 603)</div>
+<div class="trace">7335: D3D11RenderTarget::resizeBuffers(backBufferSize = (625, 603), sceneSize = (625, 603))</div>
+<div class="trace">7339: CWindow::updateWindowBounds(rect = (520, 122, 656, 647))</div>
+<div class="trace">7339: WM_SIZE</div>
+<div class="trace">7340: CWindow::updateWindowBounds(rect = (520, 122, 656, 647))</div>
+<div class="trace">7340: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7340: CWindow::m_backBufferResizingRequest = (640, 603)</div>
+<div class="trace">7343: D3D11RenderTarget::m_backBuffer.size = (625, 603)</div>
+<div class="trace">7343: CreateRTVFromBackBuffer()</div>
+<div class="trace">7343: CreateRenderTarget2D(size = (625, 603), sampleCount = 4)</div>
+<div class="trace">7346: CWindow::updateWindowBounds(rect = (514, 123, 662, 646))</div>
+<div class="trace">7346: WM_SIZE</div>
+<div class="trace">7347: CWindow::updateWindowBounds(rect = (514, 123, 662, 646))</div>
+<div class="trace">7347: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7348: CWindow::m_backBufferResizingRequest = (646, 602)</div>
+<div class="trace">7352: D3D11RenderTarget::resizeBuffers(backBufferSize = (646, 602), sceneSize = (646, 602))</div>
+<div class="trace">7359: CWindow::updateWindowBounds(rect = (489, 122, 687, 647))</div>
+<div class="trace">7360: WM_SIZE</div>
+<div class="trace">7360: CWindow::updateWindowBounds(rect = (489, 122, 687, 647))</div>
+<div class="trace">7360: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7360: CWindow::m_backBufferResizingRequest = (671, 603)</div>
+<div class="trace">7364: D3D11RenderTarget::m_backBuffer.size = (646, 602)</div>
+<div class="trace">7364: CreateRTVFromBackBuffer()</div>
+<div class="trace">7364: CreateRenderTarget2D(size = (646, 602), sampleCount = 4)</div>
+<div class="trace">7374: CWindow::updateWindowBounds(rect = (469, 122, 707, 647))</div>
+<div class="trace">7374: WM_SIZE</div>
+<div class="trace">7374: CWindow::updateWindowBounds(rect = (469, 122, 707, 647))</div>
+<div class="trace">7375: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7375: CWindow::m_backBufferResizingRequest = (691, 603)</div>
+<div class="trace">7384: D3D11RenderTarget::resizeBuffers(backBufferSize = (691, 603), sceneSize = (691, 603))</div>
+<div class="trace">7389: CWindow::updateWindowBounds(rect = (452, 122, 724, 647))</div>
+<div class="trace">7389: WM_SIZE</div>
+<div class="trace">7390: CWindow::updateWindowBounds(rect = (452, 122, 724, 647))</div>
+<div class="trace">7390: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7390: CWindow::m_backBufferResizingRequest = (708, 603)</div>
+<div class="trace">7390: D3D11RenderTarget::m_backBuffer.size = (691, 603)</div>
+<div class="trace">7391: CreateRTVFromBackBuffer()</div>
+<div class="trace">7391: CreateRenderTarget2D(size = (691, 603), sampleCount = 4)</div>
+<div class="trace">7404: CWindow::updateWindowBounds(rect = (435, 121, 741, 648))</div>
+<div class="trace">7404: WM_SIZE</div>
+<div class="trace">7405: CWindow::updateWindowBounds(rect = (435, 121, 741, 648))</div>
+<div class="trace">7405: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7405: CWindow::m_backBufferResizingRequest = (725, 604)</div>
+<div class="trace">7418: D3D11RenderTarget::resizeBuffers(backBufferSize = (725, 604), sceneSize = (725, 604))</div>
+<div class="trace">7420: CWindow::updateWindowBounds(rect = (425, 119, 751, 650))</div>
+<div class="trace">7420: WM_SIZE</div>
+<div class="trace">7421: CWindow::updateWindowBounds(rect = (425, 119, 751, 650))</div>
+<div class="trace">7421: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7421: CWindow::m_backBufferResizingRequest = (735, 606)</div>
+<div class="trace">7426: D3D11RenderTarget::m_backBuffer.size = (725, 604)</div>
+<div class="trace">7426: CreateRTVFromBackBuffer()</div>
+<div class="trace">7426: CWindow::updateWindowBounds(rect = (423, 119, 753, 650))</div>
+<div class="trace">7427: WM_SIZE</div>
+<div class="trace">7427: CreateRenderTarget2D(size = (725, 604), sampleCount = 4)</div>
+<div class="trace">7427: CWindow::updateWindowBounds(rect = (423, 119, 753, 650))</div>
+<div class="trace">7428: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7428: CWindow::m_backBufferResizingRequest = (737, 606)</div>
+<div class="trace">7441: CWindow::updateWindowBounds(rect = (413, 116, 763, 653))</div>
+<div class="trace">7441: WM_SIZE</div>
+<div class="trace">7441: CWindow::updateWindowBounds(rect = (413, 116, 763, 653))</div>
+<div class="trace">7442: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7442: CWindow::m_backBufferResizingRequest = (747, 609)</div>
+<div class="trace">7452: D3D11RenderTarget::resizeBuffers(backBufferSize = (747, 609), sceneSize = (747, 609))</div>
+<div class="trace">7458: CWindow::updateWindowBounds(rect = (402, 114, 774, 655))</div>
+<div class="trace">7458: WM_SIZE</div>
+<div class="trace">7459: CWindow::updateWindowBounds(rect = (402, 114, 774, 655))</div>
+<div class="trace">7459: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7459: CWindow::m_backBufferResizingRequest = (758, 611)</div>
+<div class="trace">7461: D3D11RenderTarget::m_backBuffer.size = (747, 609)</div>
+<div class="trace">7461: CreateRTVFromBackBuffer()</div>
+<div class="trace">7461: CreateRenderTarget2D(size = (747, 609), sampleCount = 4)</div>
+<div class="trace">7487: CWindow::updateWindowBounds(rect = (380, 110, 796, 659))</div>
+<div class="trace">7487: WM_SIZE</div>
+<div class="trace">7487: CWindow::updateWindowBounds(rect = (380, 110, 796, 659))</div>
+<div class="trace">7488: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7488: CWindow::m_backBufferResizingRequest = (780, 615)</div>
+<div class="trace">7493: CWindow::updateWindowBounds(rect = (375, 109, 801, 660))</div>
+<div class="trace">7493: WM_SIZE</div>
+<div class="trace">7493: CWindow::updateWindowBounds(rect = (375, 109, 801, 660))</div>
+<div class="trace">7493: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7494: CWindow::m_backBufferResizingRequest = (785, 616)</div>
+<div class="trace">7501: D3D11RenderTarget::resizeBuffers(backBufferSize = (785, 616), sceneSize = (785, 616))</div>
+<div class="trace">7504: D3D11RenderTarget::m_backBuffer.size = (785, 616)</div>
+<div class="trace">7505: CreateRTVFromBackBuffer()</div>
+<div class="trace">7505: CreateRenderTarget2D(size = (785, 616), sampleCount = 4)</div>
+<div class="trace">7507: CWindow::updateWindowBounds(rect = (368, 106, 808, 663))</div>
+<div class="trace">7508: WM_SIZE</div>
+<div class="trace">7508: CWindow::updateWindowBounds(rect = (368, 106, 808, 663))</div>
+<div class="trace">7508: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7508: CWindow::m_backBufferResizingRequest = (792, 619)</div>
+<div class="trace">7517: D3D11RenderTarget::resizeBuffers(backBufferSize = (792, 619), sceneSize = (792, 619))</div>
+<div class="trace">7522: CWindow::updateWindowBounds(rect = (360, 101, 816, 668))</div>
+<div class="trace">7522: D3D11RenderTarget::m_backBuffer.size = (792, 619)</div>
+<div class="trace">7522: CreateRTVFromBackBuffer()</div>
+<div class="trace">7522: WM_SIZE</div>
+<div class="trace">7523: CreateRenderTarget2D(size = (792, 619), sampleCount = 4)</div>
+<div class="trace">7523: CWindow::updateWindowBounds(rect = (360, 101, 816, 668))</div>
+<div class="trace">7523: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7524: CWindow::m_backBufferResizingRequest = (800, 624)</div>
+<div class="trace">7544: CWindow::updateWindowBounds(rect = (349, 95, 827, 674))</div>
+<div class="trace">7544: WM_SIZE</div>
+<div class="trace">7544: CWindow::updateWindowBounds(rect = (349, 95, 827, 674))</div>
+<div class="trace">7545: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7545: CWindow::m_backBufferResizingRequest = (811, 630)</div>
+<div class="trace">7550: CWindow::updateWindowBounds(rect = (346, 94, 830, 675))</div>
+<div class="trace">7551: WM_SIZE</div>
+<div class="trace">7551: D3D11RenderTarget::resizeBuffers(backBufferSize = (811, 630), sceneSize = (811, 630))</div>
+<div class="trace">7551: CWindow::updateWindowBounds(rect = (346, 94, 830, 675))</div>
+<div class="trace">7552: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7552: CWindow::m_backBufferResizingRequest = (814, 631)</div>
+<div class="trace">7557: D3D11RenderTarget::m_backBuffer.size = (811, 630)</div>
+<div class="trace">7558: CreateRTVFromBackBuffer()</div>
+<div class="trace">7558: CreateRenderTarget2D(size = (811, 630), sampleCount = 4)</div>
+<div class="trace">7561: CWindow::updateWindowBounds(rect = (338, 91, 838, 678))</div>
+<div class="trace">7561: WM_SIZE</div>
+<div class="trace">7562: CWindow::updateWindowBounds(rect = (338, 91, 838, 678))</div>
+<div class="trace">7562: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7562: CWindow::m_backBufferResizingRequest = (822, 634)</div>
+<div class="trace">7569: D3D11RenderTarget::resizeBuffers(backBufferSize = (822, 634), sceneSize = (822, 634))</div>
+<div class="trace">7570: CWindow::updateWindowBounds(rect = (336, 91, 840, 678))</div>
+<div class="trace">7570: WM_SIZE</div>
+<div class="trace">7570: CWindow::updateWindowBounds(rect = (336, 91, 840, 678))</div>
+<div class="trace">7570: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7571: CWindow::m_backBufferResizingRequest = (824, 634)</div>
+<div class="trace">7577: D3D11RenderTarget::m_backBuffer.size = (822, 634)</div>
+<div class="trace">7577: CreateRTVFromBackBuffer()</div>
+<div class="trace">7578: CreateRenderTarget2D(size = (822, 634), sampleCount = 4)</div>
+<div class="trace">7582: CWindow::updateWindowBounds(rect = (329, 88, 847, 681))</div>
+<div class="trace">7582: WM_SIZE</div>
+<div class="trace">7583: CWindow::updateWindowBounds(rect = (329, 88, 847, 681))</div>
+<div class="trace">7583: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7583: CWindow::m_backBufferResizingRequest = (831, 637)</div>
+<div class="trace">7584: D3D11RenderTarget::resizeBuffers(backBufferSize = (831, 637), sceneSize = (831, 637))</div>
+<div class="trace">7595: CWindow::updateWindowBounds(rect = (325, 87, 851, 682))</div>
+<div class="trace">7595: WM_SIZE</div>
+<div class="trace">7595: CWindow::updateWindowBounds(rect = (325, 87, 851, 682))</div>
+<div class="trace">7596: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7596: CWindow::m_backBufferResizingRequest = (835, 638)</div>
+<div class="trace">7598: D3D11RenderTarget::m_backBuffer.size = (831, 637)</div>
+<div class="trace">7598: CreateRTVFromBackBuffer()</div>
+<div class="trace">7599: CreateRenderTarget2D(size = (831, 637), sampleCount = 4)</div>
+<div class="trace">7611: CWindow::updateWindowBounds(rect = (317, 84, 859, 685))</div>
+<div class="trace">7611: WM_SIZE</div>
+<div class="trace">7612: CWindow::updateWindowBounds(rect = (317, 84, 859, 685))</div>
+<div class="trace">7612: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7612: CWindow::m_backBufferResizingRequest = (843, 641)</div>
+<div class="trace">7617: CWindow::updateWindowBounds(rect = (314, 83, 862, 686))</div>
+<div class="trace">7617: D3D11RenderTarget::resizeBuffers(backBufferSize = (843, 641), sceneSize = (843, 641))</div>
+<div class="trace">7618: WM_SIZE</div>
+<div class="trace">7618: CWindow::updateWindowBounds(rect = (314, 83, 862, 686))</div>
+<div class="trace">7619: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7619: CWindow::m_backBufferResizingRequest = (846, 642)</div>
+<div class="trace">7623: D3D11RenderTarget::m_backBuffer.size = (843, 641)</div>
+<div class="trace">7623: CreateRTVFromBackBuffer()</div>
+<div class="trace">7624: CreateRenderTarget2D(size = (843, 641), sampleCount = 4)</div>
+<div class="trace">7627: CWindow::updateWindowBounds(rect = (310, 81, 866, 688))</div>
+<div class="trace">7627: WM_SIZE</div>
+<div class="trace">7627: CWindow::updateWindowBounds(rect = (310, 81, 866, 688))</div>
+<div class="trace">7628: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7628: CWindow::m_backBufferResizingRequest = (850, 644)</div>
+<div class="trace">7634: D3D11RenderTarget::resizeBuffers(backBufferSize = (850, 644), sceneSize = (850, 644))</div>
+<div class="trace">7641: D3D11RenderTarget::m_backBuffer.size = (850, 644)</div>
+<div class="trace">7641: CreateRTVFromBackBuffer()</div>
+<div class="trace">7641: CWindow::updateWindowBounds(rect = (307, 80, 869, 689))</div>
+<div class="trace">7641: CreateRenderTarget2D(size = (850, 644), sampleCount = 4)</div>
+<div class="trace">7642: WM_SIZE</div>
+<div class="trace">7642: CWindow::updateWindowBounds(rect = (307, 80, 869, 689))</div>
+<div class="trace">7642: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7643: CWindow::m_backBufferResizingRequest = (853, 645)</div>
+<div class="trace">7651: D3D11RenderTarget::resizeBuffers(backBufferSize = (853, 645), sceneSize = (853, 645))</div>
+<div class="trace">7656: CWindow::updateWindowBounds(rect = (302, 79, 874, 690))</div>
+<div class="trace">7656: WM_SIZE</div>
+<div class="trace">7656: CWindow::updateWindowBounds(rect = (302, 79, 874, 690))</div>
+<div class="trace">7656: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7657: D3D11RenderTarget::m_backBuffer.size = (853, 645)</div>
+<div class="trace">7657: CWindow::m_backBufferResizingRequest = (858, 646)</div>
+<div class="trace">7657: CreateRTVFromBackBuffer()</div>
+<div class="trace">7657: CreateRenderTarget2D(size = (853, 645), sampleCount = 4)</div>
+<div class="trace">7677: CWindow::updateWindowBounds(rect = (297, 77, 879, 692))</div>
+<div class="trace">7677: WM_SIZE</div>
+<div class="trace">7678: CWindow::updateWindowBounds(rect = (297, 77, 879, 692))</div>
+<div class="trace">7678: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7679: CWindow::m_backBufferResizingRequest = (863, 648)</div>
+<div class="trace">7684: CWindow::updateWindowBounds(rect = (295, 77, 881, 692))</div>
+<div class="trace">7684: D3D11RenderTarget::resizeBuffers(backBufferSize = (863, 648), sceneSize = (863, 648))</div>
+<div class="trace">7685: WM_SIZE</div>
+<div class="trace">7685: CWindow::updateWindowBounds(rect = (295, 77, 881, 692))</div>
+<div class="trace">7685: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7686: CWindow::m_backBufferResizingRequest = (865, 648)</div>
+<div class="trace">7689: D3D11RenderTarget::m_backBuffer.size = (863, 648)</div>
+<div class="trace">7690: CreateRTVFromBackBuffer()</div>
+<div class="trace">7690: CreateRenderTarget2D(size = (863, 648), sampleCount = 4)</div>
+<div class="trace">7694: CWindow::updateWindowBounds(rect = (292, 76, 884, 693))</div>
+<div class="trace">7694: WM_SIZE</div>
+<div class="trace">7694: CWindow::updateWindowBounds(rect = (292, 76, 884, 693))</div>
+<div class="trace">7694: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7695: CWindow::m_backBufferResizingRequest = (868, 649)</div>
+<div class="trace">7701: D3D11RenderTarget::resizeBuffers(backBufferSize = (868, 649), sceneSize = (868, 649))</div>
+<div class="trace">7707: D3D11RenderTarget::m_backBuffer.size = (868, 649)</div>
+<div class="trace">7707: CreateRTVFromBackBuffer()</div>
+<div class="trace">7708: CWindow::updateWindowBounds(rect = (290, 74, 886, 695))</div>
+<div class="trace">7708: WM_SIZE</div>
+<div class="trace">7708: CreateRenderTarget2D(size = (868, 649), sampleCount = 4)</div>
+<div class="trace">7708: CWindow::updateWindowBounds(rect = (290, 74, 886, 695))</div>
+<div class="trace">7709: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7709: CWindow::m_backBufferResizingRequest = (870, 651)</div>
+<div class="trace">7722: CWindow::updateWindowBounds(rect = (288, 73, 888, 696))</div>
+<div class="trace">7722: WM_SIZE</div>
+<div class="trace">7723: CWindow::updateWindowBounds(rect = (288, 73, 888, 696))</div>
+<div class="trace">7723: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7723: CWindow::m_backBufferResizingRequest = (872, 652)</div>
+<div class="trace">7734: D3D11RenderTarget::resizeBuffers(backBufferSize = (872, 652), sceneSize = (872, 652))</div>
+<div class="trace">7738: CWindow::updateWindowBounds(rect = (287, 73, 889, 696))</div>
+<div class="trace">7739: WM_SIZE</div>
+<div class="trace">7739: CWindow::updateWindowBounds(rect = (287, 73, 889, 696))</div>
+<div class="trace">7739: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7740: CWindow::m_backBufferResizingRequest = (873, 652)</div>
+<div class="trace">7743: D3D11RenderTarget::m_backBuffer.size = (872, 652)</div>
+<div class="trace">7743: CreateRTVFromBackBuffer()</div>
+<div class="trace">7743: CreateRenderTarget2D(size = (872, 652), sampleCount = 4)</div>
+<div class="trace">7840: CWindow::updateWindowBounds(rect = (287, 74, 889, 695))</div>
+<div class="trace">7840: WM_SIZE</div>
+<div class="trace">7840: CWindow::updateWindowBounds(rect = (287, 74, 889, 695))</div>
+<div class="trace">7841: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7841: CWindow::m_backBufferResizingRequest = (873, 651)</div>
+<div class="trace">7851: D3D11RenderTarget::resizeBuffers(backBufferSize = (873, 651), sceneSize = (873, 651))</div>
+<div class="trace">7855: CWindow::updateWindowBounds(rect = (287, 77, 889, 692))</div>
+<div class="trace">7855: WM_SIZE</div>
+<div class="trace">7855: CWindow::updateWindowBounds(rect = (287, 77, 889, 692))</div>
+<div class="trace">7856: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7856: D3D11RenderTarget::m_backBuffer.size = (873, 651)</div>
+<div class="trace">7856: CreateRTVFromBackBuffer()</div>
+<div class="trace">7856: CWindow::m_backBufferResizingRequest = (873, 648)</div>
+<div class="trace">7856: CreateRenderTarget2D(size = (873, 651), sampleCount = 4)</div>
+<div class="trace">7870: CWindow::updateWindowBounds(rect = (290, 85, 886, 684))</div>
+<div class="trace">7870: WM_SIZE</div>
+<div class="trace">7870: CWindow::updateWindowBounds(rect = (290, 85, 886, 684))</div>
+<div class="trace">7871: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7871: CWindow::m_backBufferResizingRequest = (870, 640)</div>
+<div class="trace">7877: CWindow::updateWindowBounds(rect = (293, 93, 883, 676))</div>
+<div class="trace">7878: WM_SIZE</div>
+<div class="trace">7878: CWindow::updateWindowBounds(rect = (293, 93, 883, 676))</div>
+<div class="trace">7878: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7878: CWindow::m_backBufferResizingRequest = (867, 632)</div>
+<div class="trace">7884: CWindow::updateWindowBounds(rect = (296, 103, 880, 666))</div>
+<div class="trace">7884: WM_SIZE</div>
+<div class="trace">7884: CWindow::updateWindowBounds(rect = (296, 103, 880, 666))</div>
+<div class="trace">7884: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7885: CWindow::m_backBufferResizingRequest = (864, 622)</div>
+<div class="trace">7892: CWindow::updateWindowBounds(rect = (299, 109, 877, 660))</div>
+<div class="trace">7893: WM_SIZE</div>
+<div class="trace">7893: CWindow::updateWindowBounds(rect = (299, 109, 877, 660))</div>
+<div class="trace">7893: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7893: CWindow::m_backBufferResizingRequest = (861, 616)</div>
+<div class="trace">7901: D3D11RenderTarget::resizeBuffers(backBufferSize = (861, 616), sceneSize = (861, 616))</div>
+<div class="trace">7907: CWindow::updateWindowBounds(rect = (306, 119, 870, 650))</div>
+<div class="trace">7908: WM_SIZE</div>
+<div class="trace">7908: CWindow::updateWindowBounds(rect = (306, 119, 870, 650))</div>
+<div class="trace">7908: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7908: D3D11RenderTarget::m_backBuffer.size = (861, 616)</div>
+<div class="trace">7909: CreateRTVFromBackBuffer()</div>
+<div class="trace">7909: CWindow::m_backBufferResizingRequest = (854, 606)</div>
+<div class="trace">7909: CreateRenderTarget2D(size = (861, 616), sampleCount = 4)</div>
+<div class="trace">7918: CWindow::updateWindowBounds(rect = (312, 125, 864, 644))</div>
+<div class="trace">7918: WM_SIZE</div>
+<div class="trace">7918: CWindow::updateWindowBounds(rect = (312, 125, 864, 644))</div>
+<div class="trace">7918: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7919: CWindow::m_backBufferResizingRequest = (848, 600)</div>
+<div class="trace">7923: CWindow::updateWindowBounds(rect = (318, 133, 858, 636))</div>
+<div class="trace">7924: WM_SIZE</div>
+<div class="trace">7924: CWindow::updateWindowBounds(rect = (318, 133, 858, 636))</div>
+<div class="trace">7924: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7924: CWindow::m_backBufferResizingRequest = (842, 592)</div>
+<div class="trace">7935: D3D11RenderTarget::resizeBuffers(backBufferSize = (842, 592), sceneSize = (842, 592))</div>
+<div class="trace">7950: CWindow::updateWindowBounds(rect = (328, 148, 848, 621))</div>
+<div class="trace">7950: WM_SIZE</div>
+<div class="trace">7950: CWindow::updateWindowBounds(rect = (328, 148, 848, 621))</div>
+<div class="trace">7950: D3D11RenderTarget::m_backBuffer.size = (842, 592)</div>
+<div class="trace">7951: CreateRTVFromBackBuffer()</div>
+<div class="trace">7950: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7951: CreateRenderTarget2D(size = (842, 592), sampleCount = 4)</div>
+<div class="trace">7951: CWindow::m_backBufferResizingRequest = (832, 577)</div>
+<div class="trace">7959: CWindow::updateWindowBounds(rect = (340, 163, 836, 606))</div>
+<div class="trace">7960: WM_SIZE</div>
+<div class="trace">7960: CWindow::updateWindowBounds(rect = (340, 163, 836, 606))</div>
+<div class="trace">7961: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7961: CWindow::m_backBufferResizingRequest = (820, 562)</div>
+<div class="trace">7966: CWindow::updateWindowBounds(rect = (346, 167, 830, 602))</div>
+<div class="trace">7966: WM_SIZE</div>
+<div class="trace">7967: CWindow::updateWindowBounds(rect = (346, 167, 830, 602))</div>
+<div class="trace">7967: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7967: CWindow::m_backBufferResizingRequest = (814, 558)</div>
+<div class="trace">7967: D3D11RenderTarget::resizeBuffers(backBufferSize = (814, 558), sceneSize = (814, 558))</div>
+<div class="trace">7978: D3D11RenderTarget::m_backBuffer.size = (814, 558)</div>
+<div class="trace">7978: CreateRTVFromBackBuffer()</div>
+<div class="trace">7978: CreateRenderTarget2D(size = (814, 558), sampleCount = 4)</div>
+<div class="trace">7980: CWindow::updateWindowBounds(rect = (353, 170, 823, 599))</div>
+<div class="trace">7981: WM_SIZE</div>
+<div class="trace">7981: CWindow::updateWindowBounds(rect = (353, 170, 823, 599))</div>
+<div class="trace">7981: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7981: CWindow::m_backBufferResizingRequest = (807, 555)</div>
+<div class="trace">7988: D3D11RenderTarget::resizeBuffers(backBufferSize = (807, 555), sceneSize = (807, 555))</div>
+<div class="trace">7989: CWindow::updateWindowBounds(rect = (361, 173, 815, 596))</div>
+<div class="trace">7989: WM_SIZE</div>
+<div class="trace">7989: CWindow::updateWindowBounds(rect = (361, 173, 815, 596))</div>
+<div class="trace">7989: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7990: CWindow::m_backBufferResizingRequest = (799, 552)</div>
+<div class="trace">7996: D3D11RenderTarget::m_backBuffer.size = (807, 555)</div>
+<div class="trace">7996: CreateRTVFromBackBuffer()</div>
+<div class="trace">7996: CWindow::updateWindowBounds(rect = (375, 180, 801, 589))</div>
+<div class="trace">7996: CreateRenderTarget2D(size = (807, 555), sampleCount = 4)</div>
+<div class="trace">7996: WM_SIZE</div>
+<div class="trace">7997: CWindow::updateWindowBounds(rect = (375, 180, 801, 589))</div>
+<div class="trace">7997: CWindow::requestBackBufferResizing()</div>
+<div class="trace">7997: CWindow::m_backBufferResizingRequest = (785, 545)</div>
+<div class="trace">8006: D3D11RenderTarget::resizeBuffers(backBufferSize = (785, 545), sceneSize = (785, 545))</div>
+<div class="trace">8009: CWindow::updateWindowBounds(rect = (380, 182, 796, 587))</div>
+<div class="trace">8009: WM_SIZE</div>
+<div class="trace">8010: CWindow::updateWindowBounds(rect = (380, 182, 796, 587))</div>
+<div class="trace">8010: CWindow::requestBackBufferResizing()</div>
+<div class="trace">8010: CWindow::m_backBufferResizingRequest = (780, 543)</div>
+<div class="trace">8013: D3D11RenderTarget::m_backBuffer.size = (785, 545)</div>
+<div class="trace">8013: CreateRTVFromBackBuffer()</div>
+<div class="trace">8014: CreateRenderTarget2D(size = (785, 545), sampleCount = 4)</div>
+<div class="trace">8024: CWindow::updateWindowBounds(rect = (393, 189, 783, 580))</div>
+<div class="trace">8025: WM_SIZE</div>
+<div class="trace">8025: CWindow::updateWindowBounds(rect = (393, 189, 783, 580))</div>
+<div class="trace">8026: CWindow::requestBackBufferResizing()</div>
+<div class="trace">8026: CWindow::m_backBufferResizingRequest = (767, 536)</div>
+<div class="trace">8034: D3D11RenderTarget::resizeBuffers(backBufferSize = (767, 536), sceneSize = (767, 536))</div>
+<div class="trace">8038: D3D11RenderTarget::m_backBuffer.size = (767, 536)</div>
+<div class="trace">8038: CreateRTVFromBackBuffer()</div>
+<div class="trace">8039: CreateRenderTarget2D(size = (767, 536), sampleCount = 4)</div>
+<div class="trace">8040: CWindow::updateWindowBounds(rect = (412, 200, 764, 569))</div>
+<div class="trace">8040: WM_SIZE</div>
+<div class="trace">8041: CWindow::updateWindowBounds(rect = (412, 200, 764, 569))</div>
+<div class="trace">8041: CWindow::requestBackBufferResizing()</div>
+<div class="trace">8041: CWindow::m_backBufferResizingRequest = (748, 525)</div>
+<div class="trace">8050: D3D11RenderTarget::resizeBuffers(backBufferSize = (748, 525), sceneSize = (748, 525))</div>
+<div class="trace">8054: CWindow::updateWindowBounds(rect = (421, 205, 755, 564))</div>
+<div class="trace">8055: WM_SIZE</div>
+<div class="trace">8054: D3D11RenderTarget::m_backBuffer.size = (748, 525)</div>
+<div class="trace">8055: CreateRTVFromBackBuffer()</div>
+<div class="trace">8055: CWindow::updateWindowBounds(rect = (421, 205, 755, 564))</div>
+<div class="trace">8056: CreateRenderTarget2D(size = (748, 525), sampleCount = 4)</div>
+<div class="trace">8056: CWindow::requestBackBufferResizing()</div>
+<div class="trace">8057: CWindow::m_backBufferResizingRequest = (739, 520)</div>
+<div class="trace">8077: CWindow::updateWindowBounds(rect = (430, 211, 746, 558))</div>
+<div class="trace">8077: WM_SIZE</div>
+<div class="trace">8078: CWindow::updateWindowBounds(rect = (430, 211, 746, 558))</div>
+<div class="trace">8078: CWindow::requestBackBufferResizing()</div>
+<div class="trace">8078: CWindow::m_backBufferResizingRequest = (730, 514)</div>
+<div class="trace">8084: D3D11RenderTarget::resizeBuffers(backBufferSize = (730, 514), sceneSize = (730, 514))</div>
+<div class="trace">8088: D3D11RenderTarget::m_backBuffer.size = (730, 514)</div>
+<div class="trace">8089: CreateRTVFromBackBuffer()</div>
+<div class="trace">8089: CreateRenderTarget2D(size = (730, 514), sampleCount = 4)</div>
+<div class="trace">8096: CWindow::updateWindowBounds(rect = (433, 213, 743, 556))</div>
+<div class="trace">8096: WM_SIZE</div>
+<div class="trace">8096: CWindow::updateWindowBounds(rect = (433, 213, 743, 556))</div>
+<div class="trace">8096: CWindow::requestBackBufferResizing()</div>
+<div class="trace">8097: CWindow::m_backBufferResizingRequest = (727, 512)</div>
+<div class="trace">8100: D3D11RenderTarget::resizeBuffers(backBufferSize = (727, 512), sceneSize = (727, 512))</div>
+<div class="trace">8105: D3D11RenderTarget::m_backBuffer.size = (727, 512)</div>
+<div class="trace">8106: CreateRTVFromBackBuffer()</div>
+<div class="trace">8106: CreateRenderTarget2D(size = (727, 512), sampleCount = 4)</div>
+<div class="trace">8109: CWindow::updateWindowBounds(rect = (435, 214, 741, 555))</div>
+<div class="trace">8109: WM_SIZE</div>
+<div class="trace">8109: CWindow::updateWindowBounds(rect = (435, 214, 741, 555))</div>
+<div class="trace">8109: CWindow::requestBackBufferResizing()</div>
+<div class="trace">8110: CWindow::m_backBufferResizingRequest = (725, 511)</div>
+<div class="trace">8117: D3D11RenderTarget::resizeBuffers(backBufferSize = (725, 511), sceneSize = (725, 511))</div>
+<div class="trace">8121: D3D11RenderTarget::m_backBuffer.size = (725, 511)</div>
+<div class="trace">8121: CreateRTVFromBackBuffer()</div>
+<div class="trace">8122: CreateRenderTarget2D(size = (725, 511), sampleCount = 4)</div>
+<div class="trace">9536: CWindow::updateWindowBounds(rect = (420, 204, 741, 555))</div>
+<div class="trace">9544: CWindow::updateWindowBounds(rect = (399, 198, 741, 555))</div>
+<div class="trace">9551: CWindow::updateWindowBounds(rect = (390, 196, 741, 555))</div>
+<div class="trace">9558: CWindow::updateWindowBounds(rect = (376, 194, 741, 555))</div>
+<div class="trace">9564: CWindow::updateWindowBounds(rect = (352, 195, 741, 555))</div>
+<div class="trace">9572: CWindow::updateWindowBounds(rect = (327, 196, 741, 555))</div>
+<div class="trace">9579: CWindow::updateWindowBounds(rect = (313, 198, 741, 555))</div>
+<div class="trace">9587: CWindow::updateWindowBounds(rect = (292, 203, 741, 555))</div>
+<div class="trace">9594: CWindow::updateWindowBounds(rect = (279, 206, 741, 555))</div>
+<div class="trace">9602: CWindow::updateWindowBounds(rect = (268, 209, 741, 555))</div>
+<div class="trace">9609: CWindow::updateWindowBounds(rect = (262, 212, 741, 555))</div>
+<div class="trace">9616: CWindow::updateWindowBounds(rect = (257, 215, 741, 555))</div>
+<div class="trace">9624: CWindow::updateWindowBounds(rect = (256, 217, 741, 555))</div>
+<div class="trace">9631: CWindow::updateWindowBounds(rect = (252, 221, 741, 555))</div>
+<div class="trace">9638: CWindow::updateWindowBounds(rect = (251, 222, 741, 555))</div>
+<div class="trace">9646: CWindow::updateWindowBounds(rect = (250, 226, 741, 555))</div>
+<div class="trace">9653: CWindow::updateWindowBounds(rect = (249, 230, 741, 555))</div>
+<div class="trace">9661: CWindow::updateWindowBounds(rect = (250, 236, 741, 555))</div>
+<div class="trace">9667: CWindow::updateWindowBounds(rect = (253, 241, 741, 555))</div>
+<div class="trace">9676: CWindow::updateWindowBounds(rect = (258, 246, 741, 555))</div>
+<div class="trace">9683: CWindow::updateWindowBounds(rect = (264, 253, 741, 555))</div>
+<div class="trace">9690: CWindow::updateWindowBounds(rect = (269, 258, 741, 555))</div>
+<div class="trace">9698: CWindow::updateWindowBounds(rect = (284, 269, 741, 555))</div>
+<div class="trace">9705: CWindow::updateWindowBounds(rect = (301, 280, 741, 555))</div>
+<div class="trace">9713: CWindow::updateWindowBounds(rect = (314, 288, 741, 555))</div>
+<div class="trace">9720: CWindow::updateWindowBounds(rect = (335, 295, 741, 555))</div>
+<div class="trace">9727: CWindow::updateWindowBounds(rect = (360, 301, 741, 555))</div>
+<div class="trace">9735: CWindow::updateWindowBounds(rect = (381, 306, 741, 555))</div>
+<div class="trace">9743: CWindow::updateWindowBounds(rect = (404, 305, 741, 555))</div>
+<div class="trace">9750: CWindow::updateWindowBounds(rect = (431, 302, 741, 555))</div>
+<div class="trace">9757: CWindow::updateWindowBounds(rect = (453, 300, 741, 555))</div>
+<div class="trace">9764: CWindow::updateWindowBounds(rect = (463, 296, 741, 555))</div>
+<div class="trace">9771: CWindow::updateWindowBounds(rect = (475, 291, 741, 555))</div>
+<div class="trace">9779: CWindow::updateWindowBounds(rect = (486, 286, 741, 555))</div>
+<div class="trace">9787: CWindow::updateWindowBounds(rect = (496, 279, 741, 555))</div>
+<div class="trace">9794: CWindow::updateWindowBounds(rect = (502, 273, 741, 555))</div>
+<div class="trace">9802: CWindow::updateWindowBounds(rect = (511, 262, 741, 555))</div>
+<div class="trace">9809: CWindow::updateWindowBounds(rect = (515, 256, 741, 555))</div>
+<div class="trace">9816: CWindow::updateWindowBounds(rect = (517, 245, 741, 555))</div>
+<div class="trace">9823: CWindow::updateWindowBounds(rect = (517, 236, 741, 555))</div>
+<div class="trace">9831: CWindow::updateWindowBounds(rect = (516, 225, 741, 555))</div>
+<div class="trace">9838: CWindow::updateWindowBounds(rect = (513, 216, 741, 555))</div>
+<div class="trace">9846: CWindow::updateWindowBounds(rect = (507, 205, 741, 555))</div>
+<div class="trace">9853: CWindow::updateWindowBounds(rect = (499, 195, 741, 555))</div>
+<div class="trace">9860: CWindow::updateWindowBounds(rect = (488, 183, 741, 555))</div>
+<div class="trace">9868: CWindow::updateWindowBounds(rect = (476, 171, 741, 555))</div>
+<div class="trace">9875: CWindow::updateWindowBounds(rect = (464, 161, 741, 555))</div>
+<div class="trace">9883: CWindow::updateWindowBounds(rect = (452, 155, 741, 555))</div>
+<div class="trace">9890: CWindow::updateWindowBounds(rect = (439, 151, 741, 555))</div>
+<div class="trace">9898: CWindow::updateWindowBounds(rect = (425, 147, 741, 555))</div>
+<div class="trace">9905: CWindow::updateWindowBounds(rect = (415, 147, 741, 555))</div>
+<div class="trace">9912: CWindow::updateWindowBounds(rect = (405, 147, 741, 555))</div>
+<div class="trace">9920: CWindow::updateWindowBounds(rect = (391, 148, 741, 555))</div>
+<div class="trace">9927: CWindow::updateWindowBounds(rect = (377, 152, 741, 555))</div>
+<div class="trace">9934: CWindow::updateWindowBounds(rect = (366, 155, 741, 555))</div>
+<div class="trace">9942: CWindow::updateWindowBounds(rect = (357, 161, 741, 555))</div>
+<div class="trace">9949: CWindow::updateWindowBounds(rect = (350, 164, 741, 555))</div>
+<div class="trace">9956: CWindow::updateWindowBounds(rect = (344, 169, 741, 555))</div>
+<div class="trace">9964: CWindow::updateWindowBounds(rect = (340, 173, 741, 555))</div>
+<div class="trace">9971: CWindow::updateWindowBounds(rect = (337, 176, 741, 555))</div>
+<div class="trace">9979: CWindow::updateWindowBounds(rect = (336, 178, 741, 555))</div>
+<div class="trace">10031: CWindow::updateWindowBounds(rect = (339, 179, 741, 555))</div>
+<div class="trace">12437: WM_SIZE</div>
+<div class="trace">12438: CWindow::updateWindowBounds(rect = (339, 179, 740, 554))</div>
+<div class="trace">12438: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12439: CWindow::m_backBufferResizingRequest = (724, 510)</div>
+<div class="trace">12450: D3D11RenderTarget::resizeBuffers(backBufferSize = (724, 510), sceneSize = (724, 510))</div>
+<div class="trace">12453: D3D11RenderTarget::m_backBuffer.size = (724, 510)</div>
+<div class="trace">12453: CreateRTVFromBackBuffer()</div>
+<div class="trace">12454: CreateRenderTarget2D(size = (724, 510), sampleCount = 4)</div>
+<div class="trace">12578: WM_SIZE</div>
+<div class="trace">12578: CWindow::updateWindowBounds(rect = (339, 179, 745, 560))</div>
+<div class="trace">12578: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12578: CWindow::m_backBufferResizingRequest = (729, 516)</div>
+<div class="trace">12583: D3D11RenderTarget::resizeBuffers(backBufferSize = (729, 516), sceneSize = (729, 516))</div>
+<div class="trace">12586: WM_SIZE</div>
+<div class="trace">12586: CWindow::updateWindowBounds(rect = (339, 179, 754, 567))</div>
+<div class="trace">12586: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12587: CWindow::m_backBufferResizingRequest = (738, 523)</div>
+<div class="trace">12588: D3D11RenderTarget::m_backBuffer.size = (729, 516)</div>
+<div class="trace">12588: CreateRTVFromBackBuffer()</div>
+<div class="trace">12589: CreateRenderTarget2D(size = (729, 516), sampleCount = 4)</div>
+<div class="trace">12594: WM_SIZE</div>
+<div class="trace">12594: CWindow::updateWindowBounds(rect = (339, 179, 762, 572))</div>
+<div class="trace">12595: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12595: CWindow::m_backBufferResizingRequest = (746, 528)</div>
+<div class="trace">12599: WM_SIZE</div>
+<div class="trace">12600: CWindow::updateWindowBounds(rect = (339, 179, 772, 576))</div>
+<div class="trace">12600: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12600: CWindow::m_backBufferResizingRequest = (756, 532)</div>
+<div class="trace">12608: WM_SIZE</div>
+<div class="trace">12608: CWindow::updateWindowBounds(rect = (339, 179, 782, 583))</div>
+<div class="trace">12608: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12608: CWindow::m_backBufferResizingRequest = (766, 539)</div>
+<div class="trace">12615: WM_SIZE</div>
+<div class="trace">12615: CWindow::updateWindowBounds(rect = (339, 179, 799, 591))</div>
+<div class="trace">12615: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12615: CWindow::m_backBufferResizingRequest = (783, 547)</div>
+<div class="trace">12616: D3D11RenderTarget::resizeBuffers(backBufferSize = (783, 547), sceneSize = (783, 547))</div>
+<div class="trace">12621: D3D11RenderTarget::m_backBuffer.size = (783, 547)</div>
+<div class="trace">12621: CreateRTVFromBackBuffer()</div>
+<div class="trace">12621: CreateRenderTarget2D(size = (783, 547), sampleCount = 4)</div>
+<div class="trace">12624: WM_SIZE</div>
+<div class="trace">12625: CWindow::updateWindowBounds(rect = (339, 179, 806, 595))</div>
+<div class="trace">12625: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12625: CWindow::m_backBufferResizingRequest = (790, 551)</div>
+<div class="trace">12629: WM_SIZE</div>
+<div class="trace">12629: CWindow::updateWindowBounds(rect = (339, 179, 820, 602))</div>
+<div class="trace">12629: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12629: CWindow::m_backBufferResizingRequest = (804, 558)</div>
+<div class="trace">12637: WM_SIZE</div>
+<div class="trace">12637: CWindow::updateWindowBounds(rect = (339, 179, 832, 608))</div>
+<div class="trace">12638: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12638: CWindow::m_backBufferResizingRequest = (816, 564)</div>
+<div class="trace">12645: WM_SIZE</div>
+<div class="trace">12645: CWindow::updateWindowBounds(rect = (339, 179, 846, 613))</div>
+<div class="trace">12646: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12646: CWindow::m_backBufferResizingRequest = (830, 569)</div>
+<div class="trace">12650: D3D11RenderTarget::resizeBuffers(backBufferSize = (830, 569), sceneSize = (830, 569))</div>
+<div class="trace">12653: WM_SIZE</div>
+<div class="trace">12653: CWindow::updateWindowBounds(rect = (339, 179, 856, 616))</div>
+<div class="trace">12654: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12654: CWindow::m_backBufferResizingRequest = (840, 572)</div>
+<div class="trace">12656: D3D11RenderTarget::m_backBuffer.size = (830, 569)</div>
+<div class="trace">12656: CreateRTVFromBackBuffer()</div>
+<div class="trace">12657: CreateRenderTarget2D(size = (830, 569), sampleCount = 4)</div>
+<div class="trace">12660: WM_SIZE</div>
+<div class="trace">12660: CWindow::updateWindowBounds(rect = (339, 179, 865, 619))</div>
+<div class="trace">12661: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12661: CWindow::m_backBufferResizingRequest = (849, 575)</div>
+<div class="trace">12668: WM_SIZE</div>
+<div class="trace">12668: CWindow::updateWindowBounds(rect = (339, 179, 880, 621))</div>
+<div class="trace">12669: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12669: CWindow::m_backBufferResizingRequest = (864, 577)</div>
+<div class="trace">12675: WM_SIZE</div>
+<div class="trace">12675: CWindow::updateWindowBounds(rect = (339, 179, 892, 623))</div>
+<div class="trace">12675: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12675: CWindow::m_backBufferResizingRequest = (876, 579)</div>
+<div class="trace">12682: WM_SIZE</div>
+<div class="trace">12682: CWindow::updateWindowBounds(rect = (339, 179, 908, 625))</div>
+<div class="trace">12682: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12682: CWindow::m_backBufferResizingRequest = (892, 581)</div>
+<div class="trace">12684: D3D11RenderTarget::resizeBuffers(backBufferSize = (892, 581), sceneSize = (892, 581))</div>
+<div class="trace">12687: D3D11RenderTarget::m_backBuffer.size = (892, 581)</div>
+<div class="trace">12688: CreateRTVFromBackBuffer()</div>
+<div class="trace">12688: CreateRenderTarget2D(size = (892, 581), sampleCount = 4)</div>
+<div class="trace">12689: WM_SIZE</div>
+<div class="trace">12689: CWindow::updateWindowBounds(rect = (339, 179, 917, 625))</div>
+<div class="trace">12689: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12689: CWindow::m_backBufferResizingRequest = (901, 581)</div>
+<div class="trace">12696: WM_SIZE</div>
+<div class="trace">12696: CWindow::updateWindowBounds(rect = (339, 179, 926, 625))</div>
+<div class="trace">12696: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12696: CWindow::m_backBufferResizingRequest = (910, 581)</div>
+<div class="trace">12700: D3D11RenderTarget::resizeBuffers(backBufferSize = (910, 581), sceneSize = (910, 581))</div>
+<div class="trace">12705: WM_SIZE</div>
+<div class="trace">12705: D3D11RenderTarget::m_backBuffer.size = (910, 581)</div>
+<div class="trace">12705: CreateRTVFromBackBuffer()</div>
+<div class="trace">12705: CWindow::updateWindowBounds(rect = (339, 179, 938, 626))</div>
+<div class="trace">12705: CreateRenderTarget2D(size = (910, 581), sampleCount = 4)</div>
+<div class="trace">12706: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12706: CWindow::m_backBufferResizingRequest = (922, 582)</div>
+<div class="trace">12713: WM_SIZE</div>
+<div class="trace">12714: CWindow::updateWindowBounds(rect = (339, 179, 948, 627))</div>
+<div class="trace">12714: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12714: CWindow::m_backBufferResizingRequest = (932, 583)</div>
+<div class="trace">12716: D3D11RenderTarget::resizeBuffers(backBufferSize = (932, 583), sceneSize = (932, 583))</div>
+<div class="trace">12721: WM_SIZE</div>
+<div class="trace">12721: CWindow::updateWindowBounds(rect = (339, 179, 958, 628))</div>
+<div class="trace">12722: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12722: CWindow::m_backBufferResizingRequest = (942, 584)</div>
+<div class="trace">12725: D3D11RenderTarget::m_backBuffer.size = (932, 583)</div>
+<div class="trace">12726: CreateRTVFromBackBuffer()</div>
+<div class="trace">12726: CreateRenderTarget2D(size = (932, 583), sampleCount = 4)</div>
+<div class="trace">12744: WM_SIZE</div>
+<div class="trace">12744: CWindow::updateWindowBounds(rect = (339, 179, 976, 628))</div>
+<div class="trace">12744: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12745: CWindow::m_backBufferResizingRequest = (960, 584)</div>
+<div class="trace">12750: D3D11RenderTarget::resizeBuffers(backBufferSize = (960, 584), sceneSize = (960, 584))</div>
+<div class="trace">12754: D3D11RenderTarget::m_backBuffer.size = (960, 584)</div>
+<div class="trace">12754: CreateRTVFromBackBuffer()</div>
+<div class="trace">12754: CreateRenderTarget2D(size = (960, 584), sampleCount = 4)</div>
+<div class="trace">12757: WM_SIZE</div>
+<div class="trace">12758: CWindow::updateWindowBounds(rect = (339, 179, 984, 627))</div>
+<div class="trace">12758: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12758: CWindow::m_backBufferResizingRequest = (968, 583)</div>
+<div class="trace">12766: D3D11RenderTarget::resizeBuffers(backBufferSize = (968, 583), sceneSize = (968, 583))</div>
+<div class="trace">12770: WM_SIZE</div>
+<div class="trace">12771: D3D11RenderTarget::m_backBuffer.size = (968, 583)</div>
+<div class="trace">12771: CreateRTVFromBackBuffer()</div>
+<div class="trace">12771: CWindow::updateWindowBounds(rect = (339, 179, 990, 625))</div>
+<div class="trace">12771: CreateRenderTarget2D(size = (968, 583), sampleCount = 4)</div>
+<div class="trace">12771: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12771: CWindow::m_backBufferResizingRequest = (974, 581)</div>
+<div class="trace">12787: WM_SIZE</div>
+<div class="trace">12788: CWindow::updateWindowBounds(rect = (339, 179, 994, 620))</div>
+<div class="trace">12788: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12789: CWindow::m_backBufferResizingRequest = (978, 576)</div>
+<div class="trace">12796: WM_SIZE</div>
+<div class="trace">12796: CWindow::updateWindowBounds(rect = (339, 179, 997, 616))</div>
+<div class="trace">12796: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12797: CWindow::m_backBufferResizingRequest = (981, 572)</div>
+<div class="trace">12800: D3D11RenderTarget::resizeBuffers(backBufferSize = (981, 572), sceneSize = (981, 572))</div>
+<div class="trace">12805: D3D11RenderTarget::m_backBuffer.size = (981, 572)</div>
+<div class="trace">12805: CreateRTVFromBackBuffer()</div>
+<div class="trace">12805: CreateRenderTarget2D(size = (981, 572), sampleCount = 4)</div>
+<div class="trace">12814: WM_SIZE</div>
+<div class="trace">12814: CWindow::updateWindowBounds(rect = (339, 179, 1002, 595))</div>
+<div class="trace">12814: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12814: CWindow::m_backBufferResizingRequest = (986, 551)</div>
+<div class="trace">12816: D3D11RenderTarget::resizeBuffers(backBufferSize = (986, 551), sceneSize = (986, 551))</div>
+<div class="trace">12819: D3D11RenderTarget::m_backBuffer.size = (986, 551)</div>
+<div class="trace">12820: CreateRTVFromBackBuffer()</div>
+<div class="trace">12820: CreateRenderTarget2D(size = (986, 551), sampleCount = 4)</div>
+<div class="trace">12824: WM_SIZE</div>
+<div class="trace">12824: CWindow::updateWindowBounds(rect = (339, 179, 1001, 586))</div>
+<div class="trace">12825: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12825: CWindow::m_backBufferResizingRequest = (985, 542)</div>
+<div class="trace">12830: WM_SIZE</div>
+<div class="trace">12830: CWindow::updateWindowBounds(rect = (339, 179, 1001, 575))</div>
+<div class="trace">12831: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12831: CWindow::m_backBufferResizingRequest = (985, 531)</div>
+<div class="trace">12833: D3D11RenderTarget::resizeBuffers(backBufferSize = (985, 531), sceneSize = (985, 531))</div>
+<div class="trace">12837: D3D11RenderTarget::m_backBuffer.size = (985, 531)</div>
+<div class="trace">12837: CreateRTVFromBackBuffer()</div>
+<div class="trace">12837: CreateRenderTarget2D(size = (985, 531), sampleCount = 4)</div>
+<div class="trace">12837: WM_SIZE</div>
+<div class="trace">12838: CWindow::updateWindowBounds(rect = (339, 179, 999, 559))</div>
+<div class="trace">12838: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12838: CWindow::m_backBufferResizingRequest = (983, 515)</div>
+<div class="trace">12845: WM_SIZE</div>
+<div class="trace">12845: CWindow::updateWindowBounds(rect = (339, 179, 995, 541))</div>
+<div class="trace">12845: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12845: CWindow::m_backBufferResizingRequest = (979, 497)</div>
+<div class="trace">12850: D3D11RenderTarget::resizeBuffers(backBufferSize = (979, 497), sceneSize = (979, 497))</div>
+<div class="trace">12854: WM_SIZE</div>
+<div class="trace">12854: CWindow::updateWindowBounds(rect = (339, 179, 990, 518))</div>
+<div class="trace">12854: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12855: CWindow::m_backBufferResizingRequest = (974, 474)</div>
+<div class="trace">12855: D3D11RenderTarget::m_backBuffer.size = (979, 497)</div>
+<div class="trace">12855: CreateRTVFromBackBuffer()</div>
+<div class="trace">12855: CreateRenderTarget2D(size = (979, 497), sampleCount = 4)</div>
+<div class="trace">12867: WM_SIZE</div>
+<div class="trace">12867: CWindow::updateWindowBounds(rect = (339, 179, 968, 464))</div>
+<div class="trace">12867: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12868: CWindow::m_backBufferResizingRequest = (952, 420)</div>
+<div class="trace">12873: WM_SIZE</div>
+<div class="trace">12874: CWindow::updateWindowBounds(rect = (339, 179, 954, 439))</div>
+<div class="trace">12874: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12874: CWindow::m_backBufferResizingRequest = (938, 395)</div>
+<div class="trace">12884: D3D11RenderTarget::resizeBuffers(backBufferSize = (938, 395), sceneSize = (938, 395))</div>
+<div class="trace">12891: D3D11RenderTarget::m_backBuffer.size = (938, 395)</div>
+<div class="trace">12891: CreateRTVFromBackBuffer()</div>
+<div class="trace">12891: WM_SIZE</div>
+<div class="trace">12892: CreateRenderTarget2D(size = (938, 395), sampleCount = 4)</div>
+<div class="trace">12892: CWindow::updateWindowBounds(rect = (339, 179, 926, 397))</div>
+<div class="trace">12892: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12893: CWindow::m_backBufferResizingRequest = (910, 353)</div>
+<div class="trace">12904: WM_SIZE</div>
+<div class="trace">12905: CWindow::updateWindowBounds(rect = (339, 179, 891, 366))</div>
+<div class="trace">12905: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12905: CWindow::m_backBufferResizingRequest = (875, 322)</div>
+<div class="trace">12916: D3D11RenderTarget::resizeBuffers(backBufferSize = (875, 322), sceneSize = (875, 322))</div>
+<div class="trace">12920: WM_SIZE</div>
+<div class="trace">12920: CWindow::updateWindowBounds(rect = (339, 179, 863, 348))</div>
+<div class="trace">12920: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12920: CWindow::m_backBufferResizingRequest = (847, 304)</div>
+<div class="trace">12921: D3D11RenderTarget::m_backBuffer.size = (875, 322)</div>
+<div class="trace">12921: CreateRTVFromBackBuffer()</div>
+<div class="trace">12921: CreateRenderTarget2D(size = (875, 322), sampleCount = 4)</div>
+<div class="trace">12927: WM_SIZE</div>
+<div class="trace">12927: CWindow::updateWindowBounds(rect = (339, 179, 852, 345))</div>
+<div class="trace">12927: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12927: CWindow::m_backBufferResizingRequest = (836, 301)</div>
+<div class="trace">12933: D3D11RenderTarget::resizeBuffers(backBufferSize = (836, 301), sceneSize = (836, 301))</div>
+<div class="trace">12937: D3D11RenderTarget::m_backBuffer.size = (836, 301)</div>
+<div class="trace">12937: CreateRTVFromBackBuffer()</div>
+<div class="trace">12938: CreateRenderTarget2D(size = (836, 301), sampleCount = 4)</div>
+<div class="trace">12952: WM_SIZE</div>
+<div class="trace">12953: CWindow::updateWindowBounds(rect = (339, 179, 810, 334))</div>
+<div class="trace">12953: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12954: CWindow::m_backBufferResizingRequest = (794, 290)</div>
+<div class="trace">12963: WM_SIZE</div>
+<div class="trace">12963: CWindow::updateWindowBounds(rect = (339, 179, 778, 335))</div>
+<div class="trace">12963: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12963: CWindow::m_backBufferResizingRequest = (762, 291)</div>
+<div class="trace">12967: D3D11RenderTarget::resizeBuffers(backBufferSize = (762, 291), sceneSize = (762, 291))</div>
+<div class="trace">12970: WM_SIZE</div>
+<div class="trace">12971: CWindow::updateWindowBounds(rect = (339, 179, 768, 336))</div>
+<div class="trace">12971: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12971: CWindow::m_backBufferResizingRequest = (752, 292)</div>
+<div class="trace">12972: D3D11RenderTarget::m_backBuffer.size = (762, 291)</div>
+<div class="trace">12972: CreateRTVFromBackBuffer()</div>
+<div class="trace">12972: CreateRenderTarget2D(size = (762, 291), sampleCount = 4)</div>
+<div class="trace">12977: WM_SIZE</div>
+<div class="trace">12977: CWindow::updateWindowBounds(rect = (339, 179, 758, 338))</div>
+<div class="trace">12977: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12977: CWindow::m_backBufferResizingRequest = (742, 294)</div>
+<div class="trace">12983: D3D11RenderTarget::resizeBuffers(backBufferSize = (742, 294), sceneSize = (742, 294))</div>
+<div class="trace">12986: WM_SIZE</div>
+<div class="trace">12986: CWindow::updateWindowBounds(rect = (339, 179, 749, 340))</div>
+<div class="trace">12986: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12986: CWindow::m_backBufferResizingRequest = (733, 296)</div>
+<div class="trace">12987: D3D11RenderTarget::m_backBuffer.size = (742, 294)</div>
+<div class="trace">12988: CreateRTVFromBackBuffer()</div>
+<div class="trace">12988: CreateRenderTarget2D(size = (742, 294), sampleCount = 4)</div>
+<div class="trace">12993: WM_SIZE</div>
+<div class="trace">12994: CWindow::updateWindowBounds(rect = (339, 179, 740, 342))</div>
+<div class="trace">12994: CWindow::requestBackBufferResizing()</div>
+<div class="trace">12994: CWindow::m_backBufferResizingRequest = (724, 298)</div>
+<div class="trace">13000: D3D11RenderTarget::resizeBuffers(backBufferSize = (724, 298), sceneSize = (724, 298))</div>
+<div class="trace">13004: D3D11RenderTarget::m_backBuffer.size = (724, 298)</div>
+<div class="trace">13004: CreateRTVFromBackBuffer()</div>
+<div class="trace">13004: CreateRenderTarget2D(size = (724, 298), sampleCount = 4)</div>
+<div class="trace">13014: WM_SIZE</div>
+<div class="trace">13014: CWindow::updateWindowBounds(rect = (339, 179, 719, 344))</div>
+<div class="trace">13014: CWindow::requestBackBufferResizing()</div>
+<div class="trace">13014: CWindow::m_backBufferResizingRequest = (703, 300)</div>
+<div class="trace">13016: D3D11RenderTarget::resizeBuffers(backBufferSize = (703, 300), sceneSize = (703, 300))</div>
+<div class="trace">13019: D3D11RenderTarget::m_backBuffer.size = (703, 300)</div>
+<div class="trace">13020: CreateRTVFromBackBuffer()</div>
+<div class="trace">13020: CreateRenderTarget2D(size = (703, 300), sampleCount = 4)</div>
+<div class="trace">13023: WM_SIZE</div>
+<div class="trace">13023: CWindow::updateWindowBounds(rect = (339, 179, 716, 345))</div>
+<div class="trace">13024: CWindow::requestBackBufferResizing()</div>
+<div class="trace">13024: CWindow::m_backBufferResizingRequest = (700, 301)</div>
+<div class="trace">13029: WM_SIZE</div>
+<div class="trace">13029: CWindow::updateWindowBounds(rect = (339, 179, 714, 345))</div>
+<div class="trace">13029: CWindow::requestBackBufferResizing()</div>
+<div class="trace">13029: CWindow::m_backBufferResizingRequest = (698, 301)</div>
+<div class="trace">13033: D3D11RenderTarget::resizeBuffers(backBufferSize = (698, 301), sceneSize = (698, 301))</div>
+<div class="trace">13036: D3D11RenderTarget::m_backBuffer.size = (698, 301)</div>
+<div class="trace">13037: CreateRTVFromBackBuffer()</div>
+<div class="trace">13036: WM_SIZE</div>
+<div class="trace">13037: CreateRenderTarget2D(size = (698, 301), sampleCount = 4)</div>
+<div class="trace">13037: CWindow::updateWindowBounds(rect = (339, 179, 712, 345))</div>
+<div class="trace">13037: CWindow::requestBackBufferResizing()</div>
+<div class="trace">13037: CWindow::m_backBufferResizingRequest = (696, 301)</div>
+<div class="trace">13043: WM_SIZE</div>
+<div class="trace">13044: CWindow::updateWindowBounds(rect = (339, 179, 711, 345))</div>
+<div class="trace">13044: CWindow::requestBackBufferResizing()</div>
+<div class="trace">13044: CWindow::m_backBufferResizingRequest = (695, 301)</div>
+<div class="trace">13050: D3D11RenderTarget::resizeBuffers(backBufferSize = (695, 301), sceneSize = (695, 301))</div>
+<div class="trace">13057: D3D11RenderTarget::m_backBuffer.size = (695, 301)</div>
+<div class="trace">13057: CreateRTVFromBackBuffer()</div>
+<div class="trace">13057: CreateRenderTarget2D(size = (695, 301), sampleCount = 4)</div>
+<div class="trace">13934: WM_SIZE</div>
+<div class="trace">13935: CWindow::updateWindowBounds(rect = (339, 179, 710, 345))</div>
+<div class="trace">13935: CWindow::requestBackBufferResizing()</div>
+<div class="trace">13935: CWindow::m_backBufferResizingRequest = (694, 301)</div>
+<div class="trace">13950: D3D11RenderTarget::resizeBuffers(backBufferSize = (694, 301), sceneSize = (694, 301))</div>
+<div class="trace">13953: D3D11RenderTarget::m_backBuffer.size = (694, 301)</div>
+<div class="trace">13953: CreateRTVFromBackBuffer()</div>
+<div class="trace">13953: CreateRenderTarget2D(size = (694, 301), sampleCount = 4)</div>
+<div class="trace">14037: WM_SIZE</div>
+<div class="trace">14037: CWindow::updateWindowBounds(rect = (339, 179, 725, 345))</div>
+<div class="trace">14038: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14038: CWindow::m_backBufferResizingRequest = (709, 301)</div>
+<div class="trace">14044: WM_SIZE</div>
+<div class="trace">14045: CWindow::updateWindowBounds(rect = (339, 179, 747, 345))</div>
+<div class="trace">14045: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14045: CWindow::m_backBufferResizingRequest = (731, 301)</div>
+<div class="trace">14050: D3D11RenderTarget::resizeBuffers(backBufferSize = (731, 301), sceneSize = (731, 301))</div>
+<div class="trace">14053: WM_SIZE</div>
+<div class="trace">14053: CWindow::updateWindowBounds(rect = (339, 179, 769, 345))</div>
+<div class="trace">14054: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14054: CWindow::m_backBufferResizingRequest = (753, 301)</div>
+<div class="trace">14056: D3D11RenderTarget::m_backBuffer.size = (731, 301)</div>
+<div class="trace">14056: CreateRTVFromBackBuffer()</div>
+<div class="trace">14057: CreateRenderTarget2D(size = (731, 301), sampleCount = 4)</div>
+<div class="trace">14061: WM_SIZE</div>
+<div class="trace">14061: CWindow::updateWindowBounds(rect = (339, 179, 793, 345))</div>
+<div class="trace">14061: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14061: CWindow::m_backBufferResizingRequest = (777, 301)</div>
+<div class="trace">14066: D3D11RenderTarget::resizeBuffers(backBufferSize = (777, 301), sceneSize = (777, 301))</div>
+<div class="trace">14070: D3D11RenderTarget::m_backBuffer.size = (777, 301)</div>
+<div class="trace">14070: CreateRTVFromBackBuffer()</div>
+<div class="trace">14070: CreateRenderTarget2D(size = (777, 301), sampleCount = 4)</div>
+<div class="trace">14074: WM_SIZE</div>
+<div class="trace">14075: CWindow::updateWindowBounds(rect = (339, 179, 834, 345))</div>
+<div class="trace">14075: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14075: CWindow::m_backBufferResizingRequest = (818, 301)</div>
+<div class="trace">14082: WM_SIZE</div>
+<div class="trace">14083: CWindow::updateWindowBounds(rect = (339, 179, 856, 345))</div>
+<div class="trace">14083: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14084: CWindow::m_backBufferResizingRequest = (840, 301)</div>
+<div class="trace">14084: D3D11RenderTarget::resizeBuffers(backBufferSize = (840, 301), sceneSize = (840, 301))</div>
+<div class="trace">14090: WM_SIZE</div>
+<div class="trace">14091: CWindow::updateWindowBounds(rect = (339, 179, 876, 345))</div>
+<div class="trace">14091: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14091: CWindow::m_backBufferResizingRequest = (860, 301)</div>
+<div class="trace">14092: D3D11RenderTarget::m_backBuffer.size = (840, 301)</div>
+<div class="trace">14092: CreateRTVFromBackBuffer()</div>
+<div class="trace">14092: CreateRenderTarget2D(size = (840, 301), sampleCount = 4)</div>
+<div class="trace">14101: WM_SIZE</div>
+<div class="trace">14101: CWindow::updateWindowBounds(rect = (339, 179, 891, 345))</div>
+<div class="trace">14102: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14102: CWindow::m_backBufferResizingRequest = (875, 301)</div>
+<div class="trace">14110: WM_SIZE</div>
+<div class="trace">14111: CWindow::updateWindowBounds(rect = (339, 179, 907, 345))</div>
+<div class="trace">14111: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14111: CWindow::m_backBufferResizingRequest = (891, 301)</div>
+<div class="trace">14120: WM_SIZE</div>
+<div class="trace">14120: CWindow::updateWindowBounds(rect = (339, 179, 914, 345))</div>
+<div class="trace">14120: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14120: CWindow::m_backBufferResizingRequest = (898, 301)</div>
+<div class="trace">14125: WM_SIZE</div>
+<div class="trace">14125: CWindow::updateWindowBounds(rect = (339, 179, 917, 345))</div>
+<div class="trace">14126: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14126: CWindow::m_backBufferResizingRequest = (901, 301)</div>
+<div class="trace">14133: D3D11RenderTarget::resizeBuffers(backBufferSize = (901, 301), sceneSize = (901, 301))</div>
+<div class="trace">14133: WM_SIZE</div>
+<div class="trace">14133: CWindow::updateWindowBounds(rect = (339, 179, 918, 345))</div>
+<div class="trace">14134: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14134: CWindow::m_backBufferResizingRequest = (902, 301)</div>
+<div class="trace">14137: D3D11RenderTarget::m_backBuffer.size = (901, 301)</div>
+<div class="trace">14137: CreateRTVFromBackBuffer()</div>
+<div class="trace">14138: CreateRenderTarget2D(size = (901, 301), sampleCount = 4)</div>
+<div class="trace">14141: WM_SIZE</div>
+<div class="trace">14141: CWindow::updateWindowBounds(rect = (339, 179, 920, 345))</div>
+<div class="trace">14142: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14142: CWindow::m_backBufferResizingRequest = (904, 301)</div>
+<div class="trace">14150: D3D11RenderTarget::resizeBuffers(backBufferSize = (904, 301), sceneSize = (904, 301))</div>
+<div class="trace">14153: D3D11RenderTarget::m_backBuffer.size = (904, 301)</div>
+<div class="trace">14153: CreateRTVFromBackBuffer()</div>
+<div class="trace">14153: CreateRenderTarget2D(size = (904, 301), sampleCount = 4)</div>
+<div class="trace">14251: WM_SIZE</div>
+<div class="trace">14252: CWindow::updateWindowBounds(rect = (339, 179, 915, 345))</div>
+<div class="trace">14252: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14252: CWindow::m_backBufferResizingRequest = (899, 301)</div>
+<div class="trace">14258: WM_SIZE</div>
+<div class="trace">14258: CWindow::updateWindowBounds(rect = (339, 179, 908, 345))</div>
+<div class="trace">14258: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14258: CWindow::m_backBufferResizingRequest = (892, 301)</div>
+<div class="trace">14267: WM_SIZE</div>
+<div class="trace">14267: CWindow::updateWindowBounds(rect = (339, 179, 902, 345))</div>
+<div class="trace">14268: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14268: CWindow::m_backBufferResizingRequest = (886, 301)</div>
+<div class="trace">14273: WM_SIZE</div>
+<div class="trace">14273: CWindow::updateWindowBounds(rect = (339, 179, 891, 345))</div>
+<div class="trace">14273: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14274: CWindow::m_backBufferResizingRequest = (875, 301)</div>
+<div class="trace">14281: WM_SIZE</div>
+<div class="trace">14282: CWindow::updateWindowBounds(rect = (339, 179, 878, 345))</div>
+<div class="trace">14282: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14282: CWindow::m_backBufferResizingRequest = (862, 301)</div>
+<div class="trace">14283: D3D11RenderTarget::resizeBuffers(backBufferSize = (862, 301), sceneSize = (862, 301))</div>
+<div class="trace">14286: D3D11RenderTarget::m_backBuffer.size = (862, 301)</div>
+<div class="trace">14286: CreateRTVFromBackBuffer()</div>
+<div class="trace">14286: CreateRenderTarget2D(size = (862, 301), sampleCount = 4)</div>
+<div class="trace">14290: WM_SIZE</div>
+<div class="trace">14291: CWindow::updateWindowBounds(rect = (339, 179, 862, 345))</div>
+<div class="trace">14291: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14291: CWindow::m_backBufferResizingRequest = (846, 301)</div>
+<div class="trace">14303: WM_SIZE</div>
+<div class="trace">14303: CWindow::updateWindowBounds(rect = (339, 179, 827, 345))</div>
+<div class="trace">14303: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14304: CWindow::m_backBufferResizingRequest = (811, 301)</div>
+<div class="trace">14316: D3D11RenderTarget::resizeBuffers(backBufferSize = (811, 301), sceneSize = (811, 301))</div>
+<div class="trace">14319: WM_SIZE</div>
+<div class="trace">14320: CWindow::updateWindowBounds(rect = (339, 179, 772, 345))</div>
+<div class="trace">14320: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14320: CWindow::m_backBufferResizingRequest = (756, 301)</div>
+<div class="trace">14322: D3D11RenderTarget::m_backBuffer.size = (811, 301)</div>
+<div class="trace">14322: CreateRTVFromBackBuffer()</div>
+<div class="trace">14322: CreateRenderTarget2D(size = (811, 301), sampleCount = 4)</div>
+<div class="trace">14326: WM_SIZE</div>
+<div class="trace">14326: CWindow::updateWindowBounds(rect = (339, 179, 753, 345))</div>
+<div class="trace">14326: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14326: CWindow::m_backBufferResizingRequest = (737, 301)</div>
+<div class="trace">14332: WM_SIZE</div>
+<div class="trace">14333: CWindow::updateWindowBounds(rect = (339, 179, 724, 345))</div>
+<div class="trace">14333: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14333: CWindow::m_backBufferResizingRequest = (708, 301)</div>
+<div class="trace">14340: WM_SIZE</div>
+<div class="trace">14341: CWindow::updateWindowBounds(rect = (339, 179, 707, 345))</div>
+<div class="trace">14341: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14341: CWindow::m_backBufferResizingRequest = (691, 301)</div>
+<div class="trace">14347: WM_SIZE</div>
+<div class="trace">14347: CWindow::updateWindowBounds(rect = (339, 179, 698, 345))</div>
+<div class="trace">14348: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14348: CWindow::m_backBufferResizingRequest = (682, 301)</div>
+<div class="trace">14349: D3D11RenderTarget::resizeBuffers(backBufferSize = (682, 301), sceneSize = (682, 301))</div>
+<div class="trace">14353: D3D11RenderTarget::m_backBuffer.size = (682, 301)</div>
+<div class="trace">14353: CreateRTVFromBackBuffer()</div>
+<div class="trace">14353: CreateRenderTarget2D(size = (682, 301), sampleCount = 4)</div>
+<div class="trace">14355: WM_SIZE</div>
+<div class="trace">14356: CWindow::updateWindowBounds(rect = (339, 179, 686, 345))</div>
+<div class="trace">14356: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14356: CWindow::m_backBufferResizingRequest = (670, 301)</div>
+<div class="trace">14362: WM_SIZE</div>
+<div class="trace">14363: CWindow::updateWindowBounds(rect = (339, 179, 679, 345))</div>
+<div class="trace">14363: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14363: CWindow::m_backBufferResizingRequest = (663, 301)</div>
+<div class="trace">14366: D3D11RenderTarget::resizeBuffers(backBufferSize = (663, 301), sceneSize = (663, 301))</div>
+<div class="trace">14370: WM_SIZE</div>
+<div class="trace">14370: CWindow::updateWindowBounds(rect = (339, 179, 672, 345))</div>
+<div class="trace">14370: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14370: CWindow::m_backBufferResizingRequest = (656, 301)</div>
+<div class="trace">14372: D3D11RenderTarget::m_backBuffer.size = (663, 301)</div>
+<div class="trace">14373: CreateRTVFromBackBuffer()</div>
+<div class="trace">14373: CreateRenderTarget2D(size = (663, 301), sampleCount = 4)</div>
+<div class="trace">14378: WM_SIZE</div>
+<div class="trace">14378: CWindow::updateWindowBounds(rect = (339, 179, 666, 345))</div>
+<div class="trace">14378: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14378: CWindow::m_backBufferResizingRequest = (650, 301)</div>
+<div class="trace">14383: D3D11RenderTarget::resizeBuffers(backBufferSize = (650, 301), sceneSize = (650, 301))</div>
+<div class="trace">14386: WM_SIZE</div>
+<div class="trace">14386: CWindow::updateWindowBounds(rect = (339, 179, 662, 345))</div>
+<div class="trace">14386: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14386: CWindow::m_backBufferResizingRequest = (646, 301)</div>
+<div class="trace">14388: D3D11RenderTarget::m_backBuffer.size = (650, 301)</div>
+<div class="trace">14388: CreateRTVFromBackBuffer()</div>
+<div class="trace">14389: CreateRenderTarget2D(size = (650, 301), sampleCount = 4)</div>
+<div class="trace">14393: WM_SIZE</div>
+<div class="trace">14393: CWindow::updateWindowBounds(rect = (339, 179, 660, 345))</div>
+<div class="trace">14394: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14394: CWindow::m_backBufferResizingRequest = (644, 301)</div>
+<div class="trace">14399: D3D11RenderTarget::resizeBuffers(backBufferSize = (644, 301), sceneSize = (644, 301))</div>
+<div class="trace">14403: D3D11RenderTarget::m_backBuffer.size = (644, 301)</div>
+<div class="trace">14403: CreateRTVFromBackBuffer()</div>
+<div class="trace">14404: CreateRenderTarget2D(size = (644, 301), sampleCount = 4)</div>
+<div class="trace">14408: WM_SIZE</div>
+<div class="trace">14408: CWindow::updateWindowBounds(rect = (339, 179, 658, 345))</div>
+<div class="trace">14408: CWindow::requestBackBufferResizing()</div>
+<div class="trace">14408: CWindow::m_backBufferResizingRequest = (642, 301)</div>
+<div class="trace">14416: D3D11RenderTarget::resizeBuffers(backBufferSize = (642, 301), sceneSize = (642, 301))</div>
+<div class="trace">14420: D3D11RenderTarget::m_backBuffer.size = (642, 301)</div>
+<div class="trace">14420: CreateRTVFromBackBuffer()</div>
+<div class="trace">14420: CreateRenderTarget2D(size = (642, 301), sampleCount = 4)</div>
+<div class="trace">17267: WM_SIZE</div>
+<div class="trace">17268: CWindow::updateWindowBounds(rect = (339, 179, 657, 345))</div>
+<div class="trace">17268: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17268: CWindow::m_backBufferResizingRequest = (641, 301)</div>
+<div class="trace">17282: D3D11RenderTarget::resizeBuffers(backBufferSize = (641, 301), sceneSize = (641, 301))</div>
+<div class="trace">17285: D3D11RenderTarget::m_backBuffer.size = (641, 301)</div>
+<div class="trace">17286: CreateRTVFromBackBuffer()</div>
+<div class="trace">17286: CreateRenderTarget2D(size = (641, 301), sampleCount = 4)</div>
+<div class="trace">17397: WM_SIZE</div>
+<div class="trace">17397: CWindow::updateWindowBounds(rect = (339, 179, 660, 367))</div>
+<div class="trace">17397: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17398: CWindow::m_backBufferResizingRequest = (644, 323)</div>
+<div class="trace">17399: D3D11RenderTarget::resizeBuffers(backBufferSize = (644, 323), sceneSize = (644, 323))</div>
+<div class="trace">17403: D3D11RenderTarget::m_backBuffer.size = (644, 323)</div>
+<div class="trace">17403: CreateRTVFromBackBuffer()</div>
+<div class="trace">17404: CreateRenderTarget2D(size = (644, 323), sampleCount = 4)</div>
+<div class="trace">17406: WM_SIZE</div>
+<div class="trace">17406: CWindow::updateWindowBounds(rect = (339, 179, 664, 398))</div>
+<div class="trace">17406: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17406: CWindow::m_backBufferResizingRequest = (648, 354)</div>
+<div class="trace">17412: WM_SIZE</div>
+<div class="trace">17412: CWindow::updateWindowBounds(rect = (339, 179, 669, 423))</div>
+<div class="trace">17413: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17413: CWindow::m_backBufferResizingRequest = (653, 379)</div>
+<div class="trace">17416: D3D11RenderTarget::resizeBuffers(backBufferSize = (653, 379), sceneSize = (653, 379))</div>
+<div class="trace">17419: D3D11RenderTarget::m_backBuffer.size = (653, 379)</div>
+<div class="trace">17419: CreateRTVFromBackBuffer()</div>
+<div class="trace">17419: CreateRenderTarget2D(size = (653, 379), sampleCount = 4)</div>
+<div class="trace">17420: WM_SIZE</div>
+<div class="trace">17420: CWindow::updateWindowBounds(rect = (339, 179, 675, 462))</div>
+<div class="trace">17420: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17421: CWindow::m_backBufferResizingRequest = (659, 418)</div>
+<div class="trace">17426: WM_SIZE</div>
+<div class="trace">17427: CWindow::updateWindowBounds(rect = (339, 179, 681, 489))</div>
+<div class="trace">17427: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17427: CWindow::m_backBufferResizingRequest = (665, 445)</div>
+<div class="trace">17435: WM_SIZE</div>
+<div class="trace">17435: CWindow::updateWindowBounds(rect = (339, 179, 693, 529))</div>
+<div class="trace">17435: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17435: CWindow::m_backBufferResizingRequest = (677, 485)</div>
+<div class="trace">17442: WM_SIZE</div>
+<div class="trace">17442: CWindow::updateWindowBounds(rect = (339, 179, 707, 564))</div>
+<div class="trace">17442: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17442: CWindow::m_backBufferResizingRequest = (691, 520)</div>
+<div class="trace">17449: D3D11RenderTarget::resizeBuffers(backBufferSize = (691, 520), sceneSize = (691, 520))</div>
+<div class="trace">17450: WM_SIZE</div>
+<div class="trace">17450: CWindow::updateWindowBounds(rect = (339, 179, 719, 583))</div>
+<div class="trace">17450: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17450: CWindow::m_backBufferResizingRequest = (703, 539)</div>
+<div class="trace">17453: D3D11RenderTarget::m_backBuffer.size = (691, 520)</div>
+<div class="trace">17453: CreateRTVFromBackBuffer()</div>
+<div class="trace">17454: CreateRenderTarget2D(size = (691, 520), sampleCount = 4)</div>
+<div class="trace">17458: WM_SIZE</div>
+<div class="trace">17458: CWindow::updateWindowBounds(rect = (339, 179, 733, 609))</div>
+<div class="trace">17458: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17458: CWindow::m_backBufferResizingRequest = (717, 565)</div>
+<div class="trace">17464: WM_SIZE</div>
+<div class="trace">17464: CWindow::updateWindowBounds(rect = (339, 179, 746, 628))</div>
+<div class="trace">17464: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17464: CWindow::m_backBufferResizingRequest = (730, 584)</div>
+<div class="trace">17472: WM_SIZE</div>
+<div class="trace">17472: CWindow::updateWindowBounds(rect = (339, 179, 754, 637))</div>
+<div class="trace">17472: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17473: CWindow::m_backBufferResizingRequest = (738, 593)</div>
+<div class="trace">17479: WM_SIZE</div>
+<div class="trace">17479: CWindow::updateWindowBounds(rect = (339, 179, 763, 644))</div>
+<div class="trace">17479: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17480: CWindow::m_backBufferResizingRequest = (747, 600)</div>
+<div class="trace">17482: D3D11RenderTarget::resizeBuffers(backBufferSize = (747, 600), sceneSize = (747, 600))</div>
+<div class="trace">17485: D3D11RenderTarget::m_backBuffer.size = (747, 600)</div>
+<div class="trace">17486: CreateRTVFromBackBuffer()</div>
+<div class="trace">17486: CreateRenderTarget2D(size = (747, 600), sampleCount = 4)</div>
+<div class="trace">17487: WM_SIZE</div>
+<div class="trace">17487: CWindow::updateWindowBounds(rect = (339, 179, 770, 651))</div>
+<div class="trace">17487: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17488: CWindow::m_backBufferResizingRequest = (754, 607)</div>
+<div class="trace">17493: WM_SIZE</div>
+<div class="trace">17494: CWindow::updateWindowBounds(rect = (339, 179, 781, 658))</div>
+<div class="trace">17494: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17494: CWindow::m_backBufferResizingRequest = (765, 614)</div>
+<div class="trace">17499: D3D11RenderTarget::resizeBuffers(backBufferSize = (765, 614), sceneSize = (765, 614))</div>
+<div class="trace">17503: D3D11RenderTarget::m_backBuffer.size = (765, 614)</div>
+<div class="trace">17503: CreateRTVFromBackBuffer()</div>
+<div class="trace">17503: CreateRenderTarget2D(size = (765, 614), sampleCount = 4)</div>
+<div class="trace">17504: WM_SIZE</div>
+<div class="trace">17504: CWindow::updateWindowBounds(rect = (339, 179, 791, 662))</div>
+<div class="trace">17504: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17504: CWindow::m_backBufferResizingRequest = (775, 618)</div>
+<div class="trace">17516: D3D11RenderTarget::resizeBuffers(backBufferSize = (775, 618), sceneSize = (775, 618))</div>
+<div class="trace">17517: WM_SIZE</div>
+<div class="trace">17517: CWindow::updateWindowBounds(rect = (339, 179, 802, 669))</div>
+<div class="trace">17518: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17518: CWindow::m_backBufferResizingRequest = (786, 625)</div>
+<div class="trace">17521: D3D11RenderTarget::m_backBuffer.size = (775, 618)</div>
+<div class="trace">17521: CreateRTVFromBackBuffer()</div>
+<div class="trace">17521: CreateRenderTarget2D(size = (775, 618), sampleCount = 4)</div>
+<div class="trace">17528: WM_SIZE</div>
+<div class="trace">17528: CWindow::updateWindowBounds(rect = (339, 179, 808, 672))</div>
+<div class="trace">17529: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17529: CWindow::m_backBufferResizingRequest = (792, 628)</div>
+<div class="trace">17532: D3D11RenderTarget::resizeBuffers(backBufferSize = (792, 628), sceneSize = (792, 628))</div>
+<div class="trace">17536: D3D11RenderTarget::m_backBuffer.size = (792, 628)</div>
+<div class="trace">17537: CreateRTVFromBackBuffer()</div>
+<div class="trace">17537: CreateRenderTarget2D(size = (792, 628), sampleCount = 4)</div>
+<div class="trace">17543: WM_SIZE</div>
+<div class="trace">17544: CWindow::updateWindowBounds(rect = (339, 179, 825, 675))</div>
+<div class="trace">17544: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17544: CWindow::m_backBufferResizingRequest = (809, 631)</div>
+<div class="trace">17549: D3D11RenderTarget::resizeBuffers(backBufferSize = (809, 631), sceneSize = (809, 631))</div>
+<div class="trace">17554: D3D11RenderTarget::m_backBuffer.size = (809, 631)</div>
+<div class="trace">17554: CreateRTVFromBackBuffer()</div>
+<div class="trace">17555: CreateRenderTarget2D(size = (809, 631), sampleCount = 4)</div>
+<div class="trace">17555: WM_SIZE</div>
+<div class="trace">17555: CWindow::updateWindowBounds(rect = (339, 179, 842, 675))</div>
+<div class="trace">17556: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17556: CWindow::m_backBufferResizingRequest = (826, 631)</div>
+<div class="trace">17570: WM_SIZE</div>
+<div class="trace">17570: CWindow::updateWindowBounds(rect = (339, 179, 853, 673))</div>
+<div class="trace">17570: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17571: CWindow::m_backBufferResizingRequest = (837, 629)</div>
+<div class="trace">17582: D3D11RenderTarget::resizeBuffers(backBufferSize = (837, 629), sceneSize = (837, 629))</div>
+<div class="trace">17584: WM_SIZE</div>
+<div class="trace">17585: CWindow::updateWindowBounds(rect = (339, 179, 868, 668))</div>
+<div class="trace">17585: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17585: CWindow::m_backBufferResizingRequest = (852, 624)</div>
+<div class="trace">17588: D3D11RenderTarget::m_backBuffer.size = (837, 629)</div>
+<div class="trace">17588: CreateRTVFromBackBuffer()</div>
+<div class="trace">17588: CreateRenderTarget2D(size = (837, 629), sampleCount = 4)</div>
+<div class="trace">17591: WM_SIZE</div>
+<div class="trace">17592: CWindow::updateWindowBounds(rect = (339, 179, 875, 664))</div>
+<div class="trace">17592: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17592: CWindow::m_backBufferResizingRequest = (859, 620)</div>
+<div class="trace">17597: WM_SIZE</div>
+<div class="trace">17597: CWindow::updateWindowBounds(rect = (339, 179, 881, 661))</div>
+<div class="trace">17597: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17598: CWindow::m_backBufferResizingRequest = (865, 617)</div>
+<div class="trace">17599: D3D11RenderTarget::resizeBuffers(backBufferSize = (865, 617), sceneSize = (865, 617))</div>
+<div class="trace">17603: D3D11RenderTarget::m_backBuffer.size = (865, 617)</div>
+<div class="trace">17603: CreateRTVFromBackBuffer()</div>
+<div class="trace">17603: CreateRenderTarget2D(size = (865, 617), sampleCount = 4)</div>
+<div class="trace">17606: WM_SIZE</div>
+<div class="trace">17607: CWindow::updateWindowBounds(rect = (339, 179, 889, 657))</div>
+<div class="trace">17607: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17607: CWindow::m_backBufferResizingRequest = (873, 613)</div>
+<div class="trace">17614: WM_SIZE</div>
+<div class="trace">17614: CWindow::updateWindowBounds(rect = (339, 179, 896, 654))</div>
+<div class="trace">17614: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17615: CWindow::m_backBufferResizingRequest = (880, 610)</div>
+<div class="trace">17616: D3D11RenderTarget::resizeBuffers(backBufferSize = (880, 610), sceneSize = (880, 610))</div>
+<div class="trace">17620: D3D11RenderTarget::m_backBuffer.size = (880, 610)</div>
+<div class="trace">17620: CreateRTVFromBackBuffer()</div>
+<div class="trace">17621: WM_SIZE</div>
+<div class="trace">17621: CreateRenderTarget2D(size = (880, 610), sampleCount = 4)</div>
+<div class="trace">17621: CWindow::updateWindowBounds(rect = (339, 179, 899, 652))</div>
+<div class="trace">17621: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17622: CWindow::m_backBufferResizingRequest = (883, 608)</div>
+<div class="trace">17627: WM_SIZE</div>
+<div class="trace">17627: CWindow::updateWindowBounds(rect = (339, 179, 904, 649))</div>
+<div class="trace">17628: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17628: CWindow::m_backBufferResizingRequest = (888, 605)</div>
+<div class="trace">17632: D3D11RenderTarget::resizeBuffers(backBufferSize = (888, 605), sceneSize = (888, 605))</div>
+<div class="trace">17638: WM_SIZE</div>
+<div class="trace">17638: CWindow::updateWindowBounds(rect = (339, 179, 906, 647))</div>
+<div class="trace">17638: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17639: CWindow::m_backBufferResizingRequest = (890, 603)</div>
+<div class="trace">17641: D3D11RenderTarget::m_backBuffer.size = (888, 605)</div>
+<div class="trace">17641: CreateRTVFromBackBuffer()</div>
+<div class="trace">17642: CreateRenderTarget2D(size = (888, 605), sampleCount = 4)</div>
+<div class="trace">17644: WM_SIZE</div>
+<div class="trace">17644: CWindow::updateWindowBounds(rect = (339, 179, 909, 644))</div>
+<div class="trace">17644: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17644: CWindow::m_backBufferResizingRequest = (893, 600)</div>
+<div class="trace">17650: D3D11RenderTarget::resizeBuffers(backBufferSize = (893, 600), sceneSize = (893, 600))</div>
+<div class="trace">17657: D3D11RenderTarget::m_backBuffer.size = (893, 600)</div>
+<div class="trace">17657: CreateRTVFromBackBuffer()</div>
+<div class="trace">17657: WM_SIZE</div>
+<div class="trace">17657: CreateRenderTarget2D(size = (893, 600), sampleCount = 4)</div>
+<div class="trace">17657: CWindow::updateWindowBounds(rect = (339, 179, 915, 637))</div>
+<div class="trace">17658: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17658: CWindow::m_backBufferResizingRequest = (899, 593)</div>
+<div class="trace">17665: WM_SIZE</div>
+<div class="trace">17665: CWindow::updateWindowBounds(rect = (339, 179, 918, 632))</div>
+<div class="trace">17665: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17665: CWindow::m_backBufferResizingRequest = (902, 588)</div>
+<div class="trace">17666: D3D11RenderTarget::resizeBuffers(backBufferSize = (902, 588), sceneSize = (902, 588))</div>
+<div class="trace">17670: D3D11RenderTarget::m_backBuffer.size = (902, 588)</div>
+<div class="trace">17670: CreateRTVFromBackBuffer()</div>
+<div class="trace">17670: CreateRenderTarget2D(size = (902, 588), sampleCount = 4)</div>
+<div class="trace">17673: WM_SIZE</div>
+<div class="trace">17673: CWindow::updateWindowBounds(rect = (339, 179, 919, 628))</div>
+<div class="trace">17673: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17674: CWindow::m_backBufferResizingRequest = (903, 584)</div>
+<div class="trace">17680: WM_SIZE</div>
+<div class="trace">17680: CWindow::updateWindowBounds(rect = (339, 179, 920, 626))</div>
+<div class="trace">17681: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17681: CWindow::m_backBufferResizingRequest = (904, 582)</div>
+<div class="trace">17683: D3D11RenderTarget::resizeBuffers(backBufferSize = (904, 582), sceneSize = (904, 582))</div>
+<div class="trace">17687: D3D11RenderTarget::m_backBuffer.size = (904, 582)</div>
+<div class="trace">17687: CreateRTVFromBackBuffer()</div>
+<div class="trace">17687: WM_SIZE</div>
+<div class="trace">17687: CreateRenderTarget2D(size = (904, 582), sampleCount = 4)</div>
+<div class="trace">17687: CWindow::updateWindowBounds(rect = (339, 179, 921, 620))</div>
+<div class="trace">17688: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17688: CWindow::m_backBufferResizingRequest = (905, 576)</div>
+<div class="trace">17694: WM_SIZE</div>
+<div class="trace">17695: CWindow::updateWindowBounds(rect = (339, 179, 921, 617))</div>
+<div class="trace">17695: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17695: CWindow::m_backBufferResizingRequest = (905, 573)</div>
+<div class="trace">17699: D3D11RenderTarget::resizeBuffers(backBufferSize = (905, 573), sceneSize = (905, 573))</div>
+<div class="trace">17704: D3D11RenderTarget::m_backBuffer.size = (905, 573)</div>
+<div class="trace">17704: CreateRTVFromBackBuffer()</div>
+<div class="trace">17704: WM_SIZE</div>
+<div class="trace">17704: CWindow::updateWindowBounds(rect = (339, 179, 921, 613))</div>
+<div class="trace">17704: CreateRenderTarget2D(size = (905, 573), sampleCount = 4)</div>
+<div class="trace">17704: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17705: CWindow::m_backBufferResizingRequest = (905, 569)</div>
+<div class="trace">17710: WM_SIZE</div>
+<div class="trace">17711: CWindow::updateWindowBounds(rect = (339, 179, 919, 609))</div>
+<div class="trace">17711: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17711: CWindow::m_backBufferResizingRequest = (903, 565)</div>
+<div class="trace">17716: D3D11RenderTarget::resizeBuffers(backBufferSize = (903, 565), sceneSize = (903, 565))</div>
+<div class="trace">17719: D3D11RenderTarget::m_backBuffer.size = (903, 565)</div>
+<div class="trace">17720: CreateRTVFromBackBuffer()</div>
+<div class="trace">17720: CreateRenderTarget2D(size = (903, 565), sampleCount = 4)</div>
+<div class="trace">17724: WM_SIZE</div>
+<div class="trace">17724: CWindow::updateWindowBounds(rect = (339, 179, 911, 598))</div>
+<div class="trace">17724: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17725: CWindow::m_backBufferResizingRequest = (895, 554)</div>
+<div class="trace">17733: D3D11RenderTarget::resizeBuffers(backBufferSize = (895, 554), sceneSize = (895, 554))</div>
+<div class="trace">17735: WM_SIZE</div>
+<div class="trace">17736: CWindow::updateWindowBounds(rect = (339, 179, 906, 590))</div>
+<div class="trace">17736: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17737: CWindow::m_backBufferResizingRequest = (890, 546)</div>
+<div class="trace">17740: D3D11RenderTarget::m_backBuffer.size = (895, 554)</div>
+<div class="trace">17740: CreateRTVFromBackBuffer()</div>
+<div class="trace">17741: CreateRenderTarget2D(size = (895, 554), sampleCount = 4)</div>
+<div class="trace">17744: WM_SIZE</div>
+<div class="trace">17744: CWindow::updateWindowBounds(rect = (339, 179, 903, 582))</div>
+<div class="trace">17745: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17745: CWindow::m_backBufferResizingRequest = (887, 538)</div>
+<div class="trace">17749: D3D11RenderTarget::resizeBuffers(backBufferSize = (887, 538), sceneSize = (887, 538))</div>
+<div class="trace">17756: WM_SIZE</div>
+<div class="trace">17756: CWindow::updateWindowBounds(rect = (339, 179, 893, 569))</div>
+<div class="trace">17757: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17757: CWindow::m_backBufferResizingRequest = (877, 525)</div>
+<div class="trace">17758: D3D11RenderTarget::m_backBuffer.size = (887, 538)</div>
+<div class="trace">17759: CreateRTVFromBackBuffer()</div>
+<div class="trace">17759: CreateRenderTarget2D(size = (887, 538), sampleCount = 4)</div>
+<div class="trace">17761: WM_SIZE</div>
+<div class="trace">17762: CWindow::updateWindowBounds(rect = (339, 179, 888, 563))</div>
+<div class="trace">17762: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17762: CWindow::m_backBufferResizingRequest = (872, 519)</div>
+<div class="trace">17766: D3D11RenderTarget::resizeBuffers(backBufferSize = (872, 519), sceneSize = (872, 519))</div>
+<div class="trace">17770: WM_SIZE</div>
+<div class="trace">17770: D3D11RenderTarget::m_backBuffer.size = (872, 519)</div>
+<div class="trace">17771: CWindow::updateWindowBounds(rect = (339, 179, 884, 557))</div>
+<div class="trace">17771: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17771: CWindow::m_backBufferResizingRequest = (868, 513)</div>
+<div class="trace">17771: CreateRTVFromBackBuffer()</div>
+<div class="trace">17772: CreateRenderTarget2D(size = (872, 519), sampleCount = 4)</div>
+<div class="trace">17783: WM_SIZE</div>
+<div class="trace">17784: CWindow::updateWindowBounds(rect = (339, 179, 876, 548))</div>
+<div class="trace">17784: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17784: CWindow::m_backBufferResizingRequest = (860, 504)</div>
+<div class="trace">17790: WM_SIZE</div>
+<div class="trace">17790: CWindow::updateWindowBounds(rect = (339, 179, 872, 545))</div>
+<div class="trace">17791: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17791: CWindow::m_backBufferResizingRequest = (856, 501)</div>
+<div class="trace">17797: WM_SIZE</div>
+<div class="trace">17798: CWindow::updateWindowBounds(rect = (339, 179, 871, 542))</div>
+<div class="trace">17798: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17798: CWindow::m_backBufferResizingRequest = (855, 498)</div>
+<div class="trace">17799: D3D11RenderTarget::resizeBuffers(backBufferSize = (855, 498), sceneSize = (855, 498))</div>
+<div class="trace">17803: D3D11RenderTarget::m_backBuffer.size = (855, 498)</div>
+<div class="trace">17803: CreateRTVFromBackBuffer()</div>
+<div class="trace">17803: CreateRenderTarget2D(size = (855, 498), sampleCount = 4)</div>
+<div class="trace">17806: WM_SIZE</div>
+<div class="trace">17806: CWindow::updateWindowBounds(rect = (339, 179, 869, 540))</div>
+<div class="trace">17807: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17807: CWindow::m_backBufferResizingRequest = (853, 496)</div>
+<div class="trace">17816: D3D11RenderTarget::resizeBuffers(backBufferSize = (853, 496), sceneSize = (853, 496))</div>
+<div class="trace">17819: D3D11RenderTarget::m_backBuffer.size = (853, 496)</div>
+<div class="trace">17819: CreateRTVFromBackBuffer()</div>
+<div class="trace">17819: WM_SIZE</div>
+<div class="trace">17819: CreateRenderTarget2D(size = (853, 496), sampleCount = 4)</div>
+<div class="trace">17820: CWindow::updateWindowBounds(rect = (339, 179, 868, 539))</div>
+<div class="trace">17820: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17820: CWindow::m_backBufferResizingRequest = (852, 495)</div>
+<div class="trace">17843: WM_SIZE</div>
+<div class="trace">17843: CWindow::updateWindowBounds(rect = (339, 179, 867, 539))</div>
+<div class="trace">17843: CWindow::requestBackBufferResizing()</div>
+<div class="trace">17844: CWindow::m_backBufferResizingRequest = (851, 495)</div>
+<div class="trace">17849: D3D11RenderTarget::resizeBuffers(backBufferSize = (851, 495), sceneSize = (851, 495))</div>
+<div class="trace">17853: D3D11RenderTarget::m_backBuffer.size = (851, 495)</div>
+<div class="trace">17853: CreateRTVFromBackBuffer()</div>
+<div class="trace">17854: CreateRenderTarget2D(size = (851, 495), sampleCount = 4)</div>
+<div class="trace">19434: CWindow::updateWindowBounds(rect = (-8, 22, 1552, 850))</div>
+<div class="trace">19434: WM_SIZE</div>
+<div class="trace">19434: CWindow::updateWindowBounds(rect = (-8, 22, 1552, 850))</div>
+<div class="trace">19435: CWindow::requestBackBufferResizing()</div>
+<div class="trace">19435: CWindow::m_backBufferResizingRequest = (1536, 806)</div>
+<div class="trace">19449: D3D11RenderTarget::resizeBuffers(backBufferSize = (1536, 806), sceneSize = (1536, 806))</div>
+<div class="trace">19452: D3D11RenderTarget::m_backBuffer.size = (1536, 806)</div>
+<div class="trace">19452: CreateRTVFromBackBuffer()</div>
+<div class="trace">19452: CreateRenderTarget2D(size = (1536, 806), sampleCount = 4)</div>
+<div class="trace">20830: CWindow::updateWindowBounds(rect = (339, 179, 867, 539))</div>
+<div class="trace">20830: WM_SIZE</div>
+<div class="trace">20830: CWindow::updateWindowBounds(rect = (339, 179, 867, 539))</div>
+<div class="trace">20831: CWindow::requestBackBufferResizing()</div>
+<div class="trace">20831: CWindow::m_backBufferResizingRequest = (851, 495)</div>
+<div class="trace">20832: D3D11RenderTarget::resizeBuffers(backBufferSize = (851, 495), sceneSize = (851, 495))</div>
+<div class="trace">20837: D3D11RenderTarget::m_backBuffer.size = (851, 495)</div>
+<div class="trace">20837: CreateRTVFromBackBuffer()</div>
+<div class="trace">20837: CreateRenderTarget2D(size = (851, 495), sampleCount = 4)</div>
+<div class="trace">23072: WM_CHAR</div>
+<div class="info">23081: 🚪 System::Update(): `UserAction::EscapeKeyDown` has occurred</div>
+<div class="debug">23082: ♻️ Released Script[0(null)]</div>
+<hr width="99%"><div class="trace">23089: CAsset::~CAsset()</div>
+<div class="trace">23089: CScript::~CScript()</div>
+<div class="trace">23089: CPrint::~CPrint()</div>
+<div class="debug">23090: ♻️ Released Font[2]</div>
+<div class="trace">23090: CEffect::~CEffect()</div>
+<div class="debug">23090: ♻️ Released Effect[0(null)]</div>
+<div class="trace">23090: CGUI::~CGUI()</div>
+<div class="debug">23091: ♻️ Released Font[1]</div>
+<div class="trace">23091: CSDFFont::~CSDFFont()</div>
+<div class="debug">23091: ♻️ Released SDFFont[0(null)]</div>
+<div class="trace">23091: CFont::~CFont()</div>
+<div class="debug">23091: ♻️ Released Font[0(null)]</div>
+<div class="trace">23092: CScreenCapture::~CScreenCapture()</div>
+<div class="trace">23092: CRenderer2D_D3D11::~CRenderer2D_D3D11()</div>
+<div class="debug">23092: ♻️ Released Texture[1]</div>
+<div class="debug">23092: ♻️ Released PixelShader[9]</div>
+<div class="debug">23092: ♻️ Released PixelShader[8]</div>
+<div class="debug">23093: ♻️ Released PixelShader[7]</div>
+<div class="debug">23093: ♻️ Released PixelShader[6]</div>
+<div class="debug">23093: ♻️ Released PixelShader[5]</div>
+<div class="debug">23093: ♻️ Released PixelShader[4]</div>
+<div class="debug">23093: ♻️ Released PixelShader[3]</div>
+<div class="debug">23094: ♻️ Released VertexShader[3]</div>
+<div class="debug">23094: ♻️ Released VertexShader[2]</div>
+<div class="debug">23094: ♻️ Released VertexShader[1]</div>
+<div class="trace">23094: CTexture_D3D11::~CTexture_D3D11()</div>
+<div class="debug">23094: ♻️ Released Texture[0(null)]</div>
+<div class="trace">23095: CShader_D3D11::~CShader_D3D11()</div>
+<div class="debug">23095: ♻️ Released PixelShader[1]</div>
+<div class="debug">23095: ♻️ Released PixelShader[2]</div>
+<div class="debug">23095: ♻️ Released PixelShader[0(null)]</div>
+<div class="debug">23095: ♻️ Released VertexShader[0(null)]</div>
+<div class="trace">23095: CGraphics_D3D11::~CGraphics_D3D11()</div>
+<div class="trace">23156: CToastNotification::~CToastNotification()</div>
+<div class="trace">23157: CNetwork::~CNetwork()</div>
+<div class="trace">23157: CFFT::~CFFT()</div>
+<div class="debug">23173: ♻️ Released Audio[0(null)]</div>
+<div class="trace">23594: CSoundFont::~CSoundFont()</div>
+<div class="trace">23594: CAudioFormat::~CAudioFormat()</div>
+<div class="trace">23594: CCodec::~CCodec()</div>
+<div class="trace">23598: CDragDrop::~CDragDrop()</div>
+<div class="trace">23599: CClipboard::~CClipboard()</div>
+<div class="trace">23599: CTextToSpeech::~CTextToSpeech()</div>
+<div class="trace">23599: CTextInput::~CTextInput()</div>
+<div class="trace">23600: CXInput::~CXInput()</div>
+<div class="trace">23600: CGamepad::~CGamepad()</div>
+<div class="trace">23600: CMouse::~CMouse()</div>
+<div class="trace">23600: CKeyboard::CKeyboard()</div>
+<div class="trace">23601: CCursor::~CCursor()</div>
+<div class="trace">23601: CWindow::~CWindow()</div>
+<div class="trace">23606: WM_DESTROY</div>
+<div class="trace">23611: message.message == WM_QUIT</div>
+<div class="trace">23612: CObjectDetection::~CObjectDetection()</div>
+<div class="trace">23612: CImageFormat::~CImageFormat()</div>
+<div class="trace">23612: CProfiler::~CProfiler()</div>
+<div class="trace">23612: CCPU::~CCPU()</div>
+<div class="info">23625: ✅ Siv3D engine has terminated</div>
+<div class="info">23625: ℹ️ 2020/10/25 03:02:03</div>
+</div>
+</body>
+</html>
