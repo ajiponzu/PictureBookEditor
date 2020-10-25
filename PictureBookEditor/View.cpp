@@ -7,17 +7,17 @@
 void View::pollEvent()
 {
 	calcSceneRatio();
-	for (auto itr = vc_list.begin(); itr != vc_list.end(); itr++)
+	for (auto vc : vc_list)
 	{
-		itr->get()->pollEvent(wid_ratio, high_ratio);
+		vc->pollEvent(wid_ratio, high_ratio);
 	}
 }
 
 void View::draw()
 {
-	for (auto itr = vc_list.begin(); itr != vc_list.end(); itr++)
+	for (auto vc : vc_list)
 	{
-		itr->get()->draw();
+		vc->draw();
 	}
 }
 
@@ -28,14 +28,10 @@ void View::init()
 
 void View::initVcList()
 {
-	auto child0 = std::make_unique<ViewComponent>(MenuView(controller));
-	auto child1 = std::make_unique<ViewComponent>(PictureSetView(controller));
-	auto child2 = std::make_unique<ViewComponent>(ScenarioSetView(controller));
-	auto child3 = std::make_unique<ViewComponent>(PageSetView(controller));
-	vc_list.push_back(std::move(child0));
-	vc_list.push_back(std::move(child1));
-	vc_list.push_back(std::move(child2));
-	vc_list.push_back(std::move(child3));
+	vc_list.push_back(std::make_shared<MenuView>(MenuView(controller)));
+	vc_list.push_back(std::make_shared<PictureSetView>(PictureSetView(controller)));
+	vc_list.push_back(std::make_shared<ScenarioSetView>(ScenarioSetView(controller)));
+	vc_list.push_back(std::make_shared<PageSetView>(PageSetView(controller)));
 }
 
 void View::calcSceneRatio()

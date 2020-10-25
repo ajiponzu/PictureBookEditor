@@ -17,7 +17,7 @@ private:
 	int wid_ratio = 0;
 	int high_ratio = 0;
 	std::shared_ptr<Controller> controller;
-	std::vector<std::unique_ptr<ViewComponent>> vc_list;
+	std::vector<std::shared_ptr<ViewComponent>> vc_list;
 public:
 	View(std::shared_ptr<Controller> ptr) : controller(ptr)
 	{
