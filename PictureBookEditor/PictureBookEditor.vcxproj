@@ -111,7 +111,11 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MenuView.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="PageSetView.cpp" />
+    <ClCompile Include="PictureSetView.cpp" />
+    <ClCompile Include="ScenarioSetView.cpp" />
     <ClCompile Include="View.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -241,7 +245,11 @@
   <ItemGroup>
     <ClInclude Include="App.h" />
     <ClInclude Include="Controller.h" />
+    <ClInclude Include="MenuView.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="PageSetView.h" />
+    <ClInclude Include="PictureSetView.h" />
+    <ClInclude Include="ScenarioSetView.h" />
     <ClInclude Include="View.h" />
     <ClInclude Include="ViewComponent.h" />
   </ItemGroup>

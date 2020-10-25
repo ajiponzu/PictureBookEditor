@@ -97,6 +97,15 @@
     <Filter Include="Resource Files\example\zip">
       <UniqueIdentifier>{81d8d80c-f0ce-492f-8fee-c5502c31bc0e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="View">
+      <UniqueIdentifier>{baf21a04-bd48-4db3-848c-3fcbbeeea592}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Header">
+      <UniqueIdentifier>{073de6fa-6bb0-4229-86a6-f4ac12ce48e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="View\Source">
+      <UniqueIdentifier>{751c3273-47c2-40dc-afcf-f80fdbef3ded}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -112,6 +121,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Model.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MenuView.cpp">
+      <Filter>View\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PictureSetView.cpp">
+      <Filter>View\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="ScenarioSetView.cpp">
+      <Filter>View\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PageSetView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -401,6 +422,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ViewComponent.h">
+      <Filter>View\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuView.h">
+      <Filter>View\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PictureSetView.h">
+      <Filter>View\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="ScenarioSetView.h">
+      <Filter>View\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PageSetView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -11,10 +11,10 @@ private:
 	int high_ratio = 0;
 	std::shared_ptr<Controller> controller;
 public:
-	ViewComponent(int w_ratio, int h_ratio, std::shared_ptr<Controller> ctr) : wid_ratio(w_ratio), high_ratio(h_ratio), controller(ctr) {}
+	ViewComponent(std::shared_ptr<Controller> ctr) : controller(ctr) {}
 	~ViewComponent() {}
 	
-	virtual void pollEvent() = 0;
+	virtual void pollEvent(int w_ratio, int h_ratio) = 0;
 	virtual void draw() = 0;
 };
 
