@@ -14,5 +14,5 @@ void MenuView::draw()
 
 void MenuView::init()
 {
-	create_btn = std::make_shared<MyButton>(MyButton(50, 50, 100, 100));
+	create_btn = std::make_shared<MyButton>(MyButton(50, 50, 100, 100, String(U"V‹K"), 30));
 }

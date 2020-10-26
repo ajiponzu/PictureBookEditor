@@ -3,12 +3,11 @@
 bool MyButton::isClicked(int& w_ratio, int& h_ratio)
 {
 	resize(w_ratio, h_ratio);
-	button.draw(ColorF(125, 0, 255));
-	isMouseOver();
-	if (button.leftClicked())
-		return true;
-	else
-		return false;
+	button.draw(Palette::Aliceblue).drawFrame(5 * w_ratio, 5 * h_ratio, Palette::Aqua);
+	font(text).drawAt(button.center(), Palette::Black);
+	if (button.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
+	if (button.leftClicked()) return true;
+	else return false;
 }
 
 void MyButton::resize(int& w_ratio, int& h_ratio)
@@ -17,7 +16,3 @@ void MyButton::resize(int& w_ratio, int& h_ratio)
 	button.setSize(width * w_ratio, height * h_ratio);
 }
 
-bool MyButton::isMouseOver()
-{
-	return false;
-}
