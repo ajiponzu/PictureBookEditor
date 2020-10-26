@@ -7,8 +7,8 @@
 #include "Controller.h"
 #include "ViewComponent.h"
 
-constexpr auto DEFAULT_SCENE_WID = 1280;
-constexpr auto DEFAULT_SCENE_HIGH = 720;
+constexpr auto DEFAULT_SCENE_WID = 1920;
+constexpr auto DEFAULT_SCENE_HIGH = 1080;
 
 class View
 {

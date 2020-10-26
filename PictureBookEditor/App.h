@@ -16,7 +16,7 @@ private:
 	std::unique_ptr<Model> model = nullptr;
 	std::shared_ptr<Controller> controller = nullptr;
 public:
-	App(int width, int height) : wid(width), high(height)
+	App(int width = 1920, int height = 1080) : wid(width), high(height)
 	{
 		init();
 	}

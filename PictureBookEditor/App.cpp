@@ -24,5 +24,6 @@ void App::setWindowInf()
      Scene::SetBackground(ColorF(1.0, 1.0, 1.0));
     Window::SetStyle(WindowStyle::Sizable);
     Scene::SetScaleMode(ScaleMode::ResizeFill);
+    Window::Maximize();
 }
 

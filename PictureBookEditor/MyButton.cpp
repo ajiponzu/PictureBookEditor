@@ -3,7 +3,7 @@
 bool MyButton::isClicked(int& w_ratio, int& h_ratio)
 {
 	resize(w_ratio, h_ratio);
-	button.draw(Palette::Aliceblue).drawFrame(5 * w_ratio, 5 * h_ratio, Palette::Aqua);
+	button.draw(Palette::Aliceblue).drawFrame(2, 2, Palette::Aqua);
 	font(text).drawAt(button.center(), Palette::Black);
 	if (button.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
 	if (button.leftClicked()) return true;
