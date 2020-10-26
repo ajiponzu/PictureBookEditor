@@ -4,12 +4,15 @@
 #include "ScenarioSetView.h"
 #include "PageSetView.h"
 
+int ViewComponent::wid_ratio = 0;
+int ViewComponent::high_ratio = 0;
+
 void View::pollEvent()
 {
 	calcSceneRatio();
 	for (auto vc : vc_list)
 	{
-		vc->pollEvent(wid_ratio, high_ratio);
+		vc->pollEvent();
 	}
 }
 
@@ -40,4 +43,5 @@ void View::calcSceneRatio()
 	scene_high = Scene::Height();
 	wid_ratio = scene_wid / DEFAULT_SCENE_WID;
 	high_ratio = scene_high / DEFAULT_SCENE_HIGH;
+	ViewComponent::changeRatio(wid_ratio, high_ratio);
 }

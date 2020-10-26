@@ -21,7 +21,7 @@ void App::setWindowInf()
 {
     Window::Resize(wid, high);
     Window::SetTitle(U"PictureBookEditor");
-     Scene::SetBackground(ColorF(0.8, 0.9, 1.0));
+     Scene::SetBackground(ColorF(1.0, 1.0, 1.0));
     Window::SetStyle(WindowStyle::Sizable);
     Scene::SetScaleMode(ScaleMode::ResizeFill);
 }

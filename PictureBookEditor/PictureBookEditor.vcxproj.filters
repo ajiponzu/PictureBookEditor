@@ -114,9 +114,6 @@
     <ClCompile Include="App.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="View.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Controller.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -132,8 +129,14 @@
     <ClCompile Include="ScenarioSetView.cpp">
       <Filter>View\Source</Filter>
     </ClCompile>
+    <ClCompile Include="View.cpp">
+      <Filter>View\Source</Filter>
+    </ClCompile>
     <ClCompile Include="PageSetView.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>View\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="MyButton.cpp">
+      <Filter>View\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -412,9 +415,6 @@
     <ClInclude Include="App.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="View.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -433,8 +433,14 @@
     <ClInclude Include="ScenarioSetView.h">
       <Filter>View\Header</Filter>
     </ClInclude>
+    <ClInclude Include="View.h">
+      <Filter>View\Header</Filter>
+    </ClInclude>
     <ClInclude Include="PageSetView.h">
-      <Filter>Header Files</Filter>
+      <Filter>View\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="MyButton.h">
+      <Filter>View\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

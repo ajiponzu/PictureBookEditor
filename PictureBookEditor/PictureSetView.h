@@ -10,7 +10,7 @@ public:
     PictureSetView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr) {}
     ~PictureSetView() {}
 
-    virtual void pollEvent(int w_ratio, int h_ratio);
+    virtual void pollEvent();
     virtual void draw();
 };
 

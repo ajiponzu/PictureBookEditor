@@ -2,7 +2,7 @@
 
 void Main()
 {
-	auto app = App(1280, 720);
+	auto app = App(1920, 1080);
 	app.run();
 }
 

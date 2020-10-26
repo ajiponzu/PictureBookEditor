@@ -8,7 +8,7 @@ public:
     PageSetView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr) {}
     ~PageSetView() {}
 
-    virtual void pollEvent(int w_ratio, int h_ratio);
+    virtual void pollEvent();
     virtual void draw();
 };
 

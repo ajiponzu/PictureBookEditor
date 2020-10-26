@@ -113,6 +113,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuView.cpp" />
     <ClCompile Include="Model.cpp" />
+    <ClCompile Include="MyButton.cpp" />
     <ClCompile Include="PageSetView.cpp" />
     <ClCompile Include="PictureSetView.cpp" />
     <ClCompile Include="ScenarioSetView.cpp" />
@@ -247,6 +248,7 @@
     <ClInclude Include="Controller.h" />
     <ClInclude Include="MenuView.h" />
     <ClInclude Include="Model.h" />
+    <ClInclude Include="MyButton.h" />
     <ClInclude Include="PageSetView.h" />
     <ClInclude Include="PictureSetView.h" />
     <ClInclude Include="ScenarioSetView.h" />

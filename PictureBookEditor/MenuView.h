@@ -1,16 +1,23 @@
 #pragma once
 
+#include "MyButton.h"
 #include "ViewComponent.h"
 
 class MenuView :
     public ViewComponent
 {
 private:
+    std::shared_ptr<MyButton> create_btn;
 public:
-    MenuView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr) {}
+    MenuView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)
+    {
+        init();
+    }
     ~MenuView() {}
 
-    virtual void pollEvent(int w_ratio, int h_ratio);
+    virtual void pollEvent();
     virtual void draw();
+private:
+    void init();
 };
 
