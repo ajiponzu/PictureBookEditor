@@ -7,22 +7,19 @@
 #include "Controller.h"
 #include "ViewComponent.h"
 
-constexpr auto DEFAULT_SCENE_WID = 1920;
-constexpr auto DEFAULT_SCENE_HIGH = 1080;
-
 class View
 {
 private:
 	int scene_wid = 0;
 	int scene_high = 0;
-	int wid_ratio = 0;
-	int high_ratio = 0;
 	std::shared_ptr<Controller> controller;
 	std::vector<std::shared_ptr<ViewComponent>> vc_list;
 public:
 	View(std::shared_ptr<Controller> ptr) : controller(ptr)
 	{
 		init();
+		scene_wid = Scene::Width();
+		scene_high = Scene::Height();
 	}
 	~View() {}
 	virtual void pollEvent();
@@ -30,6 +27,5 @@ public:
 private:
 	void init();
 	void initVcList();
-	void calcSceneRatio();
 };
 

@@ -1,41 +1,39 @@
 #include "MenuView.h"
 
 constexpr auto B_POS_X = 20;
-constexpr auto B_WID = 80;
-constexpr auto B_HIGH = 50;
+constexpr auto B_WID = 200;
+constexpr auto B_HIGH = 80;
 constexpr auto B_GAP = B_WID + 20;
-constexpr auto B_POS_Y = 20;
-constexpr auto F_SIZE = 30;
+constexpr auto B_POS_Y = 0;
+constexpr auto F_SIZE = 50;
+constexpr auto B_OFFSET = 40;
+
+constexpr auto R_WID = 3840;
+constexpr auto R_HIGH = B_HIGH + 20;
+
+constexpr auto CB_SIZE =R_HIGH;
+constexpr auto CB_X = R_WID - CB_SIZE;
 
 void MenuView::pollEvent()
 {
-	if (create_btn->isClicked(wid_ratio, high_ratio))
-	{
-		Print << U"create";
-	}
-	if (delete_btn->isClicked(wid_ratio, high_ratio))
-	{
-		Print << U"delete";
-	}
-	if (reset_btn->isClicked(wid_ratio, high_ratio))
-	{
-		Print << U"reset";
-	}
-	if (save_btn->isClicked(wid_ratio, high_ratio))
-	{
-		Print << U"save";
-	}
-	if (run_btn->isClicked(wid_ratio, high_ratio))
-	{
-		Print << U"run";
-	}
-}
-
-void MenuView::draw()
-{
+	menu_rect.draw(Arg::top = Palette::Aquamarine, Arg::bottom = Palette::Blue);
+	pollCloseEvent();
+	pollButtonEvent();
 }
 
 void MenuView::init()
+{
+	menu_rect = Rect(0, 0, R_WID, R_HIGH);
+	close_btn_img = Texture(U"close_btn.png");
+	close_btn = std::make_shared<MyButton>(MyButton(CB_X, 0, CB_SIZE, CB_SIZE, String(U""), F_SIZE));
+	if (!close_btn_img)
+    {
+        throw Error(U"Failed to create a texture");
+    }
+	initButton();
+}
+
+void MenuView::initButton()
 {
 	auto create_x = B_POS_X;
 	auto delete_x = create_x + B_GAP;
@@ -48,3 +46,37 @@ void MenuView::init()
 	save_btn = std::make_shared<MyButton>(MyButton(save_x, B_POS_Y, B_WID, B_HIGH, String(U"•Û‘¶"), F_SIZE));
 	run_btn = std::make_shared<MyButton>(MyButton(run_x, B_POS_Y, B_WID, B_HIGH, String(U"ŽÀs"), F_SIZE));
 }
+
+void MenuView::pollButtonEvent()
+{
+	if (create_btn->isClicked())
+	{
+		Print << U"create";
+	}
+	if (delete_btn->isClicked())
+	{
+		Print << U"delete";
+	}
+	if (reset_btn->isClicked())
+	{
+		Print << U"reset";
+	}
+	if (save_btn->isClicked())
+	{
+		Print << U"save";
+	}
+	if (run_btn->isClicked())
+	{
+		Print << U"run";
+	}
+}
+
+void MenuView::pollCloseEvent()
+{
+	close_btn_img.draw(CB_X, 0);
+	if (close_btn->isClickedInvBtn())
+	{
+		System::Exit();
+	}
+}
+

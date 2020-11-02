@@ -10,17 +10,11 @@
 class App
 {
 private:
-	int wid = 0;
-	int high = 0;
 	std::unique_ptr<View> view = nullptr;
 	std::unique_ptr<Model> model = nullptr;
 	std::shared_ptr<Controller> controller = nullptr;
 public:
-	App(int width = 1920, int height = 1080) : wid(width), high(height)
-	{
-		init();
-	}
-
+	App() { init(); }
 	~App() {}
 	
 	void run();

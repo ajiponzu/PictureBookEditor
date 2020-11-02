@@ -21,8 +21,7 @@ public:
 	};
 	~MyButton() {}
 
-	bool isClicked(int&, int&);
-private:
-	void resize(int&, int&);
+	bool isClicked();
+	bool isClickedInvBtn();
 };
 

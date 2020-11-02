@@ -12,6 +12,9 @@ private:
     std::shared_ptr<MyButton> reset_btn;
     std::shared_ptr<MyButton> save_btn;
     std::shared_ptr<MyButton> run_btn;
+    std::shared_ptr<MyButton> close_btn;
+    Rect menu_rect;
+    Texture close_btn_img;
 public:
     MenuView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)
     {
@@ -19,9 +22,12 @@ public:
     }
     ~MenuView() {}
 
-    virtual void pollEvent();
-    virtual void draw();
+    virtual void pollEvent() override;
+    virtual void draw() {};
 private:
     void init();
+    void initButton();
+    void pollButtonEvent();
+    void pollCloseEvent();
 };
 
