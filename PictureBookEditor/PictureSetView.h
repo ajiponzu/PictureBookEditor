@@ -43,6 +43,7 @@ private:
     double img_fade_out3 = 0.0f;
     double img_fade_out4 = 0.0f;
 
+    Rect back_rect;
 public:
     PictureSetView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)
     {

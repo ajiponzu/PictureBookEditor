@@ -9,6 +9,7 @@ constexpr auto B_POS_Y = 170;
 constexpr auto F_SIZE = 50;
 constexpr auto B_OFFSET = 40;
 
+constexpr auto TOP_Y = B_POS_Y - 20;
 constexpr auto IMG1_Y = B_POS_Y;
 constexpr auto IMG1D_Y = IMG1_Y + B_GAP;
 constexpr auto IMG2_Y = IMG1D_Y + B_GAP + BD_GAP;
@@ -17,14 +18,18 @@ constexpr auto IMG3_Y = IMG2D_Y + B_GAP + BD_GAP;
 constexpr auto IMG3D_Y = IMG3_Y + B_GAP;
 constexpr auto IMG4_Y = IMG3D_Y + B_GAP + BD_GAP;
 constexpr auto IMG4D_Y = IMG4_Y + B_GAP;
+constexpr auto BACK_HIGH = IMG4D_Y + 100 - TOP_Y;
 
+constexpr auto LEFT_X = B_POS_X - 50;
 constexpr auto LEFT_SLIDER_X = B_WID + B_POS_X + 50;
 constexpr auto RIGHT_SLIDER_X = LEFT_SLIDER_X + 600;
 constexpr auto SLIDER_LABEL_WID = 200.0;
 constexpr auto SLIDER_WID = 300.0;
+constexpr auto BACK_WID = RIGHT_SLIDER_X + 600 - LEFT_X;
 
 void PictureSetView::pollEvent()
 {
+	back_rect.draw(Palette::Whitesmoke).drawFrame(4, 4, Palette::Lightsalmon);
 	pollButtonEvent();
 	pollSliderEvent();
 }
@@ -32,6 +37,7 @@ void PictureSetView::pollEvent()
 void PictureSetView::init()
 {
 	initButton();
+	back_rect = Rect(LEFT_X, TOP_Y, BACK_WID, BACK_HIGH);
 }
 
 void PictureSetView::initButton()
