@@ -1,11 +1,11 @@
 #include "ScenarioSetView.h"
 
-constexpr auto B_POS_X = 2550;
+constexpr auto B_POS_X = 2650;
 constexpr auto B_WID = 120;
 constexpr auto B_HIGH = 80;
 constexpr auto B_GAP = B_HIGH + 20;
 constexpr auto BD_GAP = 45;
-constexpr auto B_POS_Y = 1200;
+constexpr auto B_POS_Y = 1400;
 constexpr auto F_SIZE = 50;
 constexpr auto B_OFFSET = 40;
 
@@ -20,10 +20,10 @@ constexpr auto BACK_HIGH = TXT3D_Y + 100 - TOP_Y;
 
 constexpr auto LEFT_X = B_POS_X - 50;
 constexpr auto LEFT_SLIDER_X = B_WID + B_POS_X + 50;
-constexpr auto RIGHT_SLIDER_X = LEFT_SLIDER_X + 600;
+constexpr auto RIGHT_SLIDER_X = LEFT_SLIDER_X + 500;
 constexpr auto SLIDER_LABEL_WID = 200.0;
-constexpr auto SLIDER_WID = 300.0;
-constexpr auto BACK_WID = RIGHT_SLIDER_X + 600 - LEFT_X;
+constexpr auto SLIDER_WID = 250.0;
+constexpr auto BACK_WID = RIGHT_SLIDER_X + 500 - LEFT_X;
 
 void ScenarioSetView::pollEvent()
 {
