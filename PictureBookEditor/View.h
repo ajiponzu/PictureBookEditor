@@ -23,7 +23,6 @@ public:
 	}
 	~View() {}
 	virtual void pollEvent();
-	virtual void draw();
 private:
 	void init();
 	void initVcList();

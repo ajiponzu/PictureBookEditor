@@ -123,9 +123,6 @@
     <ClCompile Include="MenuView.cpp">
       <Filter>View\Source</Filter>
     </ClCompile>
-    <ClCompile Include="PictureSetView.cpp">
-      <Filter>View\Source</Filter>
-    </ClCompile>
     <ClCompile Include="ScenarioSetView.cpp">
       <Filter>View\Source</Filter>
     </ClCompile>
@@ -136,6 +133,9 @@
       <Filter>View\Source</Filter>
     </ClCompile>
     <ClCompile Include="MyButton.cpp">
+      <Filter>View\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PictureSetView.cpp">
       <Filter>View\Source</Filter>
     </ClCompile>
   </ItemGroup>

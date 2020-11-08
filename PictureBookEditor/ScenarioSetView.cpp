@@ -4,6 +4,3 @@ void ScenarioSetView::pollEvent()
 {
 }
 
-void ScenarioSetView::draw()
-{
-}

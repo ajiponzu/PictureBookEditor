@@ -11,6 +11,5 @@ public:
     ~ScenarioSetView() {}
 
     virtual void pollEvent();
-    virtual void draw();
 };
 

@@ -12,14 +12,6 @@ void View::pollEvent()
 	}
 }
 
-void View::draw()
-{
-	for (auto vc : vc_list)
-	{
-		vc->draw();
-	}
-}
-
 void View::init()
 {
 	initVcList();

@@ -23,7 +23,6 @@ public:
     ~MenuView() {}
 
     virtual void pollEvent() override;
-    virtual void draw() {};
 private:
     void init();
     void initButton();

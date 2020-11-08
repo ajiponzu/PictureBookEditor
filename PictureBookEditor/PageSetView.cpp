@@ -4,6 +4,3 @@ void PageSetView::pollEvent()
 {
 }
 
-void PageSetView::draw()
-{
-}

@@ -15,6 +15,5 @@ public:
 	~ViewComponent() {}
 	
 	virtual void pollEvent() = 0;
-	virtual void draw() = 0;
 };
 

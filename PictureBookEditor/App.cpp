@@ -5,7 +5,6 @@ void App::run()
     while (System::Update())
     {
         view->pollEvent();
-        view->draw();
     }
 }
 

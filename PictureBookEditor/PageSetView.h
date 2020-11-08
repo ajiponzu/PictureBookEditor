@@ -9,6 +9,5 @@ public:
     ~PageSetView() {}
 
     virtual void pollEvent();
-    virtual void draw();
 };
 
