@@ -1,5 +1,4 @@
 #pragma once
-#define SIV3D_WINDOWS_HIGH_DPI
 #include <Siv3D.hpp>
 
 #include "ViewComponent.h"
@@ -13,7 +12,7 @@ private:
 	String text;
 	Font  font;
 public:
-	MyButton(int x, int y, int wid, int high, String txt, int font_size) : x(x), y(y), width(wid), height(high)
+	MyButton(const int& x, const int& y, const int& wid, const int& high, const String& txt, const int& font_size) : x(x), y(y), width(wid), height(high)
 	{
 		button = Rect(x, y, wid, high);
 		text = txt;

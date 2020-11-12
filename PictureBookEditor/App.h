@@ -13,6 +13,8 @@ private:
 	std::unique_ptr<View> view = nullptr;
 	std::unique_ptr<Model> model = nullptr;
 	std::shared_ptr<Controller> controller = nullptr;
+
+	Rect viewport_rect;
 public:
 	App() { init(); }
 	~App() {}

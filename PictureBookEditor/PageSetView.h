@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ImageRect.h"
 #include "MyButton.h"
 #include "ViewComponent.h"
 
@@ -14,14 +15,11 @@ private:
     bool next_flag = false;
 
     Vec2 absolute_pos;
-    Vec2 place;
     Vec2 cur_pos;
-    Point delta;
-    RectF rectf;
-    Font font;
-    bool isPressed = false;
     double expansion = 1.0;
     int wheel = 0;
+
+    std::vector<std::shared_ptr<ImageRect>> img_rect_list;
 
     int max_x = 0;
     int max_y = 0;
@@ -37,11 +35,11 @@ private:
     void init();
     void initButton();
     void initPageView();
+    void initImgRect();
     void pollButtonEvent();
     void pollPageEvent();
-    void pollChangeAbsPosEvent();
-    void pollChangePlaceEvent();
     void pollZoomEvent();
+    void pollChangeAbsPosEvent();
     void pollMoveRectEvent();
 };
 

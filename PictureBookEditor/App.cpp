@@ -4,7 +4,12 @@ void App::run()
 {
     while (System::Update())
     {
-        view->pollEvent();
+        viewport_rect.draw(Palette::Floralwhite);
+        {
+            const ScopedViewport2D viewport(viewport_rect);
+            const Transformer2D transform(Mat3x2::Identity(), Mat3x2::Translate(viewport_rect.pos));
+            view->pollEvent();
+        }
     }
 }
 
@@ -19,8 +24,8 @@ void App::init()
 void App::setWindowInf()
 {
     Window::SetTitle(U"PictureBookEditor");
-    Scene::SetBackground(Palette::Floralwhite);
+    (void)Window::SetFullscreen(true);
     Scene::SetScaleMode(ScaleMode::ResizeFill);
-    Window::SetFullscreen(true);
+    viewport_rect = Rect(0, 0, Scene::Width(), Scene::Height());
 }
 
