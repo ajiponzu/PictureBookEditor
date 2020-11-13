@@ -1,5 +1,8 @@
 #pragma once
+#define RELEASE
+#ifdef RELEASE
 #define SIV3D_WINDOWS_HIGH_DPI
+#endif
 #include <Siv3D.hpp>
 #include <memory>
 
@@ -15,6 +18,7 @@ private:
 	std::shared_ptr<Controller> controller = nullptr;
 
 	Rect viewport_rect;
+	Array<Size> resolutions;
 public:
 	App() { init(); }
 	~App() {}

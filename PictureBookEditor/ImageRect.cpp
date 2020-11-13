@@ -52,7 +52,7 @@ void ImageRect::draw()
 	}
 	else
 	{
-		rectf.draw(AlphaF(0));
+		rectf.draw(AlphaF(0)).drawFrame(5, 5, Palette::Blueviolet);
 	}
 }
 

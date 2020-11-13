@@ -448,5 +448,8 @@
     <ClInclude Include="ImageRect.h">
       <Filter>View\Header</Filter>
     </ClInclude>
+    <ClInclude Include="Layout.h">
+      <Filter>View\Header</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
