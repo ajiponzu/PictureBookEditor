@@ -10,7 +10,7 @@ class ViewComponent
 {	
 protected:
 	std::shared_ptr<Controller> controller;
-	static Layout layout;
+	Layout layout;
 public:
 	ViewComponent(std::shared_ptr<Controller> ctr) : controller(ctr)
 	{

@@ -141,6 +141,9 @@
     <ClCompile Include="ImageRect.cpp">
       <Filter>View\Source</Filter>
     </ClCompile>
+    <ClCompile Include="Layout.cpp">
+      <Filter>View\Source</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="App\icon.ico">

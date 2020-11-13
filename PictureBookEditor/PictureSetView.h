@@ -44,6 +44,18 @@ private:
     double img_fade_out4 = 0.0f;
 
     Rect back_rect;
+    int x11 = 0;
+    int x12 = 0;
+    int y2 = 0;
+    int y3 = 0;
+    int y4 = 0;
+    int y5 = 0;
+    int y6 = 0;
+    int y7 = 0;
+    int y8 = 0;
+    int y9 = 0;
+    int slider_l_wid = 0;
+    int slider_wid = 0;
 public:
     PictureSetView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)
     {
@@ -56,6 +68,7 @@ public:
 private:
     void init();
     void initButton();
+    void initMacro();
     void pollButtonEvent();
     void pollSliderEvent();
 };

@@ -28,6 +28,7 @@ public:
 private:
     void init();
     void initButton();
+    void initCloseButton();
     void pollButtonEvent();
     void pollCloseEvent();
 };

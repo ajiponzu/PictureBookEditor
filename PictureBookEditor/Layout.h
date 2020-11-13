@@ -4,6 +4,7 @@
 class Layout
 {
 public:
+	double dpi;
 	//view layout
 	//layout_x
 	int X0;
@@ -40,57 +41,31 @@ public:
 	int Y17;
 
 	//views special parameter
+	int BTN_F_SIZE;
+	int BACK_RECT_WID;
+	int SLIDER_L_WID;
+	int SLIDER_WID;
 	//menu_view
 	int MENU_BTN_GAP_X;
 	int MENU_BTN_WID;
 	int MENU_BTN_HIGH;
-	int MENU_BTN_F_SIZE;
 	int MENU_BAR_TH;
 	int MENU_CLBTN_X;
-	double dpi;
 
-	//func
-	void init()
-	{
-		dpi = Graphics::GetDPIScaling();
-		X0 = 0;
-		X1 = 16 * dpi;
-		X2 = 0;
-		X3 = 0;
-		X4 = 0;
-		X5 = 0;
-		X6 = 0;
-		X7 = 0;
-		X8 = 0;
-		X9 = 0;
-		X10 = 0;
-		X11 = 0;
-		X12 = 0;
+	//picture_set_view
+	int PICTURE_BTN_WID;
+	int PICTURE_BTN_HIGH;
+	int PICTURE_BTN_GAP;
+	int PICTURE_DBTN_GAP;
+	int PICTURE_BACK_RECT_HIGH;
 
-		Y0 = 0;
-		Y1 = 0;
-		Y2 = 0;
-		Y3 = 0;
-		Y4 = 0;
-		Y5 = 0;
-		Y6 = 0;
-		Y7 = 0;
-		Y8 = 0;
-		Y9 = 0;
-		Y10 = 0;
-		Y11 = 0;
-		Y12 = 0;
-		Y13 = 0;
-		Y14 = 0;
-		Y15 = 0;
-		Y16 = 0;
-		Y17 = 0;
+private:
 
-		MENU_BTN_WID = 80 * dpi;
-		MENU_BTN_HIGH = 32 * dpi;
-		MENU_BTN_GAP_X = MENU_BTN_WID + 8 * dpi;
-		MENU_BTN_F_SIZE = 20 * dpi;
-		MENU_BAR_TH = MENU_BTN_HIGH + 8 * dpi;
-		MENU_CLBTN_X = Window::ClientWidth() - MENU_BAR_TH;
-	}
+public:
+	void init();
+private:
+	void initMenuViewMacro();
+	void initPictureSetViewMacro();
+	void initPos();
 };
+

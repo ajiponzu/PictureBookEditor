@@ -1,5 +1,4 @@
 #include "App.h"
-#define DEBUG
 
 void App::run()
 {

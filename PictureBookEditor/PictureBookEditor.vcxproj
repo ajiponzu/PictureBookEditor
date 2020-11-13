@@ -111,6 +111,7 @@
     <ClCompile Include="App.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="ImageRect.cpp" />
+    <ClCompile Include="Layout.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="MenuView.cpp" />
     <ClCompile Include="Model.cpp" />
