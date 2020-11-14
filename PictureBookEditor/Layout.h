@@ -18,7 +18,6 @@ public:
 	int X9;
 	int X10;
 	int X11;
-	int X12;
 	//layout_y
 	int Y0;
 	int Y1;
@@ -38,6 +37,9 @@ public:
 	int Y15;
 	int Y16;
 	int Y17;
+	int Y18;
+	int Y19;
+	int Y20;
 
 	//GUI pos
 	//common parameter
@@ -45,6 +47,8 @@ public:
 	int BACK_RECT_WID;
 	int SLIDER_L_WID;
 	int SLIDER_WID;
+	int SLIDER_L_WID2;
+	int SLIDER_WID2;
 	double RECT_FRAME_THICK;
 	//menu_view
 	int MENU_BTN_GAP;
@@ -57,7 +61,6 @@ public:
 	int BTN_WID;
 	int BTN_HIGH;
 	int BTN_GAP;
-	int DBTN_GAP;
 	int PICTURE_BACK_RECT_HIGH;
 
 	//scenario_set_view

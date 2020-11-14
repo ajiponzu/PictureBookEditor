@@ -10,19 +10,18 @@ void ScenarioSetView::pollEvent()
 void ScenarioSetView::init()
 {
 	layout.init();
-	back_rect = Rect(layout.X9, layout.Y10, layout.BACK_RECT_WID, layout.SCENARIO_BACK_RECT_HIGH);
+	back_rect = Rect(layout.X9, layout.Y11, layout.BACK_RECT_WID, layout.SCENARIO_BACK_RECT_HIGH);
 	initButton();
 }
 
 void ScenarioSetView::initButton()
 {
-	text_btn1 = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y11, layout.BTN_WID, layout.BTN_HIGH, String(U"文字"), layout.BTN_F_SIZE));
-	text_btn1d = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y12, layout.BTN_WID, layout.BTN_HIGH, String(U"削除"), layout.BTN_F_SIZE));
-	text_btn2 = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y13, layout.BTN_WID, layout.BTN_HIGH, String(U"文字"), layout.BTN_F_SIZE));
-	text_btn2d = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y14, layout.BTN_WID, layout.BTN_HIGH, String(U"削除"), layout.BTN_F_SIZE));
-	text_btn3 = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y15, layout.BTN_WID, layout.BTN_HIGH, String(U"文字"), layout.BTN_F_SIZE));
-	text_btn3d = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y17, layout.BTN_WID, layout.BTN_HIGH, String(U"削除"), layout.BTN_F_SIZE));
-	Print << layout.X10;
+	text_btn1 = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y12, layout.BTN_WID, layout.BTN_HIGH, String(U"文字"), layout.BTN_F_SIZE));
+	text_btn1d = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y13, layout.BTN_WID, layout.BTN_HIGH, String(U"削除"), layout.BTN_F_SIZE));
+	text_btn2 = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y14, layout.BTN_WID, layout.BTN_HIGH, String(U"文字"), layout.BTN_F_SIZE));
+	text_btn2d = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y15, layout.BTN_WID, layout.BTN_HIGH, String(U"削除"), layout.BTN_F_SIZE));
+	text_btn3 = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y16, layout.BTN_WID, layout.BTN_HIGH, String(U"文字"), layout.BTN_F_SIZE));
+	text_btn3d = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y18, layout.BTN_WID, layout.BTN_HIGH, String(U"削除"), layout.BTN_F_SIZE));
 }
 
 void ScenarioSetView::pollButtonEvent()
@@ -61,43 +60,31 @@ void ScenarioSetView::pollButtonEvent()
 
 void ScenarioSetView::pollSliderEvent()
 {
-	if (SimpleGUI::Slider(U"サイズ {:.2f} "_fmt(text_size1), text_size1, 0.0, 10.0, Vec2(layout.X11, layout.Y11), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"サイズ ", text_size1, 0.0, 10.0, Vec2(layout.X11, layout.Y12), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		Print << U"text1_size was changed";
 	}
-	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(text_fade_in1), text_fade_in1, 0.0, 60.0, Vec2(layout.X12, layout.Y11), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(text_fade_in1), text_fade_in1, 0.0, 60.0, Vec2(layout.X11, layout.Y13), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		Print << U"text1_fade_in was changed";
 	}
-	if (SimpleGUI::Slider(U"フェードアウト {:.2f} "_fmt(text_fade_out1), text_fade_out1, 0.0, 120.0, Vec2(layout.X11, layout.Y12), layout.SLIDER_L_WID, layout.SLIDER_WID))
-	{
-		Print << U"text1_fade_out was changed";
-	}
 
-	if (SimpleGUI::Slider(U"サイズ {:.2f} "_fmt(text_size2), text_size2, 0.0, 10.0, Vec2(layout.X11, layout.Y13), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"サイズ ", text_size2, 0.0, 10.0, Vec2(layout.X11, layout.Y14), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		Print << U"text2_size was changed";
 	}
-	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(text_fade_in2), text_fade_in2, 0.0, 60.0, Vec2(layout.X12, layout.Y13), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(text_fade_in2), text_fade_in2, 0.0, 60.0, Vec2(layout.X11, layout.Y15), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		Print << U"text2_fade_in was changed";
 	}
-	if (SimpleGUI::Slider(U"フェードアウト {:.2f} "_fmt(text_fade_out2), text_fade_out2, 0.0, 120.0, Vec2(layout.X11, layout.Y14), layout.SLIDER_L_WID, layout.SLIDER_WID))
-	{
-		Print << U"text2_fade_out was changed";
-	}
 
-	if (SimpleGUI::Slider(U"サイズ {:.2f} "_fmt(text_size3), text_size3, 0.0, 10.0, Vec2(layout.X11, layout.Y15), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"サイズ ", text_size3, 0.0, 10.0, Vec2(layout.X11, layout.Y16), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		Print << U"text3_size was changed";
 	}
-	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(text_fade_in3), text_fade_in3, 0.0, 60.0, Vec2(layout.X12, layout.Y15), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(text_fade_in3), text_fade_in3, 0.0, 60.0, Vec2(layout.X11, layout.Y18), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		Print << U"text3_fade_in was changed";
-	}
-	if (SimpleGUI::Slider(U"フェードアウト {:.2f} "_fmt(text_fade_out3), text_fade_out3, 0.0, 120.0, Vec2(layout.X11, layout.Y17), layout.SLIDER_L_WID, layout.SLIDER_WID))
-	{
-		Print << U"text3_fade_out was changed";
 	}
 }
 

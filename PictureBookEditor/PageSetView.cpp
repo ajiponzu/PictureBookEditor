@@ -5,7 +5,7 @@ constexpr auto EXPANSION = 1.5;
 void PageSetView::pollEvent()
 {
 	pollButtonEvent();
-	back_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
+	back_rect.draw(Palette::Lavenderblush).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	{
 		const auto page_view = ScopedViewport2D(back_rect);
 		const Transformer2D transform(Mat3x2::Identity(), Mat3x2::Translate(back_rect.pos));
@@ -17,6 +17,7 @@ void PageSetView::init()
 {
 	layout.init();
 	back_rect = Rect(layout.X1, layout.Y1, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
+	boundary_rect = Rect(0, 0, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
 	initButton();
 	initPageView();
 	initImgRect();
@@ -24,15 +25,15 @@ void PageSetView::init()
 
 void PageSetView::initButton()
 {
-	prev_btn = std::make_shared<MyButton>(MyButton(layout.X4, layout.Y16, layout.BTN_WID, layout.BTN_HIGH, String(U"ëOï≈"), layout.BTN_F_SIZE));
-	next_btn = std::make_shared<MyButton>(MyButton(layout.X8, layout.Y16, layout.BTN_WID, layout.BTN_HIGH, String(U"éüçÄ"), layout.BTN_F_SIZE));
+	prev_btn = std::make_shared<MyButton>(MyButton(layout.X4, layout.Y17, layout.BTN_WID, layout.BTN_HIGH, String(U"ëOï≈"), layout.BTN_F_SIZE));
+	next_btn = std::make_shared<MyButton>(MyButton(layout.X8, layout.Y17, layout.BTN_WID, layout.BTN_HIGH, String(U"éüçÄ"), layout.BTN_F_SIZE));
 }
 
 void PageSetView::initPageView()
 {
 	max_x = Window::ClientWidth();
 	max_y = Window::ClientHeight();
-	absolute_pos = Vec2(layout.X1, layout.Y1);
+	abs_pos = Vec2(0, 0);
 }
 
 void PageSetView::initImgRect()
@@ -58,10 +59,14 @@ void PageSetView::pollButtonEvent()
 
 void PageSetView::pollPageEvent()
 {	
-	pollZoomEvent();
-	pollChangeAbsPosEvent();
+	if (back_rect.contains(Cursor::Pos()))
+	{
+		pollZoomEvent();
+		pollChangeAbsPosEvent();
+		boundary_rect = Rect(abs_pos.x, abs_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
+	}
+	boundary_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	pollMoveRectEvent();
-	//Print << U"abs: {}, place: {}, max: ({}, {})"_fmt(absolute_pos, place, max_x, max_y);
 }
 
 void PageSetView::pollZoomEvent()
@@ -69,7 +74,7 @@ void PageSetView::pollZoomEvent()
 	wheel = static_cast<int>(Mouse::Wheel());
 	if (wheel == 1)
 	{
-		if (expansion >= 0.25)
+		if (expansion >= 0.35)
 		{
 			expansion /= EXPANSION; 
 		}
@@ -80,13 +85,13 @@ void PageSetView::pollZoomEvent()
 	}
 	else if (wheel == -1)
 	{
-		if (expansion <= 4)
+		if (expansion <= 2)
 		{
 			expansion *= EXPANSION;
 		}
 		else
 		{
-			expansion = 4;
+			expansion = 3;
 		}
 	}
 }
@@ -95,23 +100,17 @@ void PageSetView::pollChangeAbsPosEvent()
 {
 	if (MouseR.pressed())
 	{
-		absolute_pos += Cursor::Delta();
+		pre_abs_pos = abs_pos;
+		abs_pos += Cursor::Delta();
 	}
-	if (absolute_pos.x < -max_x)
+	boundary_center_pos = boundary_rect.center();
+	if (boundary_center_pos.x <  0 || boundary_center_pos.x > layout.BACK_RECT_WID)
 	{
-		absolute_pos.x = -max_x;
+		abs_pos = pre_abs_pos;
 	}
-	else if (absolute_pos.x > max_x)
+	if (boundary_center_pos.y < 0 || boundary_center_pos.y > layout.PAGE_BACK_RECT_HIGH)
 	{
-		absolute_pos.x = max_x;
-	}
-	if (absolute_pos.y < -max_y)
-	{
-		absolute_pos.y = -max_y;
-	}
-	else if (absolute_pos.y > max_y)
-	{
-		absolute_pos.y = max_y;
+		abs_pos = pre_abs_pos;
 	}
 }
 
@@ -119,8 +118,8 @@ void PageSetView::pollMoveRectEvent()
 {
 	for (auto rect : img_rect_list)
 	{
-		rect->pollChangePlaceEvent(expansion, max_x, max_y);
-		cur_pos = absolute_pos + rect->getPlace() * expansion;
+		rect->pollChangePlaceEvent(expansion, abs_pos.x + boundary_rect.w, abs_pos.y + boundary_rect.h);
+		cur_pos = abs_pos + rect->getPlace() * expansion;
 		rect->move(cur_pos, expansion);
 		rect->draw();
 	}

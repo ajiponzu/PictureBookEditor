@@ -27,10 +27,6 @@ private:
     double text_fade_in2 = 0.0f;
     double text_fade_in3 = 0.0f;
 
-    double text_fade_out1 = 0.0f;
-    double text_fade_out2 = 0.0f;
-    double text_fade_out3 = 0.0f;
-
     Rect back_rect;
 
 public:
