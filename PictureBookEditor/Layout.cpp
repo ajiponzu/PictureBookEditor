@@ -7,6 +7,7 @@ void Layout::init()
 	initMenuViewMacro();
 	initPictureSetViewMacro();
 	initScenarioSetViewMacro();
+	initPageSetViewMacro();
 	BTN_F_SIZE = 20 * dpi;
 	BACK_RECT_WID = 480 * dpi;
 	SLIDER_L_WID = 80 * dpi;
@@ -18,7 +19,7 @@ void Layout::initMenuViewMacro()
 {
 	MENU_BTN_WID = 80 * dpi;
 	MENU_BTN_HIGH = 32 * dpi;
-	MENU_BTN_GAP_X = MENU_BTN_WID + 8 * dpi;
+	MENU_BTN_GAP = MENU_BTN_WID + 8 * dpi;
 	MENU_BAR_TH = MENU_BTN_HIGH + 8 * dpi;
 	CLBTN_X = Window::ClientWidth() - MENU_BAR_TH;
 }
@@ -37,17 +38,26 @@ void Layout::initScenarioSetViewMacro()
 	SCENARIO_BACK_RECT_HIGH = 284 * dpi;
 }
 
+void Layout::initPageSetViewMacro()
+{
+	PAGE_BACK_RECT_WID = 1000 * dpi;
+	PAGE_BACK_RECT_HIGH = 680 * dpi;
+	MOVE_RECT1_POS = 20 * dpi;
+	MOVE_RECT2_POS = MOVE_RECT1_POS + 20 * dpi;
+	MOVE_RECT3_POS = MOVE_RECT2_POS + 20 * dpi;
+}
+
 void Layout::initPos()
 {
 	X0 = 0;
 	X1 = 16 * dpi;
-	X2 = 0;
-	X3 = 0;
-	X4 = 0;
-	X5 = 0;
-	X6 = 0;
-	X7 = 0;
-	X8 = 0;
+	X2 = X1 + MENU_BTN_GAP;
+	X3 = X2 + MENU_BTN_GAP;
+	X4 = 240 * dpi;
+	X5 = X3 + MENU_BTN_GAP;
+	X6 = X5 + MENU_BTN_GAP;
+	X7 = X6 + 200 * dpi;
+	X8 = X7 + 200 * dpi;
 	X9 = 1070 * dpi;
 	X10 = X9 + 16 * dpi;
 	X11 = X10 + BTN_WID + 16 * dpi;
@@ -69,7 +79,7 @@ void Layout::initPos()
 	Y13 = Y12 + BTN_GAP + DBTN_GAP;
 	Y14 = Y13 + BTN_GAP;
 	Y15 = Y14 + BTN_GAP + DBTN_GAP;
-	Y16 = 0;
+	Y16 = 780 * dpi;
 	Y17 = Y15 + BTN_GAP;
 }
 

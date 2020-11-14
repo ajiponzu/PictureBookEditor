@@ -16,16 +16,11 @@ void MenuView::init()
 
 void MenuView::initButton()
 {
-	auto create_x = layout.X1;
-	auto delete_x = create_x + layout.MENU_BTN_GAP_X;
-	auto reset_x = delete_x + layout.MENU_BTN_GAP_X;
-	auto save_x = reset_x + layout.MENU_BTN_GAP_X;
-	auto run_x = save_x + layout.MENU_BTN_GAP_X;
-	create_btn = std::make_shared<MyButton>(MyButton(create_x, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"新規"), layout.BTN_F_SIZE));
-	delete_btn = std::make_shared<MyButton>(MyButton(delete_x, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"削除"), layout.BTN_F_SIZE));
-	reset_btn = std::make_shared<MyButton>(MyButton(reset_x, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"リセット"), layout.BTN_F_SIZE));
-	save_btn = std::make_shared<MyButton>(MyButton(save_x, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"保存"), layout.BTN_F_SIZE));
-	run_btn = std::make_shared<MyButton>(MyButton(run_x, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"実行"), layout.BTN_F_SIZE));
+	create_btn = std::make_shared<MyButton>(MyButton(layout.X1, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"新規"), layout.BTN_F_SIZE));
+	delete_btn = std::make_shared<MyButton>(MyButton(layout.X2, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"削除"), layout.BTN_F_SIZE));
+	reset_btn = std::make_shared<MyButton>(MyButton(layout.X3, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"リセット"), layout.BTN_F_SIZE));
+	save_btn = std::make_shared<MyButton>(MyButton(layout.X5, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"保存"), layout.BTN_F_SIZE));
+	run_btn = std::make_shared<MyButton>(MyButton(layout.X6, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"実行"), layout.BTN_F_SIZE));
 	close_btn = std::make_shared<MyButton>(MyButton(layout.CLBTN_X, 0, layout.MENU_BAR_TH, layout.MENU_BAR_TH, String(U""), layout.BTN_F_SIZE));
 	close_btn_img = Texture(U"close_btn.png");
 	if (!close_btn_img)

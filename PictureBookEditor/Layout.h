@@ -4,7 +4,6 @@
 class Layout
 {
 public:
-	double dpi;
 	//view layout
 	//layout_x
 	int X0;
@@ -46,7 +45,7 @@ public:
 	int SLIDER_L_WID;
 	int SLIDER_WID;
 	//menu_view
-	int MENU_BTN_GAP_X;
+	int MENU_BTN_GAP;
 	int MENU_BTN_WID;
 	int MENU_BTN_HIGH;
 	int MENU_BAR_TH;
@@ -62,7 +61,15 @@ public:
 	//scenario_set_view
 	int SCENARIO_BACK_RECT_HIGH;
 
+	//page_set_view
+	int PAGE_BACK_RECT_WID;
+	int PAGE_BACK_RECT_HIGH;
+	int MOVE_RECT1_POS;
+	int MOVE_RECT2_POS;
+	int MOVE_RECT3_POS;
+
 private:
+	double dpi;
 
 public:
 	Layout() {}
@@ -73,6 +80,7 @@ private:
 	void initMenuViewMacro();
 	void initPictureSetViewMacro();
 	void initScenarioSetViewMacro();
+	void initPageSetViewMacro();
 	void initPos();
 };
 
