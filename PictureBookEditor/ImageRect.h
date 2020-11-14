@@ -1,5 +1,6 @@
 #pragma once
 #include <Siv3D.hpp>
+#include "Layout.h"
 
 class ImageRect
 {
@@ -9,12 +10,15 @@ private:
 	Vec2 place;
 	Font pos_inf_font;
 	bool is_pressed = false;
+	Layout layout;
 public:
 	ImageRect(const String& path, const Vec2& place)
 	{
 		img = Texture(path);
 		this->place = place;
 		pos_inf_font(60);
+		layout = Layout();
+		layout.init();
 	}
 	~ImageRect() {}
 

@@ -39,11 +39,13 @@ public:
 	int Y16;
 	int Y17;
 
-	//views special parameter
+	//GUI pos
+	//common parameter
 	int BTN_F_SIZE;
 	int BACK_RECT_WID;
 	int SLIDER_L_WID;
 	int SLIDER_WID;
+	double RECT_FRAME_THICK;
 	//menu_view
 	int MENU_BTN_GAP;
 	int MENU_BTN_WID;

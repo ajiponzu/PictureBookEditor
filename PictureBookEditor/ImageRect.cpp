@@ -48,11 +48,11 @@ void ImageRect::draw()
 {
 	if (is_pressed)
 	{
-		rectf.draw(AlphaF(0)).drawFrame(5, 5, Palette::Aqua);
+		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Aqua);
 	}
 	else
 	{
-		rectf.draw(AlphaF(0)).drawFrame(5, 5, Palette::Blueviolet);
+		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Blueviolet);
 	}
 }
 

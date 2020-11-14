@@ -2,7 +2,7 @@
 
 void PictureSetView::pollEvent()
 {
-	back_rect.draw(Palette::Whitesmoke).drawFrame(4, 4, Palette::Lightsalmon);
+	back_rect.draw(Palette::Whitesmoke).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	pollButtonEvent();
 	pollSliderEvent();
 }

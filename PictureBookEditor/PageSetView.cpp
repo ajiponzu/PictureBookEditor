@@ -5,11 +5,11 @@ constexpr auto EXPANSION = 1.5;
 void PageSetView::pollEvent()
 {
 	pollButtonEvent();
-	back_rect.draw(Palette::White).drawFrame(4, 4, Palette::Lightsalmon);
+	back_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	{
 		const auto page_view = ScopedViewport2D(back_rect);
 		const Transformer2D transform(Mat3x2::Identity(), Mat3x2::Translate(back_rect.pos));
-		//pollPageEvent();
+		pollPageEvent();
 	}
 }
 

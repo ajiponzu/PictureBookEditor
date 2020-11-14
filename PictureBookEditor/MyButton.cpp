@@ -2,7 +2,7 @@
 
 bool MyButton::isClicked()
 {
-	button.draw(Palette::Aliceblue).drawFrame(2, 2, Palette::Aqua);
+	button.draw(Palette::Aliceblue).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Aqua);
 	font(text).drawAt(button.center(), Palette::Black);
 	if (button.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
 	return button.leftClicked();
