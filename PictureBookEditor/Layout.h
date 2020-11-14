@@ -50,22 +50,29 @@ public:
 	int MENU_BTN_WID;
 	int MENU_BTN_HIGH;
 	int MENU_BAR_TH;
-	int MENU_CLBTN_X;
+	int CLBTN_X;
 
 	//picture_set_view
-	int PICTURE_BTN_WID;
-	int PICTURE_BTN_HIGH;
-	int PICTURE_BTN_GAP;
-	int PICTURE_DBTN_GAP;
+	int BTN_WID;
+	int BTN_HIGH;
+	int BTN_GAP;
+	int DBTN_GAP;
 	int PICTURE_BACK_RECT_HIGH;
+
+	//scenario_set_view
+	int SCENARIO_BACK_RECT_HIGH;
 
 private:
 
 public:
+	Layout() {}
+	~Layout() {}
+
 	void init();
 private:
 	void initMenuViewMacro();
 	void initPictureSetViewMacro();
+	void initScenarioSetViewMacro();
 	void initPos();
 };
 

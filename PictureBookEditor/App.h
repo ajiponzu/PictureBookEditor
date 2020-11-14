@@ -1,8 +1,5 @@
 #pragma once
-#define RELEASE
-#ifdef RELEASE
 #define SIV3D_WINDOWS_HIGH_DPI
-#endif
 #include <Siv3D.hpp>
 #include <memory>
 

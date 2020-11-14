@@ -12,7 +12,6 @@ void MenuView::init()
 	layout.init();
 	menu_rect = Rect(0, 0, Window::ClientWidth(), layout.MENU_BAR_TH);
 	initButton();
-	initCloseButton();
 }
 
 void MenuView::initButton()
@@ -27,14 +26,8 @@ void MenuView::initButton()
 	reset_btn = std::make_shared<MyButton>(MyButton(reset_x, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"リセット"), layout.BTN_F_SIZE));
 	save_btn = std::make_shared<MyButton>(MyButton(save_x, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"保存"), layout.BTN_F_SIZE));
 	run_btn = std::make_shared<MyButton>(MyButton(run_x, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"実行"), layout.BTN_F_SIZE));
-}
-
-void MenuView::initCloseButton()
-{
+	close_btn = std::make_shared<MyButton>(MyButton(layout.CLBTN_X, 0, layout.MENU_BAR_TH, layout.MENU_BAR_TH, String(U""), layout.BTN_F_SIZE));
 	close_btn_img = Texture(U"close_btn.png");
-	close_btn_size = layout.MENU_BAR_TH;
-	close_btn_x = layout.MENU_CLBTN_X;
-	close_btn = std::make_shared<MyButton>(MyButton(close_btn_x, 0, close_btn_size, layout.MENU_BAR_TH, String(U""), layout.BTN_F_SIZE));
 	if (!close_btn_img)
     {
         throw Error(U"Failed to create a texture");
@@ -67,7 +60,7 @@ void MenuView::pollButtonEvent()
 
 void MenuView::pollCloseEvent()
 {
-	close_btn_img.resized(close_btn_size).draw(close_btn_x, 0);
+	close_btn_img.resized(layout.MENU_BAR_TH).draw(layout.CLBTN_X, 0);
 	if (close_btn->isClickedInvBtn())
 	{
 		System::Exit();

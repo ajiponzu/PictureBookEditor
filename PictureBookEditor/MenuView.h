@@ -15,8 +15,6 @@ private:
     std::shared_ptr<MyButton> close_btn;
     Rect menu_rect;
     Texture close_btn_img;
-    int close_btn_size;
-    int close_btn_x;
 public:
     MenuView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)
     {
@@ -28,7 +26,6 @@ public:
 private:
     void init();
     void initButton();
-    void initCloseButton();
     void pollButtonEvent();
     void pollCloseEvent();
 };
