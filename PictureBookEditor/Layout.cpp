@@ -12,7 +12,7 @@ void Layout::init()
 	BACK_RECT_WID = 480 * dpi;
 	SLIDER_L_WID = 80 * dpi;
 	SLIDER_WID = 100 * dpi;
-	RECT_FRAME_THICK = 0.8 * dpi;
+	RECT_FRAME_THICK = 1.0 * dpi;
 	initPos();
 }
 
