@@ -106,6 +106,15 @@
     <Filter Include="View\Source">
       <UniqueIdentifier>{751c3273-47c2-40dc-afcf-f80fdbef3ded}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{42fea968-fd15-48f7-9864-ef1c118d43f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Header">
+      <UniqueIdentifier>{285a9ad9-2bd6-4cc9-801e-a0da7c20aa54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Model\Source">
+      <UniqueIdentifier>{2221df51-8b6a-4722-bd48-4bffbc212f3c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -115,9 +124,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Controller.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Model.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MenuView.cpp">
@@ -143,6 +149,9 @@
     </ClCompile>
     <ClCompile Include="Layout.cpp">
       <Filter>View\Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Model\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -424,9 +433,6 @@
     <ClInclude Include="Controller.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="ViewComponent.h">
       <Filter>View\Header</Filter>
     </ClInclude>
@@ -453,6 +459,9 @@
     </ClInclude>
     <ClInclude Include="Layout.h">
       <Filter>View\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Model\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
