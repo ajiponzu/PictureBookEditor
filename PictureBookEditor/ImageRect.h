@@ -26,7 +26,7 @@ public:
 
 	Vec2 getPlace();
 	void pollChangePlaceEvent(const double&, const int&, const int&);
-	void move(const Vec2&, const double&);
+	void move(const double&);
 	void draw();
 };
 

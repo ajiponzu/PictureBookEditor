@@ -30,8 +30,6 @@ void PageSetView::initButton()
 
 void PageSetView::initPageView()
 {
-	max_x = Window::ClientWidth();
-	max_y = Window::ClientHeight();
 	boundary_rect = Rect(0, 0, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
 	abs_pos = Vec2(0, 0);
 }
@@ -66,7 +64,11 @@ void PageSetView::pollPageEvent()
 		boundary_rect = Rect(abs_pos.x, abs_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
 	}
 	boundary_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
-	pollMoveRectEvent();
+	{
+		const auto page_view2 = ScopedViewport2D(boundary_rect);
+		const Transformer2D transform2(Mat3x2::Translate(back_rect.pos), Mat3x2::Translate(boundary_rect.pos));
+		pollMoveRectEvent();
+	}
 }
 
 void PageSetView::pollZoomEvent()
@@ -74,13 +76,13 @@ void PageSetView::pollZoomEvent()
 	wheel = static_cast<int>(Mouse::Wheel());
 	if (wheel == 1)
 	{
-		if (expansion >= 0.35)
+		if (expansion >= 0.45)
 		{
 			expansion /= EXPANSION; 
 		}
 		else
 		{
-			expansion = 0.25;
+			expansion = 0.30;
 		}
 	}
 	else if (wheel == -1)
@@ -124,13 +126,12 @@ void PageSetView::pollChangeAbsPosEvent()
 
 void PageSetView::pollMoveRectEvent()
 {
-	for (auto rect : img_rect_list)
+	for (auto &rect : img_rect_list)
 	{
-		rect->pollChangePlaceEvent(expansion, (abs_pos.x + max_x) * expansion, (abs_pos.y + max_y) * expansion);
-		cur_pos = abs_pos + rect->getPlace() * expansion;
-		rect->move(cur_pos, expansion);
+		rect->pollChangePlaceEvent(expansion, boundary_rect.w, boundary_rect.h);
+		rect->move(expansion);
 		rect->draw();
-		Print << U"({:.0f}, {:.0f}), ({}, {})\n"_fmt(rect->getPlace().x, rect->getPlace().y, max_x * expansion, max_y * expansion);
+		Print << U"({:.0f}, {:.0f})\n"_fmt(rect->getPlace().x, rect->getPlace().y);
 	}
 }
 

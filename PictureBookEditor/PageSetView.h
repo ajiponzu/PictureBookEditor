@@ -19,9 +19,7 @@ private:
     Vec2 cur_pos;
     double expansion = 1.0;
     int wheel = 0;
-    
-    int max_x = 0;
-    int max_y = 0;
+
     std::vector<std::shared_ptr<ImageRect>> img_rect_list;
 public:
     PageSetView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)

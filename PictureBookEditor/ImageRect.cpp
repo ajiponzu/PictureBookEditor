@@ -39,10 +39,9 @@ void ImageRect::pollChangePlaceEvent(const double& expansion, const int& max_x, 
 	}
 }
 
-
-void ImageRect::move(const Vec2& cur_pos, const double& expansion)
+void ImageRect::move(const double& expansion)
 {
-	rectf = RectF(cur_pos, img.width() * expansion, img.height() * expansion);
+	rectf = RectF(place * expansion, img.width() * expansion, img.height() * expansion);
 }
 
 void ImageRect::draw()

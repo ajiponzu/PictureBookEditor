@@ -19,9 +19,9 @@ void View::init()
 
 void View::initVcList()
 {
+	vc_list.push_back(std::make_shared<PageSetView>(PageSetView(controller)));
 	vc_list.push_back(std::make_shared<MenuView>(MenuView(controller)));
 	vc_list.push_back(std::make_shared<PictureSetView>(PictureSetView(controller)));
 	vc_list.push_back(std::make_shared<ScenarioSetView>(ScenarioSetView(controller)));
-	vc_list.push_back(std::make_shared<PageSetView>(PageSetView(controller)));
 }
 
