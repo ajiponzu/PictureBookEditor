@@ -17,7 +17,6 @@ void PageSetView::init()
 {
 	layout.init();
 	back_rect = Rect(layout.X1, layout.Y1, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
-	boundary_rect = Rect(0, 0, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
 	initButton();
 	initPageView();
 	initImgRect();
@@ -33,6 +32,7 @@ void PageSetView::initPageView()
 {
 	max_x = Window::ClientWidth();
 	max_y = Window::ClientHeight();
+	boundary_rect = Rect(0, 0, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
 	abs_pos = Vec2(0, 0);
 }
 
@@ -100,17 +100,25 @@ void PageSetView::pollChangeAbsPosEvent()
 {
 	if (MouseR.pressed())
 	{
-		pre_abs_pos = abs_pos;
 		abs_pos += Cursor::Delta();
 	}
-	boundary_center_pos = boundary_rect.center();
-	if (boundary_center_pos.x <  0 || boundary_center_pos.x > layout.BACK_RECT_WID)
+
+	if (abs_pos.x + boundary_rect.w < 0)
 	{
-		abs_pos = pre_abs_pos;
+		abs_pos.x = -boundary_rect.w;
 	}
-	if (boundary_center_pos.y < 0 || boundary_center_pos.y > layout.PAGE_BACK_RECT_HIGH)
+	else if (abs_pos.x > layout.PAGE_BACK_RECT_WID)
 	{
-		abs_pos = pre_abs_pos;
+		abs_pos.x = layout.PAGE_BACK_RECT_WID;
+	}
+
+	if (abs_pos.y + boundary_rect.h < 0)
+	{
+		abs_pos.y = -boundary_rect.h;
+	}
+	else if (abs_pos.y > layout.PAGE_BACK_RECT_HIGH)
+	{
+		abs_pos.y = layout.PAGE_BACK_RECT_HIGH;
 	}
 }
 
@@ -118,10 +126,11 @@ void PageSetView::pollMoveRectEvent()
 {
 	for (auto rect : img_rect_list)
 	{
-		rect->pollChangePlaceEvent(expansion, abs_pos.x + boundary_rect.w, abs_pos.y + boundary_rect.h);
+		rect->pollChangePlaceEvent(expansion, (abs_pos.x + max_x) * expansion, (abs_pos.y + max_y) * expansion);
 		cur_pos = abs_pos + rect->getPlace() * expansion;
 		rect->move(cur_pos, expansion);
 		rect->draw();
+		Print << U"({:.0f}, {:.0f}), ({}, {})\n"_fmt(rect->getPlace().x, rect->getPlace().y, max_x * expansion, max_y * expansion);
 	}
 }
 

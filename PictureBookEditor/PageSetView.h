@@ -16,8 +16,6 @@ private:
     bool next_flag = false;
 
     Vec2 abs_pos;
-    Vec2 pre_abs_pos;
-    Vec2 boundary_center_pos;
     Vec2 cur_pos;
     double expansion = 1.0;
     int wheel = 0;

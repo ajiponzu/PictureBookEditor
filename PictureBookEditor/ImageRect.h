@@ -8,6 +8,7 @@ private:
 	RectF rectf;
 	Texture img;
 	Vec2 place;
+	Vec2 real_place;
 	Font pos_inf_font;
 	bool is_pressed = false;
 	Layout layout;
@@ -16,6 +17,7 @@ public:
 	{
 		img = Texture(path);
 		this->place = place;
+		real_place = place;
 		pos_inf_font(60);
 		layout = Layout();
 		layout.init();

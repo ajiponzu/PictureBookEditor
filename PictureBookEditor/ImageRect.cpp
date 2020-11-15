@@ -5,7 +5,7 @@ Vec2 ImageRect::getPlace()
 	return place;
 }
 
-void ImageRect::pollChangePlaceEvent(const double &expansion, const int &max_x, const int &max_y)
+void ImageRect::pollChangePlaceEvent(const double& expansion, const int& max_x, const int& max_y)
 {
 	if (rectf.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
 	if (rectf.leftClicked())
@@ -39,7 +39,8 @@ void ImageRect::pollChangePlaceEvent(const double &expansion, const int &max_x, 
 	}
 }
 
-void ImageRect::move(const Vec2 &cur_pos, const double &expansion)
+
+void ImageRect::move(const Vec2& cur_pos, const double& expansion)
 {
 	rectf = RectF(cur_pos, img.width() * expansion, img.height() * expansion);
 }
