@@ -47,6 +47,8 @@ void Layout::initPageSetViewMacro()
 	MOVE_RECT1_POS = 20 * dpi;
 	MOVE_RECT2_POS = MOVE_RECT1_POS + 20 * dpi;
 	MOVE_RECT3_POS = MOVE_RECT2_POS + 20 * dpi;
+	FONT_RECT1_POS = 80 * dpi;
+	FONT_RECT2_POS = FONT_RECT1_POS + 60 * dpi;
 }
 
 void Layout::initPos()

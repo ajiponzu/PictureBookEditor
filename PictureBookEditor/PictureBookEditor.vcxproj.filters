@@ -150,8 +150,8 @@
     <ClCompile Include="Layout.cpp">
       <Filter>View\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Model.cpp">
-      <Filter>Model\Source</Filter>
+    <ClCompile Include="FontRect.cpp">
+      <Filter>View\Source</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -460,8 +460,8 @@
     <ClInclude Include="Layout.h">
       <Filter>View\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Model.h">
-      <Filter>Model\Header</Filter>
+    <ClInclude Include="FontRect.h">
+      <Filter>View\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

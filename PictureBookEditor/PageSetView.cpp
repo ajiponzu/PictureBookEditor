@@ -20,6 +20,7 @@ void PageSetView::init()
 	initButton();
 	initPageView();
 	initImgRect();
+	initFontRect();
 }
 
 void PageSetView::initButton()
@@ -39,6 +40,12 @@ void PageSetView::initImgRect()
 	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(layout.MOVE_RECT1_POS, layout.MOVE_RECT1_POS))));
 	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(layout.MOVE_RECT2_POS, layout.MOVE_RECT2_POS))));
 	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(layout.MOVE_RECT3_POS, layout.MOVE_RECT3_POS))));
+}
+
+void PageSetView::initFontRect()
+{
+	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"font1", Vec2(layout.FONT_RECT1_POS, layout.FONT_RECT1_POS))));
+	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"font2", Vec2(layout.FONT_RECT2_POS, layout.FONT_RECT2_POS))));
 }
 
 void PageSetView::pollButtonEvent()
@@ -68,6 +75,7 @@ void PageSetView::pollPageEvent()
 		const auto page_view2 = ScopedViewport2D(boundary_rect);
 		const Transformer2D transform2(Mat3x2::Translate(back_rect.pos), Mat3x2::Translate(boundary_rect.pos));
 		pollMoveRectEvent();
+		pollFontRectEvent();
 	}
 }
 
@@ -131,7 +139,16 @@ void PageSetView::pollMoveRectEvent()
 		rect->pollChangePlaceEvent(expansion, boundary_rect.w, boundary_rect.h);
 		rect->move(expansion);
 		rect->draw();
-		Print << U"({:.0f}, {:.0f})\n"_fmt(rect->getPlace().x, rect->getPlace().y);
+	}
+}
+
+void PageSetView::pollFontRectEvent()
+{
+	for (auto& rect : font_rect_list)
+	{
+		rect->pollChangePlaceEvent(expansion, boundary_rect.w, boundary_rect.h);
+		rect->move(expansion);
+		rect->draw();
 	}
 }
 

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "FontRect.h"
 #include "ImageRect.h"
 #include "MyButton.h"
 #include "ViewComponent.h"
@@ -21,7 +22,8 @@ private:
     int wheel = 0;
 
     std::vector<std::shared_ptr<ImageRect>> img_rect_list;
-public:
+    std::vector<std::shared_ptr<FontRect>> font_rect_list;
+public: 
     PageSetView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)
     {
         init();
@@ -34,10 +36,12 @@ private:
     void initButton();
     void initPageView();
     void initImgRect();
+    void initFontRect();
     void pollButtonEvent();
     void pollPageEvent();
     void pollZoomEvent();
     void pollChangeAbsPosEvent();
     void pollMoveRectEvent();
+    void pollFontRectEvent();
 };
 

@@ -72,6 +72,8 @@ public:
 	int MOVE_RECT1_POS;
 	int MOVE_RECT2_POS;
 	int MOVE_RECT3_POS;
+	int FONT_RECT1_POS;
+	int FONT_RECT2_POS;
 
 private:
 	double dpi;
