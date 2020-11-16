@@ -32,7 +32,7 @@ private:
     Rect back_rect;
 
 public:
-    ScenarioSetView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)
+    ScenarioSetView(std::weak_ptr<Controller> ctr) : ViewComponent(ctr)
     {
         init();
     }

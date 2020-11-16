@@ -16,7 +16,7 @@ private:
     Rect menu_rect;
     Texture close_btn_img;
 public:
-    MenuView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)
+    MenuView(std::weak_ptr<Controller> ctr) : ViewComponent(ctr)
     {
         init();
     }

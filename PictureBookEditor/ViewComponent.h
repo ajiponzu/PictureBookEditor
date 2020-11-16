@@ -9,10 +9,10 @@
 class ViewComponent
 {	
 protected:
-	std::shared_ptr<Controller> controller;
+	std::weak_ptr<Controller> controller;
 	Layout layout;
 public:
-	ViewComponent(std::shared_ptr<Controller> ctr) : controller(ctr)
+	ViewComponent(std::weak_ptr<Controller> ctr) : controller(ctr)
 	{
 		layout = Layout();
 	}

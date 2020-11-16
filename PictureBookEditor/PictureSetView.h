@@ -33,7 +33,7 @@ private:
 
     Rect back_rect;
 public:
-    PictureSetView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)
+    PictureSetView(std::weak_ptr<Controller> ctr) : ViewComponent(ctr)
     {
         init();
     }

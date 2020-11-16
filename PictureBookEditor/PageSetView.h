@@ -24,7 +24,7 @@ private:
     std::vector<std::shared_ptr<ImageRect>> img_rect_list;
     std::vector<std::shared_ptr<FontRect>> font_rect_list;
 public: 
-    PageSetView(std::shared_ptr<Controller> ctr) : ViewComponent(ctr)
+    PageSetView(std::weak_ptr<Controller> ctr) : ViewComponent(ctr)
     {
         init();
     }
