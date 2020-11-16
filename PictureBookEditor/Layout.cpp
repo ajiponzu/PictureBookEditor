@@ -35,7 +35,9 @@ void Layout::initPictureSetViewMacro()
 
 void Layout::initScenarioSetViewMacro()
 {
-	SCENARIO_BACK_RECT_HIGH = 300 * dpi;
+	SCENARIO_BACK_RECT_HIGH = 400 * dpi;
+	INPUT_ARER_WID = 420 * dpi;
+	INPUT_AREA_HIGH = 80 * dpi;
 }
 
 void Layout::initPageSetViewMacro()
@@ -73,12 +75,12 @@ void Layout::initPos()
 	Y8 = Y7 + BTN_GAP + 20 * dpi;
 	Y9 = Y8 + BTN_GAP;
 	Y10 = Y9 + BTN_GAP;
-	Y11 = 552 * dpi;
+	Y11 = Y10 + BTN_GAP * 2 * dpi;
 	Y12 = Y11 + 9 * dpi;
 	Y13 = Y12 + BTN_GAP;
-	Y14 = Y13 + BTN_GAP + 20 * dpi;
-	Y15 = Y14 + BTN_GAP;
-	Y16 = Y15 + BTN_GAP + 20 * dpi;
+	Y14 = Y13 + BTN_GAP;
+	Y15 = Y14 + BTN_GAP + 60 * dpi;
+	Y16 = Y15 + BTN_GAP;
 	Y17 = 780 * dpi;
 	Y18 = Y16 + BTN_GAP;
 }

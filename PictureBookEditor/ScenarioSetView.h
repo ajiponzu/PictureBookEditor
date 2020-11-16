@@ -10,22 +10,24 @@ private:
     std::shared_ptr<MyButton> text_btn1d;
     std::shared_ptr<MyButton> text_btn2;
     std::shared_ptr<MyButton> text_btn2d;
-    std::shared_ptr<MyButton> text_btn3;
-    std::shared_ptr<MyButton> text_btn3d;
+    Font input_font1;
+    Font input_font2;
+    String input_text1;
+    String input_text2;
+    Rect input_rect1;
+    Rect input_rect2;
+    ColorF palette1;
+    ColorF palette2;
+    bool input_flag1 = false;
+    bool input_flag2 = false;
     bool text_set_flag1 = false;
     bool text_set_flag1d = false;
     bool text_set_flag2 = false;
     bool text_set_flag2d = false;
-    bool text_set_flag3 = false;
-    bool text_set_flag3d = false;
-
     double text_size1 = 1.0f;
     double text_size2 = 1.0f;
-    double text_size3 = 1.0f;
-
     double text_fade_in1 = 0.0f;
     double text_fade_in2 = 0.0f;
-    double text_fade_in3 = 0.0f;
 
     Rect back_rect;
 
@@ -41,6 +43,8 @@ public:
 private:
     void init();
     void initButton();
+    void initInput();
     void pollButtonEvent();
     void pollSliderEvent();
+    void pollInputEvent();
 };

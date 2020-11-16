@@ -47,8 +47,6 @@ public:
 	int BACK_RECT_WID;
 	int SLIDER_L_WID;
 	int SLIDER_WID;
-	int SLIDER_L_WID2;
-	int SLIDER_WID2;
 	double RECT_FRAME_THICK;
 	//menu_view
 	int MENU_BTN_GAP;
@@ -65,6 +63,8 @@ public:
 
 	//scenario_set_view
 	int SCENARIO_BACK_RECT_HIGH;
+	int INPUT_ARER_WID;
+	int INPUT_AREA_HIGH;
 
 	//page_set_view
 	int PAGE_BACK_RECT_WID;
