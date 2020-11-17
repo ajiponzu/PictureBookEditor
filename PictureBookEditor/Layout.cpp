@@ -38,6 +38,7 @@ void Layout::initScenarioSetViewMacro()
 	SCENARIO_BACK_RECT_HIGH = 400 * dpi;
 	INPUT_ARER_WID = 420 * dpi;
 	INPUT_AREA_HIGH = 80 * dpi;
+	TXT_MAX_SIZE = 200 * dpi;
 }
 
 void Layout::initPageSetViewMacro()
@@ -49,6 +50,7 @@ void Layout::initPageSetViewMacro()
 	MOVE_RECT3_POS = MOVE_RECT2_POS + 20 * dpi;
 	FONT_RECT1_POS = 80 * dpi;
 	FONT_RECT2_POS = FONT_RECT1_POS + 60 * dpi;
+	FONT_SIZE = 60 * dpi;
 }
 
 void Layout::initPos()

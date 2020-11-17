@@ -19,17 +19,17 @@ private:
     bool img_set_flag3 = false;
     bool img_set_flag3d = false;
 
-    double img_size1 = 1.0f;
-    double img_size2 = 1.0f;
-    double img_size3 = 1.0f;
+    double img_size1 = 1.0;
+    double img_size2 = 1.0;
+    double img_size3 = 1.0;
 
-    double img_alpha1 = 1.0f;
-    double img_alpha2 = 1.0f;
-    double img_alpha3 = 1.0f;
+    double img_alpha1 = 1.0;
+    double img_alpha2 = 1.0;
+    double img_alpha3 = 1.0;
 
-    double img_fade_in1 = 0.0f;
-    double img_fade_in2 = 0.0f;
-    double img_fade_in3 = 0.0f;
+    double img_fade_in1 = 0.0;
+    double img_fade_in2 = 0.0;
+    double img_fade_in3 = 0.0;
 
     Rect back_rect;
 public:

@@ -72,7 +72,7 @@ void PictureSetView::pollButtonEvent()
 
 void PictureSetView::pollSliderEvent()
 {
-	if (SimpleGUI::Slider(U"サイズ ", img_size1, 0.0, 10.0, Vec2(layout.X11, layout.Y2), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"サイズ ", img_size1, 0.0, 3.0, Vec2(layout.X11, layout.Y2), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		if (auto sp = controller.lock())
 		{
@@ -94,7 +94,7 @@ void PictureSetView::pollSliderEvent()
 		}
 	}
 
-	if (SimpleGUI::Slider(U"サイズ ", img_size2, 0.0, 10.0, Vec2(layout.X11, layout.Y5), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"サイズ ", img_size2, 0.0, 3.0, Vec2(layout.X11, layout.Y5), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		if (auto sp = controller.lock())
 		{
@@ -116,7 +116,7 @@ void PictureSetView::pollSliderEvent()
 		}
 	}
 
-	if (SimpleGUI::Slider(U"サイズ ", img_size3, 0.0, 10.0, Vec2(layout.X11, layout.Y8), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"サイズ ", img_size3, 0.0, 3.0, Vec2(layout.X11, layout.Y8), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		if (auto sp = controller.lock())
 		{

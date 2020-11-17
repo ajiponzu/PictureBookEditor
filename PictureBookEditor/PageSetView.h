@@ -37,9 +37,10 @@ private:
     void initPageView();
     void initImgRect();
     void initFontRect();
-    void initImgInf();
     void pollGetImgInfEvent();
     void pollGetImgInfEvent(const int&);
+    void pollGetTxtInfEvent();
+    void pollGetTxtInfEvent(const int&);
     void pollButtonEvent();
     void pollPageEvent();
     void pollZoomEvent();

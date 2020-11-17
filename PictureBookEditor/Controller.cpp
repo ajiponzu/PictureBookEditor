@@ -42,7 +42,42 @@ ImgInf* Controller::returnImgInf(const int& idx)
 	return nullptr;
 }
 
+void Controller::changeTxt(const int& idx, String& txt)
+{
+	txt_inf[idx].txt = txt;
+	txt_inf[idx].flags.flag_t = true;
+}
+
+void Controller::deleteTxt(const int& idx)
+{
+	txt_inf[idx].txt = U"";
+	txt_inf[idx].flags.flag_t = true;
+}
+
+void Controller::changeTxtSize(const int& idx, const double& size)
+{
+	txt_inf[idx].size = size;
+	txt_inf[idx].flags.flag_s = true;
+}
+
+void Controller::changeTxtFadein(const int& idx, const double& fadein)
+{
+	txt_inf[idx].fadein = fadein;
+}
+
+TxtInf* Controller::returnTxtInf(const int& idx)
+{
+	if (txt_inf[idx].flags.eventFlag())
+	{
+		return &txt_inf[idx];
+	}
+
+	return nullptr;
+}
+
 void Controller::init()
 {
 	img_inf.resize(3);
+	txt_inf.resize(2);
 }
+

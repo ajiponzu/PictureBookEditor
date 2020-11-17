@@ -21,3 +21,22 @@ struct ImgInf
 	String path;
 };
 
+struct TxtInfFlag
+{
+	bool flag_s = false;
+	bool flag_t = false;
+
+	bool eventFlag()
+	{
+		return flag_s || flag_t;
+	}
+};
+
+struct TxtInf
+{
+	double size = 0.0;
+	double fadein = 0.0;
+	TxtInfFlag flags;
+	String txt;
+};
+

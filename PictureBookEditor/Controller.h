@@ -7,6 +7,7 @@ class Controller
 {
 private:
 	Array<ImgInf> img_inf;
+	Array<TxtInf> txt_inf;
 public:
 	Controller() 
 	{
@@ -20,6 +21,12 @@ public:
 	void changeImgAlpha(const int&, const double&);
 	void changeImgFadein(const int&, const double&);
 	ImgInf* returnImgInf(const int&);
+
+	void changeTxt(const int&, String&);
+	void deleteTxt(const int&);
+	void changeTxtSize(const int&, const double&);
+	void changeTxtFadein(const int&, const double&);
+	TxtInf* returnTxtInf(const int&);
 private:
 	void init();
 };

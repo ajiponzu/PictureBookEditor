@@ -24,10 +24,10 @@ private:
     bool text_set_flag1d = false;
     bool text_set_flag2 = false;
     bool text_set_flag2d = false;
-    double text_size1 = 1.0f;
-    double text_size2 = 1.0f;
-    double text_fade_in1 = 0.0f;
-    double text_fade_in2 = 0.0f;
+    double text_size1 = 1.0;
+    double text_size2 = 1.0;
+    double text_fade_in1 = 0.0;
+    double text_fade_in2 = 0.0;
 
     Rect back_rect;
 

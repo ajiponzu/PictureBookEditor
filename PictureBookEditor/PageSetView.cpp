@@ -10,6 +10,7 @@ void PageSetView::pollEvent()
 		const auto page_view = ScopedViewport2D(back_rect);
 		const Transformer2D transform(Mat3x2::Identity(), Mat3x2::Translate(back_rect.pos));
 		pollGetImgInfEvent();
+		pollGetTxtInfEvent();
 		pollPageEvent();
 	}
 }
@@ -77,6 +78,33 @@ void PageSetView::pollGetImgInfEvent(const int& idx)
 			{
 				img_rect_list[idx]->changeImg(img_inf_ptr->path);
 				img_inf_ptr->flags.flag_p = false;
+			}
+		}
+	}
+}
+
+void PageSetView::pollGetTxtInfEvent()
+{
+	pollGetTxtInfEvent(0);
+	pollGetTxtInfEvent(1);
+}
+
+void PageSetView::pollGetTxtInfEvent(const int& idx)
+{
+	if (auto sp = controller.lock())
+	{
+		auto txt_inf_ptr = sp->returnTxtInf(idx);
+		if (txt_inf_ptr != nullptr)
+		{
+			if (txt_inf_ptr->flags.flag_s)
+			{
+				font_rect_list[idx]->changeSize(txt_inf_ptr->size);
+				txt_inf_ptr->flags.flag_s = false;
+			}
+			if (txt_inf_ptr->flags.flag_t)
+			{
+				font_rect_list[idx]->changeTxt(txt_inf_ptr->txt);
+				txt_inf_ptr->flags.flag_t = false;
 			}
 		}
 	}
@@ -170,7 +198,7 @@ void PageSetView::pollMoveRectEvent()
 {
 	for (auto &rect : img_rect_list)
 	{
-		rect->pollChangePlaceEvent(expansion, boundary_rect.w, boundary_rect.h);
+		rect->pollChangePlaceEvent(expansion, back_rect.w, back_rect.h);
 		rect->move(expansion);
 		rect->draw();
 	}
@@ -180,7 +208,7 @@ void PageSetView::pollFontRectEvent()
 {
 	for (auto& rect : font_rect_list)
 	{
-		rect->pollChangePlaceEvent(expansion, boundary_rect.w, boundary_rect.h);
+		rect->pollChangePlaceEvent(expansion, back_rect.w, back_rect.h);
 		rect->move(expansion);
 		rect->draw();
 	}

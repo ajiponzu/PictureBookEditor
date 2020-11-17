@@ -12,6 +12,8 @@ void ScenarioSetView::init()
 {
 	layout.init();
 	back_rect = Rect(layout.X9, layout.Y11, layout.BACK_RECT_WID, layout.SCENARIO_BACK_RECT_HIGH);
+	text_size1 = layout.FONT_SIZE;
+	text_size2 = layout.FONT_SIZE;
 	initButton();
 	initInput();
 }
@@ -40,44 +42,64 @@ void ScenarioSetView::pollButtonEvent()
 {
 	if (text_btn1->isClicked())
 	{
-		Print << U"text1";
-		text_set_flag1 = true;
+		if (auto sp = controller.lock())
+		{
+			sp->changeTxt(0, input_text1);
+		}
 	}
 	if (text_btn1d->isClicked())
 	{
-		Print << U"text1d";
-		text_set_flag1d = true;
+		if (auto sp = controller.lock())
+		{
+			sp->deleteTxt(0);
+		}
 	}
 	if (text_btn2->isClicked())
 	{
-		Print << U"text2";
-		text_set_flag2 = true;
+		if (auto sp = controller.lock())
+		{
+			sp->changeTxt(1, input_text2);
+		}
 	}
 	if (text_btn2d->isClicked())
 	{
-		Print << U"text2d";
-		text_set_flag2d = true;
+		if (auto sp = controller.lock())
+		{
+			sp->deleteTxt(1);
+		}
 	}
 }
 
 void ScenarioSetView::pollSliderEvent()
 {
-	if (SimpleGUI::Slider(U"サイズ ", text_size1, 0.0, 10.0, Vec2(layout.X11, layout.Y12), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"サイズ ", text_size1, 0.0, layout.TXT_MAX_SIZE, Vec2(layout.X11, layout.Y12), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"text1_size was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeTxtSize(0, text_size1);
+		}
 	}
 	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(text_fade_in1), text_fade_in1, 0.0, 60.0, Vec2(layout.X11, layout.Y13), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"text1_fade_in was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeTxtFadein(0, text_fade_in1);
+		}
 	}
 
-	if (SimpleGUI::Slider(U"サイズ ", text_size2, 0.0, 10.0, Vec2(layout.X11, layout.Y15), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"サイズ ", text_size2, 0.0, layout.TXT_MAX_SIZE, Vec2(layout.X11, layout.Y15), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"text2_size was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeTxtSize(1, text_size2);
+		}
 	}
 	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(text_fade_in2), text_fade_in2, 0.0, 60.0, Vec2(layout.X11, layout.Y16), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"text2_fade_in was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeTxtFadein(1, text_fade_in2);
+		}
 	}
 }
 

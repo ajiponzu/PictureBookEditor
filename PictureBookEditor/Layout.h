@@ -65,6 +65,7 @@ public:
 	int SCENARIO_BACK_RECT_HIGH;
 	int INPUT_ARER_WID;
 	int INPUT_AREA_HIGH;
+	double TXT_MAX_SIZE;
 
 	//page_set_view
 	int PAGE_BACK_RECT_WID;
@@ -74,6 +75,7 @@ public:
 	int MOVE_RECT3_POS;
 	int FONT_RECT1_POS;
 	int FONT_RECT2_POS;
+	double FONT_SIZE;
 
 private:
 	double dpi;
