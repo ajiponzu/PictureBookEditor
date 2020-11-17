@@ -51,6 +51,7 @@ void Layout::initPageSetViewMacro()
 	FONT_RECT1_POS = 80 * dpi;
 	FONT_RECT2_POS = FONT_RECT1_POS + 60 * dpi;
 	FONT_SIZE = 60 * dpi;
+	PAGE_RECT_WID = 150 * dpi;
 }
 
 void Layout::initPos()
@@ -62,8 +63,8 @@ void Layout::initPos()
 	X4 = 240 * dpi;
 	X5 = X3 + MENU_BTN_GAP;
 	X6 = X5 + MENU_BTN_GAP;
-	X7 = X6 + 200 * dpi;
-	X8 = X7 + 200 * dpi;
+	X7 = X6 + 80 * dpi;
+	X8 = X7 + 320 * dpi;
 	X9 = 1070 * dpi;
 	X10 = X9 + 16 * dpi;
 	X11 = X10 + BTN_WID + 20 * dpi;

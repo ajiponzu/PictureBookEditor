@@ -10,6 +10,7 @@ class PageSetView : public ViewComponent
 private:
     Rect back_rect;
     Rect boundary_rect;
+    Rect page_rect;
 
     std::shared_ptr<MyButton> prev_btn;
     std::shared_ptr<MyButton> next_btn;
@@ -20,6 +21,8 @@ private:
     Vec2 cur_pos;
     double expansion = 1.0;
     int wheel = 0;
+
+    Font font;
 
     std::vector<std::shared_ptr<ImageRect>> img_rect_list;
     std::vector<std::shared_ptr<FontRect>> font_rect_list;
@@ -37,6 +40,7 @@ private:
     void initPageView();
     void initImgRect();
     void initFontRect();
+    void displayPage();
     void pollGetImgInfEvent();
     void pollGetImgInfEvent(const int&);
     void pollGetTxtInfEvent();

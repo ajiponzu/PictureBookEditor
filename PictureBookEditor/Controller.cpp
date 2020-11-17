@@ -1,11 +1,22 @@
 #include "Controller.h"
 
+int Controller::returnCurrentPage()
+{
+	return cur_page;
+}
+
+int Controller::returnMaxPage()
+{
+	return max_page;
+}
+
 void Controller::selectImg(const int& idx)
 {
 	if (const auto open = Dialog::OpenFile())
 	{
 		img_inf[idx].path = open.value();
 		img_inf[idx].flags.flag_p = true;
+		Print << img_inf[idx].path;
 	}
 }
 

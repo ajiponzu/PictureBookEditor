@@ -76,6 +76,7 @@ public:
 	int FONT_RECT1_POS;
 	int FONT_RECT2_POS;
 	double FONT_SIZE;
+	int PAGE_RECT_WID;
 
 private:
 	double dpi;

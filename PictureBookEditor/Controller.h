@@ -6,6 +6,8 @@
 class Controller
 {
 private:
+	int cur_page = 0;
+	int max_page = 0;
 	Array<ImgInf> img_inf;
 	Array<TxtInf> txt_inf;
 public:
@@ -14,7 +16,9 @@ public:
 		init();
 	}
 	~Controller() {}
-	
+
+	int returnCurrentPage();
+	int returnMaxPage();
 	void selectImg(const int&);
 	void deleteImg(const int&);
 	void changeImgSize(const int&, const double&);
