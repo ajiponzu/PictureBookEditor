@@ -40,7 +40,10 @@ void MenuView::pollButtonEvent()
 	}
 	if (delete_btn->isClicked())
 	{
-		Print << U"delete";
+		if (auto sp = controller.lock())
+		{
+			sp->deletePage();
+		}
 	}
 	if (reset_btn->isClicked())
 	{
@@ -48,7 +51,10 @@ void MenuView::pollButtonEvent()
 	}
 	if (save_btn->isClicked())
 	{
-		Print << U"save";
+		if (auto sp = controller.lock())
+		{
+			sp->writePageJson();
+		}
 	}
 	if (run_btn->isClicked())
 	{

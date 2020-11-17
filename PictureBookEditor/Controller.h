@@ -10,6 +10,7 @@ private:
 	int max_page = 0;
 	Array<ImgInf> img_inf;
 	Array<TxtInf> txt_inf;
+	bool read_flag = false;
 public:
 	Controller() 
 	{
@@ -20,8 +21,10 @@ public:
 	int returnCurrentPage();
 	int returnMaxPage();
 	void createPage();
+	void deletePage();
 	void nextPage();
 	void prevPage();
+	void writePageJson();
 
 	void selectImg(const int&);
 	void deleteImg(const int&);

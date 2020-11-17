@@ -14,6 +14,22 @@ void Controller::createPage()
 {
 	cur_page++;
 	max_page++;
+	read_flag = true;
+}
+
+void Controller::deletePage()
+{
+	cur_page--;
+	max_page--;
+	if (cur_page <= 0)
+	{
+		cur_page = 1;
+	}
+	if (max_page <= 0)
+	{
+		max_page = 1;
+	}
+	read_flag = true;
 }
 
 void Controller::nextPage()
@@ -22,6 +38,10 @@ void Controller::nextPage()
 	if (cur_page > max_page)
 	{
 		cur_page = max_page;
+	}
+	else
+	{
+		read_flag = true;
 	}
 }
 
@@ -32,6 +52,67 @@ void Controller::prevPage()
 	{
 		cur_page = 1;
 	}
+	else
+	{
+		read_flag = true;
+	}
+}
+
+void Controller::writePageJson()
+{
+	String path = U"page{}.json"_fmt(cur_page);
+	JSONWriter writer;
+	writer.startObject();
+	{
+		writer.key(U"Image").startObject();
+		{
+			writer.key(U"img1").startObject();
+			{
+				writer.key(U"size").write(img_inf[0].size);
+				writer.key(U"alpha").write(img_inf[0].alpha);
+				writer.key(U"fadein").write(img_inf[0].fadein);
+				writer.key(U"path").write(img_inf[0].path);
+			}
+			writer.endObject();
+			writer.key(U"img2").startObject();
+			{
+				writer.key(U"size").write(img_inf[1].size);
+				writer.key(U"alpha").write(img_inf[1].alpha);
+				writer.key(U"fadein").write(img_inf[1].fadein);
+				writer.key(U"path").write(img_inf[1].path);
+			}
+			writer.endObject();
+			writer.key(U"img3").startObject();
+			{
+				writer.key(U"size").write(img_inf[2].size);
+				writer.key(U"alpha").write(img_inf[2].alpha);
+				writer.key(U"fadein").write(img_inf[2].fadein);
+				writer.key(U"path").write(img_inf[2].path);
+			}
+			writer.endObject();
+		}
+		writer.endObject();
+		writer.key(U"Scenario").startObject();
+		{
+			writer.key(U"txt1").startObject();
+			{
+				writer.key(U"size").write(txt_inf[0].size);
+				writer.key(U"fadein").write(txt_inf[0].fadein);
+				writer.key(U"txt").write(txt_inf[0].txt);
+			}
+			writer.endObject();
+			writer.key(U"img2").startObject();
+			{
+				writer.key(U"size").write(txt_inf[1].size);
+				writer.key(U"fadein").write(txt_inf[1].fadein);
+				writer.key(U"txt").write(txt_inf[1].txt);
+			}
+			writer.endObject();
+		}
+		writer.endObject();
+	}
+	writer.endObject();
+	writer.save(path);
 }
 
 void Controller::selectImg(const int& idx)
@@ -40,7 +121,6 @@ void Controller::selectImg(const int& idx)
 	{
 		img_inf[idx].path = open.value();
 		img_inf[idx].flags.flag_p = true;
-		Print << img_inf[idx].path;
 	}
 }
 

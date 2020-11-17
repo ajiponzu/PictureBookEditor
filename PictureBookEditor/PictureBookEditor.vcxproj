@@ -186,6 +186,7 @@
     <None Include="App\nlp\japanese\jumanpp\README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="..\Modelclass.txt" />
     <Text Include="App\engine\font\fontawesome\LICENSE.txt" />
     <Text Include="App\engine\font\noto\LICENSE_OFL.txt" />
     <Text Include="App\example\font\AnnyantRoman\readme.txt" />

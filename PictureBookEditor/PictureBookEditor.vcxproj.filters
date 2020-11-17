@@ -389,6 +389,9 @@
     <Text Include="App\example\font\LogoTypeGothic\ReadMe_windows.txt">
       <Filter>Resource Files\example\font\LogoTypeGothic</Filter>
     </Text>
+    <Text Include="..\Modelclass.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <Font Include="App\example\font\AnnyantRoman\AnnyantRoman.ttf">
