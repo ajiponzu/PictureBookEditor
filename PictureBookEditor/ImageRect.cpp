@@ -42,18 +42,18 @@ void ImageRect::pollChangePlaceEvent(const double& expansion, const int& max_x, 
 		place += Cursor::Delta() / expansion;
 	}
 
-	//if (place.x < 0)
-	//{
-	//	place.x = 0;
-	//}
+	if (place.x < 0)
+	{
+		place.x = 0;
+	}
 	//else if (place.x > max_x * expansion)
 	//{
 	//	place.x = max_x * expansion;
 	//}
-	//if (place.y < 0)
-	//{
-	//	place.y = 0;
-	//}
+	if (place.y < 0)
+	{
+		place.y = 0;
+	}
 	//else if (place.y > max_y * expansion)
 	//{
 	//	place.y = max_y * expansion;
@@ -62,6 +62,7 @@ void ImageRect::pollChangePlaceEvent(const double& expansion, const int& max_x, 
 
 void ImageRect::move(const double& expansion)
 {
+	this->expansion = expansion;
 	rectf = RectF(place * expansion, img.width() * size * expansion, img.height() * size * expansion);
 }
 
@@ -77,7 +78,7 @@ void ImageRect::draw()
 		{
 			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, AlphaF(0));
 		}
-		img.scaled(size).draw(rectf.x, rectf.y, AlphaF(alpha));
+		img.scaled(size * expansion).draw(rectf.x, rectf.y, AlphaF(alpha));
 	}
 }
 

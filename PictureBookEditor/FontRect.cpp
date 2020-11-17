@@ -33,18 +33,18 @@ void FontRect::pollChangePlaceEvent(const double& expansion, const int& max_x, c
 		place += Cursor::Delta() / expansion;
 	}
 
-	//if (place.x < 0)
-	//{
-	//	place.x = 0;
-	//}
+	if (place.x < 0)
+	{
+		place.x = 0;
+	}
 	//else if (place.x > max_x * expansion)
 	//{
 	//	place.x = max_x * expansion;
 	//}
-	//if (place.y < 0)
-	//{
-	//	place.y = 0;
-	//}
+	if (place.y < 0)
+	{
+		place.y = 0;
+	}
 	//else if (place.y > max_y * expansion)
 	//{
 	//	place.y = max_y * expansion;

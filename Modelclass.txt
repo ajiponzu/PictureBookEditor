@@ -1,8 +1,8 @@
 ParameterReader.class (絵本にも使用，起動時，ページ移動時,
                 "リセット"ボタンを押したときに一度呼ばれる．
                 読み込んだパラメータを配列にし，それぞれのクラスに配る)
-ImageSender.class (パラメータをPageSetViewへ送る．Pictureから呼ばれる)
-ScenarioSender.class (パラメータをPageSetViewへ送る．Scenarioから呼ばれる)
+//ImageSender.class (パラメータをPageSetViewへ送る．Pictureから呼ばれる)
+//ScenarioSender.class (パラメータをPageSetViewへ送る．Scenarioから呼ばれる)
 ParameterWriter.class ("保存"ボタンを押したときのみ呼ばれる．)
 PageManager.class ("新規"，"削除"ボタンを押したとき呼ばれる．ページ番号の管理も行う．
                     また，"実行"ボタンを押したときの処理も行う．)

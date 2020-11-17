@@ -14,6 +14,7 @@ private:
 	Layout layout;
 	double size = 1.0;
 	double alpha = 1.0;
+	double expansion = 0.0;
 public:
 	ImageRect(const String& path, const Vec2& place)
 	{
