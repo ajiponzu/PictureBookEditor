@@ -9,6 +9,7 @@ void PageSetView::pollEvent()
 	{
 		const auto page_view = ScopedViewport2D(back_rect);
 		const Transformer2D transform(Mat3x2::Identity(), Mat3x2::Translate(back_rect.pos));
+		pollGetImgInfEvent();
 		pollPageEvent();
 	}
 }
@@ -44,8 +45,41 @@ void PageSetView::initImgRect()
 
 void PageSetView::initFontRect()
 {
-	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"font1", Vec2(layout.FONT_RECT1_POS, layout.FONT_RECT1_POS))));
-	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"font2", Vec2(layout.FONT_RECT2_POS, layout.FONT_RECT2_POS))));
+	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(layout.FONT_RECT1_POS, layout.FONT_RECT1_POS))));
+	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(layout.FONT_RECT2_POS, layout.FONT_RECT2_POS))));
+}
+
+void PageSetView::pollGetImgInfEvent()
+{
+	pollGetImgInfEvent(0);
+	pollGetImgInfEvent(1);
+	pollGetImgInfEvent(2);
+}
+
+void PageSetView::pollGetImgInfEvent(const int& idx)
+{
+	if (auto sp = controller.lock())
+	{
+		auto img_inf_ptr = sp->returnImgInf(idx);
+		if (img_inf_ptr != nullptr)
+		{
+			if (img_inf_ptr->flags.flag_s)
+			{
+				img_rect_list[idx]->changeSize(img_inf_ptr->size);
+				img_inf_ptr->flags.flag_s = false;
+			}
+			if (img_inf_ptr->flags.flag_a)
+			{
+				img_rect_list[idx]->changeAlpha(img_inf_ptr->alpha);
+				img_inf_ptr->flags.flag_a = false;
+			}
+			if (img_inf_ptr->flags.flag_p)
+			{
+				img_rect_list[idx]->changeImg(img_inf_ptr->path);
+				img_inf_ptr->flags.flag_p = false;
+			}
+		}
+	}
 }
 
 void PageSetView::pollButtonEvent()

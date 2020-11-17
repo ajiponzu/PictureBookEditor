@@ -46,14 +46,17 @@ void FontRect::move(const double& expansion)
 
 void FontRect::draw()
 {
-	if (is_pressed)
+	if (text != U"")
 	{
-		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Violet);
+		if (is_pressed)
+		{
+			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Violet);
+		}
+		else
+		{
+			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::White);
+		}
+		font(text).draw(rectf.stretched(1), Palette::Black);
 	}
-	else
-	{
-		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::White);
-	}
-	font(text).draw(rectf.stretched(1), Palette::Black);
 }
 

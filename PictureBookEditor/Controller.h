@@ -1,11 +1,12 @@
 #pragma once
 #include <memory>
 #include <Siv3D.hpp>
+#include "Inf.h"
 
 class Controller
 {
 private:
-	Array<String> img_path;
+	Array<ImgInf> img_inf;
 public:
 	Controller() 
 	{
@@ -14,7 +15,7 @@ public:
 	~Controller() {}
 	
 	void selectImg(const int&);
-	String returnImgPath(const int&);
+	ImgInf* returnImgInf(const int&);
 private:
 	void init();
 };

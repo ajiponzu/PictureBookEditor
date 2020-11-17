@@ -1,5 +1,26 @@
 #include "ImageRect.h"
 
+void ImageRect::changeSize(const double& size)
+{
+	this->size = size;
+}
+
+void ImageRect::changeAlpha(const double& alpha)
+{
+	this->alpha = alpha;
+}
+
+void ImageRect::changeImg(const String& path)
+{
+	this->path = path;
+	img = Texture(path);
+	if (!img)
+    {
+		this->path = U"";
+		img = Texture(this->path);
+    }
+}
+
 Vec2 ImageRect::getPlace()
 {
 	return place;
@@ -46,13 +67,17 @@ void ImageRect::move(const double& expansion)
 
 void ImageRect::draw()
 {
-	if (is_pressed)
+	if (path != U"")
 	{
-		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Aqua);
-	}
-	else
-	{
-		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Blueviolet);
+		if (is_pressed)
+		{
+			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Aqua);
+		}
+		else
+		{
+			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Blueviolet);
+		}
+		img.scaled(size).draw(rectf.x, rectf.y, AlphaF(1));
 	}
 }
 

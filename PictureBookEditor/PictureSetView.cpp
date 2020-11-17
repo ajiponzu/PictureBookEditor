@@ -30,7 +30,7 @@ void PictureSetView::pollButtonEvent()
 	{
 		if (auto sp = controller.lock())
 		{
-			sp->selectImg(1);
+			sp->selectImg(0);
 		}
 	}
 	if (img_btn1d->isClicked())
@@ -42,7 +42,7 @@ void PictureSetView::pollButtonEvent()
 	{
 		if (auto sp = controller.lock())
 		{
-			sp->selectImg(2);
+			sp->selectImg(1);
 		}
 	}
 	if (img_btn2d->isClicked())
@@ -54,7 +54,7 @@ void PictureSetView::pollButtonEvent()
 	{
 		if (auto sp = controller.lock())
 		{
-			sp->selectImg(3);
+			sp->selectImg(2);
 		}
 	}
 	if (img_btn3d->isClicked())

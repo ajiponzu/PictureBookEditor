@@ -4,18 +4,22 @@ void Controller::selectImg(const int& idx)
 {
 	if (const auto open = Dialog::OpenFile())
 	{
-		img_path[idx-1] = open.value();
+		img_inf[idx].path = open.value();
+		img_inf[idx].flags.flag_p = true;
 	}
 }
 
-String Controller::returnImgPath(const int& idx)
+ImgInf* Controller::returnImgInf(const int& idx)
 {
-	return img_path[idx-1];
+	if (img_inf[idx].flags.eventFlag())
+	{
+		return &img_inf[idx];
+	}
+
+	return nullptr;
 }
 
 void Controller::init()
 {
-	img_path.push_back(U"");
-	img_path.push_back(U"");
-	img_path.push_back(U"");
+	img_inf.resize(3);
 }
