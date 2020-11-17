@@ -22,6 +22,10 @@ void PageSetView::init()
 	back_rect = Rect(layout.X1, layout.Y1, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
 	page_rect = Rect(layout.X7, layout.Y17, layout.PAGE_RECT_WID, layout.BTN_HIGH);
 	font = Font(layout.BTN_F_SIZE);
+	if (auto sp = controller.lock())
+	{
+		sp->createPage();
+	}
 	initButton();
 	initPageView();
 	initImgRect();
@@ -128,13 +132,17 @@ void PageSetView::pollButtonEvent()
 {
 	if (prev_btn->isClicked())
 	{
-		Print << U"prev page";
-		prev_flag = true;
+		if (auto sp = controller.lock())
+		{
+			sp->prevPage();
+		}
 	}
 	if (next_btn->isClicked())
 	{
-		Print << U"next page";
-		next_flag = true;
+		if (auto sp = controller.lock())
+		{
+			sp->nextPage();
+		}
 	}
 }
 

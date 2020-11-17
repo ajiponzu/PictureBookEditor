@@ -33,7 +33,10 @@ void MenuView::pollButtonEvent()
 {
 	if (create_btn->isClicked())
 	{
-		Print << U"create";
+		if (auto sp = controller.lock())
+		{
+			sp->createPage();
+		}
 	}
 	if (delete_btn->isClicked())
 	{

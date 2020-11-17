@@ -19,6 +19,10 @@ public:
 
 	int returnCurrentPage();
 	int returnMaxPage();
+	void createPage();
+	void nextPage();
+	void prevPage();
+
 	void selectImg(const int&);
 	void deleteImg(const int&);
 	void changeImgSize(const int&, const double&);

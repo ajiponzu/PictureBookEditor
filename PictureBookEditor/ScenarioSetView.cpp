@@ -105,6 +105,7 @@ void ScenarioSetView::pollSliderEvent()
 
 void ScenarioSetView::pollInputEvent()
 {
+		if (input_rect1.mouseOver() || input_rect2.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
         input_rect1.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, palette1);
 		if (input_rect1.leftClicked())
 		{

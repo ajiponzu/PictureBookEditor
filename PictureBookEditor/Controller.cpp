@@ -10,6 +10,30 @@ int Controller::returnMaxPage()
 	return max_page;
 }
 
+void Controller::createPage()
+{
+	cur_page++;
+	max_page++;
+}
+
+void Controller::nextPage()
+{
+	cur_page++;
+	if (cur_page > max_page)
+	{
+		cur_page = max_page;
+	}
+}
+
+void Controller::prevPage()
+{
+	cur_page--;
+	if (cur_page <= 0)
+	{
+		cur_page = 1;
+	}
+}
+
 void Controller::selectImg(const int& idx)
 {
 	if (const auto open = Dialog::OpenFile())
