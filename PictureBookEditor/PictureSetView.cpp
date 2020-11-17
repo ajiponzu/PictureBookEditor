@@ -28,8 +28,10 @@ void PictureSetView::pollButtonEvent()
 {
 	if (img_btn1->isClicked())
 	{
-		Print << U"img1";
-		img_set_flag1 = true;
+		if (auto sp = controller.lock())
+		{
+			sp->selectImg(1);
+		}
 	}
 	if (img_btn1d->isClicked())
 	{
@@ -38,8 +40,10 @@ void PictureSetView::pollButtonEvent()
 	}
 	if (img_btn2->isClicked())
 	{
-		Print << U"img2";
-		img_set_flag2 = true;
+		if (auto sp = controller.lock())
+		{
+			sp->selectImg(2);
+		}
 	}
 	if (img_btn2d->isClicked())
 	{
@@ -48,8 +52,10 @@ void PictureSetView::pollButtonEvent()
 	}
 	if (img_btn3->isClicked())
 	{
-		Print << U"img3";
-		img_set_flag3 = true;
+		if (auto sp = controller.lock())
+		{
+			sp->selectImg(3);
+		}
 	}
 	if (img_btn3d->isClicked())
 	{
