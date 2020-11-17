@@ -62,7 +62,7 @@ void ImageRect::pollChangePlaceEvent(const double& expansion, const int& max_x, 
 
 void ImageRect::move(const double& expansion)
 {
-	rectf = RectF(place * expansion, img.width() * expansion, img.height() * expansion);
+	rectf = RectF(place * expansion, img.width() * size * expansion, img.height() * size * expansion);
 }
 
 void ImageRect::draw()
@@ -71,13 +71,13 @@ void ImageRect::draw()
 	{
 		if (is_pressed)
 		{
-			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Aqua);
+			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Blue);
 		}
 		else
 		{
-			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Blueviolet);
+			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, AlphaF(0));
 		}
-		img.scaled(size).draw(rectf.x, rectf.y, AlphaF(1));
+		img.scaled(size).draw(rectf.x, rectf.y, AlphaF(alpha));
 	}
 }
 

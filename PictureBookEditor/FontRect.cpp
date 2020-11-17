@@ -54,7 +54,7 @@ void FontRect::draw()
 		}
 		else
 		{
-			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::White);
+			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, AlphaF(0));
 		}
 		font(text).draw(rectf.stretched(1), Palette::Black);
 	}

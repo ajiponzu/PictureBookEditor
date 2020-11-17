@@ -35,8 +35,10 @@ void PictureSetView::pollButtonEvent()
 	}
 	if (img_btn1d->isClicked())
 	{
-		Print << U"img1d";
-		img_set_flag1d = true;
+		if (auto sp = controller.lock())
+		{
+			sp->deleteImg(0);
+		}		
 	}
 	if (img_btn2->isClicked())
 	{
@@ -47,8 +49,10 @@ void PictureSetView::pollButtonEvent()
 	}
 	if (img_btn2d->isClicked())
 	{
-		Print << U"img2d";
-		img_set_flag2d = true;
+		if (auto sp = controller.lock())
+		{
+			sp->deleteImg(1);
+		}		
 	}
 	if (img_btn3->isClicked())
 	{
@@ -59,8 +63,10 @@ void PictureSetView::pollButtonEvent()
 	}
 	if (img_btn3d->isClicked())
 	{
-		Print << U"img3d";
-		img_set_flag3d = true;
+		if (auto sp = controller.lock())
+		{
+			sp->deleteImg(2);
+		}		
 	}
 }
 
@@ -68,41 +74,68 @@ void PictureSetView::pollSliderEvent()
 {
 	if (SimpleGUI::Slider(U"サイズ ", img_size1, 0.0, 10.0, Vec2(layout.X11, layout.Y2), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"img1_size was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeImgSize(0, img_size1);
+		}
 	}
 	if (SimpleGUI::Slider(U"アルファ値 ", img_alpha1, 0.0, 1.0, Vec2(layout.X11, layout.Y3), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"img1_alpha was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeImgAlpha(0, img_alpha1);
+		}
 	}
 	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(img_fade_in1), img_fade_in1, 0.0, 60.0, Vec2(layout.X11, layout.Y4), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"img1_fade_in was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeImgFadein(0, img_fade_in1);
+		}
 	}
 
 	if (SimpleGUI::Slider(U"サイズ ", img_size2, 0.0, 10.0, Vec2(layout.X11, layout.Y5), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"img2_size was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeImgSize(1, img_size2);
+		}
 	}
 	if (SimpleGUI::Slider(U"アルファ値 ", img_alpha2, 0.0, 1.0, Vec2(layout.X11, layout.Y6), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"img2_alpha was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeImgAlpha(1, img_alpha2);
+		}
 	}
 	if (SimpleGUI::Slider(U"フェードイン {:.2f} \n"_fmt(img_fade_in2), img_fade_in2, 0.0, 60.0, Vec2(layout.X11, layout.Y7), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"img2_fade_in was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeImgFadein(1, img_fade_in2);
+		}
 	}
 
 	if (SimpleGUI::Slider(U"サイズ ", img_size3, 0.0, 10.0, Vec2(layout.X11, layout.Y8), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"img3_size was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeImgSize(2, img_size3);
+		}
 	}
 	if (SimpleGUI::Slider(U"アルファ値 ", img_alpha3, 0.0, 1.0, Vec2(layout.X11, layout.Y9), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"img3_alpha was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeImgAlpha(2, img_alpha3);
+		}
 	}
 	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(img_fade_in3), img_fade_in3, 0.0, 60.0, Vec2(layout.X11, layout.Y10), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
-		Print << U"img3_fade_in was changed";
+		if (auto sp = controller.lock())
+		{
+			sp->changeImgFadein(2, img_fade_in3);
+		}
 	}
 }
 
