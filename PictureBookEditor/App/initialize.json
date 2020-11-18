@@ -1,5 +1,4 @@
 ﻿{
-  "MaxPage": 1,
   "Image": {
     "img1": {
       "size": 0.0,
@@ -26,7 +25,7 @@
       "fadein": 0.0,
       "txt": ""
     },
-    "txt2": {
+    "img2": {
       "size": 0.0,
       "fadein": 0.0,
       "txt": ""

@@ -47,7 +47,10 @@ void MenuView::pollButtonEvent()
 	}
 	if (reset_btn->isClicked())
 	{
-		Print << U"reset";
+		if (auto sp = controller.lock())
+		{
+			sp->readPageJson();
+		}
 	}
 	if (save_btn->isClicked())
 	{

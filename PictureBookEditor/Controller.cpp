@@ -29,6 +29,8 @@ void Controller::deletePage()
 	{
 		max_page = 1;
 	}
+	init();
+	writePageJson();
 	read_flag = true;
 }
 
@@ -60,10 +62,11 @@ void Controller::prevPage()
 
 void Controller::writePageJson()
 {
-	String path = U"page{}.json"_fmt(cur_page);
+	String path = U"Page/page{}.json"_fmt(cur_page);
 	JSONWriter writer;
 	writer.startObject();
 	{
+		writer.key(U"MaxPage").write(max_page);
 		writer.key(U"Image").startObject();
 		{
 			writer.key(U"img1").startObject();
@@ -101,7 +104,7 @@ void Controller::writePageJson()
 				writer.key(U"txt").write(txt_inf[0].txt);
 			}
 			writer.endObject();
-			writer.key(U"img2").startObject();
+			writer.key(U"txt2").startObject();
 			{
 				writer.key(U"size").write(txt_inf[1].size);
 				writer.key(U"fadein").write(txt_inf[1].fadein);
@@ -113,6 +116,44 @@ void Controller::writePageJson()
 	}
 	writer.endObject();
 	writer.save(path);
+}
+
+void Controller::readPageJson()
+{
+	String path = U"page{}.json"_fmt(cur_page);
+    JSONReader json(path);
+	if (!json)
+    {
+		json = JSONReader(U"initialize.json");
+    }
+	
+	for (const auto& inf : json.objectView())
+	{
+		max_page = inf.value[U"MaxPage"].get<int>();
+		for (const auto& sub_inf : inf.value[U"Image"].objectView())
+		{
+			auto idx = 0;
+			for (const auto& sub_sub_inf : sub_inf.value.objectView())
+			{
+				img_inf[idx].size = sub_sub_inf.value[U"size"].get<double>();
+				img_inf[idx].alpha = sub_sub_inf.value[U"alpha"].get<double>();
+				img_inf[idx].fadein = sub_sub_inf.value[U"fadein"].get<double>();
+				img_inf[idx].path = sub_sub_inf.value[U"path"].getString();
+				idx++;
+			}
+		}
+		for (const auto& sub_inf : inf.value[U"Scenario"].objectView())
+		{
+			auto idx = 0;
+			for (const auto& sub_sub_inf : sub_inf.value.objectView())
+			{
+				txt_inf[idx].size = sub_sub_inf.value[U"size"].get<double>();
+				txt_inf[idx].fadein = sub_sub_inf.value[U"fadein"].get<double>();
+				txt_inf[idx].txt = sub_sub_inf.value[U"txt"].getString();
+				idx++;
+			}
+		}
+	}
 }
 
 void Controller::selectImg(const int& idx)
@@ -192,6 +233,8 @@ TxtInf* Controller::returnTxtInf(const int& idx)
 
 void Controller::init()
 {
+	img_inf.clear();
+	txt_inf.clear();
 	img_inf.resize(3);
 	txt_inf.resize(2);
 }

@@ -25,6 +25,7 @@ public:
 	void nextPage();
 	void prevPage();
 	void writePageJson();
+	void readPageJson();
 
 	void selectImg(const int&);
 	void deleteImg(const int&);
