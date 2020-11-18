@@ -14,13 +14,15 @@ void Controller::createPage()
 {
 	cur_page++;
 	max_page++;
-	read_flag = true;
+	init();
 }
 
 void Controller::deletePage()
 {
-	cur_page--;
 	max_page--;
+	init();
+	writePageJson();
+	cur_page--;
 	if (cur_page <= 0)
 	{
 		cur_page = 1;
@@ -29,9 +31,6 @@ void Controller::deletePage()
 	{
 		max_page = 1;
 	}
-	init();
-	writePageJson();
-	read_flag = true;
 }
 
 void Controller::nextPage()
@@ -43,7 +42,7 @@ void Controller::nextPage()
 	}
 	else
 	{
-		read_flag = true;
+		readPageJson();
 	}
 }
 
@@ -56,7 +55,7 @@ void Controller::prevPage()
 	}
 	else
 	{
-		read_flag = true;
+		readPageJson();
 	}
 }
 
@@ -120,40 +119,59 @@ void Controller::writePageJson()
 
 void Controller::readPageJson()
 {
-	String path = U"page{}.json"_fmt(cur_page);
+	Print << U"{}"_fmt(cur_page);
+	String path = U"Page/page{}.json"_fmt(cur_page);
     JSONReader json(path);
 	if (!json)
     {
 		json = JSONReader(U"initialize.json");
+		if (!json)
+		{
+			throw Error(U"failed to open json file");
+		}
     }
 	
 	for (const auto& inf : json.objectView())
 	{
-		max_page = inf.value[U"MaxPage"].get<int>();
-		for (const auto& sub_inf : inf.value[U"Image"].objectView())
+		if (inf.name == U"MaxPage")
 		{
-			auto idx = 0;
-			for (const auto& sub_sub_inf : sub_inf.value.objectView())
+			if (is_boot)
 			{
-				img_inf[idx].size = sub_sub_inf.value[U"size"].get<double>();
-				img_inf[idx].alpha = sub_sub_inf.value[U"alpha"].get<double>();
-				img_inf[idx].fadein = sub_sub_inf.value[U"fadein"].get<double>();
-				img_inf[idx].path = sub_sub_inf.value[U"path"].getString();
-				idx++;
+				max_page = inf.value.get<int>();
+				is_boot = false;
 			}
 		}
-		for (const auto& sub_inf : inf.value[U"Scenario"].objectView())
+		else if (inf.name == U"Image")
 		{
-			auto idx = 0;
-			for (const auto& sub_sub_inf : sub_inf.value.objectView())
+			for (const auto& sub_inf : inf.value[U"Image"].objectView())
 			{
-				txt_inf[idx].size = sub_sub_inf.value[U"size"].get<double>();
-				txt_inf[idx].fadein = sub_sub_inf.value[U"fadein"].get<double>();
-				txt_inf[idx].txt = sub_sub_inf.value[U"txt"].getString();
-				idx++;
+				auto idx = 0;
+				for (const auto& sub_sub_inf : sub_inf.value.objectView())
+				{
+					img_inf[idx].size = sub_sub_inf.value[U"size"].get<double>();
+					img_inf[idx].alpha = sub_sub_inf.value[U"alpha"].get<double>();
+					img_inf[idx].fadein = sub_sub_inf.value[U"fadein"].get<double>();
+					img_inf[idx].path = sub_sub_inf.value[U"path"].getString();
+					idx++;
+				}
+			}
+		} 
+		else if (inf.name == U"Scenario")
+		{
+			for (const auto& sub_inf : inf.value[U"Scenario"].objectView())
+			{
+				auto idx = 0;
+				for (const auto& sub_sub_inf : sub_inf.value.objectView())
+				{
+					txt_inf[idx].size = sub_sub_inf.value[U"size"].get<double>();
+					txt_inf[idx].fadein = sub_sub_inf.value[U"fadein"].get<double>();
+					txt_inf[idx].txt = sub_sub_inf.value[U"txt"].getString();
+					idx++;
+				}
 			}
 		}
 	}
+	setInitFlag();
 }
 
 void Controller::selectImg(const int& idx)
@@ -237,5 +255,18 @@ void Controller::init()
 	txt_inf.clear();
 	img_inf.resize(3);
 	txt_inf.resize(2);
+	setInitFlag();
+}
+
+void Controller::setInitFlag()
+{
+	for (auto& list : img_inf)
+	{
+		list.flags.reInit();
+	}
+	for (auto& list : txt_inf)
+	{
+		list.flags.reInit();
+	}
 }
 

@@ -1,0 +1,35 @@
+﻿{
+  "MaxPage": 1,
+  "Image": {
+    "img1": {
+      "size": 1.0,
+      "alpha": 1.0,
+      "fadein": 0.0,
+      "path": ""
+    },
+    "img2": {
+      "size": 1.0,
+      "alpha": 1.0,
+      "fadein": 0.0,
+      "path": ""
+    },
+    "img3": {
+      "size": 1.0,
+      "alpha": 1.0,
+      "fadein": 0.0,
+      "path": ""
+    }
+  },
+  "Scenario": {
+    "txt1": {
+      "size": 60.0,
+      "fadein": 0.0,
+      "txt": ""
+    },
+    "txt2": {
+      "size": 60.0,
+      "fadein": 0.0,
+      "txt": ""
+    }
+  }
+}

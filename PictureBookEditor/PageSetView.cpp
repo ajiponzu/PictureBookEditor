@@ -25,6 +25,7 @@ void PageSetView::init()
 	if (auto sp = controller.lock())
 	{
 		sp->createPage();
+		sp->readPageJson();
 	}
 	initButton();
 	initPageView();

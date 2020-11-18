@@ -10,7 +10,7 @@ private:
 	int max_page = 0;
 	Array<ImgInf> img_inf;
 	Array<TxtInf> txt_inf;
-	bool read_flag = false;
+	bool is_boot = true;
 public:
 	Controller() 
 	{
@@ -41,5 +41,6 @@ public:
 	TxtInf* returnTxtInf(const int&);
 private:
 	void init();
+	void setInitFlag();
 };
 

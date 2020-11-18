@@ -10,12 +10,19 @@ struct ImgInfFlag
 	{
 		return flag_s || flag_a || flag_p;
 	}
+
+	void reInit()
+	{
+		flag_s = true;
+		flag_a = true;
+		flag_p = true;
+	}
 };
 
 struct ImgInf
 {
-	double size = 0.0;
-	double alpha = 0.0;
+	double size = 1.0;
+	double alpha = 1.0;
 	double fadein = 0.0;
 	ImgInfFlag flags;
 	String path;
@@ -30,11 +37,17 @@ struct TxtInfFlag
 	{
 		return flag_s || flag_t;
 	}
+
+	void reInit()
+	{
+		flag_s = true;
+		flag_t = true;
+	}
 };
 
 struct TxtInf
 {
-	double size = 0.0;
+	double size = 60.0;
 	double fadein = 0.0;
 	TxtInfFlag flags;
 	String txt;

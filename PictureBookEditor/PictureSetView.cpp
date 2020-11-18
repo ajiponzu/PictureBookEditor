@@ -108,7 +108,7 @@ void PictureSetView::pollSliderEvent()
 			sp->changeImgAlpha(1, img_alpha2);
 		}
 	}
-	if (SimpleGUI::Slider(U"フェードイン {:.2f} \n"_fmt(img_fade_in2), img_fade_in2, 0.0, 60.0, Vec2(layout.X11, layout.Y7), layout.SLIDER_L_WID, layout.SLIDER_WID))
+	if (SimpleGUI::Slider(U"フェードイン {:.2f} "_fmt(img_fade_in2), img_fade_in2, 0.0, 60.0, Vec2(layout.X11, layout.Y7), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		if (auto sp = controller.lock())
 		{
