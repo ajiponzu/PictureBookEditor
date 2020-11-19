@@ -100,12 +100,8 @@ void PageSetView::pollPagePosEvent()
 		boundary_rect = Rect(abs_pos.x, abs_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
 	}
 	boundary_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
-	{
-		const auto page_view2 = ScopedViewport2D(boundary_rect);
-		const Transformer2D transform2(Mat3x2::Translate(back_rect.pos), Mat3x2::Translate(boundary_rect.pos));
-		pollMoveRectEvent();
-		pollFontRectEvent();
-	}
+	pollMoveRectEvent();
+	pollFontRectEvent();
 }
 
 void PageSetView::pollZoomEvent()
