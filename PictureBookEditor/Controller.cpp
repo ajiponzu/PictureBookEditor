@@ -12,6 +12,7 @@ int Controller::returnMaxPage()
 
 void Controller::createPage()
 {
+	writePageJson();
 	cur_page++;
 	max_page++;
 	init();
@@ -20,11 +21,11 @@ void Controller::createPage()
 void Controller::deletePage()
 {
 	String path = U"Page/page{}.json"_fmt(cur_page);
+	max_page--;
 	if (max_page <= 0)
 	{
 		max_page = 1;
 	}
-	max_page--;
 	FileSystem::Remove(path, true);
 
 	cur_page--;
@@ -45,6 +46,10 @@ void Controller::deletePage()
 
 void Controller::nextPage()
 {
+	if (cur_page != max_page)
+	{
+		writePageJson();
+	}
 	cur_page++;
 	if (cur_page > max_page)
 	{
@@ -58,6 +63,10 @@ void Controller::nextPage()
 
 void Controller::prevPage()
 {
+	if (cur_page != 1)
+	{
+		writePageJson();
+	}
 	cur_page--;
 	if (cur_page <= 0)
 	{
@@ -263,13 +272,13 @@ void Controller::init()
 
 void Controller::setInitFlag()
 {
-	for (auto& list : img_inf)
+	for (auto& inf : img_inf)
 	{
-		list.flags.reInit();
+		inf.flags.reInit();
 	}
-	for (auto& list : txt_inf)
+	for (auto& inf : txt_inf)
 	{
-		list.flags.reInit();
+		inf.flags.reInit();
 	}
 }
 

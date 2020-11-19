@@ -12,11 +12,6 @@ private:
     Rect boundary_rect;
     Rect page_rect;
 
-    std::shared_ptr<MyButton> prev_btn;
-    std::shared_ptr<MyButton> next_btn;
-    bool prev_flag = false;
-    bool next_flag = false;
-
     Vec2 abs_pos;
     Vec2 cur_pos;
     double expansion = 1.0;
@@ -36,7 +31,6 @@ public:
     virtual void pollEvent() override;
 private:
     void init();
-    void initButton();
     void initPageView();
     void initImgRect();
     void initFontRect();
@@ -45,7 +39,6 @@ private:
     void pollGetImgInfEvent(const int&);
     void pollGetTxtInfEvent();
     void pollGetTxtInfEvent(const int&);
-    void pollButtonEvent();
     void pollPageEvent();
     void pollZoomEvent();
     void pollChangeAbsPosEvent();

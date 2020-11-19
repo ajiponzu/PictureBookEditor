@@ -22,6 +22,8 @@ void MenuView::initButton()
 	save_btn = std::make_shared<MyButton>(MyButton(layout.X5, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"ï€ë∂"), layout.BTN_F_SIZE));
 	run_btn = std::make_shared<MyButton>(MyButton(layout.X6, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"é¿çs"), layout.BTN_F_SIZE));
 	close_btn = std::make_shared<MyButton>(MyButton(layout.CLBTN_X, 0, layout.MENU_BAR_TH, layout.MENU_BAR_TH, String(U""), layout.BTN_F_SIZE));
+	prev_btn = std::make_shared<MyButton>(MyButton(layout.X4, layout.Y17, layout.BTN_WID, layout.BTN_HIGH, String(U"ëOï≈"), layout.BTN_F_SIZE));
+	next_btn = std::make_shared<MyButton>(MyButton(layout.X8, layout.Y17, layout.BTN_WID, layout.BTN_HIGH, String(U"éüçÄ"), layout.BTN_F_SIZE));
 	close_btn_img = Texture(U"close_btn.png");
 	if (!close_btn_img)
     {
@@ -62,6 +64,20 @@ void MenuView::pollButtonEvent()
 	if (run_btn->isClicked())
 	{
 		Print << U"run";
+	}
+	if (prev_btn->isClicked())
+	{
+		if (auto sp = controller.lock())
+		{
+			sp->prevPage();
+		}
+	}
+	if (next_btn->isClicked())
+	{
+		if (auto sp = controller.lock())
+		{
+			sp->nextPage();
+		}
 	}
 }
 

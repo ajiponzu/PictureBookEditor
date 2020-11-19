@@ -53,6 +53,7 @@ void PictureSetView::pollGetImgInfEvent(const int& idx)
 		auto inf = sp->returnImgInf(idx);
 		if (inf != nullptr)
 		{
+			Print << idx;
 			img_size[idx] = inf->size;
 			img_alpha[idx] = inf->alpha;
 			img_fade_in[idx] = inf->fadein;

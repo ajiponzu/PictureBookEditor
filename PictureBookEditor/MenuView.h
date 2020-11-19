@@ -12,9 +12,11 @@ private:
     std::shared_ptr<MyButton> reset_btn;
     std::shared_ptr<MyButton> save_btn;
     std::shared_ptr<MyButton> run_btn;
+    std::shared_ptr<MyButton> prev_btn;
+    std::shared_ptr<MyButton> next_btn;
     std::shared_ptr<MyButton> close_btn;
-    Rect menu_rect;
     Texture close_btn_img;
+    Rect menu_rect;
 public:
     MenuView(std::weak_ptr<Controller> ctr) : ViewComponent(ctr)
     {

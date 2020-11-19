@@ -4,7 +4,6 @@ constexpr auto EXPANSION = 1.5;
 
 void PageSetView::pollEvent()
 {
-	pollButtonEvent();
 	displayPage();
 	back_rect.draw(Palette::Lavenderblush).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	{
@@ -26,16 +25,9 @@ void PageSetView::init()
 	{
 		sp->readPageJson();
 	}
-	initButton();
 	initPageView();
 	initImgRect();
 	initFontRect();
-}
-
-void PageSetView::initButton()
-{
-	prev_btn = std::make_shared<MyButton>(MyButton(layout.X4, layout.Y17, layout.BTN_WID, layout.BTN_HIGH, String(U"‘O•Å"), layout.BTN_F_SIZE));
-	next_btn = std::make_shared<MyButton>(MyButton(layout.X8, layout.Y17, layout.BTN_WID, layout.BTN_HIGH, String(U"ŽŸ€"), layout.BTN_F_SIZE));
 }
 
 void PageSetView::initPageView()
@@ -109,24 +101,6 @@ void PageSetView::pollGetTxtInfEvent(const int& idx)
 			font_rect_list[idx]->changeTxt(txt_inf_ptr->txt);
 			txt_inf_ptr->flags.flag_s = false;
 			txt_inf_ptr->flags.flag_t = false;
-		}
-	}
-}
-
-void PageSetView::pollButtonEvent()
-{
-	if (prev_btn->isClicked())
-	{
-		if (auto sp = controller.lock())
-		{
-			sp->prevPage();
-		}
-	}
-	if (next_btn->isClicked())
-	{
-		if (auto sp = controller.lock())
-		{
-			sp->nextPage();
 		}
 	}
 }

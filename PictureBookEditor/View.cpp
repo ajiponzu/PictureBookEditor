@@ -6,7 +6,7 @@
 
 void View::pollEvent()
 {
-	for (auto vc : vc_list)
+	for (auto &vc : vc_list)
 	{
 		vc->pollEvent();
 	}
