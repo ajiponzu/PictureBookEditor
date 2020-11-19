@@ -19,19 +19,28 @@ void Controller::createPage()
 
 void Controller::deletePage()
 {
-	max_page--;
-	init();
-	writePageJson();
-	cur_page--;
-	if (cur_page <= 0)
-	{
-		cur_page = 1;
-	}
+	String path = U"Page/page{}.json"_fmt(cur_page);
 	if (max_page <= 0)
 	{
 		max_page = 1;
 	}
-	readPageJson();
+	max_page--;
+	FileSystem::Remove(path, true);
+
+	cur_page--;
+	if (cur_page <= 0)
+	{
+		cur_page = 2;
+		readPageJson();
+		path = U"Page/page{}.json"_fmt(cur_page);
+		FileSystem::Remove(path, true);
+		cur_page = 1;
+		writePageJson();
+	}
+	else
+	{
+		readPageJson();
+	}
 }
 
 void Controller::nextPage()
