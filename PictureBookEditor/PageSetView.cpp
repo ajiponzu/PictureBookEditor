@@ -4,7 +4,7 @@ constexpr auto EXPANSION = 1.5;
 
 void PageSetView::pollEvent()
 {
-	displayPage();
+	displayPageNum();
 	back_rect.draw(Palette::Lavenderblush).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	{
 		const auto page_view = ScopedViewport2D(back_rect);
@@ -49,7 +49,7 @@ void PageSetView::initFontRect()
 	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(layout.FONT_RECT2_POS, layout.FONT_RECT2_POS))));
 }
 
-void PageSetView::displayPage()
+void PageSetView::displayPageNum()
 {
 	page_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	if (auto sp = controller.lock())
