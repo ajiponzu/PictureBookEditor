@@ -20,10 +20,6 @@ private:
     ColorF palette2;
     bool input_flag1 = false;
     bool input_flag2 = false;
-    bool text_set_flag1 = false;
-    bool text_set_flag1d = false;
-    bool text_set_flag2 = false;
-    bool text_set_flag2d = false;
     double text_size1 = 1.0;
     double text_size2 = 1.0;
     double text_fade_in1 = 0.0;
