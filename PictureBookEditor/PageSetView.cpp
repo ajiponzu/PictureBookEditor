@@ -82,21 +82,12 @@ void PageSetView::pollGetImgInfEvent(const int& idx)
 		auto img_inf_ptr = sp->returnImgInf(idx);
 		if (img_inf_ptr != nullptr)
 		{
-			if (img_inf_ptr->flags.flag_s)
-			{
-				img_rect_list[idx]->changeSize(img_inf_ptr->size);
-				img_inf_ptr->flags.flag_s = false;
-			}
-			if (img_inf_ptr->flags.flag_a)
-			{
-				img_rect_list[idx]->changeAlpha(img_inf_ptr->alpha);
-				img_inf_ptr->flags.flag_a = false;
-			}
-			if (img_inf_ptr->flags.flag_p)
-			{
-				img_rect_list[idx]->changeImg(img_inf_ptr->path);
-				img_inf_ptr->flags.flag_p = false;
-			}
+			img_rect_list[idx]->changeSize(img_inf_ptr->size);
+			img_rect_list[idx]->changeAlpha(img_inf_ptr->alpha);
+			img_rect_list[idx]->changeImg(img_inf_ptr->path);
+			img_inf_ptr->flags.flag_s = false;
+			img_inf_ptr->flags.flag_a = false;
+			img_inf_ptr->flags.flag_p = false;
 		}
 	}
 }
@@ -114,16 +105,10 @@ void PageSetView::pollGetTxtInfEvent(const int& idx)
 		auto txt_inf_ptr = sp->returnTxtInf(idx);
 		if (txt_inf_ptr != nullptr)
 		{
-			if (txt_inf_ptr->flags.flag_s)
-			{
-				font_rect_list[idx]->changeSize(txt_inf_ptr->size);
-				txt_inf_ptr->flags.flag_s = false;
-			}
-			if (txt_inf_ptr->flags.flag_t)
-			{
-				font_rect_list[idx]->changeTxt(txt_inf_ptr->txt);
-				txt_inf_ptr->flags.flag_t = false;
-			}
+			font_rect_list[idx]->changeSize(txt_inf_ptr->size);
+			font_rect_list[idx]->changeTxt(txt_inf_ptr->txt);
+			txt_inf_ptr->flags.flag_s = false;
+			txt_inf_ptr->flags.flag_t = false;
 		}
 	}
 }
@@ -147,7 +132,7 @@ void PageSetView::pollButtonEvent()
 }
 
 void PageSetView::pollPageEvent()
-{	
+{
 	if (back_rect.contains(Cursor::Pos()))
 	{
 		pollZoomEvent();
@@ -170,7 +155,7 @@ void PageSetView::pollZoomEvent()
 	{
 		if (expansion >= 0.45)
 		{
-			expansion /= EXPANSION; 
+			expansion /= EXPANSION;
 		}
 		else
 		{
@@ -218,7 +203,7 @@ void PageSetView::pollChangeAbsPosEvent()
 
 void PageSetView::pollMoveRectEvent()
 {
-	for (auto &rect : img_rect_list)
+	for (auto& rect : img_rect_list)
 	{
 		rect->pollChangePlaceEvent(expansion, back_rect.w, back_rect.h);
 		rect->move(expansion);

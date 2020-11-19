@@ -51,7 +51,7 @@ void PictureSetView::pollGetImgInfEvent(const int& idx)
 	if (auto sp = controller.lock())
 	{
 		auto inf = sp->returnImgInf(idx);
-		if (inf->flags.eventFlag())
+		if (inf != nullptr)
 		{
 			img_size[idx] = inf->size;
 			img_alpha[idx] = inf->alpha;
