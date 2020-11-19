@@ -40,7 +40,6 @@ public:
 	int Y18;
 	int Y19;
 	int Y20;
-
 	//GUI pos
 	//common parameter
 	int BTN_F_SIZE;
@@ -54,19 +53,16 @@ public:
 	int MENU_BTN_HIGH;
 	int MENU_BAR_TH;
 	int CLBTN_X;
-
 	//picture_set_view
 	int BTN_WID;
 	int BTN_HIGH;
 	int BTN_GAP;
 	int PICTURE_BACK_RECT_HIGH;
-
 	//scenario_set_view
 	int SCENARIO_BACK_RECT_HIGH;
 	int INPUT_ARER_WID;
 	int INPUT_AREA_HIGH;
 	double TXT_MAX_SIZE;
-
 	//page_set_view
 	int PAGE_BACK_RECT_WID;
 	int PAGE_BACK_RECT_HIGH;
@@ -93,4 +89,3 @@ private:
 	void initPageSetViewMacro();
 	void initPos();
 };
-

@@ -141,10 +141,10 @@
     <ClCompile Include="ImageRect.cpp">
       <Filter>View\Source</Filter>
     </ClCompile>
-    <ClCompile Include="Layout.cpp">
+    <ClCompile Include="FontRect.cpp">
       <Filter>View\Source</Filter>
     </ClCompile>
-    <ClCompile Include="FontRect.cpp">
+    <ClCompile Include="Layout.cpp">
       <Filter>View\Source</Filter>
     </ClCompile>
   </ItemGroup>
@@ -454,14 +454,14 @@
     <ClInclude Include="ImageRect.h">
       <Filter>View\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Layout.h">
-      <Filter>View\Header</Filter>
-    </ClInclude>
     <ClInclude Include="FontRect.h">
       <Filter>View\Header</Filter>
     </ClInclude>
     <ClInclude Include="Inf.h">
       <Filter>InfObj</Filter>
+    </ClInclude>
+    <ClInclude Include="Layout.h">
+      <Filter>View\Header</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

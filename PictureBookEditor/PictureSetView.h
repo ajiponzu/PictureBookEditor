@@ -12,11 +12,9 @@ private:
     std::shared_ptr<MyButton> img_btn2d;
     std::shared_ptr<MyButton> img_btn3;
     std::shared_ptr<MyButton> img_btn3d;
-
     std::vector<double> img_size;
     std::vector<double> img_alpha;
     std::vector<double> img_fade_in;
-
     Rect back_rect;
 public:
     PictureSetView(std::weak_ptr<Controller> ctr) : ViewComponent(ctr)

@@ -251,8 +251,8 @@
     <ClInclude Include="Controller.h" />
     <ClInclude Include="FontRect.h" />
     <ClInclude Include="Inf.h" />
-    <ClInclude Include="Layout.h" />
     <ClInclude Include="ImageRect.h" />
+    <ClInclude Include="Layout.h" />
     <ClInclude Include="MenuView.h" />
     <ClInclude Include="MyButton.h" />
     <ClInclude Include="PageSetView.h" />
