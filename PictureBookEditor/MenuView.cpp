@@ -5,12 +5,15 @@ void MenuView::pollEvent()
 	menu_rect.draw(Arg::top = Palette::Aquamarine, Arg::bottom = Palette::Blue);
 	pollCloseEvent();
 	pollButtonEvent();
+	displayPageNum();
 }
 
 void MenuView::init()
 {
 	layout.init();
 	menu_rect = Rect(0, 0, Window::ClientWidth(), layout.MENU_BAR_TH);
+	page_rect = Rect(layout.X7, layout.Y17, layout.PAGE_RECT_WID, layout.BTN_HIGH);
+	font = Font(layout.BTN_F_SIZE);
 	initButton();
 }
 
@@ -87,6 +90,17 @@ void MenuView::pollCloseEvent()
 	if (close_btn->isClickedInvBtn())
 	{
 		System::Exit();
+	}
+}
+
+void MenuView::displayPageNum()
+{
+	page_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
+	if (auto sp = controller.lock())
+	{
+		auto p = sp->returnCurrentPage();
+		auto max_p = sp->returnMaxPage();
+		font(U"  Page: {}/{}"_fmt(p, max_p)).draw(page_rect.stretched(1), Palette::Black);
 	}
 }
 

@@ -17,6 +17,8 @@ private:
     std::shared_ptr<MyButton> close_btn;
     Texture close_btn_img;
     Rect menu_rect;
+    Rect page_rect;
+    Font font;
 public:
     MenuView(std::weak_ptr<Controller> ctr) : ViewComponent(ctr)
     {
@@ -30,5 +32,6 @@ private:
     void initButton();
     void pollButtonEvent();
     void pollCloseEvent();
+    void displayPageNum();
 };
 

@@ -10,15 +10,10 @@ class PageSetView : public ViewComponent
 private:
     Rect back_rect;
     Rect boundary_rect;
-    Rect page_rect;
-
     Vec2 abs_pos;
     Vec2 cur_pos;
     double expansion = 1.0;
     int wheel = 0;
-
-    Font font;
-
     std::vector<std::shared_ptr<ImageRect>> img_rect_list;
     std::vector<std::shared_ptr<FontRect>> font_rect_list;
 public: 
@@ -34,12 +29,11 @@ private:
     void initPageView();
     void initImgRect();
     void initFontRect();
-    void displayPageNum();
     void pollGetImgInfEvent();
     void pollGetImgInfEvent(const int&);
     void pollGetTxtInfEvent();
     void pollGetTxtInfEvent(const int&);
-    void pollPageEvent();
+    void pollPagePosEvent();
     void pollZoomEvent();
     void pollChangeAbsPosEvent();
     void pollMoveRectEvent();

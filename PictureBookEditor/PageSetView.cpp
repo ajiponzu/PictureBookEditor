@@ -4,14 +4,13 @@ constexpr auto EXPANSION = 1.5;
 
 void PageSetView::pollEvent()
 {
-	displayPageNum();
 	back_rect.draw(Palette::Lavenderblush).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	{
 		const auto page_view = ScopedViewport2D(back_rect);
 		const Transformer2D transform(Mat3x2::Identity(), Mat3x2::Translate(back_rect.pos));
 		pollGetImgInfEvent();
 		pollGetTxtInfEvent();
-		pollPageEvent();
+		pollPagePosEvent();
 	}
 }
 
@@ -19,8 +18,6 @@ void PageSetView::init()
 {
 	layout.init();
 	back_rect = Rect(layout.X1, layout.Y1, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
-	page_rect = Rect(layout.X7, layout.Y17, layout.PAGE_RECT_WID, layout.BTN_HIGH);
-	font = Font(layout.BTN_F_SIZE);
 	if (auto sp = controller.lock())
 	{
 		sp->readPageJson();
@@ -47,17 +44,6 @@ void PageSetView::initFontRect()
 {
 	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(layout.FONT_RECT1_POS, layout.FONT_RECT1_POS))));
 	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(layout.FONT_RECT2_POS, layout.FONT_RECT2_POS))));
-}
-
-void PageSetView::displayPageNum()
-{
-	page_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
-	if (auto sp = controller.lock())
-	{
-		auto p = sp->returnCurrentPage();
-		auto max_p = sp->returnMaxPage();
-		font(U"  Page: {}/{}"_fmt(p, max_p)).draw(page_rect.stretched(1), Palette::Black);
-	}
 }
 
 void PageSetView::pollGetImgInfEvent()
@@ -105,7 +91,7 @@ void PageSetView::pollGetTxtInfEvent(const int& idx)
 	}
 }
 
-void PageSetView::pollPageEvent()
+void PageSetView::pollPagePosEvent()
 {
 	if (back_rect.contains(Cursor::Pos()))
 	{
