@@ -31,6 +31,7 @@ void Controller::deletePage()
 	{
 		max_page = 1;
 	}
+	readPageJson();
 }
 
 void Controller::nextPage()
@@ -119,18 +120,17 @@ void Controller::writePageJson()
 
 void Controller::readPageJson()
 {
-	Print << U"{}"_fmt(cur_page);
 	String path = U"Page/page{}.json"_fmt(cur_page);
-    JSONReader json(path);
+	JSONReader json(path);
 	if (!json)
-    {
+	{
 		json = JSONReader(U"initialize.json");
 		if (!json)
 		{
 			throw Error(U"failed to open json file");
 		}
-    }
-	
+	}
+
 	for (const auto& inf : json.objectView())
 	{
 		if (inf.name == U"MaxPage")
@@ -143,31 +143,25 @@ void Controller::readPageJson()
 		}
 		else if (inf.name == U"Image")
 		{
-			for (const auto& sub_inf : inf.value[U"Image"].objectView())
+			auto idx = 0;
+			for (const auto& sub_inf : inf.value.objectView())
 			{
-				auto idx = 0;
-				for (const auto& sub_sub_inf : sub_inf.value.objectView())
-				{
-					img_inf[idx].size = sub_sub_inf.value[U"size"].get<double>();
-					img_inf[idx].alpha = sub_sub_inf.value[U"alpha"].get<double>();
-					img_inf[idx].fadein = sub_sub_inf.value[U"fadein"].get<double>();
-					img_inf[idx].path = sub_sub_inf.value[U"path"].getString();
-					idx++;
-				}
+				img_inf[idx].size = sub_inf.value[U"size"].get<double>();
+				img_inf[idx].alpha = sub_inf.value[U"alpha"].get<double>();
+				img_inf[idx].fadein = sub_inf.value[U"fadein"].get<double>();
+				img_inf[idx].path = sub_inf.value[U"path"].getString();
+				idx++;
 			}
-		} 
+		}
 		else if (inf.name == U"Scenario")
 		{
-			for (const auto& sub_inf : inf.value[U"Scenario"].objectView())
+			auto idx = 0;
+			for (const auto& sub_inf : inf.value.objectView())
 			{
-				auto idx = 0;
-				for (const auto& sub_sub_inf : sub_inf.value.objectView())
-				{
-					txt_inf[idx].size = sub_sub_inf.value[U"size"].get<double>();
-					txt_inf[idx].fadein = sub_sub_inf.value[U"fadein"].get<double>();
-					txt_inf[idx].txt = sub_sub_inf.value[U"txt"].getString();
-					idx++;
-				}
+				txt_inf[idx].size = sub_inf.value[U"size"].get<double>();
+				txt_inf[idx].fadein = sub_inf.value[U"fadein"].get<double>();
+				txt_inf[idx].txt = sub_inf.value[U"txt"].getString();
+				idx++;
 			}
 		}
 	}

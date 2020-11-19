@@ -1,0 +1,47 @@
+App
+{
+    Controller
+    {
+
+    }
+
+    View
+    {
+        MenuView
+        {
+            MyButton
+            {
+
+            }
+        }
+        PictureSetView
+        {
+            MyButton
+            {
+
+            }
+        }
+        ScenarioSetView
+        {
+            MyButton
+            {
+
+            }
+        }
+        PageSetView
+        {
+            MyButton
+            {
+
+            }
+            ImageRect
+            {
+
+            }
+            FontRect
+            {
+                
+            }
+        }
+    }
+}

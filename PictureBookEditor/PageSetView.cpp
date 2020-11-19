@@ -24,7 +24,6 @@ void PageSetView::init()
 	font = Font(layout.BTN_F_SIZE);
 	if (auto sp = controller.lock())
 	{
-		sp->createPage();
 		sp->readPageJson();
 	}
 	initButton();

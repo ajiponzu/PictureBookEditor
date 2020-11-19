@@ -6,8 +6,8 @@
 class Controller
 {
 private:
-	int cur_page = 0;
-	int max_page = 0;
+	int cur_page = 1;
+	int max_page = 1;
 	Array<ImgInf> img_inf;
 	Array<TxtInf> txt_inf;
 	bool is_boot = true;

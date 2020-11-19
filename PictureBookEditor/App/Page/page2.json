@@ -2,16 +2,16 @@
   "MaxPage": 2,
   "Image": {
     "img1": {
-      "size": 1.0,
-      "alpha": 1.0,
+      "size": 0.4322033898305085,
+      "alpha": 0.1271186440677966,
       "fadein": 0.0,
-      "path": ""
+      "path": "C:/Users/cpjvm/Pictures/nintendo switch/Seilane_lance.png"
     },
     "img2": {
       "size": 1.0,
       "alpha": 1.0,
       "fadein": 0.0,
-      "path": "C:/Users/cpjvm/Pictures/nintendo switch/Seilane.png"
+      "path": ""
     },
     "img3": {
       "size": 1.0,
