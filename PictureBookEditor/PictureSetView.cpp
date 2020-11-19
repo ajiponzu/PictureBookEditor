@@ -175,4 +175,3 @@ void PictureSetView::pollSliderEvent()
 		}
 	}
 }
-

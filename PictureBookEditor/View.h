@@ -26,4 +26,3 @@ private:
 	void init();
 	void initVcList();
 };
-

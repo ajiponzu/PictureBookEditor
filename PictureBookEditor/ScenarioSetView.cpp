@@ -64,7 +64,7 @@ void ScenarioSetView::pollGetTxtInfEvent(const int& idx)
 			text_size[idx] = inf->size;
 			text_fade_in[idx] = inf->fadein;
 		}
-	}	
+	}
 }
 
 void ScenarioSetView::pollButtonEvent()
@@ -134,39 +134,38 @@ void ScenarioSetView::pollSliderEvent()
 
 void ScenarioSetView::pollInputEvent()
 {
-		if (input_rect1.mouseOver() || input_rect2.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
-        input_rect1.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, palette1);
-		if (input_rect1.leftClicked())
-		{
-			input_flag[0] = !input_flag[0];
-		}
-		if (input_flag[0])
-		{
-			input_flag[1] = false;
-			palette1 = Palette::Aqua;
-			TextInput::UpdateText(input_text1);
-		}
-		else
-		{
-			palette1 = Palette::Lightsalmon;
-		}
-        input_font1(input_text1).draw(input_rect1.stretched(1), Palette::Black);
+	if (input_rect1.mouseOver() || input_rect2.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
+	input_rect1.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, palette1);
+	if (input_rect1.leftClicked())
+	{
+		input_flag[0] = !input_flag[0];
+	}
+	if (input_flag[0])
+	{
+		input_flag[1] = false;
+		palette1 = Palette::Aqua;
+		TextInput::UpdateText(input_text1);
+	}
+	else
+	{
+		palette1 = Palette::Lightsalmon;
+	}
+	input_font1(input_text1).draw(input_rect1.stretched(1), Palette::Black);
 
-		input_rect2.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, palette2);
-		if (input_rect2.leftClicked())
-		{
-			input_flag[1] = !input_flag[1];
-		}
-		if (input_flag[1])
-		{
-			input_flag[0] = false;
-			palette2 = Palette::Aqua;
-			TextInput::UpdateText(input_text2);
-		}
-		else
-		{
-			palette2 = Palette::Lightsalmon;
-		}
-        input_font2(input_text2).draw(input_rect2.stretched(1), Palette::Black);
+	input_rect2.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, palette2);
+	if (input_rect2.leftClicked())
+	{
+		input_flag[1] = !input_flag[1];
+	}
+	if (input_flag[1])
+	{
+		input_flag[0] = false;
+		palette2 = Palette::Aqua;
+		TextInput::UpdateText(input_text2);
+	}
+	else
+	{
+		palette2 = Palette::Lightsalmon;
+	}
+	input_font2(input_text2).draw(input_rect2.stretched(1), Palette::Black);
 }
-

@@ -7,7 +7,7 @@
 #include "Layout.h"
 
 class ViewComponent
-{	
+{
 protected:
 	std::weak_ptr<Controller> controller;
 	Layout layout;
@@ -18,7 +18,6 @@ public:
 	}
 
 	~ViewComponent() {}
-	
+
 	virtual void pollEvent() = 0;
 };
-

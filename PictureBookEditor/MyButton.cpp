@@ -14,4 +14,3 @@ bool MyButton::isClickedInvBtn()
 	if (button.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
 	return button.leftClicked();
 }
-

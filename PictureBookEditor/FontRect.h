@@ -36,4 +36,3 @@ public:
 	void move(const double&);
 	void draw();
 };
-

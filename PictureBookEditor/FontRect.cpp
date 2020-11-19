@@ -81,4 +81,3 @@ void FontRect::draw()
 		font(text).draw(place * expansion, Palette::Black);
 	}
 }
-

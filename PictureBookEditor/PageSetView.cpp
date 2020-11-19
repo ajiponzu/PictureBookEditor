@@ -180,4 +180,3 @@ void PageSetView::pollFontRectEvent()
 		rect->draw();
 	}
 }
-

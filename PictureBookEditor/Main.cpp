@@ -5,4 +5,3 @@ void Main()
 	auto app = App();
 	app.run();
 }
-

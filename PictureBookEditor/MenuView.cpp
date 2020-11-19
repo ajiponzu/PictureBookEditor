@@ -29,9 +29,9 @@ void MenuView::initButton()
 	next_btn = std::make_shared<MyButton>(MyButton(layout.X8, layout.Y17, layout.BTN_WID, layout.BTN_HIGH, String(U"éüçÄ"), layout.BTN_F_SIZE));
 	close_btn_img = Texture(U"close_btn.png");
 	if (!close_btn_img)
-    {
-        throw Error(U"Failed to create a texture");
-    }
+	{
+		throw Error(U"Failed to create a texture");
+	}
 }
 
 void MenuView::pollButtonEvent()
@@ -103,4 +103,3 @@ void MenuView::displayPageNum()
 		font(U"  Page: {}/{}"_fmt(p, max_p)).draw(page_rect.stretched(1), Palette::Black);
 	}
 }
-

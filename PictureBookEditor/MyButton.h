@@ -25,4 +25,3 @@ public:
 	bool isClicked();
 	bool isClickedInvBtn();
 };
-

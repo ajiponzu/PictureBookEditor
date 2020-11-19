@@ -281,4 +281,3 @@ void Controller::setInitFlag()
 		inf.flags.reInit();
 	}
 }
-

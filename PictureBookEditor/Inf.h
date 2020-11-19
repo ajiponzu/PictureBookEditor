@@ -3,7 +3,7 @@
 struct ImgInfFlag
 {
 	bool flag_s = false;
-	bool flag_a	 = false;
+	bool flag_a = false;
 	bool flag_p = false;
 
 	bool eventFlag()
@@ -52,4 +52,3 @@ struct TxtInf
 	TxtInfFlag flags;
 	String txt;
 };
-

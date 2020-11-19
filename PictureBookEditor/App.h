@@ -16,10 +16,9 @@ private:
 public:
 	App() { init(); }
 	~App() {}
-	
+
 	void run();
 private:
 	void init();
 	void setWindowInf();
 };
-

@@ -11,7 +11,7 @@ void Layout::init()
 	BTN_F_SIZE = 20 * dpi;
 	BACK_RECT_WID = 450 * dpi;
 	SLIDER_L_WID = 200 * dpi;
-	SLIDER_WID =  150 * dpi;
+	SLIDER_WID = 150 * dpi;
 	RECT_FRAME_THICK = 1.0 * dpi;
 	initPos();
 }
@@ -89,4 +89,3 @@ void Layout::initPos()
 	Y17 = 780 * dpi;
 	Y18 = Y16 + BTN_GAP;
 }
-

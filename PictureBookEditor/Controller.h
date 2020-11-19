@@ -12,7 +12,7 @@ private:
 	Array<TxtInf> txt_inf;
 	bool is_boot = true;
 public:
-	Controller() 
+	Controller()
 	{
 		init();
 	}
@@ -43,4 +43,3 @@ private:
 	void init();
 	void setInitFlag();
 };
-

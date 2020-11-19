@@ -6,7 +6,7 @@
 
 void View::pollEvent()
 {
-	for (auto &vc : vc_list)
+	for (auto& vc : vc_list)
 	{
 		vc->pollEvent();
 	}
@@ -24,4 +24,3 @@ void View::initVcList()
 	vc_list.push_back(std::make_shared<ScenarioSetView>(ScenarioSetView(controller)));
 	vc_list.push_back(std::make_shared<PageSetView>(PageSetView(controller)));
 }
-

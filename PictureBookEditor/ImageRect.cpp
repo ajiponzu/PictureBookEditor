@@ -15,10 +15,10 @@ void ImageRect::changeImg(const String& path)
 	this->path = path;
 	img = Texture(path);
 	if (!img)
-    {
+	{
 		this->path = U"";
 		img = Texture(this->path);
-    }
+	}
 }
 
 Vec2 ImageRect::getPlace()
@@ -81,4 +81,3 @@ void ImageRect::draw()
 		img.scaled(size * expansion).draw(rectf.x, rectf.y, AlphaF(alpha));
 	}
 }
-
