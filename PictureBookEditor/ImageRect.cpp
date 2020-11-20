@@ -21,12 +21,7 @@ void ImageRect::changeImg(const String& path)
 	}
 }
 
-Vec2 ImageRect::getPlace()
-{
-	return place;
-}
-
-void ImageRect::pollChangePlaceEvent(const double& expansion, const int& max_x, const int& max_y)
+void ImageRect::pollChangePosEvent(const double& expansion)
 {
 	if (rectf.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
 	if (rectf.leftClicked())
@@ -39,31 +34,14 @@ void ImageRect::pollChangePlaceEvent(const double& expansion, const int& max_x, 
 	}
 	if (is_pressed)
 	{
-		place += Cursor::Delta() / expansion;
+		relative += Cursor::Delta() / expansion;
 	}
-
-	if (place.x < 0)
-	{
-		place.x = 0;
-	}
-	//else if (place.x > max_x * expansion)
-	//{
-	//	place.x = max_x * expansion;
-	//}
-	if (place.y < 0)
-	{
-		place.y = 0;
-	}
-	//else if (place.y > max_y * expansion)
-	//{
-	//	place.y = max_y * expansion;
-	//}
 }
 
 void ImageRect::move(const double& expansion)
 {
 	this->expansion = expansion;
-	rectf = RectF(place * expansion, img.width() * size * expansion, img.height() * size * expansion);
+	rectf = RectF(relative * expansion, img.width() * size * expansion, img.height() * size * expansion);
 }
 
 void ImageRect::draw()

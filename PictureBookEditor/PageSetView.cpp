@@ -30,7 +30,7 @@ void PageSetView::init()
 void PageSetView::initPageView()
 {
 	boundary_rect = Rect(0, 0, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
-	abs_pos = Vec2(0, 0);
+	boundary_rect_pos = Vec2::Zero();
 }
 
 void PageSetView::initImgRect()
@@ -96,8 +96,8 @@ void PageSetView::pollPagePosEvent()
 	if (back_rect.contains(Cursor::Pos()))
 	{
 		pollZoomEvent();
-		pollChangeAbsPosEvent();
-		boundary_rect = Rect(abs_pos.x, abs_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
+		pollChangeBoundaryRectPosEvent();
+		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
 	}
 	boundary_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	pollMoveRectEvent();
@@ -117,6 +117,7 @@ void PageSetView::pollZoomEvent()
 		{
 			expansion = 0.30;
 		}
+		boundary_rect_pos = (boundary_rect_pos + Cursor::Pos()) / EXPANSION;
 	}
 	else if (wheel == -1)
 	{
@@ -128,32 +129,48 @@ void PageSetView::pollZoomEvent()
 		{
 			expansion = 3;
 		}
+		boundary_rect_pos = boundary_rect_pos * EXPANSION - Cursor::Pos();
 	}
 }
 
-void PageSetView::pollChangeAbsPosEvent()
+void PageSetView::pollChangeBoundaryRectPosEvent()
 {
+	Vec2 delta{};
 	if (MouseR.pressed())
 	{
-		abs_pos += Cursor::Delta();
+		delta = Cursor::Delta();
+		boundary_rect_pos += delta;
 	}
 
-	if (abs_pos.x + boundary_rect.w < 0)
+	if (boundary_rect_pos.x + boundary_rect.w < 0)
 	{
-		abs_pos.x = -boundary_rect.w;
+		boundary_rect_pos.x = -boundary_rect.w;
+		delta = Vec2::Zero();
 	}
-	else if (abs_pos.x > layout.PAGE_BACK_RECT_WID)
+	else if (boundary_rect_pos.x > layout.PAGE_BACK_RECT_WID)
 	{
-		abs_pos.x = layout.PAGE_BACK_RECT_WID;
+		boundary_rect_pos.x = layout.PAGE_BACK_RECT_WID;
+		delta = Vec2::Zero();
 	}
 
-	if (abs_pos.y + boundary_rect.h < 0)
+	if (boundary_rect_pos.y + boundary_rect.h < 0)
 	{
-		abs_pos.y = -boundary_rect.h;
+		boundary_rect_pos.y = -boundary_rect.h;
+		delta = Vec2::Zero();
 	}
-	else if (abs_pos.y > layout.PAGE_BACK_RECT_HIGH)
+	else if (boundary_rect_pos.y > layout.PAGE_BACK_RECT_HIGH)
 	{
-		abs_pos.y = layout.PAGE_BACK_RECT_HIGH;
+		boundary_rect_pos.y = layout.PAGE_BACK_RECT_HIGH;
+		delta = Vec2::Zero();
+	}
+	
+	for (auto& img : img_rect_list)
+	{
+		img->relative += delta / expansion;
+	}
+	for (auto& font : font_rect_list)
+	{
+		font->relative += delta / expansion;
 	}
 }
 
@@ -161,7 +178,7 @@ void PageSetView::pollMoveRectEvent()
 {
 	for (auto& rect : img_rect_list)
 	{
-		rect->pollChangePlaceEvent(expansion, back_rect.w, back_rect.h);
+		rect->pollChangePosEvent(expansion);
 		rect->move(expansion);
 		rect->draw();
 	}
@@ -171,7 +188,7 @@ void PageSetView::pollFontRectEvent()
 {
 	for (auto& rect : font_rect_list)
 	{
-		rect->pollChangePlaceEvent(expansion, back_rect.w, back_rect.h);
+		rect->pollChangePlaceEvent(expansion);
 		rect->move(expansion);
 		rect->draw();
 	}

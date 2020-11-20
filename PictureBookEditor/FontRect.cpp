@@ -12,12 +12,7 @@ void FontRect::changeTxt(const String& text)
 	is_size_changed = true;
 }
 
-Vec2 FontRect::getPlace()
-{
-	return place;
-}
-
-void FontRect::pollChangePlaceEvent(const double& expansion, const int& max_x, const int& max_y)
+void FontRect::pollChangePlaceEvent(const double& expansion)
 {
 	if (rectf.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
 	if (rectf.leftClicked())
@@ -30,25 +25,8 @@ void FontRect::pollChangePlaceEvent(const double& expansion, const int& max_x, c
 	}
 	if (is_pressed)
 	{
-		place += Cursor::Delta() / expansion;
+		relative += Cursor::Delta() / expansion;
 	}
-
-	if (place.x < 0)
-	{
-		place.x = 0;
-	}
-	//else if (place.x > max_x * expansion)
-	//{
-	//	place.x = max_x * expansion;
-	//}
-	if (place.y < 0)
-	{
-		place.y = 0;
-	}
-	//else if (place.y > max_y * expansion)
-	//{
-	//	place.y = max_y * expansion;
-	//}
 }
 
 void FontRect::move(const double& expansion)
@@ -63,7 +41,7 @@ void FontRect::move(const double& expansion)
 		font = Font(size * this->expansion);
 		is_size_changed = false;
 	}
-	rectf = RectF(place * expansion, layout.BTN_F_SIZE, layout.BTN_F_SIZE);
+	rectf = RectF(relative * expansion, layout.BTN_F_SIZE, layout.BTN_F_SIZE);
 }
 
 void FontRect::draw()
@@ -78,6 +56,6 @@ void FontRect::draw()
 		{
 			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Violet);
 		}
-		font(text).draw(place * expansion, Palette::Black);
+		font(text).draw(relative * expansion, Palette::Black);
 	}
 }
