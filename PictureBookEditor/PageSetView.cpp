@@ -117,7 +117,7 @@ void PageSetView::pollZoomEvent()
 		{
 			expansion = 0.30;
 		}
-		boundary_rect_pos = (boundary_rect_pos + Cursor::Pos()) / EXPANSION;
+		boundary_rect_pos /= EXPANSION;
 	}
 	else if (wheel == -1)
 	{
@@ -129,7 +129,7 @@ void PageSetView::pollZoomEvent()
 		{
 			expansion = 3;
 		}
-		boundary_rect_pos = boundary_rect_pos * EXPANSION - Cursor::Pos();
+		boundary_rect_pos *= EXPANSION;
 	}
 }
 
@@ -166,11 +166,11 @@ void PageSetView::pollChangeBoundaryRectPosEvent()
 	
 	for (auto& img : img_rect_list)
 	{
-		img->relative += delta / expansion;
+		img->pos = boundary_rect_pos;
 	}
 	for (auto& font : font_rect_list)
 	{
-		font->relative += delta / expansion;
+		font->pos = boundary_rect_pos;
 	}
 }
 

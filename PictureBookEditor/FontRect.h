@@ -5,24 +5,24 @@
 class FontRect
 {
 public:
-	Vec2 relative;
+	Vec2 pos;
 private:
-	RectF rectf;
-	String text;
+	Vec2 relative;
+	Layout layout{};
+	RectF rectf{};
+	String text{};
 	Font font;
 	bool is_pressed = false;
 	bool is_size_changed = false;
 	int size = 1;
 	double expansion = 0.0;
-	Layout layout;
 public:
-	FontRect(const String& text, const Vec2& place) : text(text), relative(place)
+	FontRect(const String& text, const Vec2& relative) : text(text), relative(relative)
 	{
-		layout = Layout();
 		layout.init();
 		font = Font(layout.FONT_SIZE);
-		rectf = RectF(place, layout.BTN_F_SIZE, layout.BTN_F_SIZE);
 		size = layout.FONT_SIZE;
+		this->pos = Vec2::Zero();
 	}
 	~FontRect() {}
 

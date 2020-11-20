@@ -41,7 +41,7 @@ void ImageRect::pollChangePosEvent(const double& expansion)
 void ImageRect::move(const double& expansion)
 {
 	this->expansion = expansion;
-	rectf = RectF(relative * expansion, img.width() * size * expansion, img.height() * size * expansion);
+	rectf = RectF(pos + relative * expansion, img.width() * size * expansion, img.height() * size * expansion);
 }
 
 void ImageRect::draw()

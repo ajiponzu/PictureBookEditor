@@ -41,7 +41,7 @@ void FontRect::move(const double& expansion)
 		font = Font(size * this->expansion);
 		is_size_changed = false;
 	}
-	rectf = RectF(relative * expansion, layout.BTN_F_SIZE, layout.BTN_F_SIZE);
+	rectf = RectF(pos + relative * expansion, layout.BTN_F_SIZE, layout.BTN_F_SIZE);
 }
 
 void FontRect::draw()
@@ -56,6 +56,6 @@ void FontRect::draw()
 		{
 			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Violet);
 		}
-		font(text).draw(relative * expansion, Palette::Black);
+		font(text).draw(pos + relative * expansion, Palette::Black);
 	}
 }
