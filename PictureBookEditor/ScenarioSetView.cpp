@@ -11,7 +11,6 @@ void ScenarioSetView::pollEvent()
 
 void ScenarioSetView::init()
 {
-	layout.init();
 	back_rect = Rect(layout.X9, layout.Y11, layout.BACK_RECT_WID, layout.SCENARIO_BACK_RECT_HIGH);
 	initParameter();
 	initButton();
@@ -60,7 +59,6 @@ void ScenarioSetView::pollGetTxtInfEvent(const int& idx)
 		auto inf = sp->returnTxtInf(idx);
 		if (inf != nullptr)
 		{
-			Print << idx;
 			text_size[idx] = inf->size;
 			text_fade_in[idx] = inf->fadein;
 		}

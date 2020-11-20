@@ -10,7 +10,6 @@ void PictureSetView::pollEvent()
 
 void PictureSetView::init()
 {
-	layout.init();
 	initParameter();
 	initButton();
 	back_rect = Rect(layout.X9, layout.Y1, layout.BACK_RECT_WID, layout.PICTURE_BACK_RECT_HIGH);
@@ -53,7 +52,6 @@ void PictureSetView::pollGetImgInfEvent(const int& idx)
 		auto inf = sp->returnImgInf(idx);
 		if (inf != nullptr)
 		{
-			Print << idx;
 			img_size[idx] = inf->size;
 			img_alpha[idx] = inf->alpha;
 			img_fade_in[idx] = inf->fadein;

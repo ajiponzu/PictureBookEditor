@@ -1,5 +1,10 @@
 #include "ImageRect.h"
 
+Vec2 ImageRect::returnRelativePos()
+{
+	return relative;
+}
+
 void ImageRect::changeSize(const double& size)
 {
 	this->size = size;

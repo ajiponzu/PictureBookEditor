@@ -10,7 +10,6 @@ class App
 private:
 	std::unique_ptr<View> view = nullptr;
 	std::shared_ptr<Controller> controller = nullptr;
-
 	Rect viewport_rect;
 	Array<Size> resolutions;
 public:

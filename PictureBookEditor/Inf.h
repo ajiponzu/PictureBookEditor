@@ -26,6 +26,7 @@ struct ImgInf
 	double fadein = 0.0;
 	ImgInfFlag flags;
 	String path;
+	Vec2 pos;
 };
 
 struct TxtInfFlag
@@ -51,4 +52,5 @@ struct TxtInf
 	double fadein = 0.0;
 	TxtInfFlag flags;
 	String txt;
+	Vec2 pos;
 };

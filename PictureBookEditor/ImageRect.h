@@ -20,11 +20,11 @@ public:
 	ImageRect(const String& path, const Vec2& relative) : relative(relative)
 	{
 		img = Texture(path);
-		layout.init();
 		this->pos = Vec2::Zero();
 	}
 	~ImageRect() {}
 
+	Vec2 returnRelativePos();
 	void changeSize(const double&);
 	void changeAlpha(const double&);
 	void changeImg(const String&);

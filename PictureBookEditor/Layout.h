@@ -78,11 +78,14 @@ private:
 	double dpi;
 
 public:
-	Layout() {}
+	Layout()
+	{
+		init();
+	}
 	~Layout() {}
 
-	void init();
 private:
+	void init();
 	void initMenuViewMacro();
 	void initPictureSetViewMacro();
 	void initScenarioSetViewMacro();

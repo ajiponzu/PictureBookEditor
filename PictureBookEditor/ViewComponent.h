@@ -10,13 +10,9 @@ class ViewComponent
 {
 protected:
 	std::weak_ptr<Controller> controller;
-	Layout layout;
+	Layout layout{};
 public:
-	ViewComponent(std::weak_ptr<Controller> ctr) : controller(ctr)
-	{
-		layout = Layout();
-	}
-
+	ViewComponent(std::weak_ptr<Controller> ctr) : controller(ctr) {}
 	~ViewComponent() {}
 
 	virtual void pollEvent() = 0;

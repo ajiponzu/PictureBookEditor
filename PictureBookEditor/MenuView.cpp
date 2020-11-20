@@ -10,7 +10,6 @@ void MenuView::pollEvent()
 
 void MenuView::init()
 {
-	layout.init();
 	menu_rect = Rect(0, 0, Window::ClientWidth(), layout.MENU_BAR_TH);
 	page_rect = Rect(layout.X7, layout.Y17, layout.PAGE_RECT_WID, layout.BTN_HIGH);
 	font = Font(layout.BTN_F_SIZE);

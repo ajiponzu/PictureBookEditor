@@ -19,13 +19,13 @@ private:
 public:
 	FontRect(const String& text, const Vec2& relative) : text(text), relative(relative)
 	{
-		layout.init();
 		font = Font(layout.FONT_SIZE);
 		size = layout.FONT_SIZE;
 		this->pos = Vec2::Zero();
 	}
 	~FontRect() {}
 
+	Vec2 returnRelativePos();
 	void changeSize(const double&);
 	void changeTxt(const String&);
 	void pollChangePlaceEvent(const double&);

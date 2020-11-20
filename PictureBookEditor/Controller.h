@@ -8,6 +8,7 @@ class Controller
 private:
 	int cur_page = 1;
 	int max_page = 1;
+	Vec2 base_pos;
 	Array<ImgInf> img_inf;
 	Array<TxtInf> txt_inf;
 	bool is_boot = true;
@@ -39,6 +40,9 @@ public:
 	void changeTxtSize(const int&, const double&);
 	void changeTxtFadein(const int&, const double&);
 	TxtInf* returnTxtInf(const int&);
+
+	void changePos(Vec2&);
+	void changePos(const int&, Vec2&);
 private:
 	void init();
 	void setInitFlag();

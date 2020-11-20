@@ -16,7 +16,6 @@ void PageSetView::pollEvent()
 
 void PageSetView::init()
 {
-	layout.init();
 	back_rect = Rect(layout.X1, layout.Y1, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
 	if (auto sp = controller.lock())
 	{
@@ -163,7 +162,7 @@ void PageSetView::pollChangeBoundaryRectPosEvent()
 		boundary_rect_pos.y = layout.PAGE_BACK_RECT_HIGH;
 		delta = Vec2::Zero();
 	}
-	
+
 	for (auto& img : img_rect_list)
 	{
 		img->pos = boundary_rect_pos;

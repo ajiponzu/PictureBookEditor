@@ -1,5 +1,10 @@
 #include "FontRect.h"
 
+Vec2 FontRect::returnRelativePos()
+{
+	return relative;
+}
+
 void FontRect::changeSize(const double& size)
 {
 	this->size = size;

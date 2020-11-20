@@ -85,6 +85,7 @@ void Controller::writePageJson()
 	writer.startObject();
 	{
 		writer.key(U"MaxPage").write(max_page);
+		writer.key(U"PageBasePos").write(base_pos);
 		writer.key(U"Image").startObject();
 		{
 			writer.key(U"img1").startObject();
@@ -93,6 +94,7 @@ void Controller::writePageJson()
 				writer.key(U"alpha").write(img_inf[0].alpha);
 				writer.key(U"fadein").write(img_inf[0].fadein);
 				writer.key(U"path").write(img_inf[0].path);
+				writer.key(U"pos").write(img_inf[0].pos);
 			}
 			writer.endObject();
 			writer.key(U"img2").startObject();
@@ -101,6 +103,7 @@ void Controller::writePageJson()
 				writer.key(U"alpha").write(img_inf[1].alpha);
 				writer.key(U"fadein").write(img_inf[1].fadein);
 				writer.key(U"path").write(img_inf[1].path);
+				writer.key(U"pos").write(img_inf[1].pos);
 			}
 			writer.endObject();
 			writer.key(U"img3").startObject();
@@ -109,6 +112,7 @@ void Controller::writePageJson()
 				writer.key(U"alpha").write(img_inf[2].alpha);
 				writer.key(U"fadein").write(img_inf[2].fadein);
 				writer.key(U"path").write(img_inf[2].path);
+				writer.key(U"pos").write(img_inf[2].pos);
 			}
 			writer.endObject();
 		}
@@ -120,6 +124,7 @@ void Controller::writePageJson()
 				writer.key(U"size").write(txt_inf[0].size);
 				writer.key(U"fadein").write(txt_inf[0].fadein);
 				writer.key(U"txt").write(txt_inf[0].txt);
+				writer.key(U"pos").write(txt_inf[0].pos);
 			}
 			writer.endObject();
 			writer.key(U"txt2").startObject();
@@ -127,6 +132,7 @@ void Controller::writePageJson()
 				writer.key(U"size").write(txt_inf[1].size);
 				writer.key(U"fadein").write(txt_inf[1].fadein);
 				writer.key(U"txt").write(txt_inf[1].txt);
+				writer.key(U"pos").write(txt_inf[1].pos);
 			}
 			writer.endObject();
 		}
@@ -159,6 +165,10 @@ void Controller::readPageJson()
 				is_boot = false;
 			}
 		}
+		else if (inf.name == U"PageBasePos")
+		{
+			base_pos = inf.value.get<Vec2>();
+		}
 		else if (inf.name == U"Image")
 		{
 			auto idx = 0;
@@ -168,6 +178,7 @@ void Controller::readPageJson()
 				img_inf[idx].alpha = sub_inf.value[U"alpha"].get<double>();
 				img_inf[idx].fadein = sub_inf.value[U"fadein"].get<double>();
 				img_inf[idx].path = sub_inf.value[U"path"].getString();
+				img_inf[idx].pos = sub_inf.value[U"pos"].get<Vec2>();
 				idx++;
 			}
 		}
@@ -179,6 +190,7 @@ void Controller::readPageJson()
 				txt_inf[idx].size = sub_inf.value[U"size"].get<double>();
 				txt_inf[idx].fadein = sub_inf.value[U"fadein"].get<double>();
 				txt_inf[idx].txt = sub_inf.value[U"txt"].getString();
+				txt_inf[idx].pos = sub_inf.value[U"pos"].get<Vec2>();
 				idx++;
 			}
 		}
@@ -260,6 +272,15 @@ TxtInf* Controller::returnTxtInf(const int& idx)
 
 	return nullptr;
 }
+
+void Controller::changePos(Vec2&)
+{
+}
+
+void Controller::changePos(const int&, Vec2&)
+{
+}
+
 
 void Controller::init()
 {
