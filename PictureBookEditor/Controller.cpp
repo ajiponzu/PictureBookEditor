@@ -10,8 +10,15 @@ int Controller::returnMaxPage()
 	return max_page;
 }
 
+void Controller::initReadPage()
+{
+	makeReadFilePath(1);
+	readPageJson();
+}
+
 void Controller::createPage()
 {
+	makeFilePath();
 	writePageJson();
 	cur_page++;
 	max_page++;
@@ -20,36 +27,54 @@ void Controller::createPage()
 
 void Controller::deletePage()
 {
-	String path = U"Page/page{}.json"_fmt(cur_page);
 	max_page--;
 	if (max_page <= 0)
 	{
 		max_page = 1;
 	}
+	makeFilePath();
+	FileSystem::Remove(path, true);
+	makeTempPath();
 	FileSystem::Remove(path, true);
 
 	cur_page--;
 	if (cur_page <= 0)
 	{
-		cur_page = 2;
+		makeReadFilePath(2);
 		readPageJson();
-		path = U"Page/page{}.json"_fmt(cur_page);
+		makeFilePath();
 		FileSystem::Remove(path, true);
-		cur_page = 1;
+		makeTempPath();
+		FileSystem::Remove(path, true);
+		makeFilePath(cur_page = 1);
 		writePageJson();
 	}
 	else
 	{
+		makeReadFilePath();
 		readPageJson();
 	}
 }
 
+void Controller::savePage()
+{
+	makeFilePath();
+	writePageJson();
+	makeTempPath();
+	if (FileSystem::Exists(path))
+	{
+		FileSystem::Remove(path, true);
+	}
+}
+
+void Controller::resetPage()
+{
+	makeReadFilePath();
+	readPageJson();
+}
+
 void Controller::nextPage()
 {
-	if (cur_page != max_page)
-	{
-		writePageJson();
-	}
 	cur_page++;
 	if (cur_page > max_page)
 	{
@@ -57,16 +82,15 @@ void Controller::nextPage()
 	}
 	else
 	{
+		makeTempPath(cur_page-1);
+		writePageJson();
+		makeReadFilePath();
 		readPageJson();
 	}
 }
 
 void Controller::prevPage()
 {
-	if (cur_page != 1)
-	{
-		writePageJson();
-	}
 	cur_page--;
 	if (cur_page <= 0)
 	{
@@ -74,128 +98,11 @@ void Controller::prevPage()
 	}
 	else
 	{
+		makeTempPath(cur_page + 1);
+		writePageJson();
+		makeReadFilePath();
 		readPageJson();
 	}
-}
-
-void Controller::writePageJson()
-{
-	String path = U"Page/page{}.json"_fmt(cur_page);
-	JSONWriter writer;
-	writer.startObject();
-	{
-		writer.key(U"MaxPage").write(max_page);
-		writer.key(U"PageBasePos").write(base_pos);
-		writer.key(U"Image").startObject();
-		{
-			writer.key(U"img1").startObject();
-			{
-				writer.key(U"size").write(img_inf[0].size);
-				writer.key(U"alpha").write(img_inf[0].alpha);
-				writer.key(U"fadein").write(img_inf[0].fadein);
-				writer.key(U"path").write(img_inf[0].path);
-				writer.key(U"pos").write(img_inf[0].pos);
-			}
-			writer.endObject();
-			writer.key(U"img2").startObject();
-			{
-				writer.key(U"size").write(img_inf[1].size);
-				writer.key(U"alpha").write(img_inf[1].alpha);
-				writer.key(U"fadein").write(img_inf[1].fadein);
-				writer.key(U"path").write(img_inf[1].path);
-				writer.key(U"pos").write(img_inf[1].pos);
-			}
-			writer.endObject();
-			writer.key(U"img3").startObject();
-			{
-				writer.key(U"size").write(img_inf[2].size);
-				writer.key(U"alpha").write(img_inf[2].alpha);
-				writer.key(U"fadein").write(img_inf[2].fadein);
-				writer.key(U"path").write(img_inf[2].path);
-				writer.key(U"pos").write(img_inf[2].pos);
-			}
-			writer.endObject();
-		}
-		writer.endObject();
-		writer.key(U"Scenario").startObject();
-		{
-			writer.key(U"txt1").startObject();
-			{
-				writer.key(U"size").write(txt_inf[0].size);
-				writer.key(U"fadein").write(txt_inf[0].fadein);
-				writer.key(U"txt").write(txt_inf[0].txt);
-				writer.key(U"pos").write(txt_inf[0].pos);
-			}
-			writer.endObject();
-			writer.key(U"txt2").startObject();
-			{
-				writer.key(U"size").write(txt_inf[1].size);
-				writer.key(U"fadein").write(txt_inf[1].fadein);
-				writer.key(U"txt").write(txt_inf[1].txt);
-				writer.key(U"pos").write(txt_inf[1].pos);
-			}
-			writer.endObject();
-		}
-		writer.endObject();
-	}
-	writer.endObject();
-	writer.save(path);
-}
-
-void Controller::readPageJson()
-{
-	String path = U"Page/page{}.json"_fmt(cur_page);
-	JSONReader json(path);
-	if (!json)
-	{
-		json = JSONReader(U"initialize.json");
-		if (!json)
-		{
-			throw Error(U"failed to open json file");
-		}
-	}
-
-	for (const auto& inf : json.objectView())
-	{
-		if (inf.name == U"MaxPage")
-		{
-			if (is_boot)
-			{
-				max_page = inf.value.get<int>();
-				is_boot = false;
-			}
-		}
-		else if (inf.name == U"PageBasePos")
-		{
-			base_pos = inf.value.get<Vec2>();
-		}
-		else if (inf.name == U"Image")
-		{
-			auto idx = 0;
-			for (const auto& sub_inf : inf.value.objectView())
-			{
-				img_inf[idx].size = sub_inf.value[U"size"].get<double>();
-				img_inf[idx].alpha = sub_inf.value[U"alpha"].get<double>();
-				img_inf[idx].fadein = sub_inf.value[U"fadein"].get<double>();
-				img_inf[idx].path = sub_inf.value[U"path"].getString();
-				img_inf[idx].pos = sub_inf.value[U"pos"].get<Vec2>();
-				idx++;
-			}
-		}
-		else if (inf.name == U"Scenario")
-		{
-			auto idx = 0;
-			for (const auto& sub_inf : inf.value.objectView())
-			{
-				txt_inf[idx].size = sub_inf.value[U"size"].get<double>();
-				txt_inf[idx].fadein = sub_inf.value[U"fadein"].get<double>();
-				txt_inf[idx].txt = sub_inf.value[U"txt"].getString();
-				txt_inf[idx].pos = sub_inf.value[U"pos"].get<Vec2>();
-				idx++;
-			}
-		}
-	}
-	setInitFlag();
 }
 
 void Controller::selectImg(const int& idx)
@@ -315,5 +222,173 @@ void Controller::setInitFlag()
 	for (auto& inf : txt_inf)
 	{
 		inf.flags.reInit();
+	}
+}
+
+void Controller::makeReadFilePath()
+{
+	makeTempPath();
+	if (!FileSystem::Exists(path))
+	{
+		makeFilePath();
+	}
+}
+
+void Controller::makeReadFilePath(const int& page)
+{
+	makeTempPath(page);
+	if (!FileSystem::Exists(path))
+	{
+		makeFilePath(page);
+	}
+}
+
+void Controller::makeFilePath()
+{
+	path = U"Page/page{}.json"_fmt(cur_page);
+}
+
+void Controller::makeFilePath(const int& page)
+{
+	path = U"Page/page{}.json"_fmt(page);
+}
+
+void Controller::makeTempPath()
+{
+	path = U"Page/temp{}.json"_fmt(cur_page);
+}
+
+void Controller::makeTempPath(const int& page)
+{
+	path = U"Page/temp{}.json"_fmt(page);
+}
+
+void Controller::writePageJson()
+{
+	JSONWriter writer;
+	writer.startObject();
+	{
+		writer.key(U"MaxPage").write(max_page);
+		writer.key(U"PageBasePos").write(base_pos);
+		writer.key(U"Image").startObject();
+		{
+			writer.key(U"img1").startObject();
+			{
+				writer.key(U"size").write(img_inf[0].size);
+				writer.key(U"alpha").write(img_inf[0].alpha);
+				writer.key(U"fadein").write(img_inf[0].fadein);
+				writer.key(U"path").write(img_inf[0].path);
+				writer.key(U"pos").write(img_inf[0].pos);
+			}
+			writer.endObject();
+			writer.key(U"img2").startObject();
+			{
+				writer.key(U"size").write(img_inf[1].size);
+				writer.key(U"alpha").write(img_inf[1].alpha);
+				writer.key(U"fadein").write(img_inf[1].fadein);
+				writer.key(U"path").write(img_inf[1].path);
+				writer.key(U"pos").write(img_inf[1].pos);
+			}
+			writer.endObject();
+			writer.key(U"img3").startObject();
+			{
+				writer.key(U"size").write(img_inf[2].size);
+				writer.key(U"alpha").write(img_inf[2].alpha);
+				writer.key(U"fadein").write(img_inf[2].fadein);
+				writer.key(U"path").write(img_inf[2].path);
+				writer.key(U"pos").write(img_inf[2].pos);
+			}
+			writer.endObject();
+		}
+		writer.endObject();
+		writer.key(U"Scenario").startObject();
+		{
+			writer.key(U"txt1").startObject();
+			{
+				writer.key(U"size").write(txt_inf[0].size);
+				writer.key(U"fadein").write(txt_inf[0].fadein);
+				writer.key(U"txt").write(txt_inf[0].txt);
+				writer.key(U"pos").write(txt_inf[0].pos);
+			}
+			writer.endObject();
+			writer.key(U"txt2").startObject();
+			{
+				writer.key(U"size").write(txt_inf[1].size);
+				writer.key(U"fadein").write(txt_inf[1].fadein);
+				writer.key(U"txt").write(txt_inf[1].txt);
+				writer.key(U"pos").write(txt_inf[1].pos);
+			}
+			writer.endObject();
+		}
+		writer.endObject();
+	}
+	writer.endObject();
+	writer.save(path);
+}
+
+void Controller::readPageJson()
+{
+	JSONReader json(path);
+	if (!json)
+	{
+		json = JSONReader(U"initialize.json");
+		if (!json)
+		{
+			throw Error(U"failed to open json file");
+		}
+	}
+
+	for (const auto& inf : json.objectView())
+	{
+		if (inf.name == U"MaxPage")
+		{
+			if (is_boot)
+			{
+				max_page = inf.value.get<int>();
+				is_boot = false;
+			}
+		}
+		else if (inf.name == U"PageBasePos")
+		{
+			base_pos = inf.value.get<Vec2>();
+		}
+		else if (inf.name == U"Image")
+		{
+			auto idx = 0;
+			for (const auto& sub_inf : inf.value.objectView())
+			{
+				img_inf[idx].size = sub_inf.value[U"size"].get<double>();
+				img_inf[idx].alpha = sub_inf.value[U"alpha"].get<double>();
+				img_inf[idx].fadein = sub_inf.value[U"fadein"].get<double>();
+				img_inf[idx].path = sub_inf.value[U"path"].getString();
+				img_inf[idx].pos = sub_inf.value[U"pos"].get<Vec2>();
+				idx++;
+			}
+		}
+		else if (inf.name == U"Scenario")
+		{
+			auto idx = 0;
+			for (const auto& sub_inf : inf.value.objectView())
+			{
+				txt_inf[idx].size = sub_inf.value[U"size"].get<double>();
+				txt_inf[idx].fadein = sub_inf.value[U"fadein"].get<double>();
+				txt_inf[idx].txt = sub_inf.value[U"txt"].getString();
+				txt_inf[idx].pos = sub_inf.value[U"pos"].get<Vec2>();
+				idx++;
+			}
+		}
+	}
+	setInitFlag();
+}
+
+void Controller::deleteTempJson()
+{
+	for (auto page = 1; page <= max_page; page++)
+	{
+		makeTempPath(page);
+		if (FileSystem::Exists(path))
+		{
+			FileSystem::Remove(path, true);
+		}
 	}
 }

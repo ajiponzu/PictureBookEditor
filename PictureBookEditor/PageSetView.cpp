@@ -20,7 +20,7 @@ void PageSetView::init()
 	back_rect = Rect(layout.X1, layout.Y1, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
 	if (auto sp = controller.lock())
 	{
-		sp->readPageJson();
+		sp->initReadPage();
 	}
 	initPageView();
 	initImgRect();

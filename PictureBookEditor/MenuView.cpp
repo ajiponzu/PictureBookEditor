@@ -53,14 +53,14 @@ void MenuView::pollButtonEvent()
 	{
 		if (auto sp = controller.lock())
 		{
-			sp->readPageJson();
+			sp->resetPage();
 		}
 	}
 	if (save_btn->isClicked())
 	{
 		if (auto sp = controller.lock())
 		{
-			sp->writePageJson();
+			sp->savePage();
 		}
 	}
 	if (run_btn->isClicked())

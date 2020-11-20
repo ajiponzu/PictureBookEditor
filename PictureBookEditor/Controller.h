@@ -6,27 +6,32 @@
 class Controller
 {
 private:
+	bool is_boot = true;
 	int cur_page = 1;
 	int max_page = 1;
 	Vec2 base_pos;
+	String path;
 	Array<ImgInf> img_inf;
 	Array<TxtInf> txt_inf;
-	bool is_boot = true;
 public:
 	Controller()
 	{
 		init();
 	}
-	~Controller() {}
+	~Controller()
+	{
+		deleteTempJson();
+	}
 
 	int returnCurrentPage();
-	int returnMaxPage();
+	int returnMaxPage();;
+	void initReadPage();
 	void createPage();
 	void deletePage();
+	void savePage();
+	void resetPage();
 	void nextPage();
 	void prevPage();
-	void writePageJson();
-	void readPageJson();
 
 	void selectImg(const int&);
 	void deleteImg(const int&);
@@ -47,4 +52,13 @@ public:
 private:
 	void init();
 	void setInitFlag();
+	void makeReadFilePath();
+	void makeReadFilePath(const int&);
+	void makeFilePath();
+	void makeFilePath(const int&);
+	void makeTempPath();
+	void makeTempPath(const int&);
+	void writePageJson();
+	void readPageJson();
+	void deleteTempJson();
 };
