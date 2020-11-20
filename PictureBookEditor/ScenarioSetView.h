@@ -10,22 +10,14 @@ private:
 	std::shared_ptr<MyButton> text_btn1d;
 	std::shared_ptr<MyButton> text_btn2;
 	std::shared_ptr<MyButton> text_btn2d;
-
-	Font input_font1;
-	Font input_font2;
-	String input_text1;
-	String input_text2;
-	Rect input_rect1;
-	Rect input_rect2;
-	ColorF palette1;
-	ColorF palette2;
-
-	std::vector<double> input_flag;
 	std::vector<double> text_size;
 	std::vector<double> text_fade_in;
-
+	std::vector<double> input_flag;
+	Array<Font> input_font;
+	Array<String> input_text;
+	Array<Rect> input_rect;
+	Array<ColorF> palette;
 	Rect back_rect;
-
 public:
 	ScenarioSetView(std::weak_ptr<Controller> ctr) : ViewComponent(ctr)
 	{

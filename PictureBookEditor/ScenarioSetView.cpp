@@ -36,14 +36,13 @@ void ScenarioSetView::initButton()
 
 void ScenarioSetView::initInput()
 {
-	input_font1 = Font(layout.BTN_F_SIZE);
-	input_font2 = Font(layout.BTN_F_SIZE);
-	input_text1 = String(U"");
-	input_text2 = String(U"");
-	input_rect1 = Rect(layout.X10, layout.Y14, layout.INPUT_ARER_WID, layout.INPUT_AREA_HIGH);
-	input_rect2 = Rect(layout.X10, layout.Y18, layout.INPUT_ARER_WID, layout.INPUT_AREA_HIGH);
-	palette1 = Palette::Lightsalmon;
-	palette2 = Palette::Lightsalmon;
+	input_text.resize(2);
+	input_font.push_back(Font(layout.BTN_F_SIZE));
+	input_font.push_back(Font(layout.BTN_F_SIZE));
+	input_rect.push_back(Rect(layout.X10, layout.Y14, layout.INPUT_ARER_WID, layout.INPUT_AREA_HIGH));
+	input_rect.push_back(Rect(layout.X10, layout.Y18, layout.INPUT_ARER_WID, layout.INPUT_AREA_HIGH));
+	palette.push_back(Palette::Lightsalmon);
+	palette.push_back(Palette::Lightsalmon);
 }
 
 void ScenarioSetView::pollGetTxtInfEvent()
@@ -61,6 +60,7 @@ void ScenarioSetView::pollGetTxtInfEvent(const int& idx)
 		{
 			text_size[idx] = inf->size;
 			text_fade_in[idx] = inf->fadein;
+			input_text[idx] = inf->txt;
 		}
 	}
 }
@@ -71,7 +71,7 @@ void ScenarioSetView::pollButtonEvent()
 	{
 		if (auto sp = controller.lock())
 		{
-			sp->changeTxt(0, input_text1);
+			sp->changeTxt(0, input_text[0]);
 		}
 	}
 	if (text_btn1d->isClicked())
@@ -85,7 +85,7 @@ void ScenarioSetView::pollButtonEvent()
 	{
 		if (auto sp = controller.lock())
 		{
-			sp->changeTxt(1, input_text2);
+			sp->changeTxt(1, input_text[1]);
 		}
 	}
 	if (text_btn2d->isClicked())
@@ -132,38 +132,38 @@ void ScenarioSetView::pollSliderEvent()
 
 void ScenarioSetView::pollInputEvent()
 {
-	if (input_rect1.mouseOver() || input_rect2.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
-	input_rect1.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, palette1);
-	if (input_rect1.leftClicked())
+	if (input_rect[0].mouseOver() || input_rect[1].mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
+	input_rect[0].draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, palette[0]);
+	if (input_rect[0].leftClicked())
 	{
 		input_flag[0] = !input_flag[0];
 	}
 	if (input_flag[0])
 	{
 		input_flag[1] = false;
-		palette1 = Palette::Aqua;
-		TextInput::UpdateText(input_text1);
+		palette[0] = Palette::Aqua;
+		TextInput::UpdateText(input_text[0]);
 	}
 	else
 	{
-		palette1 = Palette::Lightsalmon;
+		palette[0] = Palette::Lightsalmon;
 	}
-	input_font1(input_text1).draw(input_rect1.stretched(1), Palette::Black);
+	input_font[0](input_text[0]).draw(input_rect[0].stretched(1), Palette::Black);
 
-	input_rect2.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, palette2);
-	if (input_rect2.leftClicked())
+	input_rect[1].draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, palette[1]);
+	if (input_rect[1].leftClicked())
 	{
 		input_flag[1] = !input_flag[1];
 	}
 	if (input_flag[1])
 	{
 		input_flag[0] = false;
-		palette2 = Palette::Aqua;
-		TextInput::UpdateText(input_text2);
+		palette[1] = Palette::Aqua;
+		TextInput::UpdateText(input_text[1]);
 	}
 	else
 	{
-		palette2 = Palette::Lightsalmon;
+		palette[1] = Palette::Lightsalmon;
 	}
-	input_font2(input_text2).draw(input_rect2.stretched(1), Palette::Black);
+	input_font[1](input_text[1]).draw(input_rect[1].stretched(1), Palette::Black);
 }

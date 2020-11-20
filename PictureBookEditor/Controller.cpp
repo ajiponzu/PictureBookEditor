@@ -273,14 +273,28 @@ TxtInf* Controller::returnTxtInf(const int& idx)
 	return nullptr;
 }
 
-void Controller::changePos(Vec2&)
+Vec2 Controller::returnBasePos()
 {
+	return base_pos;
 }
 
-void Controller::changePos(const int&, Vec2&)
+void Controller::changePos(Vec2& base)
 {
+	base_pos = base;
 }
 
+void Controller::changePos(const int& idx, Vec2& pos)
+{
+	if (idx < 3)
+	{
+		img_inf[idx].pos = pos;
+	}
+	else
+	{
+		auto txt_idx = idx % 3;
+		txt_inf[idx].pos = pos;
+	}
+}
 
 void Controller::init()
 {

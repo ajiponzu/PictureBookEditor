@@ -37,4 +37,5 @@ private:
 	void pollChangeBoundaryRectPosEvent();
 	void pollMoveRectEvent();
 	void pollFontRectEvent();
+	void pollSendPosInfEvent();
 };

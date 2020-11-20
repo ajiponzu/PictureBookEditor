@@ -1,35 +1,41 @@
 ﻿{
-  "MaxPage": 2,
+  "MaxPage": 1,
+  "PageBasePos": "(0, 0)",
   "Image": {
     "img1": {
-      "size": 1.0,
+      "size": 0.4576271186440678,
       "alpha": 1.0,
       "fadein": 0.0,
-      "path": ""
+      "path": "C:/Users/cpjvm/Pictures/nintendo switch/Seilane_lance.png",
+      "pos": "(535.66667, 321.75)"
     },
     "img2": {
-      "size": 1.0,
+      "size": 0.2288135593220339,
       "alpha": 1.0,
       "fadein": 0.0,
-      "path": ""
+      "path": "C:/Users/cpjvm/Pictures/nintendo switch/Seilane2.png",
+      "pos": "(47, 265)"
     },
     "img3": {
       "size": 1.0,
       "alpha": 1.0,
       "fadein": 0.0,
-      "path": ""
+      "path": "",
+      "pos": "(0, 0)"
     }
   },
   "Scenario": {
     "txt1": {
-      "size": 60.0,
-      "fadein": 0.0,
-      "txt": ""
+      "size": 96.61016949152543,
+      "fadein": 27.45762711864407,
+      "txt": "abcd",
+      "pos": "(0, 0)"
     },
     "txt2": {
-      "size": 60.0,
-      "fadein": 0.0,
-      "txt": ""
+      "size": 40.67796610169492,
+      "fadein": 20.338983050847458,
+      "txt": "cccc",
+      "pos": "(0, 0)"
     }
   }
 }

@@ -11,6 +11,7 @@ void PageSetView::pollEvent()
 		pollGetImgInfEvent();
 		pollGetTxtInfEvent();
 		pollPagePosEvent();
+		pollSendPosInfEvent();
 	}
 }
 
@@ -34,15 +35,15 @@ void PageSetView::initPageView()
 
 void PageSetView::initImgRect()
 {
-	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(layout.MOVE_RECT1_POS, layout.MOVE_RECT1_POS))));
-	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(layout.MOVE_RECT2_POS, layout.MOVE_RECT2_POS))));
-	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(layout.MOVE_RECT3_POS, layout.MOVE_RECT3_POS))));
+	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(0, 0))));
+	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(0, 0))));
+	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(0, 0))));
 }
 
 void PageSetView::initFontRect()
 {
-	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(layout.FONT_RECT1_POS, layout.FONT_RECT1_POS))));
-	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(layout.FONT_RECT2_POS, layout.FONT_RECT2_POS))));
+	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(0, 0))));
+	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(0, 0))));
 }
 
 void PageSetView::pollGetImgInfEvent()
@@ -62,6 +63,7 @@ void PageSetView::pollGetImgInfEvent(const int& idx)
 			img_rect_list[idx]->changeSize(img_inf_ptr->size);
 			img_rect_list[idx]->changeAlpha(img_inf_ptr->alpha);
 			img_rect_list[idx]->changeImg(img_inf_ptr->path);
+			img_rect_list[idx]->setRelativePos(sp->returnBasePos(), img_inf_ptr->pos);
 			img_inf_ptr->flags.flag_s = false;
 			img_inf_ptr->flags.flag_a = false;
 			img_inf_ptr->flags.flag_p = false;
@@ -84,6 +86,7 @@ void PageSetView::pollGetTxtInfEvent(const int& idx)
 		{
 			font_rect_list[idx]->changeSize(txt_inf_ptr->size);
 			font_rect_list[idx]->changeTxt(txt_inf_ptr->txt);
+			font_rect_list[idx]->setRelativePos(sp->returnBasePos(), txt_inf_ptr->pos);
 			txt_inf_ptr->flags.flag_s = false;
 			txt_inf_ptr->flags.flag_t = false;
 		}
@@ -163,13 +166,13 @@ void PageSetView::pollChangeBoundaryRectPosEvent()
 		delta = Vec2::Zero();
 	}
 
-	for (auto& img : img_rect_list)
+	for (auto& rect : img_rect_list)
 	{
-		img->pos = boundary_rect_pos;
+		rect->pos = boundary_rect_pos;
 	}
-	for (auto& font : font_rect_list)
+	for (auto& rect : font_rect_list)
 	{
-		font->pos = boundary_rect_pos;
+		rect->pos = boundary_rect_pos;
 	}
 }
 
@@ -177,8 +180,11 @@ void PageSetView::pollMoveRectEvent()
 {
 	for (auto& rect : img_rect_list)
 	{
-		rect->pollChangePosEvent(expansion);
-		rect->move(expansion);
+		if (back_rect.contains(Cursor::Pos()))
+		{
+			rect->pollChangePosEvent(expansion);
+			rect->move(expansion);
+		}
 		rect->draw();
 	}
 }
@@ -187,8 +193,31 @@ void PageSetView::pollFontRectEvent()
 {
 	for (auto& rect : font_rect_list)
 	{
-		rect->pollChangePlaceEvent(expansion);
-		rect->move(expansion);
+		if (back_rect.contains(Cursor::Pos()))
+		{
+			rect->pollChangePlaceEvent(expansion);
+			rect->move(expansion);
+		}
 		rect->draw();
+	}
+}
+
+void PageSetView::pollSendPosInfEvent()
+{
+	if (auto sp = controller.lock())
+	{
+		auto idx = 0;
+		auto temp = Vec2::Zero();
+		sp->changePos(boundary_rect_pos);
+		for (; idx < 3; idx++)
+		{
+			temp = img_rect_list[idx]->getRelativePos();
+			sp->changePos(idx, temp);
+		}
+		for (idx = 0; idx < 2; idx++)
+		{
+			temp = font_rect_list[idx]->getRelativePos();
+			sp->changePos(idx + 3, temp);
+		}
 	}
 }

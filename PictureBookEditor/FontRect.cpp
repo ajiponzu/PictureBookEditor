@@ -1,6 +1,12 @@
 #include "FontRect.h"
 
-Vec2 FontRect::returnRelativePos()
+void FontRect::setRelativePos(const Vec2& pos, const Vec2& relative)
+{
+	this->pos = pos;
+	this->relative = relative;
+}
+
+Vec2 FontRect::getRelativePos()
 {
 	return relative;
 }
@@ -19,6 +25,7 @@ void FontRect::changeTxt(const String& text)
 
 void FontRect::pollChangePlaceEvent(const double& expansion)
 {
+	if (text == U"") return;
 	if (rectf.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
 	if (rectf.leftClicked())
 	{
@@ -36,6 +43,7 @@ void FontRect::pollChangePlaceEvent(const double& expansion)
 
 void FontRect::move(const double& expansion)
 {
+	if (text == U"") return;
 	if (this->expansion != expansion)
 	{
 		this->expansion = expansion;
@@ -51,16 +59,14 @@ void FontRect::move(const double& expansion)
 
 void FontRect::draw()
 {
-	if (text != U"")
+	if (text == U"") return;
+	if (is_pressed)
 	{
-		if (is_pressed)
-		{
-			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Aqua);
-		}
-		else
-		{
-			rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Violet);
-		}
-		font(text).draw(pos + relative * expansion, Palette::Black);
+		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Aqua);
 	}
+	else
+	{
+		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Violet);
+	}
+	font(text).draw(pos + relative * expansion, Palette::Black);
 }

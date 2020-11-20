@@ -24,7 +24,8 @@ public:
 	}
 	~ImageRect() {}
 
-	Vec2 returnRelativePos();
+	void setRelativePos(const Vec2&, const Vec2&);
+	Vec2 getRelativePos();
 	void changeSize(const double&);
 	void changeAlpha(const double&);
 	void changeImg(const String&);

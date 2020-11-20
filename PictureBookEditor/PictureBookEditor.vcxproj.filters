@@ -454,13 +454,13 @@
     <ClInclude Include="ImageRect.h">
       <Filter>View\Header</Filter>
     </ClInclude>
-    <ClInclude Include="FontRect.h">
-      <Filter>View\Header</Filter>
-    </ClInclude>
     <ClInclude Include="Inf.h">
       <Filter>InfObj</Filter>
     </ClInclude>
     <ClInclude Include="Layout.h">
+      <Filter>View\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="FontRect.h">
       <Filter>View\Header</Filter>
     </ClInclude>
   </ItemGroup>

@@ -25,10 +25,12 @@ public:
 	}
 	~FontRect() {}
 
-	Vec2 returnRelativePos();
+	void setRelativePos(const Vec2&, const Vec2&);
+	Vec2 getRelativePos();
 	void changeSize(const double&);
 	void changeTxt(const String&);
 	void pollChangePlaceEvent(const double&);
 	void move(const double&);
 	void draw();
 };
+

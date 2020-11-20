@@ -41,6 +41,7 @@ public:
 	void changeTxtFadein(const int&, const double&);
 	TxtInf* returnTxtInf(const int&);
 
+	Vec2 returnBasePos();
 	void changePos(Vec2&);
 	void changePos(const int&, Vec2&);
 private:
