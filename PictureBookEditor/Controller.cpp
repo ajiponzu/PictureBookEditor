@@ -82,7 +82,7 @@ void Controller::nextPage()
 	}
 	else
 	{
-		makeTempPath(cur_page-1);
+		makeTempPath(cur_page - 1);
 		writePageJson();
 		makeReadFilePath();
 		readPageJson();
