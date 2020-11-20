@@ -1,6 +1,6 @@
 ﻿{
-  "MaxPage": 1,
-  "PageBasePos": "(0, 0)",
+  "MaxPage": 2,
+  "PageBasePos": "(42, 55)",
   "Image": {
     "img1": {
       "size": 0.4576271186440678,
@@ -13,8 +13,8 @@
       "size": 0.2288135593220339,
       "alpha": 1.0,
       "fadein": 0.0,
-      "path": "C:/Users/cpjvm/Pictures/nintendo switch/Seilane2.png",
-      "pos": "(47, 265)"
+      "path": "",
+      "pos": "(101, 240)"
     },
     "img3": {
       "size": 1.0,
@@ -26,16 +26,16 @@
   },
   "Scenario": {
     "txt1": {
-      "size": 96.61016949152543,
+      "size": 115.2542372881356,
       "fadein": 27.45762711864407,
       "txt": "abcd",
-      "pos": "(0, 0)"
+      "pos": "(437, 90)"
     },
     "txt2": {
-      "size": 40.67796610169492,
+      "size": 42.3728813559322,
       "fadein": 20.338983050847458,
       "txt": "cccc",
-      "pos": "(0, 0)"
+      "pos": "(152, 341)"
     }
   }
 }

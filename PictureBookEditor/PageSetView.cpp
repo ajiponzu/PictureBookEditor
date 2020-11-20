@@ -57,6 +57,7 @@ void PageSetView::pollGetImgInfEvent(const int& idx)
 {
 	if (auto sp = controller.lock())
 	{
+		boundary_rect_pos = sp->returnBasePos();
 		auto img_inf_ptr = sp->returnImgInf(idx);
 		if (img_inf_ptr != nullptr)
 		{
@@ -68,6 +69,7 @@ void PageSetView::pollGetImgInfEvent(const int& idx)
 			img_inf_ptr->flags.flag_a = false;
 			img_inf_ptr->flags.flag_p = false;
 		}
+		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
 	}
 }
 
@@ -81,6 +83,7 @@ void PageSetView::pollGetTxtInfEvent(const int& idx)
 {
 	if (auto sp = controller.lock())
 	{
+		boundary_rect_pos = sp->returnBasePos();
 		auto txt_inf_ptr = sp->returnTxtInf(idx);
 		if (txt_inf_ptr != nullptr)
 		{
@@ -90,6 +93,7 @@ void PageSetView::pollGetTxtInfEvent(const int& idx)
 			txt_inf_ptr->flags.flag_s = false;
 			txt_inf_ptr->flags.flag_t = false;
 		}
+		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
 	}
 }
 
@@ -102,7 +106,7 @@ void PageSetView::pollPagePosEvent()
 		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
 	}
 	boundary_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
-	pollMoveRectEvent();
+	pollImgRectEvent();
 	pollFontRectEvent();
 }
 
@@ -176,7 +180,7 @@ void PageSetView::pollChangeBoundaryRectPosEvent()
 	}
 }
 
-void PageSetView::pollMoveRectEvent()
+void PageSetView::pollImgRectEvent()
 {
 	for (auto& rect : img_rect_list)
 	{
@@ -193,11 +197,8 @@ void PageSetView::pollFontRectEvent()
 {
 	for (auto& rect : font_rect_list)
 	{
-		if (back_rect.contains(Cursor::Pos()))
-		{
-			rect->pollChangePlaceEvent(expansion);
-			rect->move(expansion);
-		}
+		rect->pollChangePlaceEvent(expansion);
+		rect->move(expansion);
 		rect->draw();
 	}
 }

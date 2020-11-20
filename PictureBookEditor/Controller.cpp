@@ -292,12 +292,13 @@ void Controller::changePos(const int& idx, Vec2& pos)
 	else
 	{
 		auto txt_idx = idx % 3;
-		txt_inf[idx].pos = pos;
+		txt_inf[txt_idx].pos = pos;
 	}
 }
 
 void Controller::init()
 {
+	base_pos = Vec2::Zero();
 	img_inf.clear();
 	txt_inf.clear();
 	img_inf.resize(3);

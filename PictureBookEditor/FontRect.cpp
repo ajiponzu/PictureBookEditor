@@ -20,7 +20,6 @@ void FontRect::changeSize(const double& size)
 void FontRect::changeTxt(const String& text)
 {
 	this->text = text;
-	is_size_changed = true;
 }
 
 void FontRect::pollChangePlaceEvent(const double& expansion)

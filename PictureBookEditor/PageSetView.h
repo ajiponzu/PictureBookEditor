@@ -35,7 +35,7 @@ private:
 	void pollPagePosEvent();
 	void pollZoomEvent();
 	void pollChangeBoundaryRectPosEvent();
-	void pollMoveRectEvent();
+	void pollImgRectEvent();
 	void pollFontRectEvent();
 	void pollSendPosInfEvent();
 };
