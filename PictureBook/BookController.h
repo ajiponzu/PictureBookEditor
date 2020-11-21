@@ -10,6 +10,12 @@ public:
 	BookController() : Controller() {}
 	~BookController() {}
 
+	bool isBoot();
+	bool isTransition();
+	bool isEnd();
+	void changeIsBoot(const bool&);
+	void resetIsTransition();
+	void resetIsEnd();
 	void readPage();
 	void prevPage();
 	void nextPage();

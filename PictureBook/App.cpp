@@ -19,7 +19,7 @@ void App::init()
 	viewport_rect = Rect(0, 0, wid, high);
 	book.add<Page>(U"Page");
 	auto data = book.get();
-	data->cotroller = std::make_shared<BookController>(BookController());
+	data->controller = std::make_shared<BookController>(BookController());
 }
 
 void App::setWindowInf()

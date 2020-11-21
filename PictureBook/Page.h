@@ -5,25 +5,28 @@
 
 struct BookData
 {
-	std::weak_ptr<BookController> cotroller;
+	std::weak_ptr<BookController> controller;
+	int page = 1;
 };
 
 using Book = SceneManager<String, BookData>;
 
-class Page : Book::Scene
+class Page : public Book::Scene
 {
 private:
 	Array<ImgInf> img_inf;
 	Array<TxtInf> txt_inf;
 public:
-	Page(const InitData& init_data) : IScene(init_data)
+	Page(const InitData& init) : IScene(init) 
 	{
-		init();
+		initPageInf();
 	}
 	~Page() {}
 
 	void update() override;
 	void draw() const override;
 private:
-	void init();
+	void initPageInf();
+	void next();
+	void prev();
 };
