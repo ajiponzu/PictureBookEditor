@@ -5,8 +5,7 @@
 
 struct BookData
 {
-	std::weak_ptr<BookController> controller;
-	int page = 1;
+	BookController controller;
 };
 
 using Book = SceneManager<String, BookData>;
@@ -17,7 +16,7 @@ private:
 	Array<ImgInf> img_inf;
 	Array<TxtInf> txt_inf;
 public:
-	Page(const InitData& init) : IScene(init) 
+	Page(const InitData& init) : IScene(init)
 	{
 		initPageInf();
 	}

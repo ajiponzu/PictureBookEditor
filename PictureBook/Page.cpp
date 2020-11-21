@@ -2,14 +2,6 @@
 
 void Page::update()
 {
-	Print << getData().page;
-	if (auto sp = getData().controller.lock())
-	{
-		if (sp->isBoot())
-		{
-			initPageInf();
-		}
-	}
 	if (MouseL.down())
 	{
 		next();
@@ -27,48 +19,41 @@ void Page::draw() const
 
 void Page::initPageInf()
 {
-	if (auto sp = getData().controller.lock())
-	{
-		Print << U"init";
-		sp->readPage();
-		img_inf = sp->returnImgInfArray();
-		txt_inf = sp->returnTxtInfArray();
-		sp->changeIsBoot(false);
-	}
+	Print << U"init";
+	auto& controller = getData().controller;
+	controller.readPage();
+	img_inf = controller.returnImgInfArray();
+	txt_inf = controller.returnTxtInfArray();
+	controller.changeIsBoot(false);
 }
 
 void Page::next()
 {
-		if (auto sp = getData().controller.lock())
+	auto& controller = getData().controller;
+	controller.nextPage();
+	if (controller.isTransition())
+	{
+		controller.resetIsTransition();
+		changeScene(U"Page");
+	}
+	if (controller.isEnd())
+	{
+		auto msg = System::ShowMessageBox(U"‚¨‚µ‚Ü‚¢", MessageBoxStyle::Info, MessageBoxButtons::OKCancel);
+		if (msg == MessageBoxSelection::OK)
 		{
-			sp->nextPage();
-			if (sp->isTransition())
-			{
-				getData().page++;
-				sp->resetIsTransition();
-				changeScene(U"Page");
-			}
-			if (sp->isEnd())
-			{
-				auto msg = System::ShowMessageBox(U"‚¨‚µ‚Ü‚¢", MessageBoxStyle::Info, MessageBoxButtons::OKCancel);
-				if (msg == MessageBoxSelection::OK)
-				{
-					sp->resetIsEnd();
-					System::Exit();
-				}
-			}
+			controller.resetIsEnd();
+			System::Exit();
 		}
+	}
 }
 
 void Page::prev()
 {
-		if (auto sp = getData().controller.lock())
-		{
-			sp->prevPage();
-			if (sp->isTransition())
-			{
-				sp->changeIsBoot(true);
-				changeScene(U"Page");
-			}
-		}
+	auto& controller = getData().controller;
+	controller.prevPage();
+	if (controller.isTransition())
+	{
+		controller.changeIsBoot(true);
+		changeScene(U"Page");
+	}
 }

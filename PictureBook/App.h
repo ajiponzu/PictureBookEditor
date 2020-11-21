@@ -1,7 +1,6 @@
 #pragma once
 //#define SIV3D_WINDOWS_HIGH_DPI
 #include <Siv3D.hpp>
-#include <memory>
 #include "BookController.h"
 #include "Page.h"
 
