@@ -8,7 +8,9 @@
 class App
 {
 private:
-	std::shared_ptr<BookController> controller = nullptr;
+	int wid = 0;
+	int high = 0;
+	Book book;
 	Rect viewport_rect;
 	Array<Size> resolutions;
 public:

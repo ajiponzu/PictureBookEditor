@@ -3,7 +3,16 @@
 
 class BookController : public Controller
 {
+private:
+	bool is_transition = false;
+	bool is_end = false;
 public:
 	BookController() : Controller() {}
 	~BookController() {}
+
+	void readPage();
+	void prevPage();
+	void nextPage();
+	Array<ImgInf> returnImgInfArray();
+	Array<TxtInf> returnTxtInfArray();
 };
