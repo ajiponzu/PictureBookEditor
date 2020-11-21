@@ -108,9 +108,9 @@
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\PictureBookEditor\Controller.cpp" />
-    <ClCompile Include="Book.cpp" />
+    <ClCompile Include="App.cpp" />
     <ClCompile Include="BookController.cpp" />
+    <ClCompile Include="Controller.cpp" />
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Page.cpp" />
   </ItemGroup>
@@ -239,9 +239,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\PictureBookEditor\Controller.h" />
-    <ClInclude Include="Book.h" />
+    <ClInclude Include="App.h" />
     <ClInclude Include="BookController.h" />
+    <ClInclude Include="Controller.h" />
     <ClInclude Include="Inf.h" />
     <ClInclude Include="Page.h" />
   </ItemGroup>

@@ -5,7 +5,7 @@
 
 class Controller
 {
-private:
+protected:
 	bool is_boot = true;
 	int cur_page = 1;
 	int max_page = 1;
@@ -49,7 +49,7 @@ public:
 	Vec2 returnBasePos();
 	void changePos(Vec2&);
 	void changePos(const int&, Vec2&);
-private:
+protected:
 	void init();
 	void setInitFlag();
 	void makeReadFilePath();

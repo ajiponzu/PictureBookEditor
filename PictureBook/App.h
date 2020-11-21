@@ -2,14 +2,14 @@
 //#define SIV3D_WINDOWS_HIGH_DPI
 #include <Siv3D.hpp>
 #include <memory>
-#include "Controller.h"
-#include "View.h"
+#include "BookController.h"
+#include "Page.h"
 
 class App
 {
 private:
-	std::unique_ptr<View> view = nullptr;
-	std::shared_ptr<Controller> controller = nullptr;
+	std::shared_ptr<BookController> controller = nullptr;
+	Rect viewport_rect;
 	Array<Size> resolutions;
 public:
 	App() { init(); }
