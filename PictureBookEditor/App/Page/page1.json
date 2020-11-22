@@ -1,41 +1,41 @@
 ﻿{
   "MaxPage": 2,
-  "PageBasePos": "(56.55556, 79.55556)",
+  "PageBasePos": "(17, 73)",
   "Image": {
     "img1": {
-      "size": 0.2033898305084746,
-      "alpha": 0.2542372881355932,
+      "size": 1.0,
+      "alpha": 1.0,
       "fadein": 0.0,
-      "path": "C:/Users/cpjvm/Pictures/nintendo switch/Seilane.png",
-      "pos": "(43, 51)"
+      "path": "",
+      "pos": "(0, 0)"
     },
     "img2": {
-      "size": 0.2796610169491526,
-      "alpha": 0.6101694915254238,
+      "size": 1.0,
+      "alpha": 1.0,
       "fadein": 0.0,
-      "path": "C:/Users/cpjvm/Pictures/nintendo switch/Seilane2.png",
-      "pos": "(231, 187)"
+      "path": "",
+      "pos": "(0, 0)"
     },
     "img3": {
-      "size": 0.4067796610169492,
-      "alpha": 0.8728813559322034,
+      "size": 1.0,
+      "alpha": 1.0,
       "fadein": 0.0,
-      "path": "C:/Users/cpjvm/Pictures/nintendo switch/Seilane_lance2.png",
-      "pos": "(369, 378)"
+      "path": "",
+      "pos": "(0, 0)"
     }
   },
   "Scenario": {
     "txt1": {
       "size": 60.0,
       "fadein": 0.0,
-      "txt": "セイレーン",
-      "pos": "(533, 31)"
+      "txt": "",
+      "pos": "(0, 0)"
     },
     "txt2": {
       "size": 60.0,
       "fadein": 0.0,
-      "txt": "マジかっけー",
-      "pos": "(71, 567)"
+      "txt": "",
+      "pos": "(0, 0)"
     }
   }
 }

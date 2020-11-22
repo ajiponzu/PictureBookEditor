@@ -58,13 +58,22 @@ void Controller::deletePage()
 
 void Controller::savePage()
 {
-	makeFilePath();
-	writePageJson();
-	makeTempPath();
-	if (FileSystem::Exists(path))
+	auto temp = cur_page;
+	for (cur_page = 1; cur_page <= max_page; cur_page++)
 	{
-		FileSystem::Remove(path, true);
+		makeReadFilePath();
+		readPageJson();
+		makeFilePath();
+		writePageJson();
+		makeTempPath();
+		if (FileSystem::Exists(path))
+		{
+			FileSystem::Remove(path, true);
+		}
 	}
+	cur_page = temp;
+	makeReadFilePath();
+	readPageJson();
 }
 
 void Controller::resetPage()
