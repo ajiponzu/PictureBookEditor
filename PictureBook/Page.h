@@ -13,7 +13,7 @@ using Book = SceneManager<String, BookData>;
 class Page : public Book::Scene
 {
 private:
-	Array<Font> text;
+	Array<Font> txt;
 	Array<Texture> img;
 	Array<ImgInf> img_inf;
 	Array<TxtInf> txt_inf;
@@ -29,9 +29,9 @@ public:
 private:
 	void initPageInf();
 	void initImg();
-	void initText();
+	void initTxt();
 	void drawImg() const;
-	void drawText() const;
+	void drawTxt() const;
 	void next();
 	void prev();
 };

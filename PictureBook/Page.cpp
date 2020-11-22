@@ -1,7 +1,10 @@
 #include "Page.h"
 
+Stopwatch stopwatch;
+
 void Page::update()
 {
+	stopwatch.start();
 	if (MouseL.down())
 	{
 		next();
@@ -16,7 +19,7 @@ void Page::draw() const
 {
 	Scene::SetBackground(Palette::White);
 	drawImg();
-	drawText();
+	drawTxt();
 }
 
 void Page::initPageInf()
@@ -26,13 +29,13 @@ void Page::initPageInf()
 	img_inf = controller.returnImgInfArray();
 	txt_inf = controller.returnTxtInfArray();
 	initImg();
-	initText();
+	initTxt();
 }
 
 void Page::initImg()
 {
-	img.resize(3);
 	auto idx = 0;
+	img.resize(3);
 	for (const auto& inf : img_inf)
 	{
 		img[idx] = Texture(inf.path);
@@ -40,13 +43,13 @@ void Page::initImg()
 	}
 }
 
-void Page::initText()
+void Page::initTxt()
 {
-	text.resize(2);
 	auto idx = 0;
+	txt.resize(2);
 	for (const auto& inf : txt_inf)
 	{
-		text[idx] = Font(inf.size);
+		txt[idx] = Font(inf.size);
 		idx++;
 	}
 }
@@ -56,22 +59,24 @@ void Page::drawImg() const
 	auto idx = 0;
 	for (const auto& inf : img_inf)
 	{
-		if (inf.path != U"")
+		if (inf.path != U"" && (Scene::Time() >= inf.fadein))
 		{
-			img[idx].scaled(inf.size).draw(inf.pos, AlphaF(inf.alpha));
+			const auto t = Min(stopwatch.sF() - inf.fadein, inf.alpha);
+			const auto alpha = EaseOutCirc(t) * inf.alpha;
+			img[idx].scaled(inf.size).draw(inf.pos, AlphaF(alpha));
 		}
 		idx++;
 	}
 }
 
-void Page::drawText() const
+void Page::drawTxt() const
 {
 	auto idx = 0;
 	for (const auto& inf : txt_inf)
 	{
-		if (inf.txt != U"")
+		if (inf.txt != U"" && (Scene::Time() >= inf.fadein))
 		{
-			text[idx](inf.txt).draw(inf.pos, Palette::Black);
+			txt[idx](inf.txt).draw(inf.pos, Palette::Black);
 		}
 		idx++;
 	}
@@ -83,17 +88,13 @@ void Page::next()
 	controller.nextPage();
 	if (controller.isTransition())
 	{
+		stopwatch.restart();
+		stopwatch.pause();
 		controller.resetIsTransition();
 		changeScene(U"Page");
 	}
 	if (controller.isEnd())
 	{
-		//auto msg = System::ShowMessageBox(U"‚¨‚µ‚Ü‚¢", MessageBoxStyle::Info, MessageBoxButtons::OKCancel);
-		//if (msg == MessageBoxSelection::OK)
-		//{
-		//	controller.resetIsEnd();
-		//	System::Exit();
-		//}
 		System::Exit();
 	}
 }
@@ -104,6 +105,8 @@ void Page::prev()
 	controller.prevPage();
 	if (controller.isTransition())
 	{
+		stopwatch.restart();
+		stopwatch.pause();
 		controller.resetIsTransition();
 		changeScene(U"Page");
 	}
