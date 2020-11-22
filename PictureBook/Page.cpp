@@ -21,7 +21,6 @@ void Page::draw() const
 
 void Page::initPageInf()
 {
-	Print << U"init";
 	auto& controller = getData().controller;
 	controller.readPage();
 	img_inf = controller.returnImgInfArray();
@@ -90,12 +89,13 @@ void Page::next()
 	}
 	if (controller.isEnd())
 	{
-		auto msg = System::ShowMessageBox(U"‚¨‚µ‚Ü‚¢", MessageBoxStyle::Info, MessageBoxButtons::OKCancel);
-		if (msg == MessageBoxSelection::OK)
-		{
-			controller.resetIsEnd();
-			System::Exit();
-		}
+		//auto msg = System::ShowMessageBox(U"‚¨‚µ‚Ü‚¢", MessageBoxStyle::Info, MessageBoxButtons::OKCancel);
+		//if (msg == MessageBoxSelection::OK)
+		//{
+		//	controller.resetIsEnd();
+		//	System::Exit();
+		//}
+		System::Exit();
 	}
 }
 

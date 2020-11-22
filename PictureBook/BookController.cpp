@@ -34,6 +34,7 @@ void BookController::readPage()
 {
 	makeReadFilePath();
 	readPageJson();
+	changePos();
 }
 
 void BookController::prevPage()
@@ -56,6 +57,7 @@ void BookController::nextPage()
 	cur_page++;
 	if (cur_page > max_page)
 	{
+		cur_page--;
 		is_end = true;
 	}
 	else
@@ -74,4 +76,27 @@ Array<ImgInf> BookController::returnImgInfArray()
 Array<TxtInf> BookController::returnTxtInfArray()
 {
 	return txt_inf;
+}
+
+void BookController::initRatio()
+{
+	ratio_x = static_cast<double>(Window::ClientWidth()) / layout.PAGE_BACK_RECT_WID;
+	ratio_y = static_cast<double>(Window::ClientHeight()) / layout.PAGE_BACK_RECT_HIGH;
+	ratio = ratio_x / ratio_y;
+}
+
+void BookController::changePos()
+{
+	for (auto& inf : img_inf)
+	{
+		inf.pos.x *= ratio_x;
+		inf.pos.y *= ratio_y;
+		inf.size /= ratio;
+	}
+	for (auto& inf : txt_inf)
+	{
+		inf.pos.x *= ratio_x;
+		inf.pos.y *= ratio_y;
+		inf.size *= ratio;
+	}
 }
