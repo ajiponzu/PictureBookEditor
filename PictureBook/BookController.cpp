@@ -1,10 +1,5 @@
 #include "BookController.h"
 
-bool BookController::isBoot()
-{
-	return is_boot;
-}
-
 bool BookController::isTransition()
 {
 	return is_transition;
@@ -13,11 +8,6 @@ bool BookController::isTransition()
 bool BookController::isEnd()
 {
 	return is_end;
-}
-
-void BookController::changeIsBoot(const bool& is_boot)
-{
-	this->is_boot = is_boot;
 }
 
 void BookController::resetIsTransition()

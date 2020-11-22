@@ -27,7 +27,6 @@ void Page::initPageInf()
 	txt_inf = controller.returnTxtInfArray();
 	initImg();
 	initText();
-	controller.changeIsBoot(false);
 }
 
 void Page::initImg()
@@ -105,7 +104,7 @@ void Page::prev()
 	controller.prevPage();
 	if (controller.isTransition())
 	{
-		controller.changeIsBoot(true);
+		controller.resetIsTransition();
 		changeScene(U"Page");
 	}
 }
