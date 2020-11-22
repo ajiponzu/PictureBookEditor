@@ -29,7 +29,7 @@ void PageSetView::init()
 
 void PageSetView::initPageView()
 {
-	boundary_rect = Rect(0, 0, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
+	boundary_rect = Rect(0, 0, Window::ClientWidth(), Window::ClientHeight());
 	boundary_rect_pos = Vec2::Zero();
 }
 
@@ -69,7 +69,7 @@ void PageSetView::pollGetImgInfEvent(const int& idx)
 			img_inf_ptr->flags.flag_a = false;
 			img_inf_ptr->flags.flag_p = false;
 		}
-		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
+		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, Window::ClientWidth() * expansion, Window::ClientHeight() * expansion);
 	}
 }
 
@@ -93,7 +93,7 @@ void PageSetView::pollGetTxtInfEvent(const int& idx)
 			txt_inf_ptr->flags.flag_s = false;
 			txt_inf_ptr->flags.flag_t = false;
 		}
-		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
+		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, Window::ClientWidth() * expansion, Window::ClientHeight() * expansion);
 	}
 }
 
@@ -103,7 +103,7 @@ void PageSetView::pollPagePosEvent()
 	{
 		pollZoomEvent();
 		pollChangeBoundaryRectPosEvent();
-		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, layout.PAGE_BACK_RECT_WID * expansion, layout.PAGE_BACK_RECT_HIGH * expansion);
+		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, Window::ClientWidth() * expansion, Window::ClientHeight() * expansion);
 	}
 	boundary_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	pollImgRectEvent();
