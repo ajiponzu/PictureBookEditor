@@ -25,6 +25,7 @@ void FontRect::changeTxt(const String& text)
 void FontRect::pollChangePlaceEvent(const double& expansion)
 {
 	if (text == U"") return;
+	transition.update(rectf.mouseOver());
 	if (rectf.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
 	if (rectf.leftClicked())
 	{
@@ -59,13 +60,14 @@ void FontRect::move(const double& expansion)
 void FontRect::draw()
 {
 	if (text == U"") return;
+	auto color = ColorF(palette.r, palette.g * (1 - transition.value()), palette.b, transition.value());
 	if (is_pressed)
 	{
-		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Aqua);
+		rectf.draw(color).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Aqua);
 	}
 	else
 	{
-		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Violet);
+		rectf.draw(color).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Violet);
 	}
 	font(text).draw(pos + relative * expansion, Palette::Black);
 }

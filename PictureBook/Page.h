@@ -26,6 +26,8 @@ public:
 
 	void update() override;
 	void draw() const override;
+	void drawFadeIn(double) const override {};
+	void drawFadeOut(double) const override {};
 private:
 	void initPageInf();
 	void initImg();

@@ -62,11 +62,11 @@ void ImageRect::draw()
 	if (path == U"") return;
 	if (is_pressed)
 	{
-		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Blue);
+		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK + 5, layout.RECT_FRAME_THICK + 5, Palette::Yellow);
 	}
 	else
 	{
-		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, AlphaF(0));
+		rectf.draw(AlphaF(0)).drawFrame(layout.RECT_FRAME_THICK + 5, layout.RECT_FRAME_THICK + 5, AlphaF(0));
 	}
 	img.scaled(size * expansion).draw(rectf.x, rectf.y, AlphaF(alpha));
 }

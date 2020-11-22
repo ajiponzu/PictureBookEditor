@@ -91,7 +91,7 @@ void Page::next()
 	{
 		resetStopWatch();
 		controller.resetIsTransition();
-		changeScene(U"Page");
+		changeScene(U"Page", 1s);
 	}
 	if (controller.isEnd())
 	{
@@ -107,7 +107,7 @@ void Page::prev()
 	{
 		resetStopWatch();
 		controller.resetIsTransition();
-		changeScene(U"Page");
+		changeScene(U"Page", 1s);
 	}
 }
 

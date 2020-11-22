@@ -7,15 +7,17 @@ class FontRect
 public:
 	Vec2 pos;
 private:
+	bool is_pressed = false;
+	bool is_size_changed = false;
+	int size = 1;
+	double expansion = 0.0;
 	Vec2 relative;
 	Layout layout{};
 	RectF rectf{};
 	String text{};
 	Font font;
-	bool is_pressed = false;
-	bool is_size_changed = false;
-	int size = 1;
-	double expansion = 0.0;
+	Transition transition = Transition(0.4s, 0.2s);
+	ColorF palette = Palette::Lavender;
 public:
 	FontRect(const String& text, const Vec2& relative) : text(text), relative(relative)
 	{

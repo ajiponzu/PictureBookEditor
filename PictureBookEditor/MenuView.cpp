@@ -85,7 +85,7 @@ void MenuView::pollButtonEvent()
 
 void MenuView::pollCloseEvent()
 {
-	close_btn_img.resized(layout.MENU_BAR_TH).draw(layout.CLBTN_X, 0);
+	close_btn_img.resized(layout.MENU_BAR_TH).draw(layout.CLBTN_X, 0, AlphaF(0.88));
 	if (close_btn->isClickedInvBtn())
 	{
 		System::Exit();
