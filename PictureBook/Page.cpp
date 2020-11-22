@@ -59,7 +59,7 @@ void Page::drawImg() const
 	auto idx = 0;
 	for (const auto& inf : img_inf)
 	{
-		if (inf.path != U"" && (Scene::Time() >= inf.fadein))
+		if (inf.path != U"" && (stopwatch.sF() >= inf.fadein))
 		{
 			const auto t = Min(stopwatch.sF() - inf.fadein, inf.alpha);
 			const auto alpha = EaseOutCirc(t) * inf.alpha;
@@ -74,9 +74,10 @@ void Page::drawTxt() const
 	auto idx = 0;
 	for (const auto& inf : txt_inf)
 	{
-		if (inf.txt != U"" && (Scene::Time() >= inf.fadein))
+		if (inf.txt != U"" && (stopwatch.sF() >= inf.fadein))
 		{
-			txt[idx](inf.txt).draw(inf.pos, Palette::Black);
+			const auto length = static_cast<size_t>((stopwatch.sF() - inf.fadein) / 0.2);
+			txt[idx](inf.txt.substr(0, length)).draw(inf.pos, Palette::Black);
 		}
 		idx++;
 	}
@@ -88,8 +89,7 @@ void Page::next()
 	controller.nextPage();
 	if (controller.isTransition())
 	{
-		stopwatch.restart();
-		stopwatch.pause();
+		resetStopWatch();
 		controller.resetIsTransition();
 		changeScene(U"Page");
 	}
@@ -105,9 +105,14 @@ void Page::prev()
 	controller.prevPage();
 	if (controller.isTransition())
 	{
-		stopwatch.restart();
-		stopwatch.pause();
+		resetStopWatch();
 		controller.resetIsTransition();
 		changeScene(U"Page");
 	}
+}
+
+void Page::resetStopWatch()
+{
+	stopwatch.restart();
+	stopwatch.pause();
 }

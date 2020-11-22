@@ -34,4 +34,5 @@ private:
 	void drawTxt() const;
 	void next();
 	void prev();
+	void resetStopWatch();
 };
