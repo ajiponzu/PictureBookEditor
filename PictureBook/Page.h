@@ -13,6 +13,8 @@ using Book = SceneManager<String, BookData>;
 class Page : public Book::Scene
 {
 private:
+	Array<Font> text;
+	Array<Texture> img;
 	Array<ImgInf> img_inf;
 	Array<TxtInf> txt_inf;
 public:

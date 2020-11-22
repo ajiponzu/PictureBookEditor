@@ -80,7 +80,7 @@ void Layout::initPos()
 	Y8 = Y7 + BTN_GAP + 20 * dpi;
 	Y9 = Y8 + BTN_GAP;
 	Y10 = Y9 + BTN_GAP;
-	Y11 = Y10 + BTN_GAP * 2 * dpi;
+	Y11 = Y10 + BTN_GAP * 2;
 	Y12 = Y11 + 9 * dpi;
 	Y13 = Y12 + BTN_GAP;
 	Y14 = Y13 + BTN_GAP;
