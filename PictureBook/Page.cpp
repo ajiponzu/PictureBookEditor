@@ -15,6 +15,8 @@ void Page::update()
 void Page::draw() const
 {
 	Scene::SetBackground(Palette::White);
+	drawImg();
+	drawText();
 }
 
 void Page::initPageInf()
@@ -24,7 +26,57 @@ void Page::initPageInf()
 	controller.readPage();
 	img_inf = controller.returnImgInfArray();
 	txt_inf = controller.returnTxtInfArray();
+	initImg();
+	initText();
 	controller.changeIsBoot(false);
+}
+
+void Page::initImg()
+{
+	img.resize(3);
+	auto idx = 0;
+	for (const auto& inf : img_inf)
+	{
+		img[idx] = Texture(inf.path);
+		idx++;
+	}
+}
+
+void Page::initText()
+{
+	text.resize(2);
+	auto idx = 0;
+	for (const auto& inf : txt_inf)
+	{
+		text[idx] = Font(inf.size);
+		idx++;
+	}
+}
+
+void Page::drawImg() const
+{
+	auto idx = 0;
+	for (const auto& inf : img_inf)
+	{
+		if (inf.path != U"")
+		{
+			img[idx].scaled(inf.size).draw(inf.pos, AlphaF(inf.alpha));
+		}
+		idx++;
+	}
+}
+
+void Page::drawText() const
+{
+	auto idx = 0;
+	for (const auto& inf : txt_inf)
+	{
+		if (inf.txt != U"")
+		{
+			text[idx](inf.txt).draw(inf.pos, Palette::Black);
+		}
+		idx++;
+	}
 }
 
 void Page::next()

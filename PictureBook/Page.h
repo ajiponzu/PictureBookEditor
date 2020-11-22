@@ -28,6 +28,10 @@ public:
 	void draw() const override;
 private:
 	void initPageInf();
+	void initImg();
+	void initText();
+	void drawImg() const;
+	void drawText() const;
 	void next();
 	void prev();
 };
