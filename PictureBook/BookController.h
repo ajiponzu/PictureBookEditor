@@ -17,6 +17,9 @@ public:
 	void readPage();
 	void prevPage();
 	void nextPage();
+	void makeReadFilePath2();
+	void makeFilePath2();
+	void makeTempPath2();
 	Array<ImgInf> returnImgInfArray();
 	Array<TxtInf> returnTxtInfArray();
 };

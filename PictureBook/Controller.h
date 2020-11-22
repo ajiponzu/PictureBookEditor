@@ -20,7 +20,7 @@ public:
 	}
 	~Controller()
 	{
-		deleteTempJson();
+		//deleteTempJson();
 	}
 
 	int returnCurrentPage();

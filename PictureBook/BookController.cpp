@@ -22,7 +22,7 @@ void BookController::resetIsEnd()
 
 void BookController::readPage()
 {
-	makeReadFilePath();
+	makeReadFilePath2();
 	readPageJson();
 }
 
@@ -35,7 +35,7 @@ void BookController::prevPage()
 	}
 	else
 	{
-		makeReadFilePath();
+		makeReadFilePath2();
 		readPageJson();
 		is_transition = true;
 	}
@@ -51,10 +51,29 @@ void BookController::nextPage()
 	}
 	else
 	{
-		makeReadFilePath();
+		makeReadFilePath2();
 		readPageJson();
 		is_transition = true;
 	}
+}
+
+void BookController::makeReadFilePath2()
+{
+	makeTempPath2();
+	if (!FileSystem::Exists(path))
+	{
+		makeFilePath2();
+	}
+}
+
+void BookController::makeFilePath2()
+{
+	path = U"page{}.json"_fmt(cur_page);
+}
+
+void BookController::makeTempPath2()
+{
+	path = U"temp{}.json"_fmt(cur_page);
 }
 
 Array<ImgInf> BookController::returnImgInfArray()
