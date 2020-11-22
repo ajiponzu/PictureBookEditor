@@ -65,7 +65,10 @@ void MenuView::pollButtonEvent()
 	}
 	if (run_btn->isClicked())
 	{
-		Print << U"run";
+		if (auto sp = controller.lock())
+		{
+			sp->runBook();
+		}
 	}
 	if (prev_btn->isClicked())
 	{

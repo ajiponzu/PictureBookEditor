@@ -105,6 +105,18 @@ void Controller::prevPage()
 	}
 }
 
+void Controller::runBook()
+{
+	makeTempPath();
+	writePageJson();
+	const FilePath path = U"Page/PictureBook.exe";
+	ChildProcess child = Process::Spawn(path);
+	if (!child)
+	{
+		throw Error(U"Failed to create a process");
+	}
+}
+
 void Controller::selectImg(const int& idx)
 {
 	if (const auto open = Dialog::OpenFile())

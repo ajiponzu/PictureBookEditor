@@ -32,6 +32,7 @@ public:
 	void resetPage();
 	void nextPage();
 	void prevPage();
+	void runBook();
 
 	void selectImg(const int&);
 	void deleteImg(const int&);
