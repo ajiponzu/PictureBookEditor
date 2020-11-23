@@ -106,9 +106,6 @@
     <Filter Include="View\Source">
       <UniqueIdentifier>{751c3273-47c2-40dc-afcf-f80fdbef3ded}</UniqueIdentifier>
     </Filter>
-    <Filter Include="InfObj">
-      <UniqueIdentifier>{6a9d3666-bc17-4236-9a03-5b05e055387a}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -454,14 +451,14 @@
     <ClInclude Include="ImageRect.h">
       <Filter>View\Header</Filter>
     </ClInclude>
-    <ClInclude Include="Inf.h">
-      <Filter>InfObj</Filter>
-    </ClInclude>
     <ClInclude Include="Layout.h">
       <Filter>View\Header</Filter>
     </ClInclude>
     <ClInclude Include="FontRect.h">
       <Filter>View\Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Inf.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
 #pragma once
-
 #include "MyButton.h"
 #include "ViewComponent.h"
 
+//•¶šî•ñİ’è‰æ–ÊŠÇ—ƒNƒ‰ƒX
 class ScenarioSetView : public ViewComponent
 {
 private:

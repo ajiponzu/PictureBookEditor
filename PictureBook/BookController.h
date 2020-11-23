@@ -1,6 +1,7 @@
 #pragma once
 #include "Controller.h"
 
+//Controller‚©‚ç”h¶
 class BookController : public Controller
 {
 private:

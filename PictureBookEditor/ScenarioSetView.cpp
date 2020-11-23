@@ -1,7 +1,9 @@
 #include "ScenarioSetView.h"
 
+//メインループで呼ばれる処理
 void ScenarioSetView::pollEvent()
 {
+	//背景描画
 	back_rect.draw(Palette::Whitesmoke).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	pollGetTxtInfEvent();
 	pollButtonEvent();
@@ -9,6 +11,7 @@ void ScenarioSetView::pollEvent()
 	pollInputEvent();
 }
 
+//コンストラクタで呼ばれる初期化処理
 void ScenarioSetView::init()
 {
 	back_rect = Rect(layout.X9, layout.Y11, layout.BACK_RECT_WID, layout.SCENARIO_BACK_RECT_HIGH);
@@ -17,6 +20,7 @@ void ScenarioSetView::init()
 	initInput();
 }
 
+//パラメータ初期化
 void ScenarioSetView::initParameter()
 {
 	input_flag.resize(2);
@@ -26,6 +30,7 @@ void ScenarioSetView::initParameter()
 	text_fade_in.push_back(0.0);
 }
 
+//ボタン作成
 void ScenarioSetView::initButton()
 {
 	text_btn1 = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y12, layout.BTN_WID, layout.BTN_HIGH, String(U"文字"), layout.BTN_F_SIZE));
@@ -34,6 +39,7 @@ void ScenarioSetView::initButton()
 	text_btn2d = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y16, layout.BTN_WID, layout.BTN_HIGH, String(U"削除"), layout.BTN_F_SIZE));
 }
 
+//キーボード入力周辺の初期化
 void ScenarioSetView::initInput()
 {
 	input_text.resize(2);
@@ -45,12 +51,14 @@ void ScenarioSetView::initInput()
 	palette.push_back(Palette::Lightsalmon);
 }
 
+//文字情報取得
 void ScenarioSetView::pollGetTxtInfEvent()
 {
 	pollGetTxtInfEvent(0);
 	pollGetTxtInfEvent(1);
 }
 
+//文字情報変更の監視
 void ScenarioSetView::pollGetTxtInfEvent(const int& idx)
 {
 	if (auto sp = controller.lock())
@@ -65,6 +73,7 @@ void ScenarioSetView::pollGetTxtInfEvent(const int& idx)
 	}
 }
 
+//文字情報更新ボタンが押されたか
 void ScenarioSetView::pollButtonEvent()
 {
 	if (text_btn1->isClicked())
@@ -97,6 +106,7 @@ void ScenarioSetView::pollButtonEvent()
 	}
 }
 
+//スライダーを動かしたか
 void ScenarioSetView::pollSliderEvent()
 {
 	if (SimpleGUI::Slider(U"サイズ ", text_size[0], 0.0, layout.TXT_MAX_SIZE, Vec2(layout.X11, layout.Y12), layout.SLIDER_L_WID, layout.SLIDER_WID))
@@ -130,16 +140,20 @@ void ScenarioSetView::pollSliderEvent()
 	}
 }
 
+//キーボード入力周辺の処理
 void ScenarioSetView::pollInputEvent()
 {
+	//入力バーは二つ
 	if (input_rect[0].mouseOver() || input_rect[1].mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
 	input_rect[0].draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, palette[0]);
+	//入力バーをクリックすることで，入力モードを切り替え
 	if (input_rect[0].leftClicked())
 	{
 		input_flag[0] = !input_flag[0];
 	}
 	if (input_flag[0])
 	{
+		//どちらかが入力モードなら，もう片方をオフに
 		input_flag[1] = false;
 		palette[0] = Palette::Aqua;
 		TextInput::UpdateText(input_text[0]);

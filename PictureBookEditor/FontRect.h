@@ -2,6 +2,7 @@
 #include <Siv3D.hpp>
 #include "Layout.h"
 
+//文字配置に使用する矩形クラス
 class FontRect
 {
 public:

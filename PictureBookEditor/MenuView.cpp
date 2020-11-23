@@ -1,13 +1,16 @@
 #include "MenuView.h"
 
+//メインループで呼ばれる処理
 void MenuView::pollEvent()
 {
+	//背景描画
 	menu_rect.draw(Arg::top = Palette::Aquamarine, Arg::bottom = Palette::Blue);
 	pollCloseEvent();
 	pollButtonEvent();
 	displayPageNum();
 }
 
+//コンストラクタで呼ばれる初期化処理
 void MenuView::init()
 {
 	menu_rect = Rect(0, 0, Window::ClientWidth(), layout.MENU_BAR_TH);
@@ -16,6 +19,7 @@ void MenuView::init()
 	initButton();
 }
 
+//ボタン作成
 void MenuView::initButton()
 {
 	create_btn = std::make_shared<MyButton>(MyButton(layout.X1, layout.Y0, layout.MENU_BTN_WID, layout.MENU_BTN_HIGH, String(U"新規"), layout.BTN_F_SIZE));
@@ -33,6 +37,7 @@ void MenuView::initButton()
 	}
 }
 
+//ボタンを押したかどうか
 void MenuView::pollButtonEvent()
 {
 	if (create_btn->isClicked())
@@ -86,6 +91,7 @@ void MenuView::pollButtonEvent()
 	}
 }
 
+//クローズボタンを押したかどうか
 void MenuView::pollCloseEvent()
 {
 	close_btn_img.resized(layout.MENU_BAR_TH).draw(layout.CLBTN_X, 0, AlphaF(0.88));
@@ -95,6 +101,7 @@ void MenuView::pollCloseEvent()
 	}
 }
 
+//どのページを編集しているか，ページ番号を表示
 void MenuView::displayPageNum()
 {
 	page_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);

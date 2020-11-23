@@ -1,7 +1,9 @@
 #include "MyButton.h"
 
+//クリックしたときのイベント
 bool MyButton::isClicked()
 {
+	//ボタン上にカーソルを当てると，色が変わる
 	transition.update(button.mouseOver());
 	auto color = ColorF(palette.r, palette.g * (1 - transition.value()), palette.b);
 	if (button.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);
@@ -10,6 +12,7 @@ bool MyButton::isClicked()
 	return button.leftClicked();
 }
 
+//クローズボタンをクリックしたときのイベント
 bool MyButton::isClickedInvBtn()
 {
 	if (button.mouseOver()) Cursor::RequestStyle(CursorStyle::Hand);

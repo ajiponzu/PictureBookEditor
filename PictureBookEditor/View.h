@@ -2,10 +2,10 @@
 #include <Siv3D.hpp>
 #include <memory>
 #include <vector>
-
 #include "Controller.h"
 #include "ViewComponent.h"
 
+//ViewComponentŠÇ—ƒNƒ‰ƒX
 class View
 {
 private:

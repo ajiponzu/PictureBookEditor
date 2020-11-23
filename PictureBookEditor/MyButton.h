@@ -2,6 +2,7 @@
 #include <Siv3D.hpp>
 #include "Layout.h"
 
+//オリジナルボタンクラス
 class MyButton
 {
 private:

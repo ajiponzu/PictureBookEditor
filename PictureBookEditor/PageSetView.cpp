@@ -1,10 +1,14 @@
 #include "PageSetView.h"
 
+//拡大率
 constexpr auto EXPANSION = 1.5;
 
+//メインループで呼ばれる処理
 void PageSetView::pollEvent()
 {
+	//背景描画
 	back_rect.draw(Palette::Lavenderblush).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
+	//以下のブロック内で呼ばれるguiパーツは，背景の描画位置を原点として描画される．
 	{
 		const auto page_view = ScopedViewport2D(back_rect);
 		const Transformer2D transform(Mat3x2::Identity(), Mat3x2::Translate(back_rect.pos));
@@ -15,9 +19,11 @@ void PageSetView::pollEvent()
 	}
 }
 
+//コンストラクタで呼ばれる初期化処理
 void PageSetView::init()
 {
 	back_rect = Rect(layout.X1, layout.Y1, layout.PAGE_BACK_RECT_WID, layout.PAGE_BACK_RECT_HIGH);
+	//ファイルから画像・文字情報を読み込む
 	if (auto sp = controller.lock())
 	{
 		sp->initReadPage();
@@ -27,12 +33,14 @@ void PageSetView::init()
 	initFontRect();
 }
 
+//編集画面の矩形初期化
 void PageSetView::initPageView()
 {
 	boundary_rect = Rect(0, 0, Window::ClientWidth(), Window::ClientHeight());
 	boundary_rect_pos = Vec2::Zero();
 }
 
+//画像配置用矩形を作成
 void PageSetView::initImgRect()
 {
 	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(0, 0))));
@@ -40,12 +48,14 @@ void PageSetView::initImgRect()
 	img_rect_list.push_back(std::make_shared<ImageRect>(ImageRect(U"", Vec2(0, 0))));
 }
 
+//文字配置用矩形を作成
 void PageSetView::initFontRect()
 {
 	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(0, 0))));
 	font_rect_list.push_back(std::make_shared<FontRect>(FontRect(U"", Vec2(0, 0))));
 }
 
+//画像・文字情報を受け取る
 void PageSetView::pollGetImgInfEvent()
 {
 	pollGetImgInfEvent(0);
@@ -53,6 +63,7 @@ void PageSetView::pollGetImgInfEvent()
 	pollGetImgInfEvent(2);
 }
 
+//画像情報変更の監視
 void PageSetView::pollGetImgInfEvent(const int& idx)
 {
 	if (auto sp = controller.lock())
@@ -73,12 +84,14 @@ void PageSetView::pollGetImgInfEvent(const int& idx)
 	}
 }
 
+//文字情報を受け取る
 void PageSetView::pollGetTxtInfEvent()
 {
 	pollGetTxtInfEvent(0);
 	pollGetTxtInfEvent(1);
 }
 
+//文字情報変更の監視
 void PageSetView::pollGetTxtInfEvent(const int& idx)
 {
 	if (auto sp = controller.lock())
@@ -97,21 +110,27 @@ void PageSetView::pollGetTxtInfEvent(const int& idx)
 	}
 }
 
+//編集画面の拡大・縮小，スクロールの取得，画像・文字の配置
 void PageSetView::pollPagePosEvent()
 {
+	//編集画面にカーソルが当たっている場合，
 	if (back_rect.contains(Cursor::Pos()))
 	{
+		//拡大・縮小・スクロール
 		pollZoomEvent();
 		pollChangeBoundaryRectPosEvent();
 		boundary_rect = Rect(boundary_rect_pos.x, boundary_rect_pos.y, Window::ClientWidth() * expansion, Window::ClientHeight() * expansion);
 	}
 	boundary_rect.draw(Palette::White).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
+	//画像・文字の配置
 	pollImgRectEvent();
 	pollFontRectEvent();
 }
 
+//拡大・縮小
 void PageSetView::pollZoomEvent()
 {
+	//マウスホイールの移動取得
 	wheel = static_cast<int>(Mouse::Wheel());
 	if (wheel == 1)
 	{
@@ -123,6 +142,7 @@ void PageSetView::pollZoomEvent()
 		{
 			expansion = 0.30;
 		}
+		//縮小
 		boundary_rect_pos /= EXPANSION;
 	}
 	else if (wheel == -1)
@@ -135,10 +155,12 @@ void PageSetView::pollZoomEvent()
 		{
 			expansion = 3;
 		}
+		//拡大
 		boundary_rect_pos *= EXPANSION;
 	}
 }
 
+//編集画面矩形の移動
 void PageSetView::pollChangeBoundaryRectPosEvent()
 {
 	Vec2 delta{};
@@ -148,6 +170,7 @@ void PageSetView::pollChangeBoundaryRectPosEvent()
 		boundary_rect_pos += delta;
 	}
 
+	//移動限界の設定
 	if (boundary_rect_pos.x + boundary_rect.w < 0)
 	{
 		boundary_rect_pos.x = -boundary_rect.w;
@@ -170,6 +193,7 @@ void PageSetView::pollChangeBoundaryRectPosEvent()
 		delta = Vec2::Zero();
 	}
 
+	//画像・文字の絶対位置設定
 	for (auto& rect : img_rect_list)
 	{
 		rect->pos = boundary_rect_pos;
@@ -180,6 +204,7 @@ void PageSetView::pollChangeBoundaryRectPosEvent()
 	}
 }
 
+//画像の配置
 void PageSetView::pollImgRectEvent()
 {
 	for (auto& rect : img_rect_list)
@@ -193,6 +218,7 @@ void PageSetView::pollImgRectEvent()
 	}
 }
 
+//文字の配置
 void PageSetView::pollFontRectEvent()
 {
 	for (auto& rect : font_rect_list)
@@ -203,6 +229,7 @@ void PageSetView::pollFontRectEvent()
 	}
 }
 
+//位置変更の通知
 void PageSetView::pollSendPosInfEvent()
 {
 	if (auto sp = controller.lock())

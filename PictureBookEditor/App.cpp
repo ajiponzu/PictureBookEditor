@@ -1,5 +1,6 @@
 #include "App.h"
 
+//アプリケーション開始
 void App::run()
 {
 	while (System::Update())
@@ -8,6 +9,7 @@ void App::run()
 	}
 }
 
+//コンストラクタから呼ばれる初期化処理
 void App::init()
 {
 	setWindowInf();
@@ -15,6 +17,8 @@ void App::init()
 	view = std::make_unique<View>(View(controller));
 }
 
+//ウィンドウ情報を設定 (タイトル，背景色, 解像度)
+//レイアウトの都合上，フルスクリーンに設定
 void App::setWindowInf()
 {
 	Window::SetTitle(U"PictureBookEditor");

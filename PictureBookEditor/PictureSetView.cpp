@@ -1,13 +1,16 @@
 #include "PictureSetView.h"
 
+//メインループで呼ばれる処理
 void PictureSetView::pollEvent()
 {
+	//背景描画
 	back_rect.draw(Palette::Whitesmoke).drawFrame(layout.RECT_FRAME_THICK, layout.RECT_FRAME_THICK, Palette::Lightsalmon);
 	pollGetImgInfEvent();
 	pollButtonEvent();
 	pollSliderEvent();
 }
 
+//コンストラクタで呼ばれる初期化処理
 void PictureSetView::init()
 {
 	initParameter();
@@ -15,6 +18,7 @@ void PictureSetView::init()
 	back_rect = Rect(layout.X9, layout.Y1, layout.BACK_RECT_WID, layout.PICTURE_BACK_RECT_HIGH);
 }
 
+//パラメータ初期化
 void PictureSetView::initParameter()
 {
 	img_size.push_back(1.0);
@@ -28,6 +32,7 @@ void PictureSetView::initParameter()
 	img_fade_in.push_back(0.0);
 }
 
+//ボタン作成
 void PictureSetView::initButton()
 {
 	img_btn1 = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y2, layout.BTN_WID, layout.BTN_HIGH, String(U"画像"), layout.BTN_F_SIZE));
@@ -38,6 +43,7 @@ void PictureSetView::initButton()
 	img_btn3d = std::make_shared<MyButton>(MyButton(layout.X10, layout.Y9, layout.BTN_WID, layout.BTN_HIGH, String(U"削除"), layout.BTN_F_SIZE));
 }
 
+//画像情報の取得
 void PictureSetView::pollGetImgInfEvent()
 {
 	pollGetImgInfEvent(0);
@@ -45,6 +51,7 @@ void PictureSetView::pollGetImgInfEvent()
 	pollGetImgInfEvent(2);
 }
 
+//画像情報の変更を監視
 void PictureSetView::pollGetImgInfEvent(const int& idx)
 {
 	if (auto sp = controller.lock())
@@ -59,6 +66,7 @@ void PictureSetView::pollGetImgInfEvent(const int& idx)
 	}
 }
 
+//画像情報更新ボタンを押したかどうか
 void PictureSetView::pollButtonEvent()
 {
 	if (img_btn1->isClicked())
@@ -105,12 +113,14 @@ void PictureSetView::pollButtonEvent()
 	}
 }
 
+//スライダーを動かしたかどうか
 void PictureSetView::pollSliderEvent()
 {
 	if (SimpleGUI::Slider(U"サイズ ", img_size[0], 0.0, 3.0, Vec2(layout.X11, layout.Y2), layout.SLIDER_L_WID, layout.SLIDER_WID))
 	{
 		if (auto sp = controller.lock())
 		{
+			//変更した値を送信
 			sp->changeImgSize(0, img_size[0]);
 		}
 	}

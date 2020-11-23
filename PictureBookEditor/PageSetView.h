@@ -1,10 +1,10 @@
 #pragma once
-
 #include "FontRect.h"
 #include "ImageRect.h"
 #include "MyButton.h"
 #include "ViewComponent.h"
 
+//画像・文字配置画面管理クラス
 class PageSetView : public ViewComponent
 {
 private:

@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 #include "Inf.h"
 
+//“à•”ˆ—ƒNƒ‰ƒX
 class Controller
 {
 protected:

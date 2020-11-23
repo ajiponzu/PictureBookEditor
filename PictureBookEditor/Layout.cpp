@@ -1,7 +1,10 @@
 #include "Layout.h"
 
+//コンストラクタで呼ばれる初期化処理
 void Layout::init()
 {
+	//dpi取得，高DPI，高解像度のディスプレイを使用している場合，
+	//位置を修正できる
 	dpi = Graphics::GetDPIScaling();
 
 	initMenuViewMacro();

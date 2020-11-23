@@ -3,6 +3,7 @@
 #include <Siv3D.hpp>
 #include "Inf.h"
 
+//内部処理クラス
 class Controller
 {
 protected:
@@ -20,6 +21,7 @@ public:
 	}
 	~Controller()
 	{
+		//無効にしないと，Editorから起動したとき，一時ファイルが削除されてしまう
 		//deleteTempJson();
 	}
 
@@ -32,6 +34,7 @@ public:
 	void resetPage();
 	void nextPage();
 	void prevPage();
+	void runBook();
 
 	void selectImg(const int&);
 	void deleteImg(const int&);

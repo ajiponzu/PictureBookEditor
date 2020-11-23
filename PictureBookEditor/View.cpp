@@ -4,19 +4,23 @@
 #include "ScenarioSetView.h"
 #include "PageSetView.h"
 
+//メインループで呼ばれる処理
 void View::pollEvent()
 {
+	//全ViewComponentの処理
 	for (auto& vc : vc_list)
 	{
 		vc->pollEvent();
 	}
 }
 
+//コンストラクタで呼ばれる初期化処理
 void View::init()
 {
 	initVcList();
 }
 
+//コンポーネント追加
 void View::initVcList()
 {
 	vc_list.push_back(std::make_shared<MenuView>(MenuView(controller)));

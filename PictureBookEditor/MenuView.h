@@ -1,8 +1,8 @@
 #pragma once
-
 #include "MyButton.h"
 #include "ViewComponent.h"
 
+//ページ作成・削除・遷移等管理クラス
 class MenuView :
 	public ViewComponent
 {

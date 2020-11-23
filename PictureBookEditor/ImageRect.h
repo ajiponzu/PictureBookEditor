@@ -2,6 +2,7 @@
 #include <Siv3D.hpp>
 #include "Layout.h"
 
+//画像配置に使用する矩形クラス
 class ImageRect
 {
 public:

@@ -3,11 +3,13 @@
 #include <memory>
 #include "BookController.h"
 
+//ページ間で共通のデータ，ファイルからページ情報を読み込んだりするのに使う
 struct BookData
 {
 	BookController controller;
 };
 
+//シーンマネージャー
 using Book = SceneManager<String, BookData>;
 
 class Page : public Book::Scene

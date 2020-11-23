@@ -1,8 +1,8 @@
 #pragma once
-
 #include "MyButton.h"
 #include "ViewComponent.h"
 
+//‰æ‘œî•ñİ’è‰æ–ÊŠÇ—ƒNƒ‰ƒX
 class PictureSetView : public ViewComponent
 {
 private:

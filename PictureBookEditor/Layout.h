@@ -1,6 +1,7 @@
 #pragma once
 #include <Siv3D.hpp>
 
+//guiコントロール配置のための座標管理クラス
 class Layout
 {
 public:
