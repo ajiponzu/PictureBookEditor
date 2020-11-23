@@ -338,3 +338,8 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+App/Page/*.json
+PictureBookEditor/App/Page/*.json
+PictureBook/App/*.json
+PictureBookEditor/App/PictureBookEditor.exe
+PictureBook/App/PictureBookEditor.exe
