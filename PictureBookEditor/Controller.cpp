@@ -71,22 +71,28 @@ void Controller::deletePage()
 //全ての一時ページ情報を保存
 void Controller::savePage()
 {
-	//全ページ走査
-	auto temp = cur_page;
-	for (cur_page = 1; cur_page <= max_page; cur_page++)
+	//現在のページから保存, そうしないと一時情報が上手く書き込めない
+	makeFilePath();
+	writePageJson();
+	makeTempPath();
+	if (FileSystem::Exists(path))
 	{
-		makeReadFilePath();
+		FileSystem::Remove(path, true);
+	}
+	//全ページ走査
+	for (auto page = 1; page <= max_page; page++)
+	{
+		if (page == cur_page) continue;
+		makeReadFilePath(page);
 		readPageJson();
-		makeFilePath();
+		makeFilePath(page);
 		writePageJson();
-		makeTempPath();
+		makeTempPath(page);
 		if (FileSystem::Exists(path))
 		{
 			FileSystem::Remove(path, true);
 		}
 	}
-	//元のページに戻る
-	cur_page = temp;
 	makeReadFilePath();
 	readPageJson();
 }
